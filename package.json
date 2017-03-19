@@ -1,0 +1,35 @@
+{
+    "name": "vscode-maniascript",
+    "displayName": "ManiaScript Grammar",
+    "description": "ManiaScript Grammar for vs code",
+    "version": "0.0.2",
+    "publisher": "mmcfarland",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "maniascript",
+                "aliases": [
+                    "ManiaScript",
+                    "maniascript"
+                ],
+                "extensions": [
+                    ".Script.txt"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "maniascript",
+                "scopeName": "source.ms",
+                "path": "./syntaxes/ManiaScript.tmLanguage"
+            }
+        ]
+    }
+}
