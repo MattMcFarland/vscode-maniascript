@@ -11,13 +11,21 @@ For more information about ManiaScript, see http://doc.maniaplanet.com/creation/
 
 Latest information regarding vscode-maniascript
 
-### 1.0.0
+### 0.1.0
+
+Overhaul
+
+### 0.0.2
+
+Bug fixes
+
+### 0.0.1
 
 Initial release of vscode-maniascript
 
 ## Acknolwedgements
 
-This is a direct port of [PRGfx/sublime-maniascript](https://github.com/PRGfx/sublime-maniascript), a sublime test plugin, with the exception of code snippetd, and was converted by using [generator-code](https://github.com/microsoft/vscode-generator-code) from Microsoft.
+This was originally a port from [PRGfx/sublime-maniascript](https://github.com/PRGfx/sublime-maniascript), a sublime test plugin, but the textmate grammar has been completely reworked. More features coming soon, stay tuned.
 
 ## License
 

@@ -2,7 +2,7 @@
     "name": "vscode-maniascript",
     "displayName": "ManiaScript Grammar",
     "description": "ManiaScript Grammar for vs code",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "publisher": "mmcfarland",
     "engines": {
         "vscode": "^1.10.0"
