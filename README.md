@@ -4,6 +4,7 @@ VSCode Grammar support for ManiaScript; `".script.txt"` files.
 For more information about ManiaScript, see http://doc.maniaplanet.com/creation/maniascript/index.html
 
 <center><img src="./screenshot.png"/></center>
+
 ## Known Issues
 
 - Snippets are not contained here, but are available from maniascript-snippets
