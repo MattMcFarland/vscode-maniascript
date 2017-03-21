@@ -1,0 +1,44 @@
+literal-variable:
+  patterns:
+  # e.g. CONSTANT
+  - name: variable.other.constant.ms
+    match: '[A-Z][_$\dA-Z]*\b'
+
+  # pound variables
+  - name: variable.other.pound.ms
+    match: '(\#)[#\w]+'
+    captures:
+      '1': {name: punctuation.pound.ms}
+
+  # e.g. Class.property
+  - name: meta.property.class.ms
+    match: >-
+      (?x)
+        \b([A-Z][$\w]*)\s*(\.)
+        ([_$a-zA-Z][$\w]*)
+    captures:
+      '1': {name: variable.other.class.ms}
+      '2': {name: keyword.operator.accessor.ms}
+      '3': {name: variable.other.property.static.ms}
+
+  # e.g. obj.property
+  - name: variable.other.object.ms
+    match: (?<!\.)[_$a-zA-Z][$\w]*\s*(?=[\[\.])
+    captures:
+      '1': {name: variable.other.object.ms}
+
+  # e.g. obj.property
+  - name: meta.property.object.ms
+    match: (?<=\.)\s*[_$a-zA-Z][$\w]*
+    captures:
+      '2': {name: variable.other.property.ms}
+
+  - name: variable.other.readwrite.ms
+    match: '[_$a-zA-Z][$\w]*'
+
+  # e.g. obj::property
+  - name: meta.property.object.ms
+    match: (?<=\::)\s*[_$a-zA-Z][$\w]*
+    captures:
+      '2': {name: variable.other.property.ms}
+  

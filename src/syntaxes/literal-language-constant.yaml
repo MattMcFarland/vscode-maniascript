@@ -1,0 +1,14 @@
+literal-language-constant:
+  patterns:
+  - name: constant.language.boolean.true.ms
+    match: (?&lt;!\.)\bTrue\b
+
+  - name: constant.language.boolean.false.ms
+    match: (?&lt;!\.)\bFalse\b
+
+  - name: constant.language.Null.ms
+    match: (?&lt;!\.)\bNullId\b
+
+  - name: constant.language.Null.id.ms
+    match: (?&lt;!\.)\bNullId\b
+    

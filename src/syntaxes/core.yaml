@@ -1,0 +1,11 @@
+core:
+  patterns:
+  - include: '#literal-function-labels'
+
+  - include: '#literal-keywords'
+  - include: '#literal-for'
+  - include: '#literal-switch'
+
+  - include: '#expression'
+  - include: '#literal-punctuation'
+  

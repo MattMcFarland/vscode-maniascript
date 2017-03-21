@@ -1,0 +1,78 @@
+literal-operators:
+  patterns:
+  - name: keyword.operator.js
+    match: (?<!\.)\b(delete|in|instanceof|new|of|typeof|void|with)\b
+
+  - name: keyword.operator.logical.js
+    match: >-
+      (?x)
+        !(?!=)| # logical-not     right-to-left   right
+        &&    | # logical-and     left-to-right   both
+        \|\|  | # logical-or      left-to-right   both
+
+  - name: keyword.operator.assignment.js
+    match: >-
+      (?x)
+        =(?!=)| # assignment      right-to-left   both
+
+  - name: keyword.operator.assignment.augmented.js
+    match: >-
+      (?x)
+        %=   | # assignment      right-to-left   both
+        ^=   | # assignment      right-to-left   both
+        &=   | # assignment      right-to-left   both
+        \*=  | # assignment      right-to-left   both
+        \+=  | # assignment      right-to-left   both
+        -=   | # assignment      right-to-left   both
+        /=   | # assignment      right-to-left   both
+        \^=  | # assignment      right-to-left   both
+        \|=  | # assignment      right-to-left   both
+        <<=  | # assignment      right-to-left   both
+        >>=  | # assignment      right-to-left   both
+        >>>= | # assignment      right-to-left   both
+
+  - name: keyword.operator.bitwise.js
+    match: >-
+      (?x)
+        ~    | # bitwise-not     right-to-left   right
+        <<   | # bitwise-shift   left-to-right   both
+        >>>  | # bitwise-shift   left-to-right   both
+        >>   | # bitwise-shift   left-to-right   both
+        &    | # bitwise-and     left-to-right   both
+        \^   | # bitwise-xor     left-to-right   both
+        \|     # bitwise-or      left-to-right   both
+   
+  - name: keyword.operator.relational.js
+    match: >-
+      (?x)
+        <=   | # relational      left-to-right   both
+        >=   | # relational      left-to-right   both
+        <    | # relational      left-to-right   both
+        >      # relational      left-to-right   both
+
+  - name: keyword.operator.comparison.js
+    match: >-
+      (?x)
+        ==   | # equality        left-to-right   both
+        !=     # equality        left-to-right   both
+
+  - name: keyword.operator.arithmetic.js
+    match: >-
+      (?x)
+        --   | # decrement       n/a             right-or-left
+        \+\+ | # increment       n/a             right-or-left
+        /    | # division        left-to-right   both
+        %    | # modulus         left-to-right   both
+        \*   | # multiplication  left-to-right   both
+        \+   | # addition        left-to-right   both
+        \^   | # concat          left-to-right   both
+        -      # subtraction     left-to-right   both
+
+  - name: keyword.operator.ternary.js
+    match: '\?|:'
+
+  - name: keyword.operator.spread.js
+    match: (?<!\.)\.\.\.
+
+  - name: keyword.operator.accessor.js
+    match: \.

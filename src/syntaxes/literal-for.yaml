@@ -1,0 +1,18 @@
+literal-for:
+  patterns:
+  - name: meta.for.ms
+    begin: (?<!\.)\b(for)\b
+    beginCaptures:
+      '1': {name: keyword.control.loop.ms}
+    end: \)
+    endCaptures:
+      '0': {name: meta.brace.round.ms}
+    patterns:
+    - begin: \(
+      beginCaptures:
+        '0': {name: meta.brace.round.ms}
+      end: (?=\))
+      patterns:
+      - include: '#literal-keyword-storage'
+      - include: '#expression'
+      - include: '#literal-punctuation'

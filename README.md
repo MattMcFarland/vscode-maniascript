@@ -7,21 +7,7 @@ For more information about ManiaScript, see http://doc.maniaplanet.com/creation/
 
 ## Known Issues
 
-- Snippets are not contained here, but are available from maniascript-snippets
-
-## Release Notes
-
-Latest information regarding vscode-maniascript
-
-### 0.1.0
-
-Overhaul
-
-### 0.0.2
-
-Bug fixes
-
-### 0.0.1
+- Some language features have not yet been implemented
 
 Initial release of vscode-maniascript
 

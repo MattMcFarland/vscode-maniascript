@@ -1,0 +1,13 @@
+literal-keywords:
+  patterns:
+  - name: keyword.language.control.ms
+    match: (?&lt;!\.)\b(define|declare)\b
+
+  - name: keyword.language.control.flow.ms
+    match: \b(switch|case|default|log|if|else|yield|sleep|wait|return|include)\b
+
+  - name: keyword.language.control.errors.ms
+    match: \b(try|catch|finally|throw)\b
+
+  - name: keyword.language.control.loop.ms
+    match: \b(for|foreach|break|continue|while)\b

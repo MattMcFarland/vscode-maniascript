@@ -1,0 +1,16 @@
+expression:
+  patterns:
+  - include: '#support'
+  - include: '#literal-function'
+  - include: '#literal-regexp'              # before operators to avoid ambiguities
+  - include: '#literal-number'
+  - include: '#literal-quasi'
+  - include: '#literal-string'
+  - include: '#literal-language-constant'
+  - include: '#literal-module'
+  - include: '#literal-function-call'
+  - include: '#comments'
+  - include: '#brackets'
+  - include: '#literal-operators'
+  - include: '#literal-variable'
+  

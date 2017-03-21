@@ -1,0 +1,20 @@
+literal-string:
+  patterns:
+  - name: string.quoted.ms
+    begin: '"'
+    beginCaptures:
+      '0': {name: punctuation.definition.string.begin.ms}
+    end: (")|(\n)
+    endCaptures:
+      '1': {name: punctuation.definition.string.end.ms}
+      '2': {name: invalid.illegal.newline.ms}
+    patterns:
+    - include: '#string-content'
+
+string-content:
+  patterns:
+  - name: constant.character.escape.newline.ms
+    match: \\\s*\n
+
+  - name: constant.character.escape.ms
+    match: \\(x[\da-fA-F]{2}|u[\da-fA-F]{4}|.)    

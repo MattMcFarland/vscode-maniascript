@@ -1,0 +1,21 @@
+literal-quasi:
+  patterns:
+  - name: string.quasi.ms
+    begin: ([a-zA-Z$_][\w$_]*)?(""")
+    beginCaptures:
+      '1': {name: entity.quasi.tag.name.ms}
+      '2': {name: punctuation.definition.quasi.begin.ms}
+    end: '"""'
+    endCaptures:
+      '0': {name: punctuation.definition.quasi.end.ms}
+    patterns:
+    - include: '#string-content'
+    - name: entity.quasi.element.ms
+      begin: \${
+      beginCaptures:
+        '0': {name: punctuation.quasi.element.begin.ms}
+      end: '}'
+      endCaptures:
+        '0': {name: punctuation.quasi.element.end.ms}
+      patterns:
+      - include: '#expression'

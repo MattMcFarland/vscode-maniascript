@@ -1,0 +1,34 @@
+name: ManiaScript
+scopeName: source.ms
+fileTypes: [Script.txt, ms]
+keyEquivalent: ^~M
+
+patterns:
+- include: '#core'
+
+repository:
+  @import('./core.yaml')
+  @import('./expression.yaml')
+
+  @import('./brackets.yaml')
+  @import('./comments.yaml')
+  
+  @import('./literal-for.yaml')
+  @import('./literal-function-call.yaml')
+  @import('./literal-function.yaml')
+  @import('./literal-keyword-storage.yaml')  
+  @import('./literal-keywords.yaml')
+  @import('./literal-language-constant.yaml')
+  @import('./literal-module.yaml')
+  @import('./literal-number.yaml')
+  @import('./literal-operators.yaml')
+  @import('./literal-punctuation.yaml')
+  @import('./literal-quasi.yaml')
+  @import('./literal-regexp.yaml')
+  @import('./literal-string.yaml')
+  @import('./literal-switch.yaml')
+  @import('./literal-variable.yaml')
+
+  @import('./identifiers.yaml')
+  @import('./parameters.yaml')
+  @import('./support.yaml')

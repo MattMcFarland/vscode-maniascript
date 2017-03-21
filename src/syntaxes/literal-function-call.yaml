@@ -1,0 +1,18 @@
+literal-function-call:
+  patterns:
+  - name: meta.function-call.without-arguments.ms
+    match: >-
+      (?x)
+        ([_$a-zA-Z][$\w]*)\s*
+        (\(\s*\))
+    captures:
+      '1': {name: entity.name.function.ms}
+      '2': {name: meta.group.braces.round.function.arguments.ms}
+
+  - name: meta.function-call.with-arguments.ms
+    match: >-
+      (?x)
+        ([_$a-zA-Z][$\w]*)\s*
+        (?=\()
+    captures:
+      '1': {name: entity.name.function.ms}

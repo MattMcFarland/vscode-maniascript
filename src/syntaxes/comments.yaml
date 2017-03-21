@@ -1,0 +1,28 @@
+comments:
+  patterns:
+  - name: comment.block.documentation.ms
+    begin: /\*\*(?!/)
+    end: \*/
+    captures:
+      '0': {name: punctuation.definition.comment.ms}
+
+  - name: comment.block.ms
+    begin: /\*
+    end: \*/
+    captures:
+      '0': {name: punctuation.definition.comment.ms}
+
+  - name: comment.block.html.ms
+    match: (<!--|-->)
+    captures:
+      '0': {name: punctuation.definition.comment.ms}
+
+  - name: comment.line.double-slash.ms
+    match: (//).*$\n?
+    captures:
+      '1': {name: punctuation.definition.comment.ms}
+
+  - name: comment.line.shebang.ms
+    match: ^(#!).*$\n?
+    captures:
+      '1': {name: punctuation.definition.comment.ms}

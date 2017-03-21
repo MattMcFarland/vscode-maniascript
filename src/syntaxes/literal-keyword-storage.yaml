@@ -1,0 +1,7 @@
+literal-keyword-storage:
+  patterns:
+  - name: storage.type.ui.ms
+    match: \bUI[a-zA-Z]*?\b
+    
+  - name: storage.type.primitive.ms
+    match: \b()

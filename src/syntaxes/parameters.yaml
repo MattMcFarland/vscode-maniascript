@@ -1,0 +1,14 @@
+parameters:
+  patterns:
+  - include: '#identifiers'
+
+  - name: variable.parameter.ms
+    match: \w+
+
+  - name: meta.function.parameters.body
+    begin: (\w+)\s*\(
+    beginCaptures:
+      '0': {name: punctuation.definition.parameters.begin.js}
+    end: \)
+    endCaptures:
+      '0': {name: punctuation.definition.parameters.end.js}

@@ -1,7 +1,17 @@
 # Change Log
-All notable changes to the "vscode-maniascript" extension will be documented in this file.
+Latest information regarding vscode-maniascript
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## 0.2.0
+Add icon for marketplace in vs code
+Change name from "maniascript grammar" to "mania script"
+Implement YAML and build src to tmLanguage file
 
-## [Unreleased]
-- Initial release
+## 0.1.0
+
+Overhaul
+
+## 0.0.2
+
+Bug fixes
+
+## 0.0.1
