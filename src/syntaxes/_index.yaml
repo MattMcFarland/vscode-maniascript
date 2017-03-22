@@ -4,7 +4,7 @@ fileTypes: [Script.txt, ms]
 keyEquivalent: ^~M
 
 patterns:
-- include: '#core'
+- include: =core
 
 repository:
   @import('./core.yaml')
@@ -23,8 +23,7 @@ repository:
   @import('./literal-number.yaml')
   @import('./literal-operators.yaml')
   @import('./literal-punctuation.yaml')
-  @import('./literal-quasi.yaml')
-  @import('./literal-regexp.yaml')
+  @import('./literal-quasi.yaml')  
   @import('./literal-string.yaml')
   @import('./literal-switch.yaml')
   @import('./literal-variable.yaml')

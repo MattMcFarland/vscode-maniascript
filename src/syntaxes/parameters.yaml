@@ -1,6 +1,6 @@
 parameters:
   patterns:
-  - include: '#identifiers'
+  - include: #identifiers
 
   - name: variable.parameter.ms
     match: \w+

@@ -19,7 +19,7 @@ function loader (fileName, callback) {
   })
   concatStream.on('error', callback)
   lineStream.on('data', (data) => {
-    const regex = /@import\('(.*)'\)/g
+    const regex = /^\s*@import\('(.*)'\)/g
     const match = regex.exec(data);
     if (match) {
       const srcPath = resolvePath(relPath, match[1])

@@ -4,4 +4,4 @@ literal-punctuation:
     match: \;
     
   - name: meta.delimiter.comma.ms
-    match: ','
+    match: (,)

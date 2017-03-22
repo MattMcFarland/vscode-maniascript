@@ -1030,38 +1030,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#comments</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#literal-switch</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#literal-regexp</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#literal-template-string</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#literal-string</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#language-constant</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#keyword-language</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#keyword-storage</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#storage-types</string>
           </dict>
           <dict>

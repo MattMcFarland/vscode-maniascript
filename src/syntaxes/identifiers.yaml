@@ -1,5 +1,5 @@
 identifiers:
   patterns:
-  - include: '#support'
-  - include: '#literal-language-constant'
-  - include: '#literal-variable'
+  - include: =support
+  - include: =literal-language-constant
+  - include: =literal-variable

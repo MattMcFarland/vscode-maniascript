@@ -10,21 +10,21 @@ literal-function:
         '1': {name: entity.name.function.ms}        
       end: \)
       patterns:
-        - include: '#parameters'
+        - include: =parameters
     - name: meta.function.return-type.ms
       begin: (?=\w.*\s+\w+\s*\()
       end: (?=\w+\s*\()
       patterns:
-        - include: '#identifiers'
+        - include: =identifiers
     - name: meta.function.body.ms
-      begin: '{'
+      begin: ({)
       end: (?=})
       patterns:
-      - include: '#expression'
+      - include: =expression
   - name: storage.type.generic.ms
     begin: \b((?:[a-z]\w*\.)*[A-Z]+\w*)&lt;
-    end: '&gt;|[^\w\s,\?&lt;\[\]]'
+    end: (&gt;|[^\w\s,\?&lt;\[\]])
     patterns:
       - name: storage.type.generic.ms
-        begin: '&lt;'
-        end: '&gt;|[^\w\s,\[\]&lt;]'
+        begin: (&lt;)
+        end: (&gt;|[^\w\s,\[\]&lt;])

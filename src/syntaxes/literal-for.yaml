@@ -13,6 +13,6 @@ literal-for:
         '0': {name: meta.brace.round.ms}
       end: (?=\))
       patterns:
-      - include: '#literal-keyword-storage'
-      - include: '#expression'
-      - include: '#literal-punctuation'
+      - include: =literal-keyword-storage
+      - include: =expression
+      - include: =literal-punctuation

@@ -9,13 +9,13 @@ literal-quasi:
     endCaptures:
       '0': {name: punctuation.definition.quasi.end.ms}
     patterns:
-    - include: '#string-content'
+    - include: =string-content
     - name: entity.quasi.element.ms
       begin: \${
       beginCaptures:
         '0': {name: punctuation.quasi.element.begin.ms}
-      end: '}'
+      end: (})
       endCaptures:
         '0': {name: punctuation.quasi.element.end.ms}
       patterns:
-      - include: '#expression'
+      - include: =expression

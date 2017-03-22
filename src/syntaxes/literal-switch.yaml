@@ -8,7 +8,7 @@ literal-switch:
     endCaptures:
       '0': {name: meta.brace.curly.ms}
     patterns:
-    - include: '#round-brackets'
+    - include: =round-brackets
     - begin: \{
       beginCaptures:
         '0': {name: meta.brace.curly.ms}

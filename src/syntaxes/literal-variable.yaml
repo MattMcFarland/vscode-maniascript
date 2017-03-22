@@ -2,11 +2,11 @@ literal-variable:
   patterns:
   # e.g. CONSTANT
   - name: variable.other.constant.ms
-    match: '[A-Z][_$\dA-Z]*\b'
+    match: ([A-Z][_$\dA-Z]*\b)
 
   # pound variables
   - name: variable.other.pound.ms
-    match: '(\#)[#\w]+'
+    match: (\#)[#\w]+
     captures:
       '1': {name: punctuation.pound.ms}
 
@@ -34,11 +34,11 @@ literal-variable:
       '2': {name: variable.other.property.ms}
 
   - name: variable.other.readwrite.ms
-    match: '[_$a-zA-Z][$\w]*'
+    match: ([_$a-zA-Z][$\w]*)
 
   # e.g. obj::property
   - name: meta.property.object.ms
-    match: (?<=\::)\s*[_$a-zA-Z][$\w]*
+    match: (?&lt;=\::)\s*[_$a-zA-Z][$\w]*
     captures:
       '2': {name: variable.other.property.ms}
   

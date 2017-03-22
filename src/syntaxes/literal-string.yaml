@@ -9,7 +9,7 @@ literal-string:
       '1': {name: punctuation.definition.string.end.ms}
       '2': {name: invalid.illegal.newline.ms}
     patterns:
-    - include: '#string-content'
+    - include: =string-content
 
 string-content:
   patterns:
