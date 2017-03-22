@@ -1,0 +1,20 @@
+comments:
+    patterns:
+        -
+            begin: '/\*\*(?!/)'
+            captures:
+                '0': {name: punctuation.definition.comment.ms}
+            end: '\*/'
+            name: comment.block.documentation.ms
+        -
+            begin: '/\*'
+            captures:
+                '0': {name: punctuation.definition.comment.ms}
+            end: '\*/'
+            name: comment.block.ms
+        -
+            captures:
+                '1': {name: punctuation.definition.comment.ms}
+            match: '(//).*$\n?'
+            name: comment.line.double-slash.ms
+            

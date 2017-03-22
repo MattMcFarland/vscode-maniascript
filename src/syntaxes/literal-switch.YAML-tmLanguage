@@ -1,0 +1,13 @@
+literal-switch:
+    patterns:
+        -
+            begin: '(?<!\.)\b(switch)\b'
+            beginCaptures:
+                '1': {name: keyword.control.switch.ms}
+            end: '\}'
+            endCaptures:
+                '0': {name: meta.brace.curly.ms}
+            name: meta.switch.ms
+            patterns:
+                - {include: '#round-brackets'}
+                - {begin: '\{', beginCaptures: {'0': {name: meta.brace.curly.ms}}, end: '(?=})', patterns: [{begin: '(?<!\.)\b(case|default)\b', beginCaptures: {'1': {name: keyword.control.switch.ms}}, end: '(?=:)', patterns: [{include: '#expression'}]}, {include: $self}]}

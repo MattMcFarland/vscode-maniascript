@@ -1,0 +1,8 @@
+punctuation:
+    patterns:
+        -
+            match: \;
+            name: punctuation.terminator.statement.ms
+        -
+            match: ','
+            name: meta.delimiter.comma.ms

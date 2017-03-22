@@ -1,0 +1,32 @@
+expression:
+    patterns:
+        -
+            include: '#support'
+        -
+            include: '#comments'
+        -
+            include: '#literal-switch'
+        -
+            include: '#literal-regexp'
+        -
+            include: '#literal-template-string'
+        -
+            include: '#literal-string'
+        -
+            include: '#language-constant'
+        -
+            include: '#keyword-language'
+        -
+            include: '#keyword-storage'
+        -
+            include: '#storage-types'
+        -
+            include: '#operators'
+        -
+            include: '#brackets'
+        -
+            include: '#literal-function-call'
+        -
+            include: '#literal-variable'
+        -
+            include: '#punctuation'

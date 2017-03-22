@@ -1,0 +1,13 @@
+literal-string:
+    patterns:
+        -
+            begin: '"'
+            beginCaptures:
+                '0': {name: punctuation.definition.string.begin.ms}
+            end: '(")|(\n)'
+            endCaptures:
+                '1': {name: punctuation.definition.string.end.ms}
+                '2': {name: invalid.illegal.newline.ms}
+            name: string.quoted.ms
+            patterns:
+                - {include: '#string-content'}

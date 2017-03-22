@@ -1,0 +1,14 @@
+function-declaration-parameters:
+    patterns:
+        -
+            begin: \(
+            beginCaptures:
+                '0': {name: punctuation.definition.parameters.begin.ms}
+            end: \)
+            endCaptures:
+                '0': {name: punctuation.definition.parameters.end.ms}
+            patterns:
+                - {match: '[_$a-zA-Z][$\w]*', name: variable.parameter.function.ms}
+                - {match: ',', name: punctuation.separator.parameter.function.ms}
+                - {begin: '=', beginCaptures: {'0': {name: keyword.operator.assignment.ms}}, end: '(?=[,)])', name: meta.parameter.optional.msjs, patterns: [{include: '#expression'}]}
+                - {include: '#comments'}

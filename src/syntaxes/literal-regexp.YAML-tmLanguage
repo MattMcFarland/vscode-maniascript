@@ -1,0 +1,13 @@
+literal-regexp:
+    patterns:
+        -
+            begin: '(?x) (?<=    \.|\(|,|{|}|\[|;|,|<|>|<=|>=|==|!=|===|!==|\+|-|\*|%|\+\+|--|<<|>>|>>>|&|\||\^|!|~|&&|\|\||\?|:|=|\+=|-=|\*=|%=|<<=|>>=|>>>=|&=|\|=|\^=|/|/=|    \Wnew|\Wdelete|\Wvoid|\Wtypeof|\Winstanceof|\Win|\Wdo|\Wreturn|\Wcase|\Wthrow|    ^new|^delete|^void|^typeof|^instanceof|^in|^do|^return|^case|^throw|^  )\s*  (/)  (?!/|\*|$)'
+            beginCaptures:
+                '1': {name: punctuation.definition.string.begin.ms}
+            end: '(/)([gimy]*)'
+            endCaptures:
+                '1': {name: punctuation.definition.string.end.ms}
+                '2': {name: keyword.other.ms}
+            name: string.regexp.ms
+            patterns:
+                - {include: source.regexp.ms}

@@ -1,0 +1,17 @@
+string-content:
+    patterns:
+        -
+            match: '\\\s*\n'
+            name: constant.character.escape.newline.ms
+        -
+            match: '\\(x[\da-fA-F]{2}|u[\da-fA-F]{4}|.)'
+            name: constant.character.escape.ms
+        -
+            begin: '{{{'
+            beginCaptures:
+                '0': {name: keyword.control.flow.expression.ms}
+            end: '}}}'
+            endCaptures:
+                '0': {name: keyword.control.flow.expression.ms}
+            patterns:
+                - {include: '#expression'}

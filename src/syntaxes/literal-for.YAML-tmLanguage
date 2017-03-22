@@ -1,0 +1,12 @@
+literal-for:
+    patterns:
+        -
+            begin: '(?<!\.)\b(for)\b'
+            beginCaptures:
+                '1': {name: keyword.control.loop.ms}
+            end: \)
+            endCaptures:
+                '0': {name: meta.brace.round.ms}
+            name: meta.for.ms
+            patterns:
+                - {begin: \(, beginCaptures: {'0': {name: meta.brace.round.ms}}, end: '(?=\))', patterns: [{include: '#keyword-storage'}, {include: '#expression'}, {include: '#punctuation'}]}

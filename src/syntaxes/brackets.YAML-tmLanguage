@@ -1,0 +1,45 @@
+brackets:
+    patterns:
+        -
+            include: '#round-brackets'
+        -
+            include: '#square-brackets'
+        -
+            include: '#curly-brackets'
+
+round-brackets:
+    patterns:
+        -
+            begin: \(
+            beginCaptures:
+                '0': {name: meta.brace.round.ms}
+            end: \)
+            endCaptures:
+                '0': {name: meta.brace.round.ms}
+            name: meta.group.braces.round
+            patterns:
+                - {include: '#expression'}
+square-brackets:
+    patterns:
+        -
+            begin: '\['
+            beginCaptures:
+                '0': {name: meta.brace.square.ms}
+            end: '\]'
+            endCaptures:
+                '0': {name: meta.brace.square.ms}
+            name: meta.group.braces.square
+            patterns:
+                - {include: '#expression'}
+curly-brackets:
+    patterns:
+        -
+            begin: '\{'
+            beginCaptures:
+                '0': {name: meta.brace.curly.ms}
+            end: '\}'
+            endCaptures:
+                '0': {name: meta.brace.curly.ms}
+            name: meta.group.braces.curly
+            patterns:
+                - {include: $self}

@@ -1,5 +1,0 @@
-literal-module:
-  patterns:
-  - name: keyword.operator.module.js
-    match: (?<!\.)\b#(Include|RequireContext|Setting|Const|Extends|from|in|as)\b
-    

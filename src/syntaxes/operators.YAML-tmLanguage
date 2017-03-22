@@ -1,0 +1,32 @@
+operators:
+    patterns:
+        -
+            match: '(?<!\.)\b(in|as|for)\b'
+            name: keyword.operator.ms
+        -
+            match: '!(?!=)|&&|\|\|'
+            name: keyword.operator.logical.ms
+        -
+            match: '=(?!=)'
+            name: keyword.operator.assignment.ms
+        -
+            match: '%=|&=|\*=|\+=|-=|/=|\^|\^=|\|=|<<=|>>=|>>>='
+            name: keyword.operator.assignment.augmented.ms
+        -
+            match: '~|<<|>>>|>>|&|\|'
+            name: keyword.operator.bitwise.ms
+        -
+            match: '<=|>=|<|>'
+            name: keyword.operator.relational.ms
+        -
+            match: '==|!='
+            name: keyword.operator.comparison.ms
+        -
+            match: '--|\+\+|/|%|\*|\+|-'
+            name: keyword.operator.arithmetic.ms
+        -
+            match: '::'
+            name: keyword.operator.accessor.method.ms
+        -
+            match: .\|
+            name: keyword.operator.accessor.property.ms

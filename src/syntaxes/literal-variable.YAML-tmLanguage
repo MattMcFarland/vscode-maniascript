@@ -1,0 +1,33 @@
+literal-variable:
+    patterns:
+        -
+            match: '(?<!(?<!\.\.)\.)\b(arguments)\b'
+            name: variable.language.arguments.js
+        -
+            match: '[A-Z][_$\dA-Z]*\b'
+            name: variable.other.constant.ms
+        -
+            captures:
+                '1': {name: punctuation.dollar.ms}
+            match: '(\$)[$\w]+'
+            name: variable.other.dollar.ms
+        -
+            captures:
+                '1': {name: variable.other.class.ms}
+                '2': {name: keyword.operator.accessor.ms}
+                '3': {name: variable.other.property.static.ms}
+            match: '(?x)  \b([A-Z][$\w]*)\s*(\.)  ([_$a-zA-Z][$\w]*)'
+            name: meta.property.class.ms
+        -
+            captures:
+                '1': {name: variable.other.object.ms}
+            match: '(?<!\.)[_$a-zA-Z][$\w]*\s*(?=[\[\.])'
+            name: entity.name.object.ms
+        -
+            captures:
+                '2': {name: variable.other.property.ms}
+            match: '(?<=\.)\s*[_$a-zA-Z][$\w]*'
+            name: meta.property.object.ms
+        -
+            match: '[_$a-zA-Z][$\w]*'
+            name: variable.other.readwrite.ms

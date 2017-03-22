@@ -1,0 +1,14 @@
+literal-template-string:
+    patterns:
+        -
+            begin: '([a-zA-Z$_][\w$_]*)?(""")'
+            beginCaptures:
+                '1': {name: entity.template-string.tag.name.ms}
+                '2': {name: punctuation.definition.template-string.begin.ms}
+            end: '"""'
+            endCaptures:
+                '0': {name: punctuation.definition.template-string.end.ms}
+            name: string.template-string.ms
+            patterns:
+                - {include: '#string-content'}
+                - {begin: '{{{', beginCaptures: {'0': {name: punctuation.template-string.element.begin.ms}}, end: '}}}', endCaptures: {'0': {name: punctuation.template-string.element.end.ms}}, name: entity.template-string.element.ms, patterns: [{include: '#expression'}]}

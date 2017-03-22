@@ -1,33 +1,31 @@
+fileTypes:
+    - Script.txt
+firstLineMatch: '#RequireContext'
+keyEquivalent: ^~M
 name: ManiaScript
 scopeName: source.ms
-fileTypes: [Script.txt, ms]
-keyEquivalent: ^~M
-
 patterns:
-- include: =core
-
+    -
+        include: '#core'
 repository:
-  @import('./core.yaml')
-  @import('./expression.yaml')
+    #import('./brackets')
+    #import('./comments')
+    #import('./core')
+    #import('./storage-types')
+    #import('./keyword-language')
+    #import('./keyword-storage')
+    #import('./language-constant')
+    #import('./punctuation')
+    #import('./support')
+    #import('./operators')
+    #import('./literal-template-string')
+    #import('./literal-regexp')
+    #import('./literal-string')
+    #import('./literal-switch')
+    #import('./function-declaration-parameters')
+    #import('./literal-variable')
+    #import('./string-content')
+    #import('./literal-for')
+    #import('./literal-function-call')
+    #import('./expression')
 
-  @import('./brackets.yaml')
-  @import('./comments.yaml')
-  
-  @import('./literal-for.yaml')
-  @import('./literal-function-call.yaml')
-  @import('./literal-function.yaml')
-  @import('./literal-keyword-storage.yaml')  
-  @import('./literal-keywords.yaml')
-  @import('./literal-language-constant.yaml')
-  @import('./literal-module.yaml')
-  @import('./literal-number.yaml')
-  @import('./literal-operators.yaml')
-  @import('./literal-punctuation.yaml')
-  @import('./literal-quasi.yaml')  
-  @import('./literal-string.yaml')
-  @import('./literal-switch.yaml')
-  @import('./literal-variable.yaml')
-
-  @import('./identifiers.yaml')
-  @import('./parameters.yaml')
-  @import('./support.yaml')

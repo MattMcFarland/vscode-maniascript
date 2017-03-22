@@ -1,0 +1,5 @@
+core:
+    patterns:
+        -
+            include: '#expression'
+            

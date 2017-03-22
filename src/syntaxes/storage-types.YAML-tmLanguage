@@ -1,0 +1,29 @@
+storage-types:
+    patterns:
+        -
+            match: '(?<!\.)\bText\b'
+            name: storage.type.text.ms
+        -
+            match: '(?<!\.)\bList\b'
+            name: storage.type.list.ms
+        -
+            match: '(?<!\.)\bReal\b'
+            name: storage.type.number.ms
+        -
+            match: '(?<!\.)\bIdent\b'
+            name: storage.type.identity.ms
+        -
+            match: '(?<!\.)\bBoolean\b'
+            name: storage.type.boolean.ms
+        -
+            match: '(?<!\.)\bInteger\b'
+            name: storage.type.integer.ms
+        -
+            match: '(?<!\.)\bVec2\b'
+            name: storage.type.vector-tuple.ms
+        -
+            match: '(?<!\.)\bVec2\b'
+            name: storage.type.vector-triple.ms
+        -
+            match: '(?<!\.)\bInt3\b'
+            name: storage.type.integer-triple.ms
