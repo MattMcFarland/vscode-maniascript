@@ -19,17 +19,17 @@ function loader (fileName, callback) {
   })
   concatStream.on('error', callback)
   lineStream.on('data', (data) => {
-    const regex = /^\s*@import\('(.*)'\)/g
+    const regex = /^\s*#import\('(.*)'\)/g
     const match = regex.exec(data);
     if (match) {
-      const srcPath = resolvePath(relPath, match[1])
+      const srcPath = resolvePath(relPath, match[1]) + '.YAML-tmLanguage'
       const srcDir = srcPath.split('/').slice(0, -1).join('/')
       const importFile = '/' + srcPath.split('/').pop()
-      console.log(chalk.cyan('@import'), chalk.grey(srcDir) + chalk.magenta(importFile))
+      console.log(chalk.cyan('#import'), chalk.grey(srcDir) + chalk.magenta(importFile))
 
       const importStream = createReadStream(srcPath)
       const padding = data.match(/^\s*/)[0]
-      const padStream = PadStream(1, padding[0])
+      const padStream = PadStream(4, padding[0])
       importStream.setMaxListeners(11)
       padStream.setMaxListeners(11)
       padStream.on('error', callback)

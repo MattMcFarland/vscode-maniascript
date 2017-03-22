@@ -4,7 +4,7 @@ const inspect = require('util').inspect
 const { resolve: resolvePath } = require('path')
 const { createWriteStream, writeFile } = require('fs')
 const { Readable } = require('stream')
-const { parse: parseYAML } = require('node-yaml')
+const { parse: parseYAML } = require('yamljs')
 const chalk = require('chalk')
 
 const plist = require('plist')
@@ -14,29 +14,22 @@ yamlLoader('src/syntaxes/_index.yaml', (err, res) => {
   if (err) {
     throw new Error(err)
   } else {
-    const yamlString = escapeXml(res.buffer)    
-    try {
-      const obj = parseYAML(yamlString)
-      const output = plist.build(obj).replace(/<include>([\s\S]*?)<\/include>/g, '#$1')
+    const yamlString = res.buffer;
+    const pojo = parseYAML(yamlString)
+    const jsonString = JSON.stringify(pojo, null, 4)
+    const plistString = plist.build(pojo)
 
-      writeFile('syntaxes/ManiaScript.experimental.tmLanguage', plist.build(obj), 'utf8', () => {
-        console.log(chalk.green('...done!'))
-      });       
-    } catch (e) {
-      console.log(yamlString.match(new RegExp('^(?:[^\n]*\n){' + e.mark.line + '}([^\n]*)', 'g'))[0])
-      console.log(e.message)      
-    } 
+    const builds = {
+      'lib/syntaxes/ManiaScript.YAML-tmLanguage': yamlString,
+      'lib/syntaxes/ManiaScript.JSON-tmLanguage': jsonString,
+      'lib/syntaxes/ManiaScript.tmLanguage': plistString
+    }
+
+    Object.keys(builds).map((path) => {
+      const buffer = builds[path];
+      writeFile(path, buffer, 'utf8', () => {
+        console.log(chalk.green(`${path}... done!`))
+      });      
+    })
   }
 })
-
-function escapeXml(unsafe) {
-    return unsafe.replace(/[<>&'"](?!.*:)/g, function (c) {      
-        switch (c) {
-            case '<': return '&lt;';
-            case '>': return '&gt;';
-            case '&': return '&amp;';
-            case "\'": return '&apos;';
-            case '"': return '&quot;';
-        }
-    });
-}
