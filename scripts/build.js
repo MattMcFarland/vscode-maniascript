@@ -19,7 +19,7 @@ yamlLoader('src/syntaxes/_index.yaml', (err, res) => {
       const obj = parseYAML(yamlString)
       const output = plist.build(obj).replace(/<include>([\s\S]*?)<\/include>/g, '#$1')
 
-      writeFile('syntaxes/ManiaScript.tmLanguage', plist.build(obj), 'utf8', () => {
+      writeFile('syntaxes/ManiaScript.experimental.tmLanguage', plist.build(obj), 'utf8', () => {
         console.log(chalk.green('...done!'))
       });       
     } catch (e) {
