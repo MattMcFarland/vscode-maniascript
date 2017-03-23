@@ -5,15 +5,15 @@ Latest information regarding vscode-maniascript
 Implemented support for labels
   - Expand / collapse code blocks when indented
 
-<img src="images/labels.png"/>
+<img src="//github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/labels.png"/>
 
 Implemented support for formatted strings
 
-<img src="images/formatted-string.png"/>
+<img src="//github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/formatted-string.png"/>
 
 Implemented support for template strings with embedded scripts
 
-<img src="images/template-string.png"/>
+<img src="//github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/template-string.png"/>
 
 ## 0.2.0
 Add icon for marketplace in vs code
