@@ -1,0 +1,15 @@
+language-label:
+    patterns:
+        -
+            captures:
+                '1': {name: entity.name.label.entry.sm}
+            match: '\+++(\w+)\+++'
+            name: meta.label.entry.sm
+        -
+            captures:
+                '1': {name: entity.name.label.injector.sm}
+                '2': {name: punctuation.definition.label.inject.begin.ms}
+                '3': {name: punctuation.definition.label.inject.begin.ms}
+                '4': {name: punctuation.definition.label.inject.end.ms}
+            match: '\*{3}+(\w+)\*{3}[\n\r](\*{3})([\s\S]*(?=\*{3}))(\*{3})'
+            name: meta.label.injector.sm
