@@ -9,15 +9,15 @@ Documentation fixes : Fixed an issue where broken links occurred with png file l
 Implemented support for labels
   - Expand / collapse code blocks when indented
 
-<img src="//github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/labels.png"/>
+<img src="https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/labels.png"/>
 
 Implemented support for formatted strings
 
-<img src="//github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/formatted-string.png"/>
+<img src="https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/formatted-string.png"/>
 
 Implemented support for template strings with embedded scripts
 
-<img src="//github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/template-string.png"/>
+<img src="https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/template-string.png"/>
 
 ## 0.2.0
 Add icon for marketplace in vs code
