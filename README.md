@@ -3,7 +3,7 @@
 VSCode Grammar / Autocompletion support for ManiaScript; `".Script.txt"` files.
 For more information about ManiaScript, see http://doc.maniaplanet.com/creation/maniascript/index.html
 
-<center><img src="//github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/screenshot.png"/></center>
+<center><img src="https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/images/screenshot.png"/></center>
 
 ## Known Issues
 
