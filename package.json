@@ -11,12 +11,16 @@
   "scripts": {
     "vscode:prepublish": "npm run build",
     "build": "scripts/build.js",
-    "prebuild": "rimraf lib ; mkdirp lib/syntaxes"
+    "prebuild": "npm install ; rimraf lib ; mkdirp lib/syntaxes"
   },
   "license": "MIT",
   "categories": [
     "Languages"
   ],
+  "activationEvents": [
+      "onLanguage:maniascript"
+  ],
+  "main": "./extension",  
   "contributes": {
     "languages": [
       {
@@ -42,6 +46,7 @@
   "devDependencies": {
     "maniascript-tmlanguage": "^1.0.1",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "vscode": "^1.1.0"
   }
 }
