@@ -1,6 +1,10 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 0.3.1
+
+Documentation fixes : Fixed an issue where broken links occurred with png file links
+
 ## 0.3.0
 Implemented support for labels
   - Expand / collapse code blocks when indented
