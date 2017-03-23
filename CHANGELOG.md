@@ -1,6 +1,11 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.0.0
+
+Official release
+  - tmLanguage file is now separate from the project
+  
 ## 0.3.1
 
 Documentation fixes : Fixed an issue where broken links occurred with png file links
