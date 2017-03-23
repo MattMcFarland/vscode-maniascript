@@ -1,6 +1,20 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 0.3.0
+Implemented support for labels
+  - Expand / collapse code blocks when indented
+
+<img src="images/labels.png"/>
+
+Implemented support for formatted strings
+
+<img src="images/formatted-string.png"/>
+
+Implemented support for template strings with embedded scripts
+
+<img src="images/template-string.png"/>
+
 ## 0.2.0
 Add icon for marketplace in vs code
 Change name from "maniascript grammar" to "mania script"
