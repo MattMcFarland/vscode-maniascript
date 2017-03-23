@@ -17,8 +17,4 @@ comments:
                 '1': {name: punctuation.definition.comment.ms}
             match: '(//).*$\n?'
             name: comment.line.double-slash.ms
-        -
-            captures:
-                '1': {name: punctuation.definition.comment.ms}
-            match: '(\*\*\*).*$\n?'
-            name: comment.line.label.ms
+            
