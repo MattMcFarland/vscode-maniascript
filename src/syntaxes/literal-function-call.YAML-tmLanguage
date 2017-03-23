@@ -2,7 +2,7 @@ literal-function-call:
     patterns:
         -
             captures:
-                '1': {name: entity.name.function.smjs}
+                '1': {name: entity.name.function.sm}
                 '2': {name: meta.group.braces.round.function.arguments.sm}
             match: '(?x)  ([_$a-zA-Z][$\w]*)\s*  (\(\s*\))'
             name: meta.function-call.without-arguments.sm
