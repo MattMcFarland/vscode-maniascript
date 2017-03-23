@@ -1,17 +1,25 @@
 # vscode-maniascript README
 
-VSCode Grammar / autocompletion support for ManiaScript; `".script.txt"` files.
+VSCode Grammar / Autocompletion support for ManiaScript; `".Script.txt"` files.
 For more information about ManiaScript, see http://doc.maniaplanet.com/creation/maniascript/index.html
 
-<center><img src="./screenshot.png"/></center>
+<center><img src="images/screenshot.png"/></center>
 
 ## Known Issues
 
-- Some language features have not yet been implemented
-    - "labels" (e.g. `***` and `+++`)
-    - intellisense    
+- Intellisense has not been implemented yet.
+- Snippets have not been implemented yet. 
+- Linting has not been implemented yet.
 
-Initial release of vscode-maniascript
+## Changelog
+
+Please see [CHANGELOG.md](CHANGELOG.md) for the latest information regarding changes.
+
+## Contributing
+
+* Fork it
+* Build it (use nodejs and npm run build)
+* PR it ;)
 
 ## Acknolwedgements
 
