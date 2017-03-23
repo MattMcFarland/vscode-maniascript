@@ -1,0 +1,25 @@
+template-string-content:
+    patterns:
+        -
+            begin: '{{{'
+            beginCaptures:
+                '0': {name: keyword.control.flow.expression.ms}
+            end: '}}}'
+            endCaptures:
+                '0': {name: keyword.control.flow.expression.ms}
+            patterns:
+                - {include: '#expression'}
+        -
+            begin: '(<script><!--|<script>)'
+            beginCaptures:
+                '0': {name: meta.brace.tag.script.open.ms}
+                '1': {name: punctuation.tag.script.open.ms}
+            end: '(--><\/script>|<\/script>)'
+            endCaptures:
+                '0': {name: meta.brace.tag.script.close.ms}
+                '1': {name: punctuation.tag.script.close.ms}
+            patterns:
+                - {include: '$self'}
+
+
+                # (<script><!--)([\s\S]*)(--><\/script>)

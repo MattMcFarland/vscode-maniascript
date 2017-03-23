@@ -7,11 +7,9 @@ string-content:
             match: '\\(x[\da-fA-F]{2}|u[\da-fA-F]{4}|.)'
             name: constant.character.escape.ms
         -
-            begin: '{{{'
-            beginCaptures:
-                '0': {name: keyword.control.flow.expression.ms}
-            end: '}}}'
-            endCaptures:
-                '0': {name: keyword.control.flow.expression.ms}
-            patterns:
-                - {include: '#expression'}
+            captures:
+                '1': {name: constant.character.escape.ms}
+                '3': {name: constant.character.escape.ms}
+                '2': {name: entity.name.format.string.argument.ms}
+            match: '(\$<%)([\d])(\$>)'
+            name: meta.string.format.ms
