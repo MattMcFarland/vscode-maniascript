@@ -2,5 +2,5 @@
 
 const tmLanguage = require('maniascript-tmlanguage');
 
-require('fs').writeFileSync('lib/syntaxes/ManiaScript.tmLanguage', tmLanguage);
+require('fs').writeFileSync('lib/syntaxes/ManiaScript.tmLanguage', tmLanguage.plist);
 
