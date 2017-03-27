@@ -2,5 +2,5 @@ node_modules
 .vscode/settings.json
 .DS_Store
 dist
-lib
 .npmrc
+syntaxes

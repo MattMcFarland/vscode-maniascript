@@ -11,16 +11,16 @@
   "scripts": {
     "vscode:prepublish": "npm run build",
     "build": "scripts/build.js",
-    "prebuild": "npm install ; rimraf lib ; mkdirp lib/syntaxes"
+    "prebuild": "npm install ; rimraf syntaxes ; mkdirp syntaxes"
   },
   "license": "MIT",
   "categories": [
     "Languages"
   ],
   "activationEvents": [
-      "onLanguage:maniascript"
+    "onLanguage:maniascript"
   ],
-  "main": "./extension",  
+  "main": "./lib/extension",
   "contributes": {
     "languages": [
       {
@@ -39,14 +39,18 @@
       {
         "language": "maniascript",
         "scopeName": "source.ms",
-        "path": "./lib/syntaxes/ManiaScript.tmLanguage"
+        "path": "./syntaxes/ManiaScript.tmLanguage"
       }
     ]
   },
   "devDependencies": {
+    "@types/node": "^7.0.10",
     "maniascript-tmlanguage": "^1.0.1",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",
     "vscode": "^1.1.0"
+  },
+  "dependencies": {
+    "fuzzaldrin": "^2.1.0"
   }
 }
