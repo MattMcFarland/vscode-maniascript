@@ -3,12 +3,12 @@
 VSCode Grammar / Autocompletion support for ManiaScript; `".Script.txt"` files.
 For more information about ManiaScript, see http://doc.maniaplanet.com/creation/maniascript/index.html
 
-[!Demo](https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/intellisense.gif)
+![Demo](https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/intellisense.gif)
 
 ## Known Issues
 
 - Intellisense can suggest all known types from the manaiscript documentation, but it cannot infer types just yet.
-- Snippets have not been implemented yet. 
+- Snippets have not been implemented yet.
 - Linting has not been implemented yet.
 
 ## Changelog
