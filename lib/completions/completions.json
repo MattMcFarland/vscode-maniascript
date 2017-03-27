@@ -1,0 +1,4469 @@
+{
+  "primitives": [
+    "Void",
+    "Integer",
+    "Real",
+    "Boolean",
+    "Text",
+    "Vec2",
+    "Vec3",
+    "Int3",
+    "Ident"
+  ],
+  "classes": {
+    "CMlScript": {
+      "props": {
+        "CMlPage": [
+          "Page"
+        ],
+        "Boolean": [
+          "PageIsVisible",
+          "MouseLeftButton",
+          "MouseRightButton",
+          "MouseMiddleButton",
+          "KeyUp",
+          "KeyDown",
+          "KeyLeft",
+          "KeyRight",
+          "KeyReturn",
+          "KeySpace",
+          "KeyDelete",
+          "EnableMenuNavigationInputs",
+          "IsMenuNavigationForeground"
+        ],
+        "Integer": [
+          "Now",
+          "Period",
+          "CurrentTime"
+        ],
+        "Text": [
+          "CurrentTimeText",
+          "CurrentLocalDateText"
+        ],
+        "CUser": [
+          "LocalUser"
+        ],
+        "CTitle": [
+          "LoadedTitle"
+        ],
+        "CMlEvent[]": [
+          "PendingEvents"
+        ],
+        "Real": [
+          "MouseX",
+          "MouseY"
+        ],
+        "CXmlManager": [
+          "Xml"
+        ],
+        "CHttpManager": [
+          "Http"
+        ],
+        "CAudioManager": [
+          "Audio"
+        ]
+      },
+      "methods": {
+        "IsKeyPressed": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "KeyCode"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "EnableMenuNavigation": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "EnableInputs"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "WithAutoFocus"
+            },
+            {
+              "identifier": "CMlControl",
+              "argument": "AutoBackControl"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "InputPriority"
+            }
+          ],
+          "returns": "Void"
+        },
+        "OpenLink": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "LinkType",
+              "argument": "LinkType"
+            }
+          ],
+          "returns": "Void"
+        },
+        "TriggerPageAction": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ActionString"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SendCustomEvent": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "PreloadImage": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ImageUrl"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlEntry": {
+      "props": {
+        "Text": [
+          "Value"
+        ],
+        "Integer": [
+          "MaxLine"
+        ],
+        "Boolean": [
+          "AutoNewLine"
+        ]
+      },
+      "methods": {
+        "StartEdition": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlFileEntry": {
+      "props": {
+        "Text": [
+          "FullFileName"
+        ]
+      }
+    },
+    "CMlLabel": {
+      "props": {
+        "Text": [
+          "Style",
+          "Substyle",
+          "TextFont",
+          "Value"
+        ],
+        "Integer": [
+          "ValueLineCount",
+          "MaxLine",
+          "TextSize"
+        ],
+        "Boolean": [
+          "AppendEllipsis",
+          "AutoNewLine"
+        ],
+        "Real": [
+          "Opacity"
+        ],
+        "Vec3": [
+          "TextColor"
+        ]
+      },
+      "methods": {
+        "SetText": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "NewText"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ComputeWidth": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Text"
+            }
+          ],
+          "returns": "Real"
+        }
+      }
+    },
+    "CMlQuad": {
+      "props": {
+        "Text": [
+          "ImageUrl",
+          "ImageUrlFocus",
+          "Style",
+          "Substyle"
+        ],
+        "Boolean": [
+          "StyleSelected",
+          "DownloadInProgress"
+        ],
+        "Vec3": [
+          "Colorize",
+          "ModulateColor",
+          "BgColor",
+          "BgColorFocus"
+        ],
+        "Real": [
+          "Opacity"
+        ],
+        "EKeepRatioMode": [
+          "KeepRatio"
+        ]
+      },
+      "methods": {
+        "ChangeImageUrl": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "fieldName"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlGauge": {
+      "props": {
+        "Text": [
+          "Style"
+        ],
+        "Real": [
+          "Ratio",
+          "GradingRatio"
+        ],
+        "Integer": [
+          "Clan"
+        ],
+        "Vec3": [
+          "Color"
+        ],
+        "Boolean": [
+          "DrawBackground",
+          "DrawBlockBackground",
+          "CenteredBar"
+        ]
+      },
+      "methods": {
+        "SetRatio": {
+          "params": [
+            {
+              "identifier": "Real",
+              "argument": "NewRatio"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetClan": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "NewClan"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlGraph": {
+      "props": {
+        "Vec2": [
+          "CoordsMin",
+          "CoordsMax"
+        ],
+        "CMlGraphCurve[]": [
+          "Curves"
+        ]
+      },
+      "methods": {
+        "AddCurve": {
+          "params": [],
+          "returns": "CMlGraphCurve"
+        },
+        "RemoveCurve": {
+          "params": [
+            {
+              "identifier": "CMlGraphCurve",
+              "argument": "Curve"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlMinimap": {
+      "props": {
+        "Vec3": [
+          "WorldPosition"
+        ],
+        "Vec2": [
+          "MapPosition"
+        ],
+        "Real": [
+          "MapYaw",
+          "ZoomFactor"
+        ]
+      }
+    },
+    "CMlBrowser": {
+      "props": {
+        "CMap": [
+          "CurMap"
+        ],
+        "EBuddyResult": [
+          "BuddyDoResult"
+        ],
+        "Text": [
+          "BuddyDoErrorMessage",
+          "BrowserFocusedFrameId"
+        ],
+        "Boolean": [
+          "IsInBrowser"
+        ]
+      },
+      "methods": {
+        "ShowCurMapCard": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserBack": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserQuit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserHome": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserReload": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetLocalUserClubLink": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ClubLink"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CManiaApp": {
+      "props": {
+        "Integer": [
+          "Now"
+        ],
+        "Boolean": [
+          "IsVisible",
+          "EnableMenuNavigationInputs"
+        ],
+        "CUser": [
+          "LocalUser"
+        ],
+        "CTitle": [
+          "LoadedTitle"
+        ],
+        "Real": [
+          "MouseX",
+          "MouseY"
+        ],
+        "CUILayer[]": [
+          "UILayers"
+        ],
+        "CXmlManager": [
+          "Xml"
+        ],
+        "CHttpManager": [
+          "Http"
+        ],
+        "CAudioManager": [
+          "Audio"
+        ]
+      },
+      "methods": {
+        "UILayerCreate": {
+          "params": [],
+          "returns": "CUILayer"
+        },
+        "UILayerDestroy": {
+          "params": [
+            {
+              "identifier": "CUILayer",
+              "argument": "Layer"
+            }
+          ],
+          "returns": "Void"
+        },
+        "UILayerDestroyAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "LayerCustomEvent": {
+          "params": [
+            {
+              "identifier": "CUILayer",
+              "argument": "Layer"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "OpenLink": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "ELinkType",
+              "argument": "LinkType"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CManiaAppEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CUILayer": [
+          "CustomEventLayer"
+        ],
+        "Text": [
+          "CustomEventType",
+          "ExternalEventType",
+          "KeyName"
+        ],
+        "Text[]": [
+          "CustomEventData",
+          "ExternalEventData"
+        ],
+        "EMenuNavAction": [
+          "MenuNavAction"
+        ],
+        "Integer": [
+          "KeyCode"
+        ]
+      }
+    },
+    "CManiaAppTitle": {
+      "props": {
+        "CManiaAppEvent[]": [
+          "PendingEvents"
+        ],
+        "Boolean": [
+          "LoadingScreenRequireKeyPressed",
+          "DontScaleMainMenuForHMD"
+        ]
+      },
+      "methods": {
+        "Menu_Quit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Home": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Solo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Competitions": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Local": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Internet": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Editor": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Profile": {
+          "params": [],
+          "returns": "Void"
+        },
+        "PlayMap": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Map"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CStation": {
+      "props": {
+        "CTitle": [
+          "Title"
+        ],
+        "Integer": [
+          "AudienceRegisteredUsers",
+          "CampaignMedalsMax",
+          "CampaignMedalsCurrent",
+          "CampaignMedalsRanking",
+          "LadderRank"
+        ],
+        "Real": [
+          "LadderPoints"
+        ]
+      }
+    },
+    "CMlStation": {
+      "props": {
+        "CStation": [
+          "Station"
+        ]
+      },
+      "methods": {
+        "EnterStation": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CEditorPlugin": {
+      "props": {
+        "CEditorPluginEvent[]": [
+          "PendingEvents"
+        ],
+        "CMap": [
+          "Map"
+        ],
+        "Text": [
+          "MapName",
+          "ManialinkText"
+        ],
+        "PlaceMode": [
+          "PlaceMode"
+        ],
+        "EditMode": [
+          "EditMode"
+        ],
+        "Boolean": [
+          "UndergroundMode",
+          "BlockStockMode",
+          "EnableAirMapping",
+          "EnableMixMapping",
+          "EnableEditorInputsCustomProcessing",
+          "EditorInputIsDown_Menu",
+          "EditorInputIsDown_SwitchToRace",
+          "EditorInputIsDown_CursorUp",
+          "EditorInputIsDown_CursorRight",
+          "EditorInputIsDown_CursorDown",
+          "EditorInputIsDown_CursorLeft",
+          "EditorInputIsDown_CursorRaise",
+          "EditorInputIsDown_CursorLower",
+          "EditorInputIsDown_CursorTurn",
+          "EditorInputIsDown_CursorPick",
+          "EditorInputIsDown_CursorPlace",
+          "EditorInputIsDown_CursorDelete",
+          "EditorInputIsDown_CameraUp",
+          "EditorInputIsDown_CameraRight",
+          "EditorInputIsDown_CameraDown",
+          "EditorInputIsDown_CameraLeft",
+          "EditorInputIsDown_IconUp",
+          "EditorInputIsDown_IconRight",
+          "EditorInputIsDown_IconDown",
+          "EditorInputIsDown_IconLeft"
+        ],
+        "Int3": [
+          "CursorCoord"
+        ],
+        "CardinalDirections": [
+          "CursorDir"
+        ],
+        "CBlockModel": [
+          "CursorBlockModel",
+          "CursorTerrainBlockModel"
+        ],
+        "CMacroblockModel": [
+          "CursorMacroblockModel"
+        ],
+        "Real": [
+          "CameraVAngle",
+          "CameraHAngle",
+          "CameraToTargetDistance",
+          "CollectionSquareSize",
+          "CollectionSquareHeight"
+        ],
+        "Vec3": [
+          "TargetedPosition",
+          "CustomSelectionRGB"
+        ],
+        "CItemAnchor[]": [
+          "Items"
+        ],
+        "Text[]": [
+          "MediatrackIngameClips",
+          "MediatrackIngameIsScriptClips"
+        ],
+        "Integer": [
+          "MediatrackIngameEditedClipIndex",
+          "CollectionGroundY"
+        ],
+        "CBlock[]": [
+          "Blocks"
+        ],
+        "CBlockModel[]": [
+          "BlockModels",
+          "TerrainBlockModels"
+        ],
+        "CMacroblockModel[]": [
+          "MacroblockModels"
+        ],
+        "CAnchorData[]": [
+          "AnchorData"
+        ],
+        "Int3[]": [
+          "CustomSelectionCoords"
+        ],
+        "CMlPage": [
+          "ManialinkPage"
+        ]
+      },
+      "methods": {
+        "ComputeShadows": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Undo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Redo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Quit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Help": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Validate": {
+          "params": [],
+          "returns": "Void"
+        },
+        "AutoSave": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SaveMap": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            }
+          ],
+          "returns": "Void"
+        },
+        "RemoveAllBlocks": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllTerrain": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllOffZone": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllObjects": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllBlocksAndTerrain": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ShowCustomSelection": {
+          "params": [],
+          "returns": "Void"
+        },
+        "HideCustomSelection": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_Copy": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_Cut": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_Remove": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_SelectAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_ResetSelection": {
+          "params": [],
+          "returns": "Void"
+        },
+        "OpenToolsMenu": {
+          "params": [],
+          "returns": "Void"
+        },
+        "EditMediatrackIngame": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CanPlaceBlock": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "OnGround"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "VariantIndex"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceBlock": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceBlock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "OnGround"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "VariantIndex"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceBlock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceRoadBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceRoadBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceTerrainBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceTerrainBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceTerrainBlocks_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceMacroblock": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceMacroblock": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceMacroblock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceMacroblock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetBlock": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            }
+          ],
+          "returns": "CBlock"
+        },
+        "RemoveBlock": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RemoveTerrainBlocks": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetBlockGroundHeight": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "CoordX"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "CoordZ"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetStartLineBlock": {
+          "params": [],
+          "returns": "CBlock"
+        },
+        "CopyPaste_AddOrSubSelection": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CopyPaste_Symmetrize": {
+          "params": [],
+          "returns": "Boolean"
+        },
+        "SaveMacroblock": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "MacroblockModel"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetInterfaceNumber": {
+          "params": [
+            {
+              "identifier": "CCollector",
+              "argument": "Collector"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "SetInterfaceNumber": {
+          "params": [
+            {
+              "identifier": "CCollector",
+              "argument": "Collector"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "NewValue"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetMacroblockModelFromName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "MacroblockModelName"
+            }
+          ],
+          "returns": "CMacroblockModel"
+        },
+        "GetTerrainBlockModelFromName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "TerrainBlockModelName"
+            }
+          ],
+          "returns": "CBlockModel"
+        },
+        "GetBlockModelFromName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BlockModelName"
+            }
+          ],
+          "returns": "CBlockModel"
+        }
+      }
+    },
+    "CSmMode": {
+      "props": {
+        "Integer": [
+          "StartTime",
+          "EndTime",
+          "SpawnInvulnerabilityDuration",
+          "GameplayVersion",
+          "PlayersNbTotal",
+          "PlayersNbAlive",
+          "PlayersNbDead",
+          "ClansNbTotal",
+          "ClansNbAlive",
+          "ClansNbDead"
+        ],
+        "Boolean": [
+          "UseClans",
+          "UseForcedClans",
+          "UsePvPCollisions",
+          "UsePvPWeapons",
+          "UseInterractiveScreensIn3d",
+          "UseLaserVsBullets",
+          "UseLaserSkewering",
+          "UsePlayerTagging",
+          "UseBeaconsWithRecipients",
+          "UseAmmoBonusOnHit",
+          "UseSameWallJump",
+          "UseDefaultActionEvents",
+          "UseAllies",
+          "UseAutoSpawnBots",
+          "ForceNavMapsComputation",
+          "UseProtectClanmates"
+        ],
+        "EGameplay": [
+          "Gameplay"
+        ],
+        "Real": [
+          "OffZoneRadius",
+          "OffZoneRadiusSpeed"
+        ],
+        "Ident": [
+          "OffZoneCenterLandmarkId"
+        ],
+        "Integer[]": [
+          "ClansNbPlayers",
+          "ClansNbPlayersAlive",
+          "ClanScores"
+        ],
+        "CSmPlayer[]": [
+          "Players",
+          "BotPlayers",
+          "Spectators",
+          "AllPlayers"
+        ],
+        "CSmModeEvent[]": [
+          "PendingEvents"
+        ],
+        "CSmMapBase[]": [
+          "MapBases"
+        ],
+        "CSmMapLandmark[]": [
+          "MapLandmarks",
+          "MapLandmarks_PlayerSpawn",
+          "MapLandmarks_Gauge",
+          "MapLandmarks_Sector",
+          "MapLandmarks_BotPath",
+          "MapLandmarks_ObjectAnchor",
+          "MapLandmarks_Gate"
+        ],
+        "CSmScore[]": [
+          "Scores"
+        ],
+        "CSmObject[]": [
+          "Objects"
+        ]
+      },
+      "methods": {
+        "PassOn": {
+          "params": [
+            {
+              "identifier": "CSmModeEvent",
+              "argument": "Event"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Discard": {
+          "params": [
+            {
+              "identifier": "CSmModeEvent",
+              "argument": "Event"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SpawnPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ClanNum"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Armor"
+            },
+            {
+              "identifier": "CSmMapPlayerSpawn",
+              "argument": "PlayerSpawn"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ActivationDate"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SpawnBotPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ClanNum"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Armor"
+            },
+            {
+              "identifier": "CSmMapBotPath",
+              "argument": "BotPath"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ActivationDate"
+            }
+          ],
+          "returns": "Void"
+        },
+        "UnspawnPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ClearScores": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetPlayerClan": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ClanNum"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPlayerWeapon": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EWeapon",
+              "argument": "DefaultWeapon"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "AutoSwitchWeapon"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPlayerReloadAllWeapons": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "ReloadAllWeapons"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPlayerAmmo": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EWeapon",
+              "argument": "Weapon"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Count"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetPlayerAmmo": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EWeapon",
+              "argument": "Weapon"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "AddPlayerAmmo": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EWeapon",
+              "argument": "Weapon"
+            },
+            {
+              "identifier": "Real",
+              "argument": "DeltaCount"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPlayerAmmoMax": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EWeapon",
+              "argument": "Weapon"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Count"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetPlayerAmmoMax": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EWeapon",
+              "argument": "Weapon"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "AddPlayerArmor": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Victim"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "DeltaArmor"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Shooter"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ShooterPoints"
+            }
+          ],
+          "returns": "Void"
+        },
+        "RemovePlayerArmor": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Victim"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "DeltaArmor"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Shooter"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ShooterPoints"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetWeaponNum": {
+          "params": [
+            {
+              "identifier": "EWeapon",
+              "argument": "Weapon"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "CanRespawnPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RespawnPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "CSmMapLandmark",
+              "argument": "CheckpointLandmark"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CreateBotPlayer": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ModelId"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "TeamNum"
+            }
+          ],
+          "returns": "CSmPlayer"
+        },
+        "DestroyBotPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            }
+          ],
+          "returns": "Void"
+        },
+        "DestroyAllBotPlayers": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ScriptedBot_Move": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Goal"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScriptedBot_MoveDelta": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Delta"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScriptedBot_MoveAndAim": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Goal"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScriptedBot_MoveDeltaAndAim": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Delta"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScriptedBot_Aim": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Goal"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScriptedBot_AimDelta": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            },
+            {
+              "identifier": "Real",
+              "argument": "DeltaYaw"
+            },
+            {
+              "identifier": "Real",
+              "argument": "DeltaPitch"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScriptedBot_RequestAction": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScriptedBot_RequestGunTrigger": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "BotPlayer"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ActionLoad": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EActionSlot",
+              "argument": "ActionSlot"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ModelId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ActionBind": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EActionSlot",
+              "argument": "ActionSlot"
+            },
+            {
+              "identifier": "EActionInput",
+              "argument": "ActionInput"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ActionSetVariant": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "EActionSlot",
+              "argument": "ActionSlot"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ActionVariant"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetNbFakePlayers": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "NbClan1"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "NbClan2"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ObjectCreate": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ModelId"
+            }
+          ],
+          "returns": "CSmObject"
+        },
+        "ObjectDestroy": {
+          "params": [
+            {
+              "identifier": "CSmObject",
+              "argument": "Object"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ObjectDestroyAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Replay_SaveAttackScore": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Score"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Replay_SaveDefenseScore": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Score"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Replay_SaveTeamScore": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Team"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Score"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Replay_SavePlayerOfInterest": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Replay_SaveWinner": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Replay_SaveInterface": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CSmMlScriptIngame": {
+      "props": {
+        "Integer": [
+          "ArenaNow"
+        ],
+        "CSmPlayer": [
+          "InputPlayer",
+          "GUIPlayer"
+        ],
+        "CSmPlayer[]": [
+          "Players"
+        ],
+        "CSmScore[]": [
+          "Scores"
+        ],
+        "Integer[]": [
+          "ClanScores"
+        ],
+        "Boolean": [
+          "HideResumePlayingButton"
+        ],
+        "CSmMapBase[]": [
+          "MapBases"
+        ],
+        "CSmMapLandmark[]": [
+          "MapLandmarks",
+          "MapLandmarks_PlayerSpawn",
+          "MapLandmarks_Gauge",
+          "MapLandmarks_Sector",
+          "MapLandmarks_BotPath",
+          "MapLandmarks_ObjectAnchor",
+          "MapLandmarks_Gate"
+        ]
+      }
+    },
+    "CSmAction": {
+      "props": {
+        "Integer": [
+          "Now",
+          "Variant",
+          "Energy",
+          "EnergyMax",
+          "EnergyCost",
+          "Cooldown"
+        ],
+        "CSmPlayer[]": [
+          "Players"
+        ],
+        "CSmPlayer": [
+          "Owner"
+        ],
+        "Boolean": [
+          "IsActive",
+          "EnergyReload"
+        ],
+        "CSmActionEvent[]": [
+          "PendingEvents"
+        ]
+      },
+      "methods": {
+        "SendRulesEvent": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Param1"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Param2"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Shooter"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Victim"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetAnimModelId": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "PlayAnimOnPlayer": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "AnimModelId"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "PlayAnimAtPosition": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "AnimModelId"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Direction"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetProjectileModelId": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "CreateProjectile": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "PlayerToIgnore"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ProjectileModelId"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "InitialPosition"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "InitialDirection"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "InitialVelocity"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ContextId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CreateShoot": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Shooter"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ProjectileModelId"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ContextId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Cooldown_IsReady": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Now"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Cooldown_Start": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CSmMapType": {
+      "props": {
+        "CSmMode": [
+          "Mode"
+        ],
+        "CSmPlayer[]": [
+          "AllPlayers",
+          "Players"
+        ]
+      }
+    },
+    "CTmMlScriptIngame": {
+      "props": {
+        "CTmMlPlayer": [
+          "InputPlayer",
+          "GUIPlayer"
+        ],
+        "Integer": [
+          "NbLaps",
+          "MapNbLaps"
+        ],
+        "Boolean": [
+          "IndependantLaps",
+          "MapIsLapRace"
+        ],
+        "CTmMlPlayer[]": [
+          "Players"
+        ],
+        "CTmScore[]": [
+          "Scores"
+        ],
+        "Integer[]": [
+          "ClanScores"
+        ],
+        "Vec3": [
+          "MapStartLinePos"
+        ],
+        "Vec3[]": [
+          "MapCheckpointPos",
+          "MapFinishLinePos"
+        ]
+      }
+    },
+    "CTmMode": {
+      "props": {
+        "CTmPlayer[]": [
+          "AllPlayers",
+          "Spectators",
+          "Players",
+          "PlayersRacing",
+          "PlayersWaiting"
+        ],
+        "CTmScore[]": [
+          "Scores"
+        ],
+        "Integer": [
+          "Clan1Score",
+          "Clan2Score",
+          "ClansNbTotal",
+          "CutOffTimeLimit",
+          "NbLaps",
+          "UiScoresPointsLimit",
+          "ForceMaxOpponents",
+          "MapNbLaps"
+        ],
+        "Integer[]": [
+          "ClanScores",
+          "ClansNbPlayers"
+        ],
+        "CTmModeEvent[]": [
+          "PendingEvents"
+        ],
+        "Boolean": [
+          "IndependantLaps",
+          "UseClans",
+          "UseForcedClans",
+          "UiRounds",
+          "UiLaps",
+          "UiStuntsMode",
+          "UiDisplayStuntsNames",
+          "UiDisableHelpMessage",
+          "HideOpponents",
+          "EnableLegacyXmlRpcCallbacks",
+          "MedalGhost_ShowGold",
+          "MedalGhost_ShowSilver",
+          "MedalGhost_ShowBronze",
+          "MapIsLapRace"
+        ],
+        "ETMRespawnBehaviour": [
+          "RespawnBehaviour"
+        ],
+        "ETmRaceChronoBehaviour": [
+          "UiRaceChrono"
+        ],
+        "EPersonalGhost": [
+          "PersonalGhost"
+        ],
+        "Vec3": [
+          "MapStartLinePos"
+        ],
+        "Vec3[]": [
+          "MapCheckpointPos",
+          "MapFinishLinePos"
+        ]
+      },
+      "methods": {
+        "PassOn": {
+          "params": [
+            {
+              "identifier": "CTmModeEvent",
+              "argument": "Event"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Discard": {
+          "params": [
+            {
+              "identifier": "CTmModeEvent",
+              "argument": "Event"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SpawnPlayer": {
+          "params": [
+            {
+              "identifier": "CTmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ClanNum"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "RaceStartTime"
+            }
+          ],
+          "returns": "Void"
+        },
+        "UnspawnPlayer": {
+          "params": [
+            {
+              "identifier": "CTmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPlayerClan": {
+          "params": [
+            {
+              "identifier": "CTmPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ClanNum"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Scores_Sort": {
+          "params": [
+            {
+              "identifier": "ETmScoreSortOrder",
+              "argument": "SortOrder"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Scores_Clear": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_ComputeRank": {
+          "params": [
+            {
+              "identifier": "ETmScoreSortOrder",
+              "argument": "SortOrder"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTmMapType": {
+      "props": {
+        "CTmMode": [
+          "Mode"
+        ],
+        "CTmPlayer[]": [
+          "AllPlayers",
+          "Players"
+        ]
+      }
+    },
+    "CNod": {
+      "props": {},
+      "methods": {}
+    },
+    "CMlPage": {
+      "props": {
+        "CMlFrame": [
+          "MainFrame"
+        ],
+        "Boolean": [
+          "LinksInhibited"
+        ],
+        "CMlControl[]": [
+          "GetClassChildren_Result"
+        ]
+      },
+      "methods": {
+        "GetFirstChild": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ControlId"
+            }
+          ],
+          "returns": "CMlControl"
+        },
+        "GetClassChildren": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Class"
+            },
+            {
+              "identifier": "CMlFrame",
+              "argument": "Frame"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Recursive"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CUser": {
+      "props": {
+        "Text": [
+          "Login",
+          "Name",
+          "AvatarUrl",
+          "ZonePath",
+          "ZoneFlagUrl",
+          "CountryFlagUrl",
+          "Language",
+          "Description",
+          "ClubLink",
+          "BroadcastTVLogin",
+          "SteamUserId",
+          "LadderZoneName",
+          "LadderZoneFlagUrl"
+        ],
+        "Vec3": [
+          "Color"
+        ],
+        "Integer": [
+          "FameStars",
+          "LadderRank",
+          "LadderTotal",
+          "RequestedClan"
+        ],
+        "EEchelon": [
+          "Echelon"
+        ],
+        "Boolean": [
+          "IsBeginner",
+          "RequestsSpectate",
+          "IsFakeUser"
+        ],
+        "Real": [
+          "LadderPoints"
+        ],
+        "Integer[]": [
+          "Tags_Favored_Indices"
+        ],
+        "Text[]": [
+          "Tags_Id",
+          "Tags_Comments",
+          "Tags_Deliverer",
+          "AlliesConnected"
+        ],
+        "ETagType[]": [
+          "Tags_Type"
+        ],
+        "EStereoDisplayMode": [
+          "StereoDisplayMode"
+        ]
+      }
+    },
+    "CTitle": {
+      "props": {
+        "Text": [
+          "TitleId",
+          "BaseTitleId",
+          "Name",
+          "Desc",
+          "InfoUrl",
+          "DownloadUrl",
+          "TitleVersion"
+        ]
+      }
+    },
+    "CMlEvent": {
+      "props": {
+        "Type": [
+          "Type"
+        ],
+        "Integer": [
+          "KeyCode"
+        ],
+        "Text": [
+          "KeyName",
+          "CharPressed",
+          "ControlId",
+          "CustomEventType"
+        ],
+        "CMlControl": [
+          "Control"
+        ],
+        "EMenuNavAction": [
+          "MenuNavAction"
+        ],
+        "Text[]": [
+          "CustomEventData"
+        ]
+      }
+    },
+    "CXmlManager": {
+      "props": {
+        "CXmlDocument[]": [
+          "Documents"
+        ]
+      },
+      "methods": {
+        "Create": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Contents"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "GenerateText"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "GenerateTextRaw"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "GenerateTextResursive"
+            }
+          ],
+          "returns": "CXmlDocument"
+        },
+        "Destroy": {
+          "params": [
+            {
+              "identifier": "CXmlDocument",
+              "argument": "Document"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CHttpManager": {
+      "props": {
+        "CHttpRequest[]": [
+          "Requests"
+        ],
+        "Integer": [
+          "SlotsAvailable"
+        ]
+      },
+      "methods": {
+        "CreateGet": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "UseCache"
+            }
+          ],
+          "returns": "CHttpRequest"
+        },
+        "CreatePost": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Resource"
+            }
+          ],
+          "returns": "CHttpRequest"
+        },
+        "Destroy": {
+          "params": [
+            {
+              "identifier": "CHttpRequest",
+              "argument": "Request"
+            }
+          ],
+          "returns": "Void"
+        },
+        "IsValidUrl": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Boolean"
+        }
+      }
+    },
+    "CAudioManager": {
+      "props": {
+        "CAudioSound[]": [
+          "Sounds"
+        ],
+        "Boolean": [
+          "ForceEnableMusic"
+        ],
+        "Real": [
+          "LimitMusicVolumedB"
+        ]
+      },
+      "methods": {
+        "CreateSound": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Real",
+              "argument": "VolumedB"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsMusic"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsLooping"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsSpatialized"
+            }
+          ],
+          "returns": "CAudioSound"
+        },
+        "DestroySound": {
+          "params": [
+            {
+              "identifier": "CAudioSound",
+              "argument": "Sound"
+            }
+          ],
+          "returns": "Void"
+        },
+        "PlaySoundEvent": {
+          "params": [
+            {
+              "identifier": "ELibSound",
+              "argument": "Sound"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SoundVariant"
+            },
+            {
+              "identifier": "Real",
+              "argument": "VolumedB"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Delay"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ClearAllDelayedSoundsEvents": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlControl": {
+      "props": {
+        "Text": [
+          "ControlId"
+        ],
+        "Text[]": [
+          "ControlClasses"
+        ],
+        "Vec2": [
+          "Size"
+        ],
+        "AlignHorizontal": [
+          "HorizontalAlign"
+        ],
+        "AlignVertical": [
+          "VerticalAlign"
+        ],
+        "Boolean": [
+          "Visible"
+        ],
+        "Vec3": [
+          "RelativePosition",
+          "AbsolutePosition"
+        ],
+        "Real": [
+          "RelativeScale",
+          "RelativeRotation",
+          "AbsoluteScale",
+          "AbsoluteRotation"
+        ]
+      },
+      "methods": {
+        "HasClass": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Class"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "DataAttributeExists": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "DataName"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "DataAttributeGet": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "DataName"
+            }
+          ],
+          "returns": "Text"
+        },
+        "DataAttributeSet": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "DataName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "DataValue"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Show": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Hide": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Unload": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Focus": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlGraphCurve": {
+      "props": {
+        "Vec2[]": [
+          "Points"
+        ],
+        "Vec3": [
+          "Color"
+        ],
+        "Text": [
+          "Style"
+        ],
+        "Real": [
+          "Width"
+        ]
+      },
+      "methods": {
+        "SortPoints": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMap": {
+      "props": {
+        "CMapInfo": [
+          "MapInfo"
+        ],
+        "Text": [
+          "MapName",
+          "Comments",
+          "AuthorZoneIconUrl",
+          "CollectionName",
+          "DecorationName",
+          "AuthorLogin",
+          "AuthorNickName",
+          "AuthorZonePath",
+          "MapType",
+          "MapStyle",
+          "ObjectiveTextAuthor",
+          "ObjectiveTextGold",
+          "ObjectiveTextSilver",
+          "ObjectiveTextBronze"
+        ],
+        "Integer": [
+          "TMObjective_AuthorTime",
+          "TMObjective_GoldTime",
+          "TMObjective_SilverTime",
+          "TMObjective_BronzeTime",
+          "TMObjective_NbLaps",
+          "CopperPrice"
+        ],
+        "Boolean": [
+          "TMObjective_IsLapRace"
+        ],
+        "Int3": [
+          "Size"
+        ]
+      }
+    },
+    "CUILayer": {
+      "props": {
+        "Boolean": [
+          "IsVisible"
+        ],
+        "EUILayerType": [
+          "Type"
+        ],
+        "Text": [
+          "AttachId",
+          "ManialinkPage"
+        ],
+        "CMlPage": [
+          "LocalPage"
+        ]
+      }
+    },
+    "CEditorPluginEvent": {
+      "props": {
+        "Type": [
+          "Type"
+        ],
+        "EInput": [
+          "Input"
+        ],
+        "Ident": [
+          "EditedAnchorDataId"
+        ]
+      }
+    },
+    "CBlockModel": {
+      "props": {
+        "Text": [
+          "Name"
+        ],
+        "Boolean": [
+          "IsRoad",
+          "IsTerrain",
+          "NoRespawn"
+        ],
+        "EWayPointType": [
+          "WaypointType"
+        ],
+        "CBlockModelVariantGround": [
+          "VariantGround"
+        ],
+        "CBlockModelVariantAir": [
+          "VariantAir"
+        ]
+      }
+    },
+    "CMacroblockModel": {
+      "props": {
+        "Boolean": [
+          "IsGround",
+          "HasStart",
+          "HasFinish",
+          "HasCheckpoint"
+        ],
+        "CBlockModel": [
+          "GeneratedBlockModel"
+        ],
+        "Text": [
+          "Name"
+        ]
+      }
+    },
+    "CItemAnchor": {
+      "props": {
+        "Vec3": [
+          "Position"
+        ]
+      }
+    },
+    "CBlock": {
+      "props": {
+        "Integer": [
+          "BlockScriptId"
+        ],
+        "Boolean": [
+          "CanHaveAnchor"
+        ],
+        "Int3": [
+          "Coord"
+        ],
+        "CardinalDirections": [
+          "Direction"
+        ],
+        "CBlockUnit[]": [
+          "BlockUnits"
+        ],
+        "CBlockModel": [
+          "BlockModel"
+        ]
+      },
+      "methods": {
+        "UseDefaultAnchor": {
+          "params": [],
+          "returns": "Void"
+        },
+        "UseCustomAnchor": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CAnchorData": {
+      "props": {
+        "Text": [
+          "DefaultTag",
+          "Tag"
+        ],
+        "Integer": [
+          "DefaultOrder",
+          "Order"
+        ]
+      }
+    },
+    "CMode": {
+      "props": {
+        "Text": [
+          "ModeStatusMessage",
+          "ServerLogin",
+          "ServerName",
+          "ServerModeName",
+          "MapName",
+          "MapPlayerModelName",
+          "NeutralEmblemUrl",
+          "ForcedClubLinkUrl1",
+          "ForcedClubLinkUrl2"
+        ],
+        "CTitle": [
+          "LoadedTitle"
+        ],
+        "CMap": [
+          "Map"
+        ],
+        "CUser[]": [
+          "Users"
+        ],
+        "CTeam[]": [
+          "Teams"
+        ],
+        "Integer": [
+          "Now",
+          "Period",
+          "NextMapIndex"
+        ],
+        "Boolean": [
+          "MatchEndRequested",
+          "ServerShutdownRequested",
+          "MapLoaded",
+          "Ladder_RequestInProgress",
+          "Solo_NewRecordSequenceInProgress",
+          "UseMinimap",
+          "Replay_AutoStart"
+        ],
+        "CMapInfo[]": [
+          "MapList"
+        ],
+        "CUIConfigMgr": [
+          "UIManager"
+        ],
+        "CXmlRpc": [
+          "XmlRpc"
+        ],
+        "CXmlManager": [
+          "Xml"
+        ],
+        "CHttpManager": [
+          "Http"
+        ]
+      },
+      "methods": {
+        "TweakTeamColorsToAvoidHueOverlap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestLoadMap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestUnloadMap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_Request": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_AddPlayer": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "PlayerScore"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_BeginRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_AddPlayer": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "PlayerScore"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_EndRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_CloseMatchRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_CancelMatchRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_SetResultsVersion": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Version"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_SetMatchMakingMatchId": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "MatchId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_EnableChallengeMode": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "Enable"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Admin_KickUser": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Reason"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Admin_SetLobbyInfo": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "IsLobby"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "LobbyPlayerCount"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "LobbyMaxPlayerCount"
+            },
+            {
+              "identifier": "Real",
+              "argument": "LobbyPlayersLevel"
+            }
+          ],
+          "returns": "Void"
+        },
+        "AutoTeamBalance": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Solo_SetNewRecord": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "PlayerScore"
+            },
+            {
+              "identifier": "EMedal",
+              "argument": "PlayerScore"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Synchro_AddBarrier": {
+          "params": [],
+          "returns": "Integer"
+        },
+        "Synchro_BarrierReached": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Barrier"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Users_AreAllies": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User1"
+            },
+            {
+              "identifier": "CUser",
+              "argument": "User2"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Users_RequestSwitchToSpectator": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Users_CreateFake": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "NickName"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "RequestedTeam"
+            }
+          ],
+          "returns": "CUser"
+        },
+        "Users_DestroyFake": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Users_SetNbFakeUsers": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "NbTeam1"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "NbTeam2"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Users_DestroyAllFakes": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ItemList_Begin": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ItemList_Add": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "ItemList_AddWithSkin": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "SkinName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "ItemList_End": {
+          "params": [],
+          "returns": "Void"
+        },
+        "DemoToken_StartUsingToken": {
+          "params": [],
+          "returns": "Void"
+        },
+        "DemoToken_StopUsingToken": {
+          "params": [],
+          "returns": "Void"
+        },
+        "DemoToken_GetAndUseToken": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ActionList_Begin": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ActionList_Add": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ActionName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "ActionList_End": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Replay_Start": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Replay_Stop": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CSmPlayer": {
+      "props": {
+        "CSmScore": [
+          "Score"
+        ],
+        "ESpawnStatus": [
+          "SpawnStatus"
+        ],
+        "Integer": [
+          "StartTime",
+          "EndTime",
+          "CurWeapon",
+          "CurAmmo",
+          "CurAmmoMax",
+          "CurAmmoUnit",
+          "Armor",
+          "ArmorMax",
+          "ArmorGain",
+          "ArmorReplenishGain",
+          "Stamina",
+          "CurrentClan",
+          "IdleDuration"
+        ],
+        "Real": [
+          "AmmoGain",
+          "AmmoPower",
+          "ArmorPower",
+          "StaminaMax",
+          "StaminaGain",
+          "StaminaPower",
+          "SpeedPower",
+          "JumpPower",
+          "EnergyLevel",
+          "ThrowSpeed",
+          "AimYaw",
+          "AimPitch",
+          "Speed"
+        ],
+        "Boolean": [
+          "AutoSwitchWeapon",
+          "AllowWallJump",
+          "AllowProgressiveJump",
+          "UseAlternateWeaponVisual",
+          "IsHighlighted",
+          "HasShield",
+          "IsUnderground",
+          "IsTouchingGround",
+          "IsInAir",
+          "IsOnTechGround",
+          "IsOnTechLaser",
+          "IsOnTechArrow",
+          "IsOnTechArmor",
+          "IsOnTechSafeZone",
+          "IsOnTech",
+          "IsOnTechNoWeapon",
+          "IsInWater",
+          "IsInOffZone",
+          "IsCapturing",
+          "IsFakePlayer",
+          "IsBot"
+        ],
+        "Vec3": [
+          "ForceColor",
+          "Position",
+          "AimDirection",
+          "Velocity"
+        ],
+        "Ident": [
+          "ForceModelId"
+        ],
+        "CSmMapLandmark": [
+          "CapturedLandmark"
+        ],
+        "CSmObject[]": [
+          "Objects"
+        ],
+        "CSmPlayerDriver": [
+          "Driver"
+        ]
+      }
+    },
+    "CSmModeEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CSmPlayer": [
+          "Player",
+          "Shooter",
+          "Victim"
+        ],
+        "Integer": [
+          "Damage",
+          "ShooterPoints",
+          "WeaponNum",
+          "ShooterWeaponNum",
+          "VictimWeaponNum",
+          "CommandValueInteger",
+          "ActionChange"
+        ],
+        "CSmObject": [
+          "VictimObject",
+          "Object"
+        ],
+        "Real": [
+          "Height",
+          "MissDist",
+          "CommandValueReal"
+        ],
+        "Boolean": [
+          "ShooterUsedAction",
+          "VictimUsedAction",
+          "PlayerWasSpawned",
+          "PlayerWasInLadderMatch",
+          "GiveUp",
+          "CommandValueBoolean"
+        ],
+        "EActionSlot": [
+          "ShooterActionSlot",
+          "VictimActionSlot",
+          "Action_Slot"
+        ],
+        "Text": [
+          "ShooterActionId",
+          "VictimActionId",
+          "ActionId",
+          "Param1",
+          "CommandName",
+          "CommandValueText"
+        ],
+        "EActionInput": [
+          "ActionInput"
+        ],
+        "Text[]": [
+          "Param2"
+        ],
+        "CSmMapSector": [
+          "Sector"
+        ],
+        "CSmBlockPole": [
+          "BlockPole"
+        ],
+        "CSmMapLandmark": [
+          "Landmark"
+        ],
+        "Ident": [
+          "PlayerId"
+        ],
+        "CUser": [
+          "User"
+        ],
+        "Vec3": [
+          "PlayerLastPosition",
+          "PlayerLastAimDirection"
+        ]
+      }
+    },
+    "CSmMapBase": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "NumberOfCollectors"
+        ],
+        "Boolean": [
+          "IsActive"
+        ]
+      }
+    },
+    "CSmMapLandmark": {
+      "props": {
+        "Text": [
+          "Tag"
+        ],
+        "Integer": [
+          "Order"
+        ],
+        "Vec3": [
+          "Position"
+        ],
+        "CSmMapBase": [
+          "Base"
+        ],
+        "CSmMapGate": [
+          "Gate"
+        ],
+        "CSmMapGauge": [
+          "Gauge"
+        ],
+        "CSmMapSector": [
+          "Sector"
+        ],
+        "CSmMapPlayerSpawn": [
+          "PlayerSpawn"
+        ],
+        "CSmMapBotPath": [
+          "BotPath"
+        ],
+        "CSmMapObjectAnchor": [
+          "ObjectAnchor"
+        ]
+      }
+    },
+    "CSmScore": {
+      "props": {
+        "Integer": [
+          "TeamNum",
+          "Points",
+          "RoundPoints",
+          "NbEliminationsInflicted",
+          "NbEliminationsTaken",
+          "NbRespawnsRequested",
+          "DamageInflicted",
+          "DamageTaken"
+        ]
+      },
+      "methods": {
+        "Clear": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CSmObject": {
+      "props": {
+        "EStatus": [
+          "Status"
+        ],
+        "Ident": [
+          "ModelId"
+        ],
+        "CSmPlayer": [
+          "Player"
+        ],
+        "Vec3": [
+          "Position",
+          "Vel"
+        ],
+        "Integer": [
+          "MachineState"
+        ],
+        "Boolean": [
+          "Throwable"
+        ]
+      },
+      "methods": {
+        "SetAnchor": {
+          "params": [
+            {
+              "identifier": "CSmMapObjectAnchor",
+              "argument": "ObjectAnchor"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPosition": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPositionAndVel": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Vel"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetUnspawned": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlScriptIngame": {
+      "props": {
+        "Integer": [
+          "GameTime"
+        ],
+        "CUIConfig": [
+          "UI",
+          "ClientUI"
+        ],
+        "Boolean": [
+          "IsSpectatorMode",
+          "UseClans",
+          "UseForcedClans"
+        ],
+        "CMap": [
+          "Map"
+        ],
+        "CTeam[]": [
+          "Teams"
+        ],
+        "Text": [
+          "CurrentServerLogin",
+          "CurrentServerName",
+          "CurrentServerJoinLink",
+          "CurrentServerModeName"
+        ]
+      },
+      "methods": {
+        "ShowCurChallengeCard": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ShowModeHelp": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyServerLinkToClipBoard": {
+          "params": [],
+          "returns": "Void"
+        },
+        "JoinTeam1": {
+          "params": [],
+          "returns": "Void"
+        },
+        "JoinTeam2": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetSpectateTarget": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ShowProfile": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ShowInGameMenu": {
+          "params": [],
+          "returns": "Void"
+        },
+        "PlayUiSound": {
+          "params": [
+            {
+              "identifier": "EUISound",
+              "argument": "Sound"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SoundVariant"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Volume"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CloseInGameMenu": {
+          "params": [
+            {
+              "identifier": "EInGameMenuResult",
+              "argument": "Result"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CSmActionEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CSmPlayer": [
+          "Player"
+        ],
+        "Integer": [
+          "Damage",
+          "ContextId"
+        ],
+        "Ident": [
+          "ProjectileModelId"
+        ],
+        "Vec3": [
+          "Position",
+          "Direction",
+          "Normal"
+        ]
+      }
+    },
+    "CMapType": {
+      "props": {
+        "Boolean": [
+          "CustomEditAnchorData",
+          "ValidationEndRequested",
+          "IsSwitchedToPlayground"
+        ],
+        "ValidationStatus": [
+          "ValidationStatus"
+        ],
+        "Text": [
+          "ValidabilityRequirementsMessage"
+        ],
+        "CUIConfigMgr": [
+          "UIManager"
+        ],
+        "CUser[]": [
+          "Users"
+        ]
+      },
+      "methods": {
+        "ClearMapMetadata": {
+          "params": [],
+          "returns": "Void"
+        },
+        "StartTestMapWithMode": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "RulesModeName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "RequestEnterPlayground": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestLeavePlayground": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTmMlPlayer": {
+      "props": {
+        "Integer": [
+          "CurrentClan",
+          "RaceStartTime",
+          "LapStartTime",
+          "CurrentNbLaps",
+          "CurTriggerIndex",
+          "CurCheckpointRaceTime",
+          "CurCheckpointLapTime",
+          "DisplaySpeed"
+        ],
+        "ERaceState": [
+          "RaceState"
+        ],
+        "Boolean": [
+          "IsSpawned"
+        ],
+        "CTrackManiaScore": [
+          "Score"
+        ],
+        "CTmResult": [
+          "CurRace",
+          "CurLap"
+        ],
+        "Real": [
+          "AccelCoef",
+          "ControlCoef",
+          "GravityCoef",
+          "AimYaw",
+          "AimPitch",
+          "Distance",
+          "Speed"
+        ],
+        "Vec3": [
+          "Position",
+          "AimDirection"
+        ]
+      }
+    },
+    "CTmScore": {
+      "props": {
+        "Integer": [
+          "TeamNum",
+          "Points",
+          "PrevRaceDeltaPoints"
+        ],
+        "CTmResult": [
+          "BestRace",
+          "BestLap",
+          "PrevRace",
+          "TempResult"
+        ]
+      },
+      "methods": {
+        "Clear": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTmPlayer": {
+      "props": {
+        "Integer": [
+          "CurrentClan",
+          "RaceStartTime",
+          "CurrentNbLaps",
+          "CurTriggerIndex"
+        ],
+        "CTmScore": [
+          "Score"
+        ],
+        "Boolean": [
+          "IsSpawned"
+        ],
+        "CTmResult": [
+          "CurRace",
+          "CurLap"
+        ],
+        "Vec3": [
+          "Position",
+          "AimDirection"
+        ],
+        "Real": [
+          "AimYaw",
+          "AimPitch",
+          "AccelCoef",
+          "ControlCoef",
+          "GravityCoef"
+        ]
+      }
+    },
+    "CTmModeEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CTmPlayer": [
+          "Player"
+        ],
+        "Integer": [
+          "RaceTime",
+          "CheckpointInRace",
+          "CheckpointInLap",
+          "LapTime",
+          "StuntsScore",
+          "NbRespawns",
+          "Angle",
+          "Points",
+          "Combo",
+          "CommandValueInteger"
+        ],
+        "Boolean": [
+          "IsEndLap",
+          "IsEndRace",
+          "IsStraight",
+          "IsReverse",
+          "IsMasterJump",
+          "PlayerWasSpawned",
+          "PlayerWasInLadderMatch",
+          "CommandValueBoolean"
+        ],
+        "Ident": [
+          "BlockId"
+        ],
+        "Real": [
+          "Speed",
+          "Distance",
+          "Damages",
+          "Factor",
+          "CommandValueReal"
+        ],
+        "EStuntFigure": [
+          "StuntFigure"
+        ],
+        "CUser": [
+          "User"
+        ],
+        "Text": [
+          "CommandName",
+          "CommandValueText"
+        ]
+      }
+    },
+    "CMlFrame": {
+      "props": {
+        "CMlControl[]": [
+          "Controls"
+        ],
+        "Boolean": [
+          "ClipWindowActive"
+        ],
+        "Vec2": [
+          "ClipWindowRelativePosition",
+          "ClipWindowSize"
+        ]
+      },
+      "methods": {
+        "GetFirstChild": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ControlId"
+            }
+          ],
+          "returns": "CMlControl"
+        }
+      }
+    },
+    "CXmlDocument": {
+      "props": {
+        "Text": [
+          "TextContents"
+        ],
+        "CXmlNode": [
+          "Root"
+        ],
+        "CXmlNode[]": [
+          "Nodes"
+        ]
+      },
+      "methods": {
+        "GetFirstChild": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            }
+          ],
+          "returns": "CXmlNode"
+        }
+      }
+    },
+    "CHttpRequest": {
+      "props": {
+        "Text": [
+          "Url",
+          "Result"
+        ],
+        "Integer": [
+          "StatusCode"
+        ],
+        "Boolean": [
+          "IsCompleted"
+        ]
+      }
+    },
+    "CAudioSound": {
+      "props": {
+        "Boolean": [
+          "IsPlaying",
+          "DownloadInProgress"
+        ],
+        "Real": [
+          "Volume",
+          "VolumedB",
+          "Pitch",
+          "PlayCursor",
+          "PlayLength"
+        ],
+        "Vec3": [
+          "RelativePosition"
+        ]
+      },
+      "methods": {
+        "Play": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Stop": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMapInfo": {
+      "props": {
+        "Ident": [
+          "MapUid"
+        ],
+        "Text": [
+          "Comments",
+          "CollectionName",
+          "AuthorLogin",
+          "AuthorNickName",
+          "AuthorZonePath",
+          "MapType",
+          "MapStyle",
+          "Name",
+          "Path"
+        ],
+        "Integer": [
+          "CopperPrice"
+        ],
+        "Boolean": [
+          "Unlocked"
+        ]
+      }
+    },
+    "CCollector": {
+      "props": {
+        "Text": [
+          "Name",
+          "PageName"
+        ]
+      }
+    },
+    "CBlockUnit": {
+      "props": {
+        "Int3": [
+          "Offset"
+        ],
+        "CBlockUnitModel": [
+          "BlockUnitModel"
+        ],
+        "CBlock": [
+          "Block"
+        ]
+      }
+    },
+    "CTeam": {
+      "props": {
+        "Text": [
+          "Name",
+          "ZonePath",
+          "City",
+          "EmblemUrl",
+          "PresentationManialinkUrl",
+          "ClubLinkUrl",
+          "ColorText",
+          "ColorizedName"
+        ],
+        "Vec3": [
+          "ColorPrimary",
+          "ColorSecondary"
+        ]
+      }
+    },
+    "CUIConfigMgr": {
+      "props": {
+        "CUIConfig": [
+          "UIAll"
+        ],
+        "CUIConfig[]": [
+          "UI"
+        ],
+        "CUILayer[]": [
+          "UILayers",
+          "UIReplayLayers"
+        ],
+        "Integer": [
+          "UISequenceMaxDuration"
+        ]
+      },
+      "methods": {
+        "ResetAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "GetUI": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            }
+          ],
+          "returns": "CUIConfig"
+        },
+        "UILayerCreate": {
+          "params": [],
+          "returns": "CUILayer"
+        },
+        "UILayerDestroy": {
+          "params": [
+            {
+              "identifier": "CUILayer",
+              "argument": "Layer"
+            }
+          ],
+          "returns": "Void"
+        },
+        "UILayerDestroyAll": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CXmlRpc": {
+      "props": {
+        "CXmlRpcEvent[]": [
+          "PendingEvents"
+        ]
+      },
+      "methods": {
+        "SendCallback": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Param1"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Param2"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SendCallbackArray": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SendCallback_BeginRound": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SendCallback_EndRound": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CPlayer": {
+      "props": {
+        "CUser": [
+          "User"
+        ],
+        "Text": [
+          "Login",
+          "Name"
+        ],
+        "Integer": [
+          "RequestedClan"
+        ],
+        "Boolean": [
+          "RequestsSpectate"
+        ]
+      }
+    },
+    "CSmPlayerDriver": {
+      "props": {
+        "ESmDriverBehaviour": [
+          "Behaviour"
+        ],
+        "Real": [
+          "AggroRadius",
+          "DisengageDistance",
+          "PathSpeedCoef",
+          "Accuracy",
+          "Fov",
+          "Agressivity",
+          "Escape_DistanceSafe",
+          "Escape_DistanceMinEscape",
+          "Escape_DistanceMaxEscape",
+          "Saunter_Radius"
+        ],
+        "Integer": [
+          "ReactionTime",
+          "ShootPeriodMin",
+          "ShootPeriodMax",
+          "PathOffset",
+          "Saunter_BaseChillingTime",
+          "Saunter_ChillingTimeDelta"
+        ],
+        "Boolean": [
+          "RocketAnticipation",
+          "IsStuck",
+          "IsFlying",
+          "UseOldShootingSystem",
+          "Scripted_ForceAimInMoveDir"
+        ],
+        "ESmAttackFilter": [
+          "AttackFilter"
+        ],
+        "CSmPlayer": [
+          "Target",
+          "ForcedTarget"
+        ],
+        "ESmDriverPatrolMode": [
+          "Patrol_Mode"
+        ],
+        "Vec3": [
+          "Escape_AnchorPoint",
+          "Saunter_AnchorPoint"
+        ],
+        "CSmPlayer[]": [
+          "TargetsToAvoid"
+        ]
+      }
+    },
+    "CSmMapSector": {
+      "props": {
+        "Ident[]": [
+          "PlayersIds"
+        ]
+      }
+    },
+    "CSmBlockPole": {
+      "props": {
+        "Boolean": [
+          "Captured"
+        ],
+        "CSmSector": [
+          "Sector"
+        ],
+        "CSmGauge": [
+          "Gauge"
+        ]
+      }
+    },
+    "CSmMapGate": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "AutoCloseDelay",
+          "AutoOpenSpeed"
+        ],
+        "Boolean": [
+          "Automatic",
+          "ManualClosed",
+          "AutoClosed",
+          "AutoIsActive"
+        ]
+      }
+    },
+    "CSmMapGauge": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "Value",
+          "Max",
+          "Speed"
+        ],
+        "Real": [
+          "ValueReal"
+        ],
+        "Boolean": [
+          "Captured"
+        ]
+      }
+    },
+    "CSmMapBotPath": {
+      "props": {
+        "Integer": [
+          "Clan"
+        ],
+        "Vec3[]": [
+          "Path"
+        ],
+        "Boolean": [
+          "IsFlying"
+        ]
+      }
+    },
+    "CSmMapObjectAnchor": {
+      "props": {
+        "Text": [
+          "ItemName"
+        ],
+        "Ident": [
+          "ItemModelId"
+        ]
+      }
+    },
+    "CScore": {
+      "props": {
+        "CUser": [
+          "User"
+        ],
+        "Boolean": [
+          "IsRegisteredForLadderMatch"
+        ],
+        "Real": [
+          "LadderScore",
+          "LadderMatchScoreValue"
+        ],
+        "Integer": [
+          "LadderRankSortValue",
+          "LadderClan"
+        ]
+      }
+    },
+    "CUIConfig": {
+      "props": {
+        "EUISequence": [
+          "UISequence"
+        ],
+        "Boolean": [
+          "UISequenceIsCompleted",
+          "UISequence_CanSkipIntroMT",
+          "OverlayHideNotices",
+          "OverlayHideMapInfo",
+          "OverlayHideOpponentsInfo",
+          "OverlayHideChat",
+          "OverlayHideCheckPointList",
+          "OverlayHideRoundScores",
+          "OverlayHideCountdown",
+          "OverlayHideCrosshair",
+          "OverlayHideGauges",
+          "OverlayHideConsumables",
+          "OverlayHide321Go",
+          "OverlayHideBackground",
+          "OverlayHideChrono",
+          "OverlayHideSpeedAndDist",
+          "OverlayHidePersonnalBestAndRank",
+          "OverlayHidePosition",
+          "OverlayHideCheckPointTime",
+          "OverlayHideEndMapLadderRecap",
+          "OverlayHideMultilapInfos",
+          "OverlayHideSpectatorControllers",
+          "OverlayHideSpectatorInfos",
+          "OverlayChatHideAvatar",
+          "NoticesFilter_HidePlayerInfo",
+          "NoticesFilter_HidePlayerWarning",
+          "NoticesFilter_HidePlayerInfoIfNotMe",
+          "NoticesFilter_HidePlayerWarningIfNotMe",
+          "NoticesFilter_HideMapInfo",
+          "NoticesFilter_HideMapWarning",
+          "NoticesFilter_HideMatchInfo",
+          "NoticesFilter_HideMatchWarning",
+          "ScoreTableOnlyManialink",
+          "AltMenuNoDefaultScores",
+          "AltMenuNoCustomScores",
+          "OverlayScoreSummary",
+          "ScreenIn3dHideScoreSummary",
+          "ScreenIn3dHideVersus",
+          "ForceSpectator"
+        ],
+        "Text": [
+          "UISequence_CustomMTClip",
+          "UISequence_PodiumPlayersWin",
+          "UISequence_PodiumPlayersLose",
+          "ManialinkPage",
+          "BigMessage",
+          "BigMessageAvatarLogin",
+          "StatusMessage",
+          "GaugeMessage",
+          "MarkersXML",
+          "ScoreTable",
+          "SmallScoreTable"
+        ],
+        "Integer": [
+          "UISequence_CustomMTRefTime",
+          "BigMessageSoundVariant",
+          "GaugeClan",
+          "OverlayChatLineCount",
+          "ScoreSummary_Points1",
+          "ScoreSummary_RoundPoints1",
+          "ScoreSummary_MatchPoints1",
+          "ScoreSummary_Points2",
+          "ScoreSummary_RoundPoints2",
+          "ScoreSummary_MatchPoints2",
+          "CountdownEndTime",
+          "AlliesLabelsMaxCount",
+          "SpectatorForceCameraType",
+          "SpectatorForcedClan"
+        ],
+        "EAvatarVariant": [
+          "BigMessageAvatarVariant"
+        ],
+        "EUISound": [
+          "BigMessageSound"
+        ],
+        "Real": [
+          "GaugeRatio",
+          "ScoreSummary_Gauge1",
+          "ScoreSummary_Gauge2",
+          "SpectatorCamAutoLatitude",
+          "SpectatorCamAutoLongitude",
+          "SpectatorCamAutoRadius"
+        ],
+        "CUILayer[]": [
+          "UILayers"
+        ],
+        "Vec2": [
+          "OverlayChatOffset",
+          "CountdownCoord"
+        ],
+        "ENoticeLevel": [
+          "NoticesFilter_LevelToShowAsBigMessage"
+        ],
+        "EVisibility": [
+          "ScoreTableVisibility",
+          "SmallScoreTableVisibility",
+          "AlliesLabelsShowGauges",
+          "AlliesLabelsShowNames",
+          "TeamLabelsShowGauges",
+          "TeamLabelsShowNames",
+          "OpposingTeamLabelsShowGauges",
+          "OpposingTeamLabelsShowNames"
+        ],
+        "Ident": [
+          "ScoreSummary_Player1",
+          "ScoreSummary_Player2",
+          "SpectatorAutoTarget",
+          "SpectatorForcedTarget"
+        ],
+        "EUIStatus": [
+          "UIStatus"
+        ],
+        "ELabelsVisibility": [
+          "AlliesLabelsVisibility",
+          "TeamLabelsVisibility",
+          "OpposingTeamLabelsVisibility"
+        ],
+        "EObserverMode": [
+          "SpectatorObserverMode"
+        ]
+      },
+      "methods": {
+        "SendChat": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Text"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SendNotice": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Text"
+            },
+            {
+              "identifier": "ENoticeLevel",
+              "argument": "Level"
+            },
+            {
+              "identifier": "CUser",
+              "argument": "Avatar"
+            },
+            {
+              "identifier": "EAvatarVariant",
+              "argument": "AvatarVariant"
+            },
+            {
+              "identifier": "EUISound",
+              "argument": "Sound"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SoundVariant"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetLayerManialinkAction": {
+          "params": [
+            {
+              "identifier": "CUILayer",
+              "argument": "Layer"
+            }
+          ],
+          "returns": "Text"
+        },
+        "ClearLayerManialinkAction": {
+          "params": [
+            {
+              "identifier": "CUILayer",
+              "argument": "Layer"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTmResult": {
+      "props": {
+        "Integer": [
+          "Time",
+          "StuntsScore",
+          "NbRespawns"
+        ],
+        "Integer[]": [
+          "Checkpoints"
+        ]
+      },
+      "methods": {
+        "Compare": {
+          "params": [
+            {
+              "identifier": "CTmResult",
+              "argument": "Other"
+            },
+            {
+              "identifier": "ETmRaceResultCriteria",
+              "argument": "Criteria"
+            }
+          ],
+          "returns": "Integer"
+        }
+      }
+    },
+    "CXmlNode": {
+      "props": {
+        "Text": [
+          "Name",
+          "TextContents",
+          "TextRawContents",
+          "TextRecursiveContents"
+        ],
+        "CXmlNode[]": [
+          "Children"
+        ]
+      },
+      "methods": {
+        "GetAttributeText": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            },
+            {
+              "identifier": "Text",
+              "argument": "DefaultValue"
+            }
+          ],
+          "returns": "Text"
+        },
+        "GetAttributeInteger": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "DefaultValue"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetAttributeReal": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            },
+            {
+              "identifier": "Real",
+              "argument": "DefaultValue"
+            }
+          ],
+          "returns": "Real"
+        },
+        "GetAttributeBoolean": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "DefaultValue"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetFirstChild": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            }
+          ],
+          "returns": "CXmlNode"
+        }
+      }
+    },
+    "CBlockModelVariant": {
+      "props": {
+        "Text": [
+          "Name"
+        ],
+        "Boolean": [
+          "IsAllUnderground",
+          "IsPartUnderground"
+        ],
+        "Int3": [
+          "Size",
+          "OffsetBoundingBoxMin",
+          "OffsetBoundingBoxMax"
+        ],
+        "CBlockUnitModel[]": [
+          "BlockUnitModels"
+        ]
+      }
+    },
+    "CBlockUnitModel": {
+      "props": {
+        "Int3": [
+          "Offset"
+        ],
+        "CBlockModelClip[]": [
+          "Clips"
+        ]
+      }
+    },
+    "CXmlRpcEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "Text": [
+          "Param1",
+          "Param2",
+          "ParamArray1"
+        ],
+        "Text[]": [
+          "ParamArray2"
+        ]
+      }
+    },
+    "CSmBlock": {
+      "props": {
+        "CSmBase": [
+          "Base"
+        ]
+      }
+    },
+    "CSmSector": {
+      "props": {
+        "Ident[]": [
+          "PlayersIds"
+        ]
+      }
+    },
+    "CSmGauge": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "Value",
+          "Max",
+          "Speed"
+        ],
+        "Real": [
+          "ValueReal"
+        ]
+      }
+    },
+    "CSmLandmark": {
+      "props": {
+        "Text": [
+          "Tag"
+        ],
+        "Integer": [
+          "Order"
+        ],
+        "Vec3": [
+          "Position",
+          "DirFront"
+        ]
+      }
+    },
+    "CSmBase": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "NumberOfCollectors"
+        ],
+        "Boolean": [
+          "IsActive"
+        ]
+      }
+    },
+    "MathLib": {
+      "props": {},
+      "methods": {}
+    },
+    "TextLib": {
+      "props": {},
+      "methods": {}
+    },
+    "MapUnits": {
+      "props": {},
+      "methods": {}
+    },
+    "AnimLib": {
+      "props": {},
+      "methods": {}
+    }
+  }
+}

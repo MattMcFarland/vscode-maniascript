@@ -1,6 +1,13 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.1.0
+
+Intellisense added
+[!Demo](https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/intellisense.gif)
+
+A naive implementation of Intellisense has been added, with more features yet to come.
+
 ## 1.0.0
 
 Official release

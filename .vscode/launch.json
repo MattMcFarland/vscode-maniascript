@@ -13,8 +13,7 @@
             "sourceMaps": true,
             "outFiles": [
                 "${workspaceRoot}/out/**/*.js"
-            ],
-            "preLaunchTask": "build"
+            ]
         }
     ]
 }
