@@ -1,10 +1,18 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.1.2
+
+Fix changelog
+
+## 1.1.1
+
+Fix readme
+
 ## 1.1.0
 
 Intellisense added
-[!Demo](https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/intellisense.gif)
+![Demo](https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/intellisense.gif)
 
 A naive implementation of Intellisense has been added, with more features yet to come.
 
@@ -12,7 +20,7 @@ A naive implementation of Intellisense has been added, with more features yet to
 
 Official release
   - tmLanguage file is now separate from the project
-  
+
 ## 0.3.1
 
 Documentation fixes : Fixed an issue where broken links occurred with png file links
