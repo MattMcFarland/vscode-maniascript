@@ -1,6 +1,9 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.1.3
+Add missing repository field to package.json
+
 ## 1.1.2
 
 Fix changelog
