@@ -1,6 +1,7 @@
-node_modules
-.vscode/settings.json
-.DS_Store
-dist
-.npmrc
-syntaxes
+*
+!*/
+!maniascript
+!maniascript-server
+!LICENSE
+!README.md
+!.travis.yml
