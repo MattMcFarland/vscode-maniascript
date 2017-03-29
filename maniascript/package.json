@@ -1,0 +1,72 @@
+{
+  "name": "vscode-maniascript",
+  "displayName": "ManiaScript",
+  "icon": "images/ms.png",
+  "description": "ManiaScript Language Support for vs code",
+  "version": "1.1.1",
+  "publisher": "mmcfarland",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattMcFarland/vscode-maniascript"
+  },
+  "galleryBanner": {
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.10.0"
+  },
+  "license": "MIT",
+  "categories": [
+    "Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:maniascript"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "maniascript",
+        "aliases": [
+          "ManiaScript",
+          "maniascript"
+        ],
+        "extensions": [
+          ".Script.txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "maniascript",
+        "scopeName": "source.ms",
+        "path": "./grammar/ManiaScript.tmLanguage"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "build-grammar": "node ./xtask.js build-grammar",
+    "vscode:prepublish": "npm run build-grammar && cd ../maniascript-server && npm run compile && cd ../maniascript && tsc -p ./src",
+    "precompile": "npm run build-grammar",
+    "compile": "node ./xtask.js compile",
+    "watch": "tsc -watch -p ./",
+    "update-vscode": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.10",
+    "cross-spawn": "^5.1.0",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.2",
+    "maniascript-tmlanguage": "^2.0.1",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.1",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.2",
+    "vscode": "^1.1.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^3.2.0"
+  }
+}
