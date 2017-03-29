@@ -47,18 +47,15 @@
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "build-grammar": "node ./xtask.js build-grammar",
-    "vscode:prepublish": "npm run build-grammar && cd ../maniascript-server && npm run compile && cd ../maniascript && tsc -p ./src",
+    "build-grammar": "node ./scripts/build-grammar.js",
+    "vscode:prepublish": "node ./scripts/build-all.js",
     "precompile": "npm run build-grammar",
-    "compile": "node ./xtask.js compile",
-    "watch": "tsc -watch -p ./",
+    "compile": "node ./node_modules/typescript/bin/tsc -p ./",
+    "watch": "node ./node_modules/typescript/bin/tsc -watch -p ./",
     "update-vscode": "node ./node_modules/vscode/bin/install"
   },
   "devDependencies": {
     "@types/node": "^7.0.10",
-    "cross-spawn": "^5.1.0",
-    "gulp": "^3.9.1",
-    "gulp-cli": "^1.2.2",
     "maniascript-tmlanguage": "^2.0.1",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",

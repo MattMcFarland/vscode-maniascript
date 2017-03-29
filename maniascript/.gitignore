@@ -4,3 +4,5 @@ dist
 .npmrc
 syntaxes
 grammar
+out
+bin
