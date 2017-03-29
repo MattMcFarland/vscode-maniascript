@@ -14,7 +14,7 @@ npm install
 code .
 cd ../maniascript-server
 npm install
-code.
+code .
 ```
 ## Developing the server
 
