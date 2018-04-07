@@ -11,6 +11,289 @@
     "Ident"
   ],
   "classes": {
+    "CAchievementsAchievement": {
+      "props": {
+        "Ident": [
+          "UserId"
+        ],
+        "CAchievementsAchievementDesc": [
+          "AchievementDesc"
+        ]
+      }
+    },
+    "CAchievementsAchievementDesc": {
+      "props": {
+        "Text": [
+          "TitleId",
+          "DisplayName",
+          "Description",
+          "IconUrl"
+        ]
+      }
+    },
+    "CAchievementsEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CAchievementsAchievement": [
+          "Achievement"
+        ]
+      }
+    },
+    "CAchievementsManager": {
+      "props": {
+        "CAchievementsEvent[]": [
+          "PendingEvents"
+        ],
+        "CAchievementsAchievement[]": [
+          "Achievements"
+        ],
+        "CAchievementsStat[]": [
+          "Stats"
+        ],
+        "CAchievementsAchievementDesc[]": [
+          "AchivementsDescriptions"
+        ],
+        "CAchievementsStatDesc[]": [
+          "StatDescriptions"
+        ]
+      },
+      "methods":{
+        "SendEvent":{
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument" : "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Mnemo"
+            },
+            {
+              "identifier": "Integer[]",
+              "argument": "Params"
+            }
+          ],
+          "return" : "Void"
+        }
+      }
+    },
+    "CAchievementsStat":{
+      "props": {
+        "Ident":[
+          "UserId"
+        ],
+        "CAchievementsStatDesc":[
+          "StatDesc"
+        ],
+        "Integer":[
+          "Value"
+        ]
+      }
+    },
+    "CAchievementsStatDesc": {
+      "props": {
+        "Text":[
+          "TitleId",
+          "DisplayName",
+          "Description"
+        ]
+      }
+    },
+    "CAnchorData": {
+      "props": {
+        "Text": [
+          "DefaultTag",
+          "Tag"
+        ],
+        "Integer": [
+          "DefaultOrder",
+          "Order"
+        ],
+        "CBlock": [
+          "Block"
+        ],
+        "CItemAnchor": [
+          "Item"
+        ]
+      }
+    },
+    "CAnimManager": {
+      "methods": {
+        "Add": {
+          "params": [
+            {
+              "identifier": "CMlControl",
+              "argument": "Control"
+            },
+            {
+              "identifier": "Text",
+              "argument": "XmlTarget"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "StartTime"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Duration"
+            },
+            {
+              "identifier": "EAnimManagerEasing",
+              "argument": "EasingFunc"
+            }
+          ],
+          "return": "Void"
+        },
+        "AddChain": {
+          "params": [
+            {
+              "identifier": "CMlControl",
+              "argument": "Control"
+            },
+            {
+              "identifier": "Text",
+              "argument": "XmlTarget"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Duration"
+            },
+            {
+              "identifier": "EAnimManagerEasing",
+              "argument": "EasingFunc"
+            }
+          ],
+          "return": "Void"
+        }
+      }
+    },
+    "CAnyEditorPlugin": {
+      "props": {
+        "CManiaAppEvent[]": [
+          "PendingEvents"
+        ],
+        "CEditorModule": [
+          "ModuleEditor"
+        ],
+        "CEditorMesh": [
+          "MeshEditor"
+        ],
+        "CEditorEditor": [
+          "EditorEditor"
+        ],
+        "EInteractionStatus": [
+          "InteractionStatus"
+        ]
+      }
+    },
+    "CAudioManager": {
+      "props": {
+        "CAudioSource[]": [
+          "Sounds"
+        ],
+        "Boolean": [
+          "ForceEnableMusic"
+        ],
+        "Real": [
+          "LimitMusicVolumedB",
+          "LimitSceneSoundVolumedB",
+          "LimitUiSoundVolumedB"
+        ]
+      },
+      "methods": {
+        "CreateSound": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Real",
+              "argument": "VolumedB"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsMusic"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsLooping"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsSpatialized"
+            }
+          ],
+          "returns": "CAudioSource"
+        },
+        "DestroySound": {
+          "params": [
+            {
+              "identifier": "CAudioSource",
+              "argument": "Sound"
+            }
+          ],
+          "returns": "Void"
+        },
+        "PlaySoundEvent": {
+          "params": [
+            {
+              "identifier": "ELibSound",
+              "argument": "Sound"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SoundVariant"
+            },
+            {
+              "identifier": "Real",
+              "argument": "VolumedB"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Delay"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ClearAllDelayedSoundsEvents": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CAudioSource": {
+      "props": {
+        "Boolean": [
+          "IsPlaying",
+          "DownloadInProgress"
+        ],
+        "Real": [
+          "Volume",
+          "FadeDuration",
+          "VolumedB",
+          "Pitch",
+          "PlayCursor",
+          "PlayLength"
+        ],
+        "Vec3": [
+          "RelativePosition",
+          "PanRadiusLfe"
+        ]
+      },
+      "methods": {
+        "Play": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Stop": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
     "CMlScript": {
       "props": {
         "CMlPage": [
@@ -2386,80 +2669,6 @@
         }
       }
     },
-    "CAudioManager": {
-      "props": {
-        "CAudioSound[]": [
-          "Sounds"
-        ],
-        "Boolean": [
-          "ForceEnableMusic"
-        ],
-        "Real": [
-          "LimitMusicVolumedB"
-        ]
-      },
-      "methods": {
-        "CreateSound": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Url"
-            },
-            {
-              "identifier": "Real",
-              "argument": "VolumedB"
-            },
-            {
-              "identifier": "Boolean",
-              "argument": "IsMusic"
-            },
-            {
-              "identifier": "Boolean",
-              "argument": "IsLooping"
-            },
-            {
-              "identifier": "Boolean",
-              "argument": "IsSpatialized"
-            }
-          ],
-          "returns": "CAudioSound"
-        },
-        "DestroySound": {
-          "params": [
-            {
-              "identifier": "CAudioSound",
-              "argument": "Sound"
-            }
-          ],
-          "returns": "Void"
-        },
-        "PlaySoundEvent": {
-          "params": [
-            {
-              "identifier": "ELibSound",
-              "argument": "Sound"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "SoundVariant"
-            },
-            {
-              "identifier": "Real",
-              "argument": "VolumedB"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "Delay"
-            }
-          ],
-          "returns": "Void"
-        },
-        "ClearAllDelayedSoundsEvents": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
     "CMlControl": {
       "props": {
         "Text": [
@@ -2713,18 +2922,6 @@
           "params": [],
           "returns": "Void"
         }
-      }
-    },
-    "CAnchorData": {
-      "props": {
-        "Text": [
-          "DefaultTag",
-          "Tag"
-        ],
-        "Integer": [
-          "DefaultOrder",
-          "Order"
-        ]
       }
     },
     "CMode": {
@@ -3719,34 +3916,6 @@
         "Boolean": [
           "IsCompleted"
         ]
-      }
-    },
-    "CAudioSound": {
-      "props": {
-        "Boolean": [
-          "IsPlaying",
-          "DownloadInProgress"
-        ],
-        "Real": [
-          "Volume",
-          "VolumedB",
-          "Pitch",
-          "PlayCursor",
-          "PlayLength"
-        ],
-        "Vec3": [
-          "RelativePosition"
-        ]
-      },
-      "methods": {
-        "Play": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Stop": {
-          "params": [],
-          "returns": "Void"
-        }
       }
     },
     "CMapInfo": {
