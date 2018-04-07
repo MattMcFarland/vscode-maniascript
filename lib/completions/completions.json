@@ -294,6 +294,244 @@
         }
       }
     },
+    "CAudioSourceMusic": {
+      "props": {
+        "Real[]": [
+          "Tracks_Volume",
+          "Tracks_VolumedB",
+          "Tracks_Length"
+        ],
+        "Text[]": [
+          "Tracks_Name"
+        ],
+        "Integer": [
+          "Tracks_Count",
+          "BeatsPerBar"
+        ],
+        "Real": [
+          "BeatsPerMinute",
+          "BeatDuration",
+          "LPF_CutoffRatio",
+          "LPF_Q",
+          "HPF_CutoffRatio",
+          "HPF_Q",
+          "FadeTracksDuration",
+          "FadeFiltersDuration"
+        ],
+        "EUpdateMode": [
+          "UpdateMode"
+        ],
+        "Boolean": [
+          "Dbg_ForceIntensity",
+          "Dbg_ForceSequential",
+          "Dbg_ForceRandom",
+          "UseNewImplem"
+        ]
+      }
+    },
+    "CBadge": {
+      "props": {
+        "Vec3": [
+          "PrimaryColor"
+        ],
+        "Text": [
+          "SkinName"
+        ],
+        "Text[]": [
+          "Layers"
+        ]
+      },
+      "methods": {
+        "StickerSlot_Get": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Slot"
+            }
+          ],
+          "return": "Text"
+        },
+        "StickerSlot_Set": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Slot"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Sticker"
+            }
+          ],
+          "return": "Void"
+        },
+        "StickerSlot_Clear": {
+          "params": [],
+          "return": "Void"
+        }
+      }
+    },
+    "CBadgeEditor": {
+      "props": {
+        "CBadge": [
+          "DisplayCurrentBadge"
+        ],
+        "Vec2": [
+          "DisplayPosN",
+          "DisplaySize"
+        ],
+        "Real": [
+          "DisplayFoV",
+          "CameraTransitionDuration",
+          "MeshRotation_MaxSpeed",
+          "MeshRotation_Acceleration"
+        ],
+        "Ident": [
+          "DisplayCurrentMeshId"
+        ],
+        "Ident[]": [
+          "MeshIds"
+        ],
+        "CBadge[]": [
+          "Badges"
+        ]
+      },
+      "methods": {
+        "Leave": {
+          "params": [],
+          "return": "Void"
+        },
+        "MeshId_Next": {
+          "params": [],
+          "return": "Void"
+        },
+        "MeshId_Previous": {
+          "params": [],
+          "return": "Void"
+        },
+        "BadgeCreate": {
+          "params": [],
+          "return": "CBadge"
+        },
+        "BadgeDestroy": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Badge"
+            }
+          ],
+          "return": "Void"
+        },
+        "BadgeCopy": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Source"
+            },
+            {
+              "identifier": "CBadge",
+              "argument": "Destination"
+            }
+          ],
+          "return": "Void"
+        },
+        "BadgeReadFromProfile": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Badge"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "return": "Void"
+        },
+        "BadgeWriteToProfile": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Badge"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "return": "Void"
+        }
+      }
+    },
+    "CBadgeManager": {
+      "props": {
+        "CBadge[]": [
+          "Badges"
+        ]
+      },
+      "methods": {
+        "BadgeCreate": {
+          "params": [],
+          "return": "CBadge"
+        },
+        "BadgeDestroy": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Badge"
+            }
+          ],
+          "return": "Void"
+        },
+        "BadgeCopy": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Source"
+            },
+            {
+              "identifier": "CBadge",
+              "argument": "Destination"
+            }
+          ],
+          "return": "Void"
+        },
+        "BadgeReadFromProfile": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Badge"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "return": "Void"
+        },
+        "BadgeWriteToProfile": {
+          "params": [
+            {
+              "identifier": "CBadge",
+              "argument": "Badge"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "return": "Void"
+        },
+        "ProfileIsReady": {
+          "param": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "return": "Boolean"
+        }
+      }
+    },
     "CMlScript": {
       "props": {
         "CMlPage": [
