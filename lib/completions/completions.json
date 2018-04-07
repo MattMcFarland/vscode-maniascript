@@ -702,6 +702,232 @@
         ]
       }
     },
+    "CDataFileMgr": {
+      "props": {
+        "CTaskResult[]": [
+          "TaskResults"
+        ],
+        "CCampaign[]": [
+          "Campaigns"
+        ],
+        "CGhost[]": [
+          "Ghosts"
+        ]
+      },
+      "methods": {
+        "TaskResult_Release": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "TaskId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Campaign_Get": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            }
+          ],
+          "returns": "CCampaign"
+        },
+        "Map_RefreshFromDisk": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Map_GetUserList": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "returns": "CTaskResult_MapList"
+        },
+        "Map_GetGameList": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Flatten"
+            }
+          ],
+          "returns": "CTaskResult_MapList"
+        },
+        "Map_GetFilteredGameList": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Scope"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Flatten"
+            }
+          ],
+          "returns": "CTaskResult_MapList"
+        },
+        "Ghost_Release": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "GhostId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ghost_Download": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "CTaskResult_Ghost"
+        },
+        "Replay_RefreshFromDisk": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Replay_GetGameList": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Flatten"
+            }
+          ],
+          "returns": "CTaskResult_ReplayList"
+        },
+        "Replay_GetFilteredGameList": {
+          "params": [
+            {
+              "identifier" : "Integer",
+              "argument": "Scope"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Flatten"
+            }
+          ],
+          "returns": "CTaskResult_ReplayList"
+        },
+        "Replay_Load": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            }
+          ],
+          "returns": "CTaskResult_GhostList"
+        },
+        "Replay_Save": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "CMap",
+              "argument": "Map"
+            },
+            {
+              "identifier": "CGhost",
+              "argument": "Ghost"
+            }
+          ],
+          "returns": "CTaskResult"
+        },
+        "Media_GetGameList": {
+          "params": [
+            {
+              "identifier": "EMediaType",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Flatten"
+            }
+          ],
+          "returns": "CTaskResult_FileList"
+        },
+        "Media_GetFilteredGameList": {
+          "params": [
+            {
+              "identifier": "EMediaType",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Scope"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Flatten"
+            }
+          ],
+          "returns": "CTaskResult_FileList"
+        },
+        "GameMode_GetGameList": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Scope"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Flatten"
+            }
+          ],
+          "returns": "CTaskResult_GameModeList"
+        },
+        "Pack_DownloadOrUpdate": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "DisplayName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "CTaskResult"
+        }
+      }
+    },
     "CMlScript": {
       "props": {
         "CMlPage": [
