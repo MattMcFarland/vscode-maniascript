@@ -928,6 +928,1850 @@
         }
       }
     },
+    "CEditorEditor":{
+      "props": {
+        "Boolean": [
+          "Bindings_RequestInput_Done"
+        ],
+        "Text[]": [
+          "BindingContexts",
+          "RequestedContextBindings"
+        ],
+        "CEditorEvent[]": [
+          "PendingEvents"
+        ]
+      },
+      "methods": {
+        "Bindings_AddContext": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ContextName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_AddBinding": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ContextName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "BindingScriptId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "BindingDisplayName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_RemoveContext": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ContextName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_RemoveBinding": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BindingName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_RequestInput": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BindingName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_SetBindingScriptId": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BindingScriptId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "NewBindingScriptId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_SetBindingDisplayName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BindingScriptId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "BindingDisplayName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_SetContextName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ContextName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "NewContextName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_GetContextBindings": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ContextName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Bindings_GetBindingsActionName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BindingName"
+            }
+          ],
+          "returns": "Text"
+        },
+        "Bindings_GetBindingsDisplayName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BindingName"
+            }
+          ],
+          "returns": "Text"
+        }
+      }
+    },
+    "CEditorEvent": {
+      "props": {
+        "Type": [
+          "Type"
+        ]
+      }
+    },
+    "CEditorMainPlugin": {
+      "props": {
+        "CEditorPluginHandle[]": [
+          "Plugins"
+        ]
+      },
+      "methods": {
+        "Help_Open": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Help_Close": {
+          "params": [],
+          "returns": "Void"
+        },
+        "GetPluginHandle": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            }
+          ],
+          "returns": "CEditorPluginHandle"
+        },
+        "SendPluginEvent": {
+          "params": [
+            {
+              "identifier": "CEditorPluginHandle",
+              "argument": "Handle"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Context_SetActive": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ContextName"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsActive"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Context_IsActive": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ContextName"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Binding_IsActive": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BindingName"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Plugin_SetClearance": {
+          "params": [
+            {
+              "identifier": "CEditorPluginHandle",
+              "argument": "Handle"
+            },
+            {
+              "identifier": "EMeshEditorAPI",
+              "argument": "API"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "IsAllowed"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CEditorMesh": {
+      "props": {
+        "Boolean": [
+          "GoToMaterialEditor",
+          "IsCreateMaterial",
+          "Tmp_UseParts",
+          "EditionBox_IsPlaneOriented",
+          "DisplayVertices",
+          "DisplayFaces",
+          "DisplayJoints",
+          "GripSnap_IsActive",
+          "Display_HideElemsByDistance_IsActive",
+          "IsExperimental"
+        ],
+        "Integer": [
+          "VertexCount",
+          "EdgeCount",
+          "FaceCount",
+          "RotationStep",
+          "MaterialsUpdateId",
+          "Material_Atlas_SelectedSubTexIndex",
+          "CreationElemsCount",
+          "Display_HideElemsByDistance_Distance",
+          "PrefabNamesUpdateId"
+        ],
+        "Real": [
+          "Scale",
+          "Step",
+          "Size",
+          "RotationValue",
+          "ScalingStep",
+          "ScalingRatio",
+          "Display_HideElemsByDistance_Opacity"
+        ],
+        "EEdgesDisplay": [
+          "DisplayEdges"
+        ],
+        "Ident[]": [
+          "MaterialIds"
+        ],
+        "Text[]": [
+          "MaterialNames",
+          "PrefabNames"
+        ],
+        "EInteraction": [
+          "CurrentInteraction"
+        ],
+        "Ident": [
+          "SelectionSet"
+        ],
+        "CEditorEvent[]": [
+          "PendingEvents"
+        ]
+      },
+      "methods": {
+        "EditionBox_SetScale": {
+          "params": [
+            {
+              "identifier": "Real",
+              "argument": "Scale"
+            }
+          ],
+          "returns": "Void"
+        },
+        "EditionBox_OrientPlane": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "EditedMesh_Clear": {
+          "params": [],
+          "returns": "Void"
+        },
+        "EditedMesh_Simplify": {
+          "params": [],
+          "returns": "Void"
+        },
+        "EditedMesh_Lod": {
+          "params": [
+            {
+              "identifier": "Real",
+              "argument": "FacesRatio"
+            }
+          ],
+          "returns": "Void"
+        },
+        "UVUnwrap": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "ETexCoordLayer",
+              "argument": "ETexCoordLayer"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Undo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Redo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SwitchPlane": {
+          "params": [],
+          "returns": "Void"
+        },
+        "GridSnap_SetActive": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "IsActive"
+            }
+          ],
+          "returns": "Void"
+        },
+        "PickInfo_GetNormal": {
+          "params": [],
+          "returns": "Vec3"
+        },
+        "PickInfo_GetPosition": {
+          "params": [],
+          "returns": "Vec3"
+        },
+        "PickInfo_GetEdgeLength": {
+          "params": [],
+          "returns": "Real"
+        },
+        "PickInfo_GetNextVertexPosition": {
+          "params": [],
+          "returns": "Vec3"
+        },
+        "PickInfo_GetMaterial": {
+          "params": [],
+          "returns": "Ident"
+        },
+        "PickInfo_GetError": {
+          "params": [],
+          "returns": "Text"
+        },
+        "Part_SetAnchorPos": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Part_SetIsJoint": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "IsJoint"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Part_ClearAnchor": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Material_GetMaterialIdSelected": {
+          "params": [],
+          "returns": "Ident"
+        },
+        "Material_SetMaterailIdSelected": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "MaterialEditorId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Materail_GetSubTexIndexSelected": {
+          "params": [],
+          "returns": "Integer"
+        },
+        "Material_MaterialLibGetCount": {
+          "params": [],
+          "returns": "Integer"
+        },
+        "Material_SetDefault": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "MaterialId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_GetDefault": {
+          "params": [],
+          "returns": "Ident"
+        },
+        "Material_GetBitmapBase": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "MaterialId"
+            }
+          ],
+          "returns": "CImage"
+        },
+        "Material": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "MaterialId"
+            }
+          ],
+          "returns": "CImage"
+        },
+        "Material_MatchesCriterion": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "MaterialId"
+            },
+            {
+              "identifier": "EMaterialFilterCriterion",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Material_SetFilter": {
+          "params": [
+            {
+              "identifier": "EMaterialFilterCriterion",
+              "argument": "Criterion"
+            },
+            {
+              "identifier": "EFilterKind",
+              "argument": "FilterKind"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_GetFilter": {
+          "params": [
+            {
+              "identifier": "EMaterialFilterCriterion",
+              "argument": "Criterion"
+            }
+          ],
+          "returns": "EFilterKind"
+        },
+        "Material_ClearFilters": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Material_UVEditor_SetIsRotation": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "IsRotation"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_UVEditor_SetIsScale": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "IsScale"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_UVEditor_SetIsScale1D": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "IsScale"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_UVEditor_Open": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "MaterialId"
+            },
+            {
+              "identifier": "CMlQuad",
+              "argument": "LocationQuad"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_UVEditor_Close": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Material_UVEditor_SetMode": {
+          "params": [
+            {
+              "identifier": "EUVEditorMode",
+              "argument": "Mode"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_UVEditor_GetMode": {
+          "params": [],
+          "returns": "EUVEditorMode"
+        },
+        "Material_UVEditor_SetProjectionType": {
+          "params": [
+            {
+              "identifier": "EUVEditorProjectionType",
+              "argument": "ProjectionType"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Material_IsGameMaterial": {
+          "params": [],
+          "returns": "Boolean"
+        },
+        "Material_UVEditor_Apply": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Material_PasteMaterial": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_Abort": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Interaction_SetPreview": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetToPreview"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartCreation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "CreationSetHandle"
+            },
+            {
+              "identifier": "EElemType",
+              "argument": "ElemType"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SetToPickFromHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_Creation_GetElems": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_CloseCreation": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Interaction_Creation_ClearParams": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Interaction_Creation_SetEdgesConstraint": {
+          "params": [
+            {
+              "identifier": "EEdgesConstraint",
+              "argument": "EdgesConstraint"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_Creation_SetAutoMerge": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "AutoMerge"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartPaste": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Interaction_StartBlocTransformation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "TransformationSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartCurve2D": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "BordersSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_CloseCurve2D": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "CanDoCurve2D"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartPick": {
+          "params": [
+            {
+              "identifier": "EElemType",
+              "argument": "ElemType"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SetToPickFrom"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartPickJoint": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Interaction_StartMerge": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "MergeSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartMirror": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_Selection_ClearParams": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Interaction_Selection_SetUseParts": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "UseParts"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_Selection_SetCanEnterLeaf": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "CanEnterLeaf"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartSelection": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SelectionSetHandle"
+            },
+            {
+              "identifier": "EElemType",
+              "argument": "ElemType"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SelectionSetToPickFrom"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_CloseSelection": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Interaction_StartTranslation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "TranslationSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartPickTranslation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "TranslationSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartRotation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "RotationSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartPickRotation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "RotationSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_Rotation_SetStep": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "RotationStep"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartPickScale": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ScalingSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_Scale_SetStep": {
+          "params": [
+            {
+              "identifier": "Real",
+              "argument": "ScalingStep"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Interaction_StartSplit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Display_HighlightSet": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Display_ClearHighlighting": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Display_AtlasSelectionsSet": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "DisplayAtlasSelection"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Display_AtlasSelectionGet": {
+          "params": [],
+          "returns": "Boolean"
+        },
+        "Display_HideElemsByDistance_Start": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Display_HideElemsByDistance_Stop": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Display_HideMap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Display_ShowMap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "MergeAllSuperposedElements": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Selection_Undo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Selection_Redo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetOfElements_Create": {
+          "params": [],
+          "returns": "Ident"
+        },
+        "SetOfElements_CopyFrom": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "DestinationSet"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SourceSet"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_Append": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "DestinationSet"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SourceSet"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_Destroy": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_Empty": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_SetAllElements": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_SetAllFaces": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_DeleteElements": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfELements_HasHorizontalFaces": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "SetOfElements_HasVerticalFaces": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "SetOfElements_GetElemsCount": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "SetOfElements_GetVerticesCount": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "SetOfElements_GetEdgesCount": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "SetOfElements_GetFacesCount": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "ExtendSelectedSet": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetBordersSet": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SetBordersHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetBordersVertexs": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SetVertexHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SelectionSet_SelectAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Curve2DPolygon": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "FourVertexSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SubTexIndex"
+            }
+          ],
+          "returns": "Void"
+        },
+        "AtlasSelection_Create": {
+          "params": [],
+          "returns": "Ident"
+        },
+        "AtlasSelection_GetAtlasSelectionHandleFromSet": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "AtlasSelection_GAddAtlasSelectionFromSet": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "FourPointsHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "AtlasSelection_SubAtlasSelection": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "AtlasSelection_TextureAtlasSelection": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SubTexIndex"
+            }
+          ],
+          "returns": "Void"
+        },
+        "AtlasSelection_GetAtlasSelectionAfterSelection": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Preview_Clear": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BlocTransformation_Start": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "BlocTransformation_Translate": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Translation"
+            }
+          ],
+          "returns": "Void"
+        },
+        "BlocTransformation_Twist": {
+          "params": [
+            {
+              "identifier": "Real",
+              "argument": "Angle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "BlocTransformation_Bend": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Axis"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Radius"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Angle"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Direction"
+            }
+          ],
+          "returns": "Void"
+        },
+        "BlocTransformation_Abort": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BlocTransformation_Close": {
+          "params": [],
+          "returns": "Void"
+        },
+        "VoxelSpace_Init": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Size"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "UseColors"
+            }
+          ],
+          "returns": "Void"
+        },
+        "VoxelSpace_Destroy": {
+          "params": [],
+          "returns": "Void"
+        },
+        "VoxelSpace_Get": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Pos"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "VoxelSpace_Set": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Pos"
+            }
+          ],
+          "returns": "Void"
+        },
+        "VoxelSpace_SetVec3": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Pos"
+            }
+          ],
+          "returns": "Void"
+        },
+        "VoxelSpace_Unset": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Pos"
+            }
+          ],
+          "returns": "Void"
+        },
+        "VoxelSpace_GenerateMesh": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetOfElements_ProjectOnPlane": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_ProjectOnGround": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Height"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_SplitEdgeWithVertex": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_CoolapseEdgeWithVertex": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_Subdivide": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfElements_Subdivide_Interpolation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_DrawCircle": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "InputSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_DrawDisc": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "InputSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_DrawIcosahedron": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "InputSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_DrawIcosahedricSphere": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "InputSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_DrawPoly": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "InputSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "VerticesCount"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_DrawSpline": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ControlSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_Weld": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "VerticesSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfVertices_DrawBox": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ControlSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfEdges_Fill": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfEdges_Flip": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfEdges_BorderExpand": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfOneEdge_FaceLoopExpand": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfOneEdge_EdgeLoopExpand": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfOneFace_CutHole": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "FaceSetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "EdgesSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfFaces_Extrude": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfFaces_QuadsToTriangles": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "ResultSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfFaces_ApplyMaterial": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "SetHandle"
+            },
+            {
+              "identifier": "Ident",
+              "argument": "MaterialId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfFaces_PlanarExpand": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "FacesSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetOfFaces_ChangeOrientation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "FacesSetHandle"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Prefab_Export": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Prefab_Import": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "PrefabIndex"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Parts_MergeSelectedParts": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Parts_Group": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Parts_UngroupSelectedParts": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Cut": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Copy": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetBaseUndoState": {
+          "params": [],
+          "returns": "Void"
+        },
+        "AddUndoState": {
+          "params": [],
+          "returns": "Void"
+        },
+        "AutoSave": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CEditorModule": {
+      "props": {
+        "CModuleMenuModel": [
+          "EditedMenu"
+        ],
+        "CModuleMenuPageModel": [
+          "EditedMenuPage"
+        ],
+        "CeditorPluginModuleEvent[]": [
+          "PendingEvents"
+        ]
+      },
+      "methods": {
+        "NewModule": {
+          "params": [
+            {
+              "identifier": "EModuleType",
+              "argument": "ModuleType"
+            }
+          ],
+          "returns": "Void"
+        },
+        "OpenModule": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Save": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SaveAs": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SaveCopyAs": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ForceExit": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CEditorPluginModuleEvent": {
+      "props": {
+        "Type": [
+          "Type"
+        ]
+      },
+      "methods": {
+        "Eat": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CGameMatchSettingsPlaylistItemScript": {
+      "props": {
+        "Text": [
+          "Name"
+        ],
+        "Boolean": [
+          "FileExists"
+        ]
+      }
+    },
+    "CGameModeInfo": {
+      "props": {
+        "Text": [
+          "Name",
+          "Path",
+          "Description",
+          "Version"
+        ],
+        "Text[]": [
+          "CompatibleMapTypes"
+        ]
+      }
+    },
+    "CGamePlayerMapRecordScript": {
+      "props": {
+        "Text": [
+          "Context",
+          "MapUid",
+          "MapName",
+          "FileName",
+          "ReplayUrl"
+        ],
+        "Integer": [
+          "Score",
+          "Time",
+          "RespawnCount",
+          "Timestamp",
+          "MultiAsyncLevel",
+          "SkillPoints"
+        ]
+      }
+    },
+    "CGhost": {
+      "props": {
+        "Ident": [
+          "Id"
+        ],
+        "CTmResult": [
+          "Result"
+        ],
+        "Text": [
+          "Nickname"
+        ]
+      }
+    },
+    "CHighScoreComparison": {
+      "props": {
+        "CMapInfo": [
+          "MapInfo"
+        ],
+        "Text": [
+          "Login",
+          "RecordDateString",
+          "OpponentLogin",
+          "OpponentDisplayName",
+          "OpponentRecordUrl",
+          "OpponentRecordDateString"
+        ],
+        "Integer": [
+          "RecordScore",
+          "RecordTime",
+          "RecordRespawnCount",
+          "RecordDate",
+          "RecordElapsedTime",
+          "RecordCount",
+          "OpponentRecordScore",
+          "OpponentRecordTime",
+          "OpponentRecordResawnCount",
+          "OpponentRecordDate",
+          "OpponentRecordElapsedTime",
+          "OpponentRecordCount"
+        ]
+      }
+    },
+    "CHighScoreComparisonSummary": {
+      "props": {
+        "Text": [
+          "Login",
+          "BestRecordLastDateString",
+          "OpponentLogin",
+          "OpponentDisplayName",
+          "OppenentBestRecordLasDateString"
+        ],
+        "Integer": [
+          "BestRecordCount",
+          "BestRecordLastDate",
+          "BestRecordElapsedTime",
+          "OpponentBestRecordCount",
+          "OpponentBestRecordLastDate",
+          "OpponentBestRecordElapsedTime"
+        ]
+      }
+    },
+    "CHttpManager": {
+      "props": {
+        "CHttpRequest[]": [
+          "Requests"
+        ],
+        "Integer": [
+          "SlotsAvailable"
+        ],
+        "Boolean": [
+          "AutomaticHeaders_Timezone"
+        ]
+      },
+      "methods": {
+        "CreateGet": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "UseCache"
+            }
+          ],
+          "returns": "CHttpRequest"
+        },
+        "CreatePost": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Resource"
+            }
+          ],
+          "returns": "CHttpRequest"
+        },
+        "Destroy": {
+          "params": [
+            {
+              "identifier": "CHttpRequest",
+              "argument": "Request"
+            }
+          ],
+          "returns": "Void"
+        },
+        "IsValidUrl": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Boolean"
+        }
+      }
+    },
+    "CHttpRequest": {
+      "props": {
+        "Text": [
+          "Url",
+          "Result"
+        ],
+        "Integer": [
+          "StatusCode"
+        ],
+        "Boolean": [
+          "IsCompleted"
+        ]
+      }
+    },
+    "CInputEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CInputPad": [
+          "Pad"
+        ],
+        "EButton": [
+          "Button"
+        ],
+        "Boolean": [
+          "IsAutoRepeat"
+        ],
+        "Integer": [
+          "KeyCode"
+        ],
+        "Text": [
+          "KeyName"
+        ]
+      }
+    },
     "CMlScript": {
       "props": {
         "CMlPage": [
@@ -3247,62 +5091,6 @@
         }
       }
     },
-    "CHttpManager": {
-      "props": {
-        "CHttpRequest[]": [
-          "Requests"
-        ],
-        "Integer": [
-          "SlotsAvailable"
-        ]
-      },
-      "methods": {
-        "CreateGet": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Url"
-            },
-            {
-              "identifier": "Boolean",
-              "argument": "UseCache"
-            }
-          ],
-          "returns": "CHttpRequest"
-        },
-        "CreatePost": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Url"
-            },
-            {
-              "identifier": "Text",
-              "argument": "Resource"
-            }
-          ],
-          "returns": "CHttpRequest"
-        },
-        "Destroy": {
-          "params": [
-            {
-              "identifier": "CHttpRequest",
-              "argument": "Request"
-            }
-          ],
-          "returns": "Void"
-        },
-        "IsValidUrl": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Url"
-            }
-          ],
-          "returns": "Boolean"
-        }
-      }
-    },
     "CMlControl": {
       "props": {
         "Text": [
@@ -4483,20 +6271,6 @@
           ],
           "returns": "CXmlNode"
         }
-      }
-    },
-    "CHttpRequest": {
-      "props": {
-        "Text": [
-          "Url",
-          "Result"
-        ],
-        "Integer": [
-          "StatusCode"
-        ],
-        "Boolean": [
-          "IsCompleted"
-        ]
       }
     },
     "CMapInfo": {
