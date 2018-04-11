@@ -2772,6 +2772,446 @@
         ]
       }
     },
+    "CInputManager": {
+      "props": {
+        "CInputEvent[]": [
+          "PendingEvents"
+        ],
+        "Integer": [
+          "Now",
+          "Period",
+          "Dbg_AutoRepeat_I,itialDelay",
+          "Dbg_AutoRepea_Period"
+        ],
+        "CInputPad[]": [
+          "Pads"
+        ],
+        "Vec2": [
+          "MousePos"
+        ],
+        "Boolean": [
+          "MouseLeftButton",
+          "MouseRightButton",
+          "MouseMiddleButton",
+          "ExclusiveMode"
+        ]
+      },
+      "methods": {
+        "GetPadButtonPlaygroundBinding": {
+          "params": [
+            {
+              "identifier": "CInputPad",
+              "argument": "Pad"
+            },
+            {
+              "identifier": "EButton",
+              "argument": "Button"
+            }
+          ],
+          "returns": "Text"
+        },
+        "GetPadButtonCurrentBinding": {
+          "params": [
+            {
+              "identifier": "CInputPad",
+              "argument": "Pad"
+            },
+            {
+              "identifier": "EButton",
+              "argument": "Button"
+            }
+          ],
+          "returns": "Text"
+        },
+        "GetPadButtonBinding": {
+          "params": [
+            {
+              "identifier": "CInputPad",
+              "argument": "Pad"
+            },
+            {
+              "identifier": "EButton",
+              "argument": "Button"
+            }
+          ],
+          "returns": "Text"
+        },
+        "IsKeyPressed": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "KeyCode"
+            }
+          ],
+          "returns": "Boolean"
+        }
+      }
+    },
+    "CInputPad": {
+      "props": {
+        "Integer": [
+          "ControllerId",
+          "IdleDuration",
+          "Left",
+          "Right",
+          "Up",
+          "Down",
+          "A",
+          "B",
+          "X",
+          "Y",
+          "L1",
+          "R1",
+          "LeftStickBut",
+          "RightStickBut",
+          "Menu",
+          "View"
+        ],
+        "Ident": [
+          "UserId"
+        ],
+        "EPadType": [
+          "Type"
+        ],
+        "Text": [
+          "ModelName"
+        ],
+        "Real": [
+          "LeftStickX",
+          "LeftStickY",
+          "RightStickX",
+          "RightStickY",
+          "L2",
+          "R2"
+        ],
+        "EButton[]": [
+          "ButtonEvents"
+        ]
+      },
+      "methods": {
+        "ClearRumble": {
+          "params": [],
+          "returns": "Void"
+        },
+        "AddRumble": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Duration"
+            },
+            {
+              "identifier": "Real",
+              "argument": "LargeMotor"
+            },
+            {
+              "identifier": "Real",
+              "argument": "SmallMotor"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetColor": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Color"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CItemAnchor": {
+      "props": {
+        "Vec3": [
+          "Position"
+        ]
+      }
+    },
+    "CMacroblockModel": {
+      "props": {
+        "Boolean": [
+          "IsGround",
+          "HasStart",
+          "HasFinish",
+          "HasCheckpoint"
+        ],
+        "CBlockModel": [
+          "GeneratedBlockModel"
+        ],
+        "Text": [
+          "Name"
+        ]
+      }
+    },
+    "CManiaApp": {
+      "props": {
+        "Text": [
+          "ManiaAppUrl",
+          "ManiaAppBaseUrl",
+          "CurrentLocalDateText",
+          "CurrentTimezone"
+        ],
+        "Integer": [
+          "Now",
+          "CurrentDate",
+          "LayersDefaultManialinkVersion"
+        ],
+        "Boolean": [
+          "IsVisible",
+          "EnableMenuNavigationInputs"
+        ],
+        "CUser": [
+          "LocalUser"
+        ],
+        "CTitle": [
+          "LoadedTitle"
+        ],
+        "ESystemPlatform": [
+          "SystemPlatform"
+        ],
+        "ESystemSkuIdentifier": [
+          "SystemSkuIdentifier"
+        ],
+        "CUILayer[]": [
+          "UILayers"
+        ],
+        "CXmlManager": [
+          "Xml"
+        ],
+        "CHttpManager": [
+          "Http"
+        ],
+        "CVideoManager": [
+          "Video"
+        ],
+        "CAudioManager": [
+          "Audio"
+        ],
+        "CInputManager": [
+          "Input"
+        ],
+        "CDataFileMgr": [
+          "DataFileMgr"
+        ],
+        "CScoreMgr": [
+          "ScoreMgr"
+        ],
+        "CPrivilegeMgr": [
+          "PrivilegeMgr"
+        ],
+        "CPresenceMgr": [
+          "PresenceMgr"
+        ],
+        "CUserV2Manager": [
+          "UserMgr"
+        ]
+      },
+      "methods": {
+        "UILayerCreate": {
+          "params": [],
+          "returns": "CUILayer"
+        },
+        "UILayerDestroy": {
+          "params": [
+            {
+              "identifier": "CUILayer",
+              "argument": "Layer"
+            }
+          ],
+          "returns": "Void"
+        },
+        "UILayerDestroyAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "LayerCustomEvent": {
+          "params": [
+            {
+              "identifier": "CUILayer",
+              "argument": "Layer"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "OpenLink": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "ELinkType",
+              "argument": "LinkType"
+            }
+          ],
+          "returns": "Void"
+        },
+        "OpenFileExplorer": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Dialog_Message": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Message"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Dbg_DumpDeclareForVariables": {
+          "params": [
+            {
+              "identifier": "CNod",
+              "argument": "Nod"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "StatsOnly"
+            }
+          ],
+          "returns": "Text"
+        }
+      }
+    },
+    "CManiaAppBase": {
+      "props": {
+        "CManiaAppEvent[]": [
+          "PendingEvents"
+        ]
+      }
+    },
+    "CManiaAppBrowser": {
+      "props": {
+        "CManiaAppEvent[]": [
+          "PendingEvents"
+        ],
+        "Text": [
+          "BrowserFocusedFrameId"
+        ]
+      },
+      "methods": {
+        "BrowserBack": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserQuit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserHome": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserReload": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CManiaAppEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CUILayer": [
+          "CustomEventLayer"
+        ],
+        "Text": [
+          "CustomEventType",
+          "ExternalEventType",
+          "KeyName"
+        ],
+        "Text[]": [
+          "CustomEventData",
+          "ExternalEventData"
+        ],
+        "EMenuNavAction": [
+          "MenuNavAction"
+        ],
+        "Boolean": [
+          "IsActionAutoRepeat"
+        ],
+        "Integer": [
+          "KeyCode"
+        ]
+      }
+    },
+    "CManiaAppPlaygroundCommon": {
+      "props": {
+        "CManiaAppPlaygroundEvent[]": [
+          "PendingEvents"
+        ],
+        "CPlaygroundClient": [
+          "Playground"
+        ],
+        "CMap": [
+          "Map"
+        ],
+        "CUIConfig": [
+          "UI",
+          "ClientUI"
+        ]
+      }
+    },
+    "CManiaAppPlaygroundEvent": {
+      "props": {
+        "Text": [
+          "PlaygroundScriptEventType"
+        ],
+        "Text[]": [
+          "PlaygroundScriptEventData"
+        ]
+      }
+    },
+    "CManiaAppStation": {
+      "props": {
+        "CStation": [
+          "Station"
+        ],
+        "CPackCreatorTitleInfo[]": [
+          "Maker_EditedTitles"
+        ]
+      },
+      "methods": {
+        "EnterStation": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Maker_EditTitle": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "EditedTitleId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Maker_EditNewTitle": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "EditedTitleName"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
     "CMlScript": {
       "props": {
         "CMlPage": [
@@ -3137,113 +3577,6 @@
           ],
           "returns": "Void"
         }
-      }
-    },
-    "CManiaApp": {
-      "props": {
-        "Integer": [
-          "Now"
-        ],
-        "Boolean": [
-          "IsVisible",
-          "EnableMenuNavigationInputs"
-        ],
-        "CUser": [
-          "LocalUser"
-        ],
-        "CTitle": [
-          "LoadedTitle"
-        ],
-        "Real": [
-          "MouseX",
-          "MouseY"
-        ],
-        "CUILayer[]": [
-          "UILayers"
-        ],
-        "CXmlManager": [
-          "Xml"
-        ],
-        "CHttpManager": [
-          "Http"
-        ],
-        "CAudioManager": [
-          "Audio"
-        ]
-      },
-      "methods": {
-        "UILayerCreate": {
-          "params": [],
-          "returns": "CUILayer"
-        },
-        "UILayerDestroy": {
-          "params": [
-            {
-              "identifier": "CUILayer",
-              "argument": "Layer"
-            }
-          ],
-          "returns": "Void"
-        },
-        "UILayerDestroyAll": {
-          "params": [],
-          "returns": "Void"
-        },
-        "LayerCustomEvent": {
-          "params": [
-            {
-              "identifier": "CUILayer",
-              "argument": "Layer"
-            },
-            {
-              "identifier": "Text",
-              "argument": "Type"
-            },
-            {
-              "identifier": "Text[]",
-              "argument": "Data"
-            }
-          ],
-          "returns": "Void"
-        },
-        "OpenLink": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Url"
-            },
-            {
-              "identifier": "ELinkType",
-              "argument": "LinkType"
-            }
-          ],
-          "returns": "Void"
-        }
-      }
-    },
-    "CManiaAppEvent": {
-      "props": {
-        "EType": [
-          "Type"
-        ],
-        "CUILayer": [
-          "CustomEventLayer"
-        ],
-        "Text": [
-          "CustomEventType",
-          "ExternalEventType",
-          "KeyName"
-        ],
-        "Text[]": [
-          "CustomEventData",
-          "ExternalEventData"
-        ],
-        "EMenuNavAction": [
-          "MenuNavAction"
-        ],
-        "Integer": [
-          "KeyCode"
-        ]
       }
     },
     "CManiaAppTitle": {
@@ -5267,29 +5600,6 @@
         ],
         "Ident": [
           "EditedAnchorDataId"
-        ]
-      }
-    },
-    "CMacroblockModel": {
-      "props": {
-        "Boolean": [
-          "IsGround",
-          "HasStart",
-          "HasFinish",
-          "HasCheckpoint"
-        ],
-        "CBlockModel": [
-          "GeneratedBlockModel"
-        ],
-        "Text": [
-          "Name"
-        ]
-      }
-    },
-    "CItemAnchor": {
-      "props": {
-        "Vec3": [
-          "Position"
         ]
       }
     },
