@@ -4242,6 +4242,744 @@
         ]
       }
     },
+    "CMapEditorPluginLayer": {
+      "props": {
+        "CMapEditorPlugin": [
+          "Editor"
+        ]
+      }
+    },
+    "CMapGroup": {
+      "props": {
+        "CMapInfo[]": [
+          "MapInfos"
+        ]
+      },
+      "methods": {
+        "IsUnlocked": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMapInfo": {
+      "props": {
+        "Text": [
+          "MapUid",
+          "Comments",
+          "CollectionName",
+          "AuthorLogin",
+          "AuthorNickName",
+          "AuthorZonePath",
+          "AuthorZoneFlagUrl",
+          "AuthorCountryFlagUrl",
+          "MapType",
+          "MapStyle",
+          "Name",
+          "Path",
+          "FileName"
+        ],
+        "Integer": [
+          "CopperPrice",
+          "TMObjective_AuthorTime",
+          "TMObjective_GoldTime",
+          "TMObjective_SilverTime",
+          "TMObjective_BronzeTime"
+        ],
+        "Boolean": [
+          "Unlocked",
+          "IsPlayable",
+          "CreatedWithSimpleEditor",
+          "TMObjective_IsLapRace"
+        ]
+      }
+    },
+    "CMapType": {
+      "props": {
+        "Boolean": [
+          "CustomEditAnchorData",
+          "ValidationEndRequested",
+          "ValidationEndNoConfirm",
+          "IsSwitchedToPlayground"
+        ],
+        "ValidationStatus": [
+          "ValidationStatus"
+        ],
+        "Text": [
+          "ValidabilityRequirementsMessage"
+        ],
+        "CUIConfigMgr": [
+          "UIManager"
+        ],
+        "CUser[]": [
+          "Users"
+        ]
+      },
+      "methods": {
+        "ClearMapMetadata": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestEnterPlayground": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestLeavePlayground": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMatchSettings": {
+      "props": {
+        "Text": [
+          "Name",
+          "FileName",
+          "ScriptModeName"
+        ],
+        "CGameMatchSettingsPlaylistItemScript[]": [
+          "Playlist"
+        ]
+      },
+      "methods": {
+        "Playlist_FileExists": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "File"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Playlist_FileMatchesMode": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "File"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Playlist_Add": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "File"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Playlist_Remove": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Index"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Playlist_SwapUd": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Index"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Playlist_SwapDown": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Index"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMatchSettingsManager": {
+      "props": {
+        "Boolean": [
+          "MatchSettings_EditScriptSettings_Ongoing"
+        ],
+        "CMatchSettings[]": [
+          "MatchSettings"
+        ]
+      },
+      "methods": {
+        "MatchSettings_Refresh": {
+          "params": [],
+          "returns": "Void"
+        },
+        "MatchSettings_Create": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FilePath"
+            }
+          ],
+          "returns": "CMatchSettings"
+        },
+        "MatchSettings_Save": {
+          "params": [
+            {
+              "identifier": "CMatchSettings",
+              "argument": "MatchSettings"
+            }
+          ],
+          "returns": "Void"
+        },
+        "MatchSettings_SaveAs": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FilePath"
+            },
+            {
+              "identifier": "CMatchSettings",
+              "argument": "MatchSettings"
+            }
+          ],
+          "returns": "CMatchSettings"
+        },
+        "MatchSettings_EditScriptSettings": {
+          "params": [
+            {
+              "identifier": "CMatchSettings",
+              "argument": "MatchSettings"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlBrowser": {
+      "props": {
+        "CManiaAppBrowser": [
+          "ParentApp"
+        ],
+        "CMap": [
+          "CurMap"
+        ],
+        "EBuddyResult": [
+          "BuddyDoResult"
+        ],
+        "Text": [
+          "BuddyDoErrorMessage",
+          "BrowserFocusedFrameId"
+        ],
+        "Boolean": [
+          "IsInBrowser"
+        ]
+      },
+      "methods": {
+        "ShowCurMapCard": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserBack": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserQuit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserHome": {
+          "params": [],
+          "returns": "Void"
+        },
+        "BrowserReload": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetLocalUserClubLink": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ClubLink"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlControl": {
+      "props": {
+        "CMlFrame": [
+          "Parent"
+        ],
+        "Text": [
+          "ControlId",
+          "ToolTip"
+        ],
+        "Text[]": [
+          "ControlClasses"
+        ],
+        "Vec2": [
+          "Size",
+          "RelativePosition_V3",
+          "AbsolutePosition_V3"
+        ],
+        "AlignHorizontal": [
+          "HorizontalAlign"
+        ],
+        "AlignVertical": [
+          "VerticalAlign"
+        ],
+        "Boolean": [
+          "Visible",
+          "IsFocused"
+        ],
+        "Real": [
+          "ZIndex",
+          "RelativeScale",
+          "RelativeRotation",
+          "AbsoluteScale",
+          "AbsoluteRotation"
+        ]
+      },
+      "methods": {
+        "HasClass": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Class"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "DataAttributeExists": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "DataName"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "DataAttributeGet": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "DataName"
+            }
+          ],
+          "returns": "Text"
+        },
+        "DataAttributeSet": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "DataName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "DataValue"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Show": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Hide": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Unload": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Focus": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlEntry": {
+      "props": {
+        "Text": [
+          "Value"
+        ],
+        "ETextFormat": [
+          "TextFormat"
+        ],
+        "Real": [
+          "Opacity",
+          "TextSizeReal"
+        ],
+        "Vec3": [
+          "TextColor"
+        ],
+        "Integer": [
+          "MaxLine"
+        ],
+        "Boolean": [
+          "AutoNewLine"
+        ]
+      },
+      "methods": {
+        "StartEdition": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetText": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "NewText"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "SendSubmitEvent"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlFileEntry": {
+      "props": {
+        "Text": [
+          "FullFileName"
+        ]
+      }
+    },
+    "CMlFrame": {
+      "props": {
+        "CMlControl[]": [
+          "Controls"
+        ],
+        "Boolean": [
+          "ClipWindowActive",
+          "DisablePreload"
+        ],
+        "Vec2": [
+          "ClipWindowRelativePosition",
+          "ClipWindowSize"
+        ]
+      },
+      "methods": {
+        "GetFirstChild": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ControlId"
+            }
+          ],
+          "returns": "CMlControl"
+        }
+      }
+    },
+    "CMlGauge": {
+      "props": {
+        "Text": [
+          "Style"
+        ],
+        "Real": [
+          "Ratio",
+          "GradingRatio"
+        ],
+        "Integer": [
+          "Clan"
+        ],
+        "Vec3": [
+          "Color"
+        ],
+        "Boolean": [
+          "DrawBackground",
+          "DrawBlockBackground",
+          "CenteredBar"
+        ]
+      },
+      "methods": {
+        "SetRatio": {
+          "params": [
+            {
+              "identifier": "Real",
+              "argument": "NewRatio"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetClan": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "NewClan"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlGraph": {
+      "props": {
+        "Vec2": [
+          "CoordsMin",
+          "CoordsMax"
+        ],
+        "CMlGraphCurve[]": [
+          "Curves"
+        ]
+      },
+      "methods": {
+        "AddCurve": {
+          "params": [],
+          "returns": "CMlGraphCurve"
+        },
+        "RemoveCurve": {
+          "params": [
+            {
+              "identifier": "CMlGraphCurve",
+              "argument": "Curve"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlGraphCurve": {
+      "props": {
+        "Vec2[]": [
+          "Points"
+        ],
+        "Vec3": [
+          "Color"
+        ],
+        "Text": [
+          "Style"
+        ],
+        "Real": [
+          "Width"
+        ]
+      },
+      "methods": {
+        "SortPoints": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlLabel": {
+      "props": {
+        "Text": [
+          "Style",
+          "Substyle",
+          "TextFont",
+          "Value"
+        ],
+        "Integer": [
+          "ValueLineCount",
+          "MaxLine"
+        ],
+        "Boolean": [
+          "AppendEllipsis",
+          "AutoNewLine"
+        ],
+        "Real": [
+          "LineSpacing",
+          "Opacity",
+          "TextSizeReal"
+        ],
+        "Vec3": [
+          "TextColor"
+        ],
+        "EBlendMode": [
+          "Blend"
+        ]
+      },
+      "methods": {
+        "SetText": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "NewText"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ComputeWidth": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Text"
+            }
+          ],
+          "returns": "Real"
+        },
+        "ComputeHeight": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Text"
+            }
+          ],
+          "returns": "Real"
+        }
+      }
+    },
+    "CMlMediaPlayer": {
+      "props": {
+        "Boolean": [
+          "IsInitPlay",
+          "Music",
+          "IsLooping"
+        ],
+        "Real": [
+          "Volume"
+        ],
+        "Text": [
+          "Url"
+        ]
+      },
+      "methods": {
+        "Play": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Stop": {
+          "params": [],
+          "returns": "Void"
+        },
+        "StopAndRewind": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlMinimap": {
+      "props": {
+        "Vec3": [
+          "WorldPosition"
+        ],
+        "Vec2": [
+          "MapPosition"
+        ],
+        "Real": [
+          "MapYaw",
+          "ZoomFactor"
+        ],
+        "Boolean": [
+          "Underground"
+        ]
+      },
+      "methods": {
+        "Fog_SetAll": {
+          "params": [
+            {
+              "identifier": "Real",
+              "argument": "Value"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Fog_ClearDisk": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "WorldCenter"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Radius"
+            },
+            {
+              "identifier": "Real",
+              "argument": "FadeSize"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlPage": {
+      "props": {
+        "CMlFrame": [
+          "MainFrame"
+        ],
+        "Boolean": [
+          "LinksInhibited"
+        ],
+        "CMlControl[]": [
+          "GetClassChildren_Result"
+        ]
+      },
+      "methods": {
+        "GetFirstChild": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ControlId"
+            }
+          ],
+          "returns": "CMlControl"
+        },
+        "GetClassChildren": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Class"
+            },
+            {
+              "identifier": "CMlFrame",
+              "argument": "Frame"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Recursive"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlQuad": {
+      "props": {
+        "CImage": [
+          "Image"
+        ],
+        "Text": [
+          "ImageUrl",
+          "ImageUrlFocus",
+          "Style",
+          "Substyle"
+        ],
+        "Boolean": [
+          "StyleSelected",
+          "DownloadInProgress"
+        ],
+        "Vec3": [
+          "Colorize",
+          "ModulateColor",
+          "BgColor",
+          "BgColorFocus"
+        ],
+        "Real": [
+          "Opacity"
+        ],
+        "EKeepRatioMode": [
+          "KeepRatio"
+        ],
+        "EBlendMode": [
+          "Blend"
+        ]
+      },
+      "methods": {
+        "ChangeImageUrl": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "fieldName"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
     "CMlScript": {
       "props": {
         "CMlPage": [
@@ -4249,6 +4987,7 @@
         ],
         "Boolean": [
           "PageIsVisible",
+          "Dbg_WarnOnDroppedEvents",
           "MouseLeftButton",
           "MouseRightButton",
           "MouseMiddleButton",
@@ -4269,7 +5008,8 @@
         ],
         "Text": [
           "CurrentTimeText",
-          "CurrentLocalDateText"
+          "CurrentLocalDateText",
+          "CurrentTimezone"
         ],
         "CUser": [
           "LocalUser"
@@ -4277,7 +5017,13 @@
         "CTitle": [
           "LoadedTitle"
         ],
-        "CMlEvent[]": [
+        "ESystemPlatform": [
+          "SystemPlatform"
+        ],
+        "ESystemSkuIdentifier": [
+          "SystemSkuIdentifier"
+        ],
+        "CMlScriptEvent[]": [
           "PendingEvents"
         ],
         "Real": [
@@ -4290,11 +5036,41 @@
         "CHttpManager": [
           "Http"
         ],
+        "CVideoManager": [
+          "Video"
+        ],
         "CAudioManager": [
           "Audio"
+        ],
+        "CInputManager": [
+          "Input"
+        ],
+        "CDataFileMgr": [
+          "DataFileMgr"
+        ],
+        "CScoreMgr": [
+          "ScoreMgr"
+        ],
+        "CPrivilegeMgr": [
+          "PrivilegeMgr"
+        ],
+        "CPresenceMgr": [
+          "PresenceMgr"
+        ],
+        "CAnimManager": [
+          "AnimManager"
         ]
       },
       "methods": {
+        "Dbg_SetProcessed": {
+          "params": [
+            {
+              "identifier": "CMlScriptEvent",
+              "argument": "Event"
+            }
+          ],
+          "returns": "Void"
+        },
         "IsKeyPressed": {
           "params": [
             {
@@ -4368,245 +5144,52 @@
             }
           ],
           "returns": "Void"
+        },
+        "PreloadAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Dbg_DumpDeclareForVariables": {
+          "params": [
+            {
+              "identifier": "CNod",
+              "argument": "Nod"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "StatsOnly"
+            }
+          ],
+          "returns": "Void"
         }
       }
     },
-    "CMlEntry": {
+    "CMlScriptEvent": {
       "props": {
-        "Text": [
-          "Value"
+        "Type": [
+          "Type"
         ],
         "Integer": [
-          "MaxLine"
-        ],
-        "Boolean": [
-          "AutoNewLine"
-        ]
-      },
-      "methods": {
-        "StartEdition": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
-    "CMlFileEntry": {
-      "props": {
-        "Text": [
-          "FullFileName"
-        ]
-      }
-    },
-    "CMlLabel": {
-      "props": {
-        "Text": [
-          "Style",
-          "Substyle",
-          "TextFont",
-          "Value"
-        ],
-        "Integer": [
-          "ValueLineCount",
-          "MaxLine",
-          "TextSize"
-        ],
-        "Boolean": [
-          "AppendEllipsis",
-          "AutoNewLine"
-        ],
-        "Real": [
-          "Opacity"
-        ],
-        "Vec3": [
-          "TextColor"
-        ]
-      },
-      "methods": {
-        "SetText": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "NewText"
-            }
-          ],
-          "returns": "Void"
-        },
-        "ComputeWidth": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Text"
-            }
-          ],
-          "returns": "Real"
-        }
-      }
-    },
-    "CMlQuad": {
-      "props": {
-        "Text": [
-          "ImageUrl",
-          "ImageUrlFocus",
-          "Style",
-          "Substyle"
-        ],
-        "Boolean": [
-          "StyleSelected",
-          "DownloadInProgress"
-        ],
-        "Vec3": [
-          "Colorize",
-          "ModulateColor",
-          "BgColor",
-          "BgColorFocus"
-        ],
-        "Real": [
-          "Opacity"
-        ],
-        "EKeepRatioMode": [
-          "KeepRatio"
-        ]
-      },
-      "methods": {
-        "ChangeImageUrl": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "fieldName"
-            }
-          ],
-          "returns": "Void"
-        }
-      }
-    },
-    "CMlGauge": {
-      "props": {
-        "Text": [
-          "Style"
-        ],
-        "Real": [
-          "Ratio",
-          "GradingRatio"
-        ],
-        "Integer": [
-          "Clan"
-        ],
-        "Vec3": [
-          "Color"
-        ],
-        "Boolean": [
-          "DrawBackground",
-          "DrawBlockBackground",
-          "CenteredBar"
-        ]
-      },
-      "methods": {
-        "SetRatio": {
-          "params": [
-            {
-              "identifier": "Real",
-              "argument": "NewRatio"
-            }
-          ],
-          "returns": "Void"
-        },
-        "SetClan": {
-          "params": [
-            {
-              "identifier": "Integer",
-              "argument": "NewClan"
-            }
-          ],
-          "returns": "Void"
-        }
-      }
-    },
-    "CMlGraph": {
-      "props": {
-        "Vec2": [
-          "CoordsMin",
-          "CoordsMax"
-        ],
-        "CMlGraphCurve[]": [
-          "Curves"
-        ]
-      },
-      "methods": {
-        "AddCurve": {
-          "params": [],
-          "returns": "CMlGraphCurve"
-        },
-        "RemoveCurve": {
-          "params": [
-            {
-              "identifier": "CMlGraphCurve",
-              "argument": "Curve"
-            }
-          ],
-          "returns": "Void"
-        }
-      }
-    },
-    "CMlMinimap": {
-      "props": {
-        "Vec3": [
-          "WorldPosition"
-        ],
-        "Vec2": [
-          "MapPosition"
-        ],
-        "Real": [
-          "MapYaw",
-          "ZoomFactor"
-        ]
-      }
-    },
-    "CMlBrowser": {
-      "props": {
-        "CMap": [
-          "CurMap"
-        ],
-        "EBuddyResult": [
-          "BuddyDoResult"
+          "KeyCode"
         ],
         "Text": [
-          "BuddyDoErrorMessage",
-          "BrowserFocusedFrameId"
+          "KeyName",
+          "CharPressed",
+          "ControlId",
+          "CustomEventType"
+        ],
+        "CMlControl": [
+          "Control"
+        ],
+        "EMenuNavAction": [
+          "MenuNavAction"
         ],
         "Boolean": [
-          "IsInBrowser"
+          "IsActionAutoRepeat"
+        ],
+        "Text[]": [
+          "CustomEventData"
         ]
-      },
-      "methods": {
-        "ShowCurMapCard": {
-          "params": [],
-          "returns": "Void"
-        },
-        "BrowserBack": {
-          "params": [],
-          "returns": "Void"
-        },
-        "BrowserQuit": {
-          "params": [],
-          "returns": "Void"
-        },
-        "BrowserHome": {
-          "params": [],
-          "returns": "Void"
-        },
-        "BrowserReload": {
-          "params": [],
-          "returns": "Void"
-        },
-        "SetLocalUserClubLink": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ClubLink"
-            }
-          ],
-          "returns": "Void"
-        }
       }
     },
     "CStation": {
@@ -5656,47 +6239,6 @@
       "props": {},
       "methods": {}
     },
-    "CMlPage": {
-      "props": {
-        "CMlFrame": [
-          "MainFrame"
-        ],
-        "Boolean": [
-          "LinksInhibited"
-        ],
-        "CMlControl[]": [
-          "GetClassChildren_Result"
-        ]
-      },
-      "methods": {
-        "GetFirstChild": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ControlId"
-            }
-          ],
-          "returns": "CMlControl"
-        },
-        "GetClassChildren": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Class"
-            },
-            {
-              "identifier": "CMlFrame",
-              "argument": "Frame"
-            },
-            {
-              "identifier": "Boolean",
-              "argument": "Recursive"
-            }
-          ],
-          "returns": "Void"
-        }
-      }
-    },
     "CUser": {
       "props": {
         "Text": [
@@ -5764,31 +6306,6 @@
         ]
       }
     },
-    "CMlEvent": {
-      "props": {
-        "Type": [
-          "Type"
-        ],
-        "Integer": [
-          "KeyCode"
-        ],
-        "Text": [
-          "KeyName",
-          "CharPressed",
-          "ControlId",
-          "CustomEventType"
-        ],
-        "CMlControl": [
-          "Control"
-        ],
-        "EMenuNavAction": [
-          "MenuNavAction"
-        ],
-        "Text[]": [
-          "CustomEventData"
-        ]
-      }
-    },
     "CXmlManager": {
       "props": {
         "CXmlDocument[]": [
@@ -5824,118 +6341,6 @@
               "argument": "Document"
             }
           ],
-          "returns": "Void"
-        }
-      }
-    },
-    "CMlControl": {
-      "props": {
-        "Text": [
-          "ControlId"
-        ],
-        "Text[]": [
-          "ControlClasses"
-        ],
-        "Vec2": [
-          "Size"
-        ],
-        "AlignHorizontal": [
-          "HorizontalAlign"
-        ],
-        "AlignVertical": [
-          "VerticalAlign"
-        ],
-        "Boolean": [
-          "Visible"
-        ],
-        "Vec3": [
-          "RelativePosition",
-          "AbsolutePosition"
-        ],
-        "Real": [
-          "RelativeScale",
-          "RelativeRotation",
-          "AbsoluteScale",
-          "AbsoluteRotation"
-        ]
-      },
-      "methods": {
-        "HasClass": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Class"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "DataAttributeExists": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "DataName"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "DataAttributeGet": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "DataName"
-            }
-          ],
-          "returns": "Text"
-        },
-        "DataAttributeSet": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "DataName"
-            },
-            {
-              "identifier": "Text",
-              "argument": "DataValue"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Show": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Hide": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Unload": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Focus": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
-    "CMlGraphCurve": {
-      "props": {
-        "Vec2[]": [
-          "Points"
-        ],
-        "Vec3": [
-          "Color"
-        ],
-        "Text": [
-          "Style"
-        ],
-        "Real": [
-          "Width"
-        ]
-      },
-      "methods": {
-        "SortPoints": {
-          "params": [],
           "returns": "Void"
         }
       }
@@ -6700,50 +7105,6 @@
         ]
       }
     },
-    "CMapType": {
-      "props": {
-        "Boolean": [
-          "CustomEditAnchorData",
-          "ValidationEndRequested",
-          "IsSwitchedToPlayground"
-        ],
-        "ValidationStatus": [
-          "ValidationStatus"
-        ],
-        "Text": [
-          "ValidabilityRequirementsMessage"
-        ],
-        "CUIConfigMgr": [
-          "UIManager"
-        ],
-        "CUser[]": [
-          "Users"
-        ]
-      },
-      "methods": {
-        "ClearMapMetadata": {
-          "params": [],
-          "returns": "Void"
-        },
-        "StartTestMapWithMode": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "RulesModeName"
-            }
-          ],
-          "returns": "Void"
-        },
-        "RequestEnterPlayground": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RequestLeavePlayground": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
     "CTmMlPlayer": {
       "props": {
         "Integer": [
@@ -6888,31 +7249,6 @@
         ]
       }
     },
-    "CMlFrame": {
-      "props": {
-        "CMlControl[]": [
-          "Controls"
-        ],
-        "Boolean": [
-          "ClipWindowActive"
-        ],
-        "Vec2": [
-          "ClipWindowRelativePosition",
-          "ClipWindowSize"
-        ]
-      },
-      "methods": {
-        "GetFirstChild": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ControlId"
-            }
-          ],
-          "returns": "CMlControl"
-        }
-      }
-    },
     "CXmlDocument": {
       "props": {
         "Text": [
@@ -6935,30 +7271,6 @@
           ],
           "returns": "CXmlNode"
         }
-      }
-    },
-    "CMapInfo": {
-      "props": {
-        "Ident": [
-          "MapUid"
-        ],
-        "Text": [
-          "Comments",
-          "CollectionName",
-          "AuthorLogin",
-          "AuthorNickName",
-          "AuthorZonePath",
-          "MapType",
-          "MapStyle",
-          "Name",
-          "Path"
-        ],
-        "Integer": [
-          "CopperPrice"
-        ],
-        "Boolean": [
-          "Unlocked"
-        ]
       }
     },
     "CTeam": {
