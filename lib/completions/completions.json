@@ -3212,6 +3212,1036 @@
         }
       }
     },
+    "CManiaAppTitle": {
+      "props": {
+        "CManiaAppEvent[]": [
+          "PendingEvents"
+        ],
+        "Boolean": [
+          "LoadingScreenRequireKeyPressed",
+          "DontScaleMainMenuForHMD",
+          "Authentication_GetTokenResponseReceived"
+        ],
+        "CTitleFlow": [
+          "TitleFlow",
+          "TitleControl"
+        ],
+        "CTitleEdition": [
+          "TitleEdition"
+        ],
+        "CNotificationsConsumer": [
+          "Notifications"
+        ],
+        "Text": [
+          "ExternalRequest_Type",
+          "Authentication_Token"
+        ],
+        "Text[]": [
+          "ExternalRequest_Data"
+        ],
+        "CAchievementsManager": [
+          "AchievementsManager"
+        ],
+        "CBadgeManager": [
+          "BadgeManager"
+        ],
+        "CMatchSettingsManager": [
+          "MatchSettingsManager"
+        ],
+        "Integer": [
+          "Authentication_ErrorCode"
+        ]
+      },
+      "methods": {
+        "Menu_Quit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Home": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Solo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Local": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Internet": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Editor": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Profile": {
+          "params": [],
+          "returns": "Void"
+        },
+        "PlayMap": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Map"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ExternalRequest_Clear": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Authentication_GetToken": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "AppLogin"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CManiaAppTitleLayer": {
+      "props": {
+        "CManiaAppTitle": [
+          "ParentApp"
+        ],
+        "CTitleFlow": [
+          "TitleControl",
+          "TitleFlow"
+        ]
+      }
+    },
+    "CMap": {
+      "props": {
+        "CMapInfo": [
+          "MapInfo"
+        ],
+        "Text": [
+          "MapName",
+          "Comments",
+          "AuthorZoneIconUrl",
+          "CollectionName",
+          "DecorationName",
+          "AuthorLogin",
+          "AuthorNickName",
+          "AuthorZonePath",
+          "MapType",
+          "MapStyle",
+          "ObjectiveTextAuthor",
+          "ObjectiveTextGold",
+          "ObjectiveTextSilver",
+          "ObjectiveTextBronze"
+        ],
+        "Integer": [
+          "TMObjective_AuthorTime",
+          "TMObjective_GoldTime",
+          "TMObjective_SilverTime",
+          "TMObjective_BronzeTime",
+          "TMObjective_NbLaps",
+          "CopperPrice"
+        ],
+        "Boolean": [
+          "TMObjective_IsLapRace"
+        ],
+        "Int3": [
+          "Size"
+        ]
+      }
+    },
+    "CMapEditorPlugin": {
+      "props": {
+        "CMapEditorPluginEvent[]": [
+          "PendingEvents"
+        ],
+        "CMap": [
+          "Map"
+        ],
+        "Text": [
+          "MapName",
+          "ManialinkText"
+        ],
+        "PlaceMode": [
+          "PlaceMode"
+        ],
+        "EditMode": [
+          "EditMode"
+        ],
+        "Boolean": [
+          "IsEditorReadyForRequest",
+          "HoldLoadingScreen",
+          "IsUltraShadowsQualityAvailable",
+          "UndergroundMode",
+          "BlockStockMode",
+          "EnableAirMapping",
+          "EnableMixMapping",
+          "EnableEditorInputsCustomProcessing",
+          "EnableCursorShowingWhenInterfaceIsFocused",
+          "HideEditorInterface",
+          "HideBlockHelpers",
+          "ShowPlacementGrid",
+          "EditorInputIsDown_Menu",
+          "EditorInputIsDown_SwitchToRace",
+          "EditorInputIsDown_Undo",
+          "EditorInputIsDown_Redo",
+          "EditorInputIsDown_CursorUp",
+          "EditorInputIsDown_CursorRight",
+          "EditorInputIsDown_CursorDown",
+          "EditorInputIsDown_CursorLeft",
+          "EditorInputIsDown_CursorRaise",
+          "EditorInputIsDown_CursorLower",
+          "EditorInputIsDown_CursorTurn",
+          "EditorInputIsDown_CursorPick",
+          "EditorInputIsDown_CursorPlace",
+          "EditorInputIsDown_CursorDelete",
+          "EditorInputIsDown_CameraUp",
+          "EditorInputIsDown_CameraRight",
+          "EditorInputIsDown_CameraDown",
+          "EditorInputIsDown_CameraLeft",
+          "EditorInputIsDown_CameraZoomNext",
+          "EditorInputIsDown_Camera0",
+          "EditorInputIsDown_Camera1",
+          "EditorInputIsDown_Camera3",
+          "EditorInputIsDown_Camera7",
+          "EditorInputIsDown_Camera9",
+          "EditorInputIsDown_PivotChange",
+          "EditorInputIsDown_CursorTurnSlightly",
+          "EditorInputIsDown_CursorTurnSlightlyAntiClockwise",
+          "EditorInputIsDown_IconUp",
+          "EditorInputIsDown_IconRight",
+          "EditorInputIsDown_IconDown",
+          "EditorInputIsDown_IconLeft",
+          "EditorInputIsDown_RemoveAll",
+          "EditorInputIsDown_Save",
+          "EditorInputIsDown_SaveAs",
+          "EditorInputIsDown_MapStyle",
+          "EditorInputIsDown_ClassicMapEditor"
+        ],
+        "ShadowsQuality": [
+          "CurrentShadowsQuality"
+        ],
+        "Int3": [
+          "CursorCoord"
+        ],
+        "CardinalDirections": [
+          "CursorDir"
+        ],
+        "CBlockModel": [
+          "CursorBlockModel",
+          "CursorTerrainBlockModel"
+        ],
+        "CMacroblockModel": [
+          "CursorMacroblockModel"
+        ],
+        "Real": [
+          "CameraVAngle",
+          "CameraHAngle",
+          "CameraToTargetDistance",
+          "ThumbnailCameraVAngle",
+          "ThumbnailCameraHAngle",
+          "ThumbnailCameraRoll",
+          "ThumbnailCameraFovY",
+          "CursorBrightnessFactor",
+          "CollectionSquareSize",
+          "CollectionSquareHeight"
+        ],
+        "Vec3": [
+          "CameraTargetPosition",
+          "CameraPosition",
+          "ThumbnailCameraPosition",
+          "CustomSelectionRGB"
+        ],
+        "CItemAnchor[]": [
+          "Items"
+        ],
+        "Text[]": [
+          "MediatrackIngameClips",
+          "MediatrackIngameIsScriptClips"
+        ],
+        "Integer": [
+          "MediatrackIngameEditedClipIndex",
+          "CollectionGroundY"
+        ],
+        "CBlock[]": [
+          "Blocks"
+        ],
+        "CBlockModel[]": [
+          "BlockModels",
+          "TerrainBlockModels"
+        ],
+        "CMacroblockModel[]": [
+          "MacroblockModels"
+        ],
+        "CAnchorData[]": [
+          "AnchorData"
+        ],
+        "Int3[]": [
+          "CustomSelectionCoords"
+        ],
+        "ValidationStatus": [
+          "ValidationStatus"
+        ],
+        "CMlPage": [
+          "ManialinkPage"
+        ]
+      },
+      "methods": {
+        "ComputeShadows": {
+          "params": [],
+          "returns": "Void"
+        },
+        "DisplayDefaultSetObjectivesDialog": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Undo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Redo": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Help": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Validate": {
+          "params": [],
+          "returns": "Void"
+        },
+        "AutoSave": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Quit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "QuickQuit": {
+          "params": [],
+          "returns": "Void"
+        },
+        "QuitAndSetResult": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "QuickQuitAndSetResult": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "TestMapFromStart": {
+          "params": [],
+          "returns": "Void"
+        },
+        "TestMapFromCoord": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Void"
+        },
+        "TestMapWithMode": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "RulesModeName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SaveMap": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Path"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetRaceCamera": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Yaw"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Pitch"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Roll"
+            },
+            {
+              "identifier": "Real",
+              "argument": "FovY"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RemoveAllBlocks": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllTerrain": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllOffZone": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllObjects": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RemoveAllBlocksAndTerrain": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ShowCustomSelection": {
+          "params": [],
+          "returns": "Void"
+        },
+        "HideCustomSelection": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_Copy": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_Cut": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_Remove": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_SelectAll": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyPaste_ResetSelection": {
+          "params": [],
+          "returns": "Void"
+        },
+        "OpenToolsMenu": {
+          "params": [],
+          "returns": "Void"
+        },
+        "EditMediatrackIngame": {
+          "params": [],
+          "returns": "Void"
+        },
+        "PreloadAllBlocks": {
+          "params": [],
+          "returns": "Void"
+        },
+        "PreloadAllItems": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CanPlaceBlock": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "OnGround"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "VariantIndex"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceBlock": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceBlock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "OnGround"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "VariantIndex"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceBlock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceRoadBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceRoadBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceTerrainBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceTerrainBlocks": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceTerrainBlocks_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceMacroblock": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceMacroblock": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceMacroblock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceMacroblock_NoDestruction": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CanPlaceMacroblock_NoTerrain": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "PlaceMacroblock_NoTerrain": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RemoveMacroblock": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RemoveMacroblock_NoTerrain": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetBlock": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            }
+          ],
+          "returns": "CBlock"
+        },
+        "IsBlockModelSkinnable": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetNbBlockModelSkins": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetBlockModelSkin": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SkinIndex"
+            }
+          ],
+          "returns": "Text"
+        },
+        "GetSkinDisplayName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "SkinFileName"
+            }
+          ],
+          "returns": "Text"
+        },
+        "GetBlockSkin": {
+          "params": [
+            {
+              "identifier": "CBlock",
+              "argument": "Block"
+            }
+          ],
+          "returns": "Text"
+        },
+        "SetBlockSkin": {
+          "params": [
+            {
+              "identifier": "CBlock",
+              "argument": "Block"
+            },
+            {
+              "identifier": "Text",
+              "argument": "SkinFileName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "OpenBlockSkinDialog": {
+          "params": [
+            {
+              "identifier": "CBlock",
+              "argument": "Block"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RemoveBlock": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "Coord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RemoveTerrainBlocks": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetBlockGroundHeight": {
+          "params": [
+            {
+              "identifier": "CBlockModel",
+              "argument": "BlockModel"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "CoordX"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "CoordZ"
+            },
+            {
+              "identifier": "CardinalDirections",
+              "argument": "Dir"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetGroundHeight": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "CoordX"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "CoordZ"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetMouseCoordOnGround": {
+          "params": [],
+          "returns": "Int3"
+        },
+        "GetMouseCoordAtHeight": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "CoordY"
+            }
+          ],
+          "returns": "Int3"
+        },
+        "GetStartLineBlock": {
+          "params": [],
+          "returns": "CBlock"
+        },
+        "RemoveItem": {
+          "params": [
+            {
+              "identifier": "CAnchorData",
+              "argument": "Item"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "CopyPaste_AddOrSubSelection": {
+          "params": [
+            {
+              "identifier": "Int3",
+              "argument": "StartCoord"
+            },
+            {
+              "identifier": "Int3",
+              "argument": "EndCoord"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CopyPaste_Symmetrize": {
+          "params": [],
+          "returns": "Boolean"
+        },
+        "SaveMacroblock": {
+          "params": [
+            {
+              "identifier": "CMacroblockModel",
+              "argument": "MacroblockModel"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetMacroblockModelFromFilePath": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "MacroblockModelFilePath"
+            }
+          ],
+          "returns": "CMacroblockModel"
+        },
+        "GetTerrainBlockModelFromName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "TerrainBlockModelName"
+            }
+          ],
+          "returns": "CBlockModel"
+        },
+        "GetBlockModelFromName": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "BlockModelName"
+            }
+          ],
+          "returns": "CBlockModel"
+        },
+        "GetMapStyle": {
+          "params": [],
+          "returns": "Text"
+        },
+        "SetMapStyle": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "MapStyle"
+            }
+          ],
+          "returns": "Text"
+        }
+      }
+    },
+    "CMapEditorPluginEvent": {
+      "props": {
+        "Type": [
+          "Type"
+        ],
+        "EInput": [
+          "Input"
+        ],
+        "Ident": [
+          "EditedAnchorDataId"
+        ],
+        "Boolean": [
+          "IsFromPad",
+          "IsFromMouse",
+          "IsFromKeyboard",
+          "OnlyScriptMetadataModified"
+        ]
+      }
+    },
     "CMlScript": {
       "props": {
         "CMlPage": [
@@ -3579,60 +4609,6 @@
         }
       }
     },
-    "CManiaAppTitle": {
-      "props": {
-        "CManiaAppEvent[]": [
-          "PendingEvents"
-        ],
-        "Boolean": [
-          "LoadingScreenRequireKeyPressed",
-          "DontScaleMainMenuForHMD"
-        ]
-      },
-      "methods": {
-        "Menu_Quit": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Menu_Home": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Menu_Solo": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Menu_Competitions": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Menu_Local": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Menu_Internet": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Menu_Editor": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Menu_Profile": {
-          "params": [],
-          "returns": "Void"
-        },
-        "PlayMap": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Map"
-            }
-          ],
-          "returns": "Void"
-        }
-      }
-    },
     "CStation": {
       "props": {
         "CTitle": [
@@ -3660,578 +4636,6 @@
         "EnterStation": {
           "params": [],
           "returns": "Void"
-        }
-      }
-    },
-    "CEditorPlugin": {
-      "props": {
-        "CEditorPluginEvent[]": [
-          "PendingEvents"
-        ],
-        "CMap": [
-          "Map"
-        ],
-        "Text": [
-          "MapName",
-          "ManialinkText"
-        ],
-        "PlaceMode": [
-          "PlaceMode"
-        ],
-        "EditMode": [
-          "EditMode"
-        ],
-        "Boolean": [
-          "UndergroundMode",
-          "BlockStockMode",
-          "EnableAirMapping",
-          "EnableMixMapping",
-          "EnableEditorInputsCustomProcessing",
-          "EditorInputIsDown_Menu",
-          "EditorInputIsDown_SwitchToRace",
-          "EditorInputIsDown_CursorUp",
-          "EditorInputIsDown_CursorRight",
-          "EditorInputIsDown_CursorDown",
-          "EditorInputIsDown_CursorLeft",
-          "EditorInputIsDown_CursorRaise",
-          "EditorInputIsDown_CursorLower",
-          "EditorInputIsDown_CursorTurn",
-          "EditorInputIsDown_CursorPick",
-          "EditorInputIsDown_CursorPlace",
-          "EditorInputIsDown_CursorDelete",
-          "EditorInputIsDown_CameraUp",
-          "EditorInputIsDown_CameraRight",
-          "EditorInputIsDown_CameraDown",
-          "EditorInputIsDown_CameraLeft",
-          "EditorInputIsDown_IconUp",
-          "EditorInputIsDown_IconRight",
-          "EditorInputIsDown_IconDown",
-          "EditorInputIsDown_IconLeft"
-        ],
-        "Int3": [
-          "CursorCoord"
-        ],
-        "CardinalDirections": [
-          "CursorDir"
-        ],
-        "CBlockModel": [
-          "CursorBlockModel",
-          "CursorTerrainBlockModel"
-        ],
-        "CMacroblockModel": [
-          "CursorMacroblockModel"
-        ],
-        "Real": [
-          "CameraVAngle",
-          "CameraHAngle",
-          "CameraToTargetDistance",
-          "CollectionSquareSize",
-          "CollectionSquareHeight"
-        ],
-        "Vec3": [
-          "TargetedPosition",
-          "CustomSelectionRGB"
-        ],
-        "CItemAnchor[]": [
-          "Items"
-        ],
-        "Text[]": [
-          "MediatrackIngameClips",
-          "MediatrackIngameIsScriptClips"
-        ],
-        "Integer": [
-          "MediatrackIngameEditedClipIndex",
-          "CollectionGroundY"
-        ],
-        "CBlock[]": [
-          "Blocks"
-        ],
-        "CBlockModel[]": [
-          "BlockModels",
-          "TerrainBlockModels"
-        ],
-        "CMacroblockModel[]": [
-          "MacroblockModels"
-        ],
-        "CAnchorData[]": [
-          "AnchorData"
-        ],
-        "Int3[]": [
-          "CustomSelectionCoords"
-        ],
-        "CMlPage": [
-          "ManialinkPage"
-        ]
-      },
-      "methods": {
-        "ComputeShadows": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Undo": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Redo": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Quit": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Help": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Validate": {
-          "params": [],
-          "returns": "Void"
-        },
-        "AutoSave": {
-          "params": [],
-          "returns": "Void"
-        },
-        "SaveMap": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "FileName"
-            },
-            {
-              "identifier": "Text",
-              "argument": "Path"
-            }
-          ],
-          "returns": "Void"
-        },
-        "RemoveAllBlocks": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RemoveAllTerrain": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RemoveAllOffZone": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RemoveAllObjects": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RemoveAll": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RemoveAllBlocksAndTerrain": {
-          "params": [],
-          "returns": "Void"
-        },
-        "ShowCustomSelection": {
-          "params": [],
-          "returns": "Void"
-        },
-        "HideCustomSelection": {
-          "params": [],
-          "returns": "Void"
-        },
-        "CopyPaste_Copy": {
-          "params": [],
-          "returns": "Void"
-        },
-        "CopyPaste_Cut": {
-          "params": [],
-          "returns": "Void"
-        },
-        "CopyPaste_Remove": {
-          "params": [],
-          "returns": "Void"
-        },
-        "CopyPaste_SelectAll": {
-          "params": [],
-          "returns": "Void"
-        },
-        "CopyPaste_ResetSelection": {
-          "params": [],
-          "returns": "Void"
-        },
-        "OpenToolsMenu": {
-          "params": [],
-          "returns": "Void"
-        },
-        "EditMediatrackIngame": {
-          "params": [],
-          "returns": "Void"
-        },
-        "CanPlaceBlock": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            },
-            {
-              "identifier": "Boolean",
-              "argument": "OnGround"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "VariantIndex"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "PlaceBlock": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "CanPlaceBlock_NoDestruction": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            },
-            {
-              "identifier": "Boolean",
-              "argument": "OnGround"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "VariantIndex"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "PlaceBlock_NoDestruction": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "CanPlaceRoadBlocks": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "StartCoord"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "EndCoord"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "PlaceRoadBlocks": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "StartCoord"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "EndCoord"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "CanPlaceTerrainBlocks": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "StartCoord"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "EndCoord"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "PlaceTerrainBlocks": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "StartCoord"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "EndCoord"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "PlaceTerrainBlocks_NoDestruction": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "StartCoord"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "EndCoord"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "CanPlaceMacroblock": {
-          "params": [
-            {
-              "identifier": "CMacroblockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "PlaceMacroblock": {
-          "params": [
-            {
-              "identifier": "CMacroblockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "CanPlaceMacroblock_NoDestruction": {
-          "params": [
-            {
-              "identifier": "CMacroblockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "PlaceMacroblock_NoDestruction": {
-          "params": [
-            {
-              "identifier": "CMacroblockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "GetBlock": {
-          "params": [
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            }
-          ],
-          "returns": "CBlock"
-        },
-        "RemoveBlock": {
-          "params": [
-            {
-              "identifier": "Int3",
-              "argument": "Coord"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "RemoveTerrainBlocks": {
-          "params": [
-            {
-              "identifier": "Int3",
-              "argument": "StartCoord"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "EndCoord"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "GetBlockGroundHeight": {
-          "params": [
-            {
-              "identifier": "CBlockModel",
-              "argument": "BlockModel"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "CoordX"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "CoordZ"
-            },
-            {
-              "identifier": "CardinalDirections",
-              "argument": "Dir"
-            }
-          ],
-          "returns": "Integer"
-        },
-        "GetStartLineBlock": {
-          "params": [],
-          "returns": "CBlock"
-        },
-        "CopyPaste_AddOrSubSelection": {
-          "params": [
-            {
-              "identifier": "Int3",
-              "argument": "StartCoord"
-            },
-            {
-              "identifier": "Int3",
-              "argument": "EndCoord"
-            }
-          ],
-          "returns": "Void"
-        },
-        "CopyPaste_Symmetrize": {
-          "params": [],
-          "returns": "Boolean"
-        },
-        "SaveMacroblock": {
-          "params": [
-            {
-              "identifier": "CMacroblockModel",
-              "argument": "MacroblockModel"
-            }
-          ],
-          "returns": "Void"
-        },
-        "GetInterfaceNumber": {
-          "params": [
-            {
-              "identifier": "CCollector",
-              "argument": "Collector"
-            }
-          ],
-          "returns": "Integer"
-        },
-        "SetInterfaceNumber": {
-          "params": [
-            {
-              "identifier": "CCollector",
-              "argument": "Collector"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "NewValue"
-            }
-          ],
-          "returns": "Void"
-        },
-        "GetMacroblockModelFromName": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "MacroblockModelName"
-            }
-          ],
-          "returns": "CMacroblockModel"
-        },
-        "GetTerrainBlockModelFromName": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "TerrainBlockModelName"
-            }
-          ],
-          "returns": "CBlockModel"
-        },
-        "GetBlockModelFromName": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "BlockModelName"
-            }
-          ],
-          "returns": "CBlockModel"
         }
       }
     },
@@ -5536,43 +5940,6 @@
         }
       }
     },
-    "CMap": {
-      "props": {
-        "CMapInfo": [
-          "MapInfo"
-        ],
-        "Text": [
-          "MapName",
-          "Comments",
-          "AuthorZoneIconUrl",
-          "CollectionName",
-          "DecorationName",
-          "AuthorLogin",
-          "AuthorNickName",
-          "AuthorZonePath",
-          "MapType",
-          "MapStyle",
-          "ObjectiveTextAuthor",
-          "ObjectiveTextGold",
-          "ObjectiveTextSilver",
-          "ObjectiveTextBronze"
-        ],
-        "Integer": [
-          "TMObjective_AuthorTime",
-          "TMObjective_GoldTime",
-          "TMObjective_SilverTime",
-          "TMObjective_BronzeTime",
-          "TMObjective_NbLaps",
-          "CopperPrice"
-        ],
-        "Boolean": [
-          "TMObjective_IsLapRace"
-        ],
-        "Int3": [
-          "Size"
-        ]
-      }
-    },
     "CUILayer": {
       "props": {
         "Boolean": [
@@ -5587,19 +5954,6 @@
         ],
         "CMlPage": [
           "LocalPage"
-        ]
-      }
-    },
-    "CEditorPluginEvent": {
-      "props": {
-        "Type": [
-          "Type"
-        ],
-        "EInput": [
-          "Input"
-        ],
-        "Ident": [
-          "EditedAnchorDataId"
         ]
       }
     },
