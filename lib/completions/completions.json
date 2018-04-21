@@ -5209,8 +5209,134 @@
         ]
       }
     },
+    "CMlScriptIngame": {
+      "props": {
+        "Integer": [
+          "GameTime"
+        ],
+        "CPlaygroundClient": [
+          "Playground"
+        ],
+        "CUIConfig": [
+          "UI",
+          "ClientUI"
+        ],
+        "Boolean": [
+          "IsSpectator",
+          "IsSpectatorClient",
+          "UseClans",
+          "UseForcedClans",
+          "IsInGameMenuDisplayed"
+        ],
+        "CManiaAppPlaygroundCommon": [
+          "ParentApp"
+        ],
+        "CMap": [
+          "Map"
+        ],
+        "CTeam[]": [
+          "Teams"
+        ],
+        "Text": [
+          "CurrentServerLogin",
+          "CurrentServerName",
+          "CurrentServerDesc",
+          "CurrentServerJoinLink",
+          "CurrentServerModeName"
+        ],
+        "CAchievementsManager": [
+          "AchievementsManager"
+        ]
+      },
+      "methods": {
+        "ShowCurChallengeCard": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ShowModeHelp": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CopyServerLinkToClipBoard": {
+          "params": [],
+          "returns": "Void"
+        },
+        "JoinTeam1": {
+          "params": [],
+          "returns": "Void"
+        },
+        "JoinTeam2": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestSpectatorClient": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "Spectator"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetSpectateTarget": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ShowProfile": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ShowInGameMenu": {
+          "params": [],
+          "returns": "Void"
+        },
+        "CloseInGameMenu": {
+          "params": [
+            {
+              "identifier": "EInGameMenuResult",
+              "argument": "Result"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CloseScoresTable": {
+          "params": [],
+          "returns": "Void"
+        },
+        "PlayUiSound": {
+          "params": [
+            {
+              "identifier": "EUISound",
+              "argument": "Sound"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "SoundVariant"
+            },
+            {
+              "identifier": "Real",
+              "argument": "Volume"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
     "CMlStation": {
       "props": {
+        "CManiaAppStation": [
+          "ParentApp"
+        ],
         "CStation": [
           "Station"
         ]
@@ -5218,6 +5344,790 @@
       "methods": {
         "EnterStation": {
           "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMlTextEdit": {
+      "props": {
+        "Text": [
+          "Value"
+        ],
+        "Integer": [
+          "MaxLine",
+          "ValueLineCount"
+        ],
+        "Boolean": [
+          "AutoNewLine",
+          "ShowLineNumbers"
+        ],
+        "Real": [
+          "LineSpacing",
+          "Opacity",
+          "TextSizeReal"
+        ],
+        "Vec3": [
+          "TextColor"
+        ],
+        "EControlScriptEditorTextFormat": [
+          "TextFormat"
+        ]
+      },
+      "methods": {
+        "StartEdition": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CMode": {
+      "props": {
+        "Text": [
+          "ModeStatusMessage",
+          "ServerLogin",
+          "ServerName",
+          "ServerModeName",
+          "MapName",
+          "MapPlayerModelName",
+          "NeutralEmblemUrl",
+          "ForcedClubLinkUrl1",
+          "ForcedClubLinkUrl2",
+          "ClientManiaAppUrl"
+        ],
+        "CTitle": [
+          "LoadedTitle"
+        ],
+        "CMap": [
+          "Map"
+        ],
+        "CUser[]": [
+          "Users"
+        ],
+        "CTeam[]": [
+          "Teams"
+        ],
+        "Integer": [
+          "Now",
+          "Period",
+          "NextMapIndex"
+        ],
+        "Boolean": [
+          "MatchEndRequested",
+          "ServerShutdownRequested",
+          "MapLoaded",
+          "Ladder_RequestInProgress",
+          "Solo_NewRecordSequenceInProgress",
+          "UseMinimap",
+          "Replay_AutoStart"
+        ],
+        "CMapInfo[]": [
+          "MapList"
+        ],
+        "CUIConfigMgr": [
+          "UIManager"
+        ],
+        "CModulePlaygroundHud": [
+          "Hud"
+        ],
+        "CServerAdmin": [
+          "ServerAdmin"
+        ],
+        "CXmlRpc": [
+          "XmlRpc"
+        ],
+        "CXmlManager": [
+          "Xml"
+        ],
+        "CHttpManager": [
+          "Http"
+        ],
+        "CInputManager": [
+          "Input"
+        ],
+        "CDataFileMgr": [
+          "DataFileMgr"
+        ],
+        "CScoreMgr": [
+          "ScoreMgr"
+        ],
+        "ESystemPlatform": [
+          "SystemPlatform"
+        ],
+        "CAchievementsManager": [
+          "AchievementsManager"
+        ],
+        "CModeTurretManager": [
+          "TurretsManager"
+        ]
+      },
+      "methods": {
+        "TweakTeamColorsToAvoidHueOverlap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestLoadMap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestUnloadMap": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Hud_Load": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModuleName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "PassOn": {
+          "params": [
+            {
+              "identifier": "CUIConfigEvent",
+              "argument": "EventToPassOn"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Discard": {
+          "params": [
+            {
+              "identifier": "CUIConfigEvent",
+              "argument": "EventToDiscard"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_Request": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_AddPlayer": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "PlayerScore"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_BeginRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_AddPlayer": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "PlayerScore"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_OpenMatch_EndRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_CloseMatchRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_CancelMatchRequest": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Ladder_SetResultsVersion": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Version"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_SetMatchMakingMatchId": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "MatchId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Ladder_EnableChallengeMode": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "Enable"
+            }
+          ],
+          "returns": "Void"
+        },
+        "AutoTeamBalance": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Solo_SetNewRecord": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "PlayerScore"
+            },
+            {
+              "identifier": "EMedal",
+              "argument": "PlayerScore"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Synchro_AddBarrier": {
+          "params": [],
+          "returns": "Integer"
+        },
+        "Synchro_BarrierReached": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "Barrier"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Users_AreAllies": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User1"
+            },
+            {
+              "identifier": "CUser",
+              "argument": "User2"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Users_RequestSwitchToSpectator": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Users_CreateFake": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "NickName"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "RequestedTeam"
+            }
+          ],
+          "returns": "CUser"
+        },
+        "Users_DestroyFake": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Users_SetNbFakeUsers": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "NbTeam1"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "NbTeam2"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Users_DestroyAllFakes": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ItemList_Begin": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ItemList_Add": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "ItemList_AddWithSkin": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "SkinName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "ItemList_End": {
+          "params": [],
+          "returns": "Void"
+        },
+        "DemoToken_StartUsingToken": {
+          "params": [],
+          "returns": "Void"
+        },
+        "DemoToken_StopUsingToken": {
+          "params": [],
+          "returns": "Void"
+        },
+        "DemoToken_GetAndUseToken": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ActionList_Begin": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ActionList_Add": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ActionName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "ActionList_End": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Replay_Start": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Replay_Stop": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Dbg_DumpDeclareForVariables": {
+          "params": [
+            {
+              "identifier": "CNod",
+              "argument": "Nod"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "StatsOnly"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CModeTurret": {
+      "props": {
+        "Integer": [
+          "Armor",
+          "ArmorMax"
+        ],
+        "CModeTurret": [
+          "Owner"
+        ]
+      }
+    },
+    "CModeTurretManager": {
+      "props": {
+        "CModeTurret[]": [
+          "Turrets"
+        ]
+      },
+      "methods": {
+        "MapTurrets_Reset": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Turret_Create": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ModelId"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Direction"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Clan"
+            },
+            {
+              "identifier": "CPlayer",
+              "argument": "Owner"
+            }
+          ],
+          "returns": "CModeTurret"
+        },
+        "Turret_Destroy": {
+          "params": [
+            {
+              "identifier": "CModeTurret",
+              "argument": "Turret"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CModuleMenu": {
+      "methods": {
+        "Menu_Goto": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "PageId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Menu_Back": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Previous": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Menu_Quit": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CModuleMenuComponent": {
+      "props": {
+        "CUILayer": [
+          "ComponentLayer"
+        ]
+      },
+      "methods": {
+        "Hide": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Show": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CModuleMenuFileBrowser": {
+      "props": {
+        "Boolean": [
+          "HesFinished"
+        ],
+        "Text[]": [
+          "Selection"
+        ]
+      },
+      "methods": {
+        "SetFileType": {
+          "params": [
+            {
+              "identifier": "EFileType",
+              "argument": "FileType"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetFileAction": {
+          "params": [
+            {
+              "identifier": "EFileAction",
+              "argument": "FileAction"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CModuleMenuLayer": {
+      "props": {
+        "CModuleMenuComponent[]": [
+          "Components"
+        ]
+      },
+      "methods": {
+        "GetFirstComponent": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Name"
+            }
+          ],
+          "returns": "CModuleMenuComponent"
+        }
+      }
+    },
+    "CModuleMenuModel": {
+      "props": {
+        "CModuleMenuPageModel[]": [
+          "Pages"
+        ],
+        "Text": [
+          "MenuScript"
+        ]
+      },
+      "methods": {
+        "AddPage": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "PageUrl"
+            }
+          ],
+          "returns": "CModuleMenuPageModel"
+        },
+        "AddLink": {
+          "params": [
+            {
+              "identifier": "CModuleMenuPageModel",
+              "argument": "ParentPage"
+            },
+            {
+              "identifier": "CModuleMenuPageModel",
+              "argument": "ChildPage"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CModuleMenuPageModel": {
+      "props": {
+        "Text": [
+          "ManialinkText"
+        ]
+      }
+    },
+    "CModulePlayground": {
+      "methods": {
+        "Hide": {
+          "params": [
+            {
+              "identifier": "CUIConfig",
+              "argument": "UIConfig"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Show": {
+          "params": [
+            {
+              "identifier": "CUIConfig",
+              "argument": "UIConfig"
+            }
+          ],
+          "returns": "Void"
+        },
+        "IsVisble": {
+          "params": [
+            {
+              "identifier": "CUIConfig",
+              "argument": "UIConfig"
+            }
+          ],
+          "returns": "Boolean"
+        }
+      }
+    },
+    "CModulePlaygroundHud": {
+      "props": {
+        "CModulePlaygroundInventory": [
+          "Inventory"
+        ],
+        "CModulePlaygroundStore": [
+          "Store"
+        ],
+        "CModulePlaygroundScoresTable": [
+          "ScoresTable"
+        ]
+      }
+    },
+    "CModulePlaygroundInventory": {
+      "methods": {
+        "AddItem": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Quantity"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "AddAction": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "RemoveInventoryItem": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Quantity"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetInventoryItemQuantity": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "IsInventoryItemStored": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Url"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetStoredItemsList": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Tex[]"
+        },
+        "GetStoredActionsList": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Tex[]"
+        }
+      }
+    },
+    "CModulePlaygroundScoresTable": {
+      "methods": {
+        "SetFooterText": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FooterText"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ResetCustomColumns": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "Score"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Scores_Sort": {
+          "params": [
+            {
+              "identifier": "EScoreSortOrder",
+              "argument": "SortOrder"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetColumnValue": {
+          "params": [
+            {
+              "identifier": "CScore",
+              "argument": "Score"
+            },
+            {
+              "identifier": "Text",
+              "argument": "ColumnId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "ColumnValue"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetColumnVisibility": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ColumnId"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Visibility"
+            }
+          ],
           "returns": "Void"
         }
       }
@@ -6362,338 +7272,6 @@
         ]
       }
     },
-    "CMode": {
-      "props": {
-        "Text": [
-          "ModeStatusMessage",
-          "ServerLogin",
-          "ServerName",
-          "ServerModeName",
-          "MapName",
-          "MapPlayerModelName",
-          "NeutralEmblemUrl",
-          "ForcedClubLinkUrl1",
-          "ForcedClubLinkUrl2"
-        ],
-        "CTitle": [
-          "LoadedTitle"
-        ],
-        "CMap": [
-          "Map"
-        ],
-        "CUser[]": [
-          "Users"
-        ],
-        "CTeam[]": [
-          "Teams"
-        ],
-        "Integer": [
-          "Now",
-          "Period",
-          "NextMapIndex"
-        ],
-        "Boolean": [
-          "MatchEndRequested",
-          "ServerShutdownRequested",
-          "MapLoaded",
-          "Ladder_RequestInProgress",
-          "Solo_NewRecordSequenceInProgress",
-          "UseMinimap",
-          "Replay_AutoStart"
-        ],
-        "CMapInfo[]": [
-          "MapList"
-        ],
-        "CUIConfigMgr": [
-          "UIManager"
-        ],
-        "CXmlRpc": [
-          "XmlRpc"
-        ],
-        "CXmlManager": [
-          "Xml"
-        ],
-        "CHttpManager": [
-          "Http"
-        ]
-      },
-      "methods": {
-        "TweakTeamColorsToAvoidHueOverlap": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RequestLoadMap": {
-          "params": [],
-          "returns": "Void"
-        },
-        "RequestUnloadMap": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Ladder_OpenMatch_Request": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Ladder_AddPlayer": {
-          "params": [
-            {
-              "identifier": "CScore",
-              "argument": "PlayerScore"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Ladder_OpenMatch_BeginRequest": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Ladder_OpenMatch_AddPlayer": {
-          "params": [
-            {
-              "identifier": "CScore",
-              "argument": "PlayerScore"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Ladder_OpenMatch_EndRequest": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Ladder_CloseMatchRequest": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Ladder_CancelMatchRequest": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Ladder_SetResultsVersion": {
-          "params": [
-            {
-              "identifier": "Integer",
-              "argument": "Version"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Ladder_SetMatchMakingMatchId": {
-          "params": [
-            {
-              "identifier": "Integer",
-              "argument": "MatchId"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Ladder_EnableChallengeMode": {
-          "params": [
-            {
-              "identifier": "Boolean",
-              "argument": "Enable"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Admin_KickUser": {
-          "params": [
-            {
-              "identifier": "CUser",
-              "argument": "User"
-            },
-            {
-              "identifier": "Text",
-              "argument": "Reason"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "Admin_SetLobbyInfo": {
-          "params": [
-            {
-              "identifier": "Boolean",
-              "argument": "IsLobby"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "LobbyPlayerCount"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "LobbyMaxPlayerCount"
-            },
-            {
-              "identifier": "Real",
-              "argument": "LobbyPlayersLevel"
-            }
-          ],
-          "returns": "Void"
-        },
-        "AutoTeamBalance": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Solo_SetNewRecord": {
-          "params": [
-            {
-              "identifier": "CScore",
-              "argument": "PlayerScore"
-            },
-            {
-              "identifier": "EMedal",
-              "argument": "PlayerScore"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Synchro_AddBarrier": {
-          "params": [],
-          "returns": "Integer"
-        },
-        "Synchro_BarrierReached": {
-          "params": [
-            {
-              "identifier": "Integer",
-              "argument": "Barrier"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "Users_AreAllies": {
-          "params": [
-            {
-              "identifier": "CUser",
-              "argument": "User1"
-            },
-            {
-              "identifier": "CUser",
-              "argument": "User2"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "Users_RequestSwitchToSpectator": {
-          "params": [
-            {
-              "identifier": "CUser",
-              "argument": "User"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Users_CreateFake": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "NickName"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "RequestedTeam"
-            }
-          ],
-          "returns": "CUser"
-        },
-        "Users_DestroyFake": {
-          "params": [
-            {
-              "identifier": "CUser",
-              "argument": "User"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Users_SetNbFakeUsers": {
-          "params": [
-            {
-              "identifier": "Integer",
-              "argument": "NbTeam1"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "NbTeam2"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Users_DestroyAllFakes": {
-          "params": [],
-          "returns": "Void"
-        },
-        "ItemList_Begin": {
-          "params": [],
-          "returns": "Void"
-        },
-        "ItemList_Add": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ModelName"
-            }
-          ],
-          "returns": "Ident"
-        },
-        "ItemList_AddWithSkin": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ModelName"
-            },
-            {
-              "identifier": "Text",
-              "argument": "SkinName"
-            }
-          ],
-          "returns": "Ident"
-        },
-        "ItemList_End": {
-          "params": [],
-          "returns": "Void"
-        },
-        "DemoToken_StartUsingToken": {
-          "params": [],
-          "returns": "Void"
-        },
-        "DemoToken_StopUsingToken": {
-          "params": [],
-          "returns": "Void"
-        },
-        "DemoToken_GetAndUseToken": {
-          "params": [
-            {
-              "identifier": "CUser",
-              "argument": "User"
-            }
-          ],
-          "returns": "Void"
-        },
-        "ActionList_Begin": {
-          "params": [],
-          "returns": "Void"
-        },
-        "ActionList_Add": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ActionName"
-            }
-          ],
-          "returns": "Ident"
-        },
-        "ActionList_End": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Replay_Start": {
-          "params": [],
-          "returns": "Void"
-        },
-        "Replay_Stop": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
     "CSmPlayer": {
       "props": {
         "CSmScore": [
@@ -6981,104 +7559,6 @@
         },
         "SetUnspawned": {
           "params": [],
-          "returns": "Void"
-        }
-      }
-    },
-    "CMlScriptIngame": {
-      "props": {
-        "Integer": [
-          "GameTime"
-        ],
-        "CUIConfig": [
-          "UI",
-          "ClientUI"
-        ],
-        "Boolean": [
-          "IsSpectatorMode",
-          "UseClans",
-          "UseForcedClans"
-        ],
-        "CMap": [
-          "Map"
-        ],
-        "CTeam[]": [
-          "Teams"
-        ],
-        "Text": [
-          "CurrentServerLogin",
-          "CurrentServerName",
-          "CurrentServerJoinLink",
-          "CurrentServerModeName"
-        ]
-      },
-      "methods": {
-        "ShowCurChallengeCard": {
-          "params": [],
-          "returns": "Void"
-        },
-        "ShowModeHelp": {
-          "params": [],
-          "returns": "Void"
-        },
-        "CopyServerLinkToClipBoard": {
-          "params": [],
-          "returns": "Void"
-        },
-        "JoinTeam1": {
-          "params": [],
-          "returns": "Void"
-        },
-        "JoinTeam2": {
-          "params": [],
-          "returns": "Void"
-        },
-        "SetSpectateTarget": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Player"
-            }
-          ],
-          "returns": "Void"
-        },
-        "ShowProfile": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Player"
-            }
-          ],
-          "returns": "Void"
-        },
-        "ShowInGameMenu": {
-          "params": [],
-          "returns": "Void"
-        },
-        "PlayUiSound": {
-          "params": [
-            {
-              "identifier": "EUISound",
-              "argument": "Sound"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "SoundVariant"
-            },
-            {
-              "identifier": "Real",
-              "argument": "Volume"
-            }
-          ],
-          "returns": "Void"
-        },
-        "CloseInGameMenu": {
-          "params": [
-            {
-              "identifier": "EInGameMenuResult",
-              "argument": "Result"
-            }
-          ],
           "returns": "Void"
         }
       }
