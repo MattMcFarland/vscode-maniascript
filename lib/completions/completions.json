@@ -6132,6 +6132,1266 @@
         }
       }
     },
+    "CModulePlaygroundStore": {
+      "methods": {
+        "Reset": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetMoney": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Amount"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetMoney": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "AddMoney": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Amount"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "SubMoney": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Amount"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "SetActionLevel": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "ActionUrl"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ActionLevel"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetActionLevel": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "ActionUrl"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "SetItemCanBeBought": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "ActionUrl"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "CanBeBought"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetItemCanBeBought": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "Player"
+            },
+            {
+              "identifier": "Text",
+              "argument": "ActionUrl"
+            }
+          ],
+          "returns": "Boolean"
+        }
+      }
+    },
+    "CNaturalLeaderBoardInfo": {
+      "props": {
+        "Integer": [
+          "Rank",
+          "Score"
+        ],
+        "Ident": [
+          "UserId"
+        ],
+        "Text": [
+          "Login",
+          "DisplayName",
+          "FileName",
+          "ReplayUrl"
+        ]
+      }
+    },
+    "CNod": {
+      "props": {
+        "Ident": [
+          "Id"
+        ]
+      }
+    },
+    "CNotificationsConsumer": {
+      "props": {
+        "CNotificationsConsumerEvent[]": [
+          "Events"
+        ],
+        "CNotificationsConsumerNotification[]": [
+          "Notifications",
+          "FilteredNotifications"
+        ],
+        "EFilterPriority": [
+          "Filter_Priority"
+        ]
+      }
+    },
+    "CNotificationsConsumerEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CNotificationsConsumerNotification": [
+          "Notification"
+        ]
+      }
+    },
+    "CNotificationsConsumerNotification": {
+      "props": {
+        "Text": [
+          "Title",
+          "Description",
+          "ImageUrl"
+        ],
+        "ENotificationPriority": [
+          "Priority"
+        ],
+        "Boolean": [
+          "HasBeenRead",
+          "HasBeenActivated"
+        ]
+      },
+      "methods": {
+        "SetRead": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetActivated": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "COnlinePresence": {
+      "props": {
+        "Text": [
+          "Login",
+          "DisplayName",
+          "ServerLogin"
+        ],
+        "Boolean": [
+          "IsOnline"
+        ]
+      }
+    },
+    "CPackCreator": {
+      "props": {
+        "Boolean": [
+          "RegisterPack_IsInProgess"
+        ],
+        "CPackCreatorPack": [
+          "CurrentPack"
+        ]
+      },
+      "methods": {
+        "RegisterPackForEditedTitle": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Build_Begin": {
+          "params": [
+            {
+              "identifier": "CPackCreatorPack",
+              "argument": "Pack"
+            },
+            {
+              "identifier": "CPackCreatorTitleInfo",
+              "argument": "TitleInfo"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Build_AddFile": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "BuildId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Build_AddFolder": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "BuildId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "FolderName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Build_Generate": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "BuildId"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "Upload"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Build_IsGenerated": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "BuildId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Build_ErrorMessage": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "BuildId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Build_End": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "BuildId"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CPackCreatorPack": {
+      "props": {
+        "Ident": [
+          "PackId",
+          "CreatorId"
+        ],
+        "Boolean": [
+          "IsTitlePack"
+        ],
+        "CPackCreatorRecipient[]": [
+          "Recipients"
+        ]
+      },
+      "methods": {
+        "Recipients_Add": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Login"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "UseCost"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "GetCost"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Recipients_Remove": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Login"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CPackCreatorRecipient": {
+      "props": {
+        "Text": [
+          "Login"
+        ],
+        "Integer": [
+          "GetCost",
+          "UseCost"
+        ]
+      }
+    },
+    "CPackCreatorTitleInfo": {
+      "props": {
+        "Ident": [
+          "TitleId",
+          "MakerTitleId"
+        ],
+        "Text": [
+          "DisplayName",
+          "Description",
+          "InfoUrl",
+          "DownloadUrl",
+          "TitleVersion",
+          "AllowedClientTitleVersion",
+          "BaseTitleIds",
+          "ForcedPlayerModel",
+          "Packaging_ImageFileName",
+          "Packaging_LogosFileName",
+          "Packaging_Group",
+          "Station_ManialinkUrl",
+          "Menus_BgReplayFileName",
+          "Menus_ManiaAppFileName",
+          "Menus_MusicFileName",
+          "Hud3dFontFileName",
+          "MusicFolder"
+        ],
+        "Boolean": [
+          "Solo_HasCampaign"
+        ]
+      }
+    },
+    "CPlayer": {
+      "props": {
+        "CUser": [
+          "User"
+        ],
+        "Integer": [
+          "RequestedClan"
+        ],
+        "Boolean": [
+          "RequestsSpectate"
+        ]
+      }
+    },
+    "CPlaygroundClient": {
+      "props": {
+        "CMap": [
+          "Map"
+        ],
+        "Integer": [
+          "GameTime"
+        ],
+        "CUser": [
+          "LocalUser"
+        ],
+        "CUIConfig": [
+          "UI"
+        ],
+        "CServerInfo": [
+          "ServerInfo"
+        ],
+        "Boolean": [
+          "IsSpectator",
+          "IsSpectatorClient",
+          "UseClans",
+          "UseForcedClans",
+          "IsLoadingScreen",
+          "DisablePlayingStateTracking"
+        ],
+        "CTeam[]": [
+          "Teams"
+        ]
+      },
+      "methods": {
+        "QuitServer": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "Silent"
+            }
+          ],
+          "returns": "Void"
+        },
+        "QuitServerAndSetResult": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "Silent"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Type"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Data"
+            }
+          ],
+          "returns": "Void"
+        },
+        "JoinTeam1": {
+          "params": [],
+          "returns": "Void"
+        },
+        "JoinTeam2": {
+          "params": [],
+          "returns": "Void"
+        },
+        "RequestSpectatorClient": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "Spectator"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SepSpectateTarget": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ShowProfile": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CPresenceMgr": {
+      "props": {
+        "CTaskResult[]": [
+          "TaskResults"
+        ]
+      },
+      "methods": {
+        "ReleaseTaskResult": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "TaskId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPresence": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "ERichPresence",
+              "argument": "UplayFlow"
+            }
+          ],
+          "returns": "Void"
+        },
+        "GetOnlinePresenceForPlayers": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "returns": "CTaskResult_GetOnlinePresence"
+        }
+      }
+    },
+    "CPrivilegeMgr": {
+      "props": {
+        "CTaskResult[]": [
+          "TaskResults"
+        ]
+      },
+      "methods": {
+        "ReleaseTaskResult": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "TaskId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CheckPrivilege": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "EPrivilege",
+              "argument": "Privilege"
+            }
+          ],
+          "returns": "CTaskResult"
+        },
+        "CheckPrivilegeForAllUsers": {
+          "params": [
+            {
+              "identifier": "EPrivilege",
+              "argument": "Privilege"
+            }
+          ],
+          "returns": "CTaskResult"
+        },
+        "CheckTargetedPrivilege": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "EPrivilege",
+              "argument": "Privilege"
+            }
+          ],
+          "returns": "CTaskResult_CheckTargetedPrivilege"
+        },
+        "CheckTargetedPrivilegeForAllUsers": {
+          "params": [
+            {
+              "identifier": "EPrivilege",
+              "argument": "Privilege"
+            }
+          ],
+          "returns": "CTaskResult_CheckTargetedPrivilege"
+        }
+      }
+    },
+    "CRealLeaderBoardInfo": {
+      "props": {
+        "Integer": [
+          "Rank"
+        ],
+        "Ident": [
+          "UserId"
+        ],
+        "Text": [
+          "Login",
+          "DisplayName",
+          "FileName",
+          "ReplayUrl"
+        ],
+        "Real": [
+          "Score"
+        ]
+      }      
+    },
+    "CReplayInfo": {
+      "props": {
+        "Text": [
+          "MapUid",
+          "Name",
+          "Path",
+          "FileName"
+        ]
+      }
+    },
+    "CScore": {
+      "props": {
+        "CUser": [
+          "User"
+        ],
+        "Boolean": [
+          "IsRegisteredForLadderMatch"
+        ],
+        "Real": [
+          "LadderScore",
+          "LadderMatchScoreValue"
+        ],
+        "Integer": [
+          "LadderRankSortValue",
+          "LadderClan"
+        ]
+      }
+    },
+    "CScoreMgr": {
+      "props": {
+        "CTaskResult[]": [
+          "TaskResults"
+        ]
+      },
+      "methods": {
+        "TaskResult_Release": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "TaskId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "ScoreStatus_GetLocalStatus": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "returns": "ELocalScoreStatus"
+        },
+        "ScoreStatus_GetMasterServerStatus": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            }
+          ],
+          "returns": "EMasterServerScoreStatus"
+        },
+        "Playground_GetPlayerGhost": {
+          "params": [
+            {
+              "identifier": "CPlayer",
+              "argument": "GamePlayer"
+            }
+          ],
+          "returns": "CGhost"
+        },
+        "Map_SetNewRecord": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            },
+            {
+              "identifier": "CGhost",
+              "argument": "Ghost"
+            }
+          ],
+          "returns": "CTaskResult"
+        },
+        "Map_GetRecord": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Map_GetRecordGhost": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            }
+          ],
+          "returns": "CTaskResult_Ghost"
+        },
+        "Map_GetMultiAsyncLevel": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Map_GetMultiAsyncLevelRecord": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "MultiAsyncLevel"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Map_GetMultiAsyncLevelRecordGhost": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "MultiAsyncLevel"
+            }
+          ],
+          "returns": "CTaskResult_Ghost"
+        },
+        "Map_GetSkillPoints": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "MapLeaderBoard_GetPlayerRanking": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "MapLeaderBoard_GetPlayerCount": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "MapLeaderBoard_GetPlayerList": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Context"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "FromIndex"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Count"
+            }
+          ],
+          "returns": "CTaskResult_NaturalLeaderBoardInfoList"
+        },
+        "Campaign_GetMultiAsyncLevel": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Campaign_GetMultiAsyncLevelCount": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "MultiAsyncLevel"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Campaign_GetSkillPoints": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Campaign_GetOpponentRecords": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "OpponentLogin"
+            }
+          ],
+          "returns": "CWebServicesTaskResult_MapRecordListScript"
+        },
+        "Campaign_GetBuddiesMapRecord": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            }
+          ],
+          "returns": "CTaskResult_BuddiesChallengeRecord"
+        },
+        "Campaign_IsBuddiesMapRecordDirty": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapUid"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Campaign_GetBuddiesMapRecordsComparison": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            }
+          ],
+          "returns": "CTaskResult_BuddiesChallengeRecordsComparison"
+        },
+        "Campaign_GetBuddyMapRecordsComparison": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "OpponentLogin"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            }
+          ],
+          "returns": "CTaskResult_BuddyChallengeRecordsComparison"
+        },
+        "CampaignLeaderBoard_GetPlayerRanking": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "UseSkillPoints"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "CampaignLeaderBoard_GetPlayerCount": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "UseSkillPoints"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "CampaignLeaderBoard_GetPlayerList": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "CampaignId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "UseSkillPoints"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "FromIndex"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Count"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Multiplayer_AddToScore": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Real",
+              "argument": "ScoreDiff"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Timestamp"
+            }
+          ],
+          "returns": "Void"
+        },
+        "MultiplayerLeaderBoard_GetPlayerRanking": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "MultiplayerLeaderBoard_GetPlayerCount": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GlobalLeaderBoard_GetPlayerRanking": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GlobalLeaderBoard_GetPlayerCount": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GlobalLeaderBoard_GetPlayerList": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "UserId"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Zone"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "FromIndex"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "Count"
+            }
+          ],
+          "returns": "CTaskResult_RealLeaderBoardInfoList"
+        }
+      }
+    },
+    "CServerAdmin": {
+      "props": {
+        "CServerInfo": [
+          "ServerInfo"
+        ]
+      },
+      "methods": {
+        "AutoTeamBalance": {
+          "params": [],
+          "returns": "Void"
+        },
+        "KickUser": {
+          "params": [
+            {
+              "identifier": "CUser",
+              "argument": "User"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Reason"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "SetLobbyInfo": {
+          "params": [
+            {
+              "identifier": "Boolean",
+              "argument": "IsLobby"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "LobbyPlayerCount"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "LobbyMaxPlayerCount"
+            },
+            {
+              "identifier": "Real",
+              "argument": "LobbyPlayerLevel"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SendToServerAfterMatch": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ServerUrl"
+            }
+          ],
+          "returns": "Void"
+        },
+        "CustomizeQuitDialog": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ManialinkPage"
+            },
+            {
+              "identifier": "Text",
+              "argument": "SendToServerUrl"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "ProposeAddToFavorites"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ForceDelay"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
+    "CServerInfo": {
+      "props": {
+        "Text": [
+          "ServerName",
+          "ServerLogin",
+          "JoinLink",
+          "Comment",
+          "ServerVersionBuild",
+          "ServerLevelText",
+          "ModeName",
+          "SendToServerAfterMatchUrl"
+        ],
+        "Integer": [
+          "PlayerCount",
+          "MaxPlayerCount",
+          "SpectatorCount",
+          "MaxSpectatorCount",
+          "ServerLevel",
+          "NbChallenges"
+        ],
+        "Real": [
+          "PlayersLevelMin",
+          "PlayersLevelAvg",
+          "PlayersLevelMax",
+          "LadderServerLimitMax",
+          "LadderServerLimitMin"
+        ],
+        "Text[]": [
+          "PlayerNames",
+          "ChallengeNames"
+        ],
+        "Boolean": [
+          "HasBuddies",
+          "IsFavourite",
+          "IsLobbyServer",
+          "IsPrivate",
+          "IsPrivateForSpectator"
+        ]
+      }
+    },
     "CSmMode": {
       "props": {
         "Integer": [
@@ -7145,10 +8405,6 @@
         ]
       }
     },
-    "CNod": {
-      "props": {},
-      "methods": {}
-    },
     "CUser": {
       "props": {
         "Text": [
@@ -7863,23 +9119,6 @@
         }
       }
     },
-    "CPlayer": {
-      "props": {
-        "CUser": [
-          "User"
-        ],
-        "Text": [
-          "Login",
-          "Name"
-        ],
-        "Integer": [
-          "RequestedClan"
-        ],
-        "Boolean": [
-          "RequestsSpectate"
-        ]
-      }
-    },
     "CSmPlayerDriver": {
       "props": {
         "ESmDriverBehaviour": [
@@ -8002,24 +9241,6 @@
         ],
         "Ident": [
           "ItemModelId"
-        ]
-      }
-    },
-    "CScore": {
-      "props": {
-        "CUser": [
-          "User"
-        ],
-        "Boolean": [
-          "IsRegisteredForLadderMatch"
-        ],
-        "Real": [
-          "LadderScore",
-          "LadderMatchScoreValue"
-        ],
-        "Integer": [
-          "LadderRankSortValue",
-          "LadderClan"
         ]
       }
     },
