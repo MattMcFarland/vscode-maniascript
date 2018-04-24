@@ -7392,6 +7392,561 @@
         ]
       }
     },
+    "CSmAction": {
+      "props": {
+        "Integer": [
+          "Now",
+          "Variant",
+          "Energy",
+          "EnergyMax",
+          "EnergyCost",
+          "State_Integer1",
+          "Cooldown"
+        ],
+        "CSmPlayer[]": [
+          "Players"
+        ],
+        "CSmPlayer": [
+          "Owner"
+        ],
+        "Boolean": [
+          "IsActive",
+          "IsBound",
+          "EnergyReload",
+          "State_Boolean1",
+          "IsJumping",
+          "IsGliding",
+          "IsAttractor",
+          "IsFlying",
+          "IsSliding",
+          "IsRunning",
+          "IsFrozen",
+          "IsSneaking",
+          "IsFreeLooking",
+          "HasNoPlayerCollision"
+        ],
+        "Real": [
+          "AmmoGain"
+        ],
+        "Ident": [
+          "State_EntityId1"
+        ],
+        "CSmActionEvent[]": [
+          "PendingEvents"
+        ]
+      },
+      "methods": {
+        "SendRulesEvent": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Param1"
+            },
+            {
+              "identifier": "Text[]",
+              "argument": "Param2"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Shooter"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Victim"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Anim_GetModelId": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Anim_PlayAtPosition": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "AnimModelId"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Direction"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Anim_PlayOnPlayer": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "AnimModelId"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Anim_Stop": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "AnimId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Projectile_GetModelId": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "ModelName"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Projectile_CreateAtLocation": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ProjectileModelId"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "PlayerToIgnore"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "InitialPosition"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "InitialDirection"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "InitialVelocity"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Projectile_CreateOnPlayer": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ProjectileModelId"
+            },
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Shooter"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Cooldown_IsReady": {
+          "params": [],
+          "returns": "Boolean"
+        },
+        "Cooldown_Start": {
+          "params": [],
+          "returns": "Void"
+        },
+        "Shield_CreateAtLocation": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Direction"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Shield_CreateOnPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "ShieldOwner"
+            }
+          ],
+          "returns": "Ident"
+        },
+        "Shield_Destroy": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Shield_Exists": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Shield_GetArmor": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Shield_SetArmor": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            },
+            {
+              "identifier": "Integer",
+              "argument": "ShieldArmor"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Shield_GetIsActive": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "Shield_SetIsActive": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "SheildIsActive"
+            }
+          ],
+          "returns": "Void"
+        },
+        "Shield_GetArmorMax": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Shield_GetTickReload": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "Shield_GetCooldown": {
+          "params": [
+            {
+              "identifier": "Ident",
+              "argument": "ShieldId"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetPlayerAmmo": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Integer"
+        },
+        "GetPlayerAmmoMax": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Integer"
+        }
+      }
+    },
+    "CSmActionEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CSmPlayer": [
+          "Player"
+        ],
+        "CSmObject": [
+          "Object"
+        ],
+        "Integer": [
+          "Damage",
+          "ContextId",
+          "Shield"
+        ],
+        "Ident": [
+          "ProjectileModelId"
+        ],
+        "Vec3": [
+          "Position",
+          "Direction",
+          "Normal"
+        ]
+      }
+    },
+    "CSmBase": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "NumberOfCollectors"
+        ],
+        "Boolean": [
+          "IsActive"
+        ]
+      }
+    },
+    "CSmBlock": {
+      "props": {
+        "CSmBase": [
+          "Base"
+        ]
+      }
+    },
+    "CSmBlockPole": {
+      "props": {
+        "Boolean": [
+          "Captured"
+        ],
+        "CSmSector": [
+          "Sector"
+        ],
+        "CSmGauge": [
+          "Gauge"
+        ]
+      }
+    },
+    "CSmGauge": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "Value",
+          "Max",
+          "Speed"
+        ],
+        "Real": [
+          "ValueReal"
+        ]
+      }
+    },
+    "CSmLandmark": {
+      "props": {
+        "Text": [
+          "Tag"
+        ],
+        "Integer": [
+          "Order"
+        ],
+        "Vec3": [
+          "Position",
+          "DirFront"
+        ]
+      }
+    },
+    "CSmMapBase": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "NumberOfCollectors"
+        ],
+        "Boolean": [
+          "IsActive"
+        ]
+      }
+    },
+    "CSmMapBotPath": {
+      "props": {
+        "Integer": [
+          "Clan"
+        ],
+        "Vec3[]": [
+          "Path"
+        ],
+        "Boolean": [
+          "IsFlying"
+        ]
+      }
+    },
+    "CSmMapBotSpawn": {
+      "props": {
+        "Boolean": [
+          "IsFlying"
+        ],
+        "Ident": [
+          "BotModelId"
+        ]
+      }
+    },
+    "CSmMapGate": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "AutoCloseDelay",
+          "AutoOpenSpeed"
+        ],
+        "Boolean": [
+          "Automatic",
+          "ManualClosed",
+          "AutoClosed",
+          "AutoIsActive"
+        ]
+      }
+    },
+    "CSmMapGauge": {
+      "props": {
+        "Integer": [
+          "Clan",
+          "Value",
+          "Max",
+          "Speed"
+        ],
+        "Real": [
+          "ValueReal"
+        ],
+        "Boolean": [
+          "Captured"
+        ]
+      }
+    },
+    "CSmMapLandmark": {
+      "props": {
+        "Text": [
+          "Tag"
+        ],
+        "Integer": [
+          "Order"
+        ],
+        "Vec3": [
+          "Position"
+        ],
+        "CSmMapBase": [
+          "Base"
+        ],
+        "CSmMapGate": [
+          "Gate"
+        ],
+        "CSmMapGauge": [
+          "Gauge"
+        ],
+        "CSmMapSector": [
+          "Sector"
+        ],
+        "CSmMapPlayerSpawn": [
+          "PlayerSpawn"
+        ],
+        "CSmMapBotPath": [
+          "BotPath"
+        ],
+        "CSmMapBotSpawn": [
+          "BotSpawn"
+        ],
+        "CSmMapObjectAnchor": [
+          "ObjectAnchor"
+        ]
+      }
+    },
+    "CSmMapObjectAnchor": {
+      "props": {
+        "Text": [
+          "ItemName"
+        ],
+        "Ident": [
+          "ItemModelId"
+        ]
+      }
+    },
+    "CSmMapPlayerSpawn": {
+      "props": {}
+    },
+    "CSmMapSector": {
+      "props": {
+        "Ident[]": [
+          "PlayersIds"
+        ],
+        "Text": [
+          "Tag"
+        ]
+      }
+    },
+    "CSmMapType": {
+      "props": {
+        "CSmMode": [
+          "Mode"
+        ],
+        "CSmPlayer[]": [
+          "AllPlayers",
+          "Players"
+        ]
+      }
+    },
+    "CSmMlScriptIngame": {
+      "props": {
+        "Integer": [
+          "ArenaNow"
+        ],
+        "CSmPlayer": [
+          "InputPlayer",
+          "GUIPlayer"
+        ],
+        "CSmPlayer[]": [
+          "Players"
+        ],
+        "CSmScore[]": [
+          "Scores"
+        ],
+        "Integer[]": [
+          "ClanScores"
+        ],
+        "Boolean": [
+          "HideResumePlayingButton"
+        ],
+        "CSmMapBase[]": [
+          "MapBases"
+        ],
+        "CSmMapLandmark[]": [
+          "MapLandmarks",
+          "MapLandmarks_PlayerSpawn",
+          "MapLandmarks_Gauge",
+          "MapLandmarks_Sector",
+          "MapLandmarks_BotPath",
+          "MapLandmarks_BotSpawn",
+          "MapLandmarks_ObjectAnchor",
+          "MapLandmarks_Gate"
+        ]
+      }
+    },
     "CSmMode": {
       "props": {
         "Integer": [
@@ -8017,207 +8572,6 @@
         }
       }
     },
-    "CSmMlScriptIngame": {
-      "props": {
-        "Integer": [
-          "ArenaNow"
-        ],
-        "CSmPlayer": [
-          "InputPlayer",
-          "GUIPlayer"
-        ],
-        "CSmPlayer[]": [
-          "Players"
-        ],
-        "CSmScore[]": [
-          "Scores"
-        ],
-        "Integer[]": [
-          "ClanScores"
-        ],
-        "Boolean": [
-          "HideResumePlayingButton"
-        ],
-        "CSmMapBase[]": [
-          "MapBases"
-        ],
-        "CSmMapLandmark[]": [
-          "MapLandmarks",
-          "MapLandmarks_PlayerSpawn",
-          "MapLandmarks_Gauge",
-          "MapLandmarks_Sector",
-          "MapLandmarks_BotPath",
-          "MapLandmarks_ObjectAnchor",
-          "MapLandmarks_Gate"
-        ]
-      }
-    },
-    "CSmAction": {
-      "props": {
-        "Integer": [
-          "Now",
-          "Variant",
-          "Energy",
-          "EnergyMax",
-          "EnergyCost",
-          "Cooldown"
-        ],
-        "CSmPlayer[]": [
-          "Players"
-        ],
-        "CSmPlayer": [
-          "Owner"
-        ],
-        "Boolean": [
-          "IsActive",
-          "EnergyReload"
-        ],
-        "CSmActionEvent[]": [
-          "PendingEvents"
-        ]
-      },
-      "methods": {
-        "SendRulesEvent": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "Param1"
-            },
-            {
-              "identifier": "Text[]",
-              "argument": "Param2"
-            },
-            {
-              "identifier": "CSmPlayer",
-              "argument": "Shooter"
-            },
-            {
-              "identifier": "CSmPlayer",
-              "argument": "Victim"
-            }
-          ],
-          "returns": "Void"
-        },
-        "GetAnimModelId": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ModelName"
-            }
-          ],
-          "returns": "Ident"
-        },
-        "PlayAnimOnPlayer": {
-          "params": [
-            {
-              "identifier": "Ident",
-              "argument": "AnimModelId"
-            },
-            {
-              "identifier": "CSmPlayer",
-              "argument": "Player"
-            }
-          ],
-          "returns": "Void"
-        },
-        "PlayAnimAtPosition": {
-          "params": [
-            {
-              "identifier": "Ident",
-              "argument": "AnimModelId"
-            },
-            {
-              "identifier": "Vec3",
-              "argument": "Position"
-            },
-            {
-              "identifier": "Vec3",
-              "argument": "Direction"
-            }
-          ],
-          "returns": "Void"
-        },
-        "GetProjectileModelId": {
-          "params": [
-            {
-              "identifier": "Text",
-              "argument": "ModelName"
-            }
-          ],
-          "returns": "Ident"
-        },
-        "CreateProjectile": {
-          "params": [
-            {
-              "identifier": "CSmPlayer",
-              "argument": "PlayerToIgnore"
-            },
-            {
-              "identifier": "Ident",
-              "argument": "ProjectileModelId"
-            },
-            {
-              "identifier": "Vec3",
-              "argument": "InitialPosition"
-            },
-            {
-              "identifier": "Vec3",
-              "argument": "InitialDirection"
-            },
-            {
-              "identifier": "Vec3",
-              "argument": "InitialVelocity"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "ContextId"
-            }
-          ],
-          "returns": "Void"
-        },
-        "CreateShoot": {
-          "params": [
-            {
-              "identifier": "CSmPlayer",
-              "argument": "Shooter"
-            },
-            {
-              "identifier": "Ident",
-              "argument": "ProjectileModelId"
-            },
-            {
-              "identifier": "Integer",
-              "argument": "ContextId"
-            }
-          ],
-          "returns": "Void"
-        },
-        "Cooldown_IsReady": {
-          "params": [
-            {
-              "identifier": "Integer",
-              "argument": "Now"
-            }
-          ],
-          "returns": "Boolean"
-        },
-        "Cooldown_Start": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
-    "CSmMapType": {
-      "props": {
-        "CSmMode": [
-          "Mode"
-        ],
-        "CSmPlayer[]": [
-          "AllPlayers",
-          "Players"
-        ]
-      }
-    },
     "CTmMlScriptIngame": {
       "props": {
         "CTmMlPlayer": [
@@ -8685,51 +9039,6 @@
         ]
       }
     },
-    "CSmMapBase": {
-      "props": {
-        "Integer": [
-          "Clan",
-          "NumberOfCollectors"
-        ],
-        "Boolean": [
-          "IsActive"
-        ]
-      }
-    },
-    "CSmMapLandmark": {
-      "props": {
-        "Text": [
-          "Tag"
-        ],
-        "Integer": [
-          "Order"
-        ],
-        "Vec3": [
-          "Position"
-        ],
-        "CSmMapBase": [
-          "Base"
-        ],
-        "CSmMapGate": [
-          "Gate"
-        ],
-        "CSmMapGauge": [
-          "Gauge"
-        ],
-        "CSmMapSector": [
-          "Sector"
-        ],
-        "CSmMapPlayerSpawn": [
-          "PlayerSpawn"
-        ],
-        "CSmMapBotPath": [
-          "BotPath"
-        ],
-        "CSmMapObjectAnchor": [
-          "ObjectAnchor"
-        ]
-      }
-    },
     "CSmScore": {
       "props": {
         "Integer": [
@@ -8817,28 +9126,6 @@
           "params": [],
           "returns": "Void"
         }
-      }
-    },
-    "CSmActionEvent": {
-      "props": {
-        "EType": [
-          "Type"
-        ],
-        "CSmPlayer": [
-          "Player"
-        ],
-        "Integer": [
-          "Damage",
-          "ContextId"
-        ],
-        "Ident": [
-          "ProjectileModelId"
-        ],
-        "Vec3": [
-          "Position",
-          "Direction",
-          "Normal"
-        ]
       }
     },
     "CTmMlPlayer": {
@@ -9170,80 +9457,7 @@
         ]
       }
     },
-    "CSmMapSector": {
-      "props": {
-        "Ident[]": [
-          "PlayersIds"
-        ]
-      }
-    },
-    "CSmBlockPole": {
-      "props": {
-        "Boolean": [
-          "Captured"
-        ],
-        "CSmSector": [
-          "Sector"
-        ],
-        "CSmGauge": [
-          "Gauge"
-        ]
-      }
-    },
-    "CSmMapGate": {
-      "props": {
-        "Integer": [
-          "Clan",
-          "AutoCloseDelay",
-          "AutoOpenSpeed"
-        ],
-        "Boolean": [
-          "Automatic",
-          "ManualClosed",
-          "AutoClosed",
-          "AutoIsActive"
-        ]
-      }
-    },
-    "CSmMapGauge": {
-      "props": {
-        "Integer": [
-          "Clan",
-          "Value",
-          "Max",
-          "Speed"
-        ],
-        "Real": [
-          "ValueReal"
-        ],
-        "Boolean": [
-          "Captured"
-        ]
-      }
-    },
-    "CSmMapBotPath": {
-      "props": {
-        "Integer": [
-          "Clan"
-        ],
-        "Vec3[]": [
-          "Path"
-        ],
-        "Boolean": [
-          "IsFlying"
-        ]
-      }
-    },
-    "CSmMapObjectAnchor": {
-      "props": {
-        "Text": [
-          "ItemName"
-        ],
-        "Ident": [
-          "ItemModelId"
-        ]
-      }
-    },
+
     "CUIConfig": {
       "props": {
         "EUISequence": [
@@ -9548,55 +9762,10 @@
         ]
       }
     },
-    "CSmBlock": {
-      "props": {
-        "CSmBase": [
-          "Base"
-        ]
-      }
-    },
     "CSmSector": {
       "props": {
         "Ident[]": [
           "PlayersIds"
-        ]
-      }
-    },
-    "CSmGauge": {
-      "props": {
-        "Integer": [
-          "Clan",
-          "Value",
-          "Max",
-          "Speed"
-        ],
-        "Real": [
-          "ValueReal"
-        ]
-      }
-    },
-    "CSmLandmark": {
-      "props": {
-        "Text": [
-          "Tag"
-        ],
-        "Integer": [
-          "Order"
-        ],
-        "Vec3": [
-          "Position",
-          "DirFront"
-        ]
-      }
-    },
-    "CSmBase": {
-      "props": {
-        "Integer": [
-          "Clan",
-          "NumberOfCollectors"
-        ],
-        "Boolean": [
-          "IsActive"
         ]
       }
     },
