@@ -5192,23 +5192,6 @@
         ]
       }
     },
-    "CStation": {
-      "props": {
-        "CTitle": [
-          "Title"
-        ],
-        "Integer": [
-          "AudienceRegisteredUsers",
-          "CampaignMedalsMax",
-          "CampaignMedalsCurrent",
-          "CampaignMedalsRanking",
-          "LadderRank"
-        ],
-        "Real": [
-          "LadderPoints"
-        ]
-      }
-    },
     "CMlScriptIngame": {
       "props": {
         "Integer": [
@@ -7976,6 +7959,9 @@
           "UseDefaultActionEvents",
           "UseAllies",
           "UseAutoSpawnBots",
+          "UseAutoRespawnBots",
+          "WalkOnWall",
+          "UseAutoDiscardBotEvents",
           "ForceNavMapsComputation",
           "UseProtectClanmates"
         ],
@@ -8012,6 +7998,7 @@
           "MapLandmarks_Gauge",
           "MapLandmarks_Sector",
           "MapLandmarks_BotPath",
+          "MapLandmarks_BotSpawn",
           "MapLandmarks_ObjectAnchor",
           "MapLandmarks_Gate"
         ],
@@ -8572,6 +8559,786 @@
         }
       }
     },
+    "CSmModeEvent": {
+      "props": {
+        "EType": [
+          "Type"
+        ],
+        "CSmPlayer": [
+          "Player",
+          "Shooter",
+          "Victim"
+        ],
+        "Integer": [
+          "Damage",
+          "VictimShield",
+          "ShooterPoints",
+          "ShooterClan",
+          "WeaponNum",
+          "ShooterWeaponNum",
+          "VictimWeaponNum",
+          "CommandValueInteger",
+          "ActionChange"
+        ],
+        "CSmObject": [
+          "VictimObject",
+          "Object"
+        ],
+        "CModeTurret": [
+          "VictimTurret",
+          "ShooterTurret"
+        ],
+        "Real": [
+          "Height",
+          "MissDist",
+          "CommandValueReal"
+        ],
+        "Boolean": [
+          "ShooterUsedAction",
+          "VictimUsedAction",
+          "PlayerWasSpawned",
+          "PlayerWasInLadderMatch",
+          "GiveUp",
+          "CommandValueBoolean"
+        ],
+        "EActionSlot": [
+          "ShooterActionSlot",
+          "VictimActionSlot",
+          "Action_Slot"
+        ],
+        "Text": [
+          "ShooterActionId",
+          "VictimActionId",
+          "ActionId",
+          "Param1",
+          "CommandName",
+          "CommandValueText"
+        ],
+        "EActionInput": [
+          "ActionInput"
+        ],
+        "Text[]": [
+          "Param2"
+        ],
+        "CSmMapSector": [
+          "Sector"
+        ],
+        "CSmBlockPole": [
+          "BlockPole"
+        ],
+        "CSmMapLandmark": [
+          "Landmark"
+        ],
+        "CUser": [
+          "User"
+        ],
+        "Vec3": [
+          "PlayerLastPosition",
+          "PlayerLastAimDirection"
+        ]
+      }
+    },
+    "CSmObject": {
+      "props": {
+        "EStatus": [
+          "Status"
+        ],
+        "Ident": [
+          "ModelId"
+        ],
+        "CSmPlayer": [
+          "Player"
+        ],
+        "CSmMapLandmark": [
+          "AnchorLandmark"
+        ],
+        "Vec3": [
+          "Position",
+          "Vel"
+        ],
+        "Integer": [
+          "MachineState"
+        ],
+        "Boolean": [
+          "Throwable"
+        ]
+      },
+      "methods": {
+        "SetAnchor": {
+          "params": [
+            {
+              "identifier": "CSmMapObjectAnchor",
+              "argument": "ObjectAnchor"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPlayer": {
+          "params": [
+            {
+              "identifier": "CSmPlayer",
+              "argument": "Player"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPosition": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetPositionAndVel": {
+          "params": [
+            {
+              "identifier": "Vec3",
+              "argument": "Position"
+            },
+            {
+              "identifier": "Vec3",
+              "argument": "Vel"
+            }
+          ],
+          "returns": "Void"
+        },
+        "SetUnspawned": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CSmPlayer": {
+      "props": {
+        "CSmScore": [
+          "Score"
+        ],
+        "ESpawnStatus": [
+          "SpawnStatus"
+        ],
+        "Integer": [
+          "StartTime",
+          "EndTime",
+          "CurWeapon",
+          "CurAmmo",
+          "CurAmmoMax",
+          "CurAmmoUnit",
+          "Armor",
+          "ArmorMax",
+          "ArmorGain",
+          "ArmorReplenishGain",
+          "Stamina",
+          "CurrentClan",
+          "IdleDuration"
+        ],
+        "Real": [
+          "AmmoGain",
+          "AmmoPower",
+          "ArmorPower",
+          "StaminaMax",
+          "StaminaGain",
+          "StaminaPower",
+          "SpeedPower",
+          "JumpPower",
+          "EnergyLevel",
+          "GetLinearHue",
+          "ForceLinearHue",
+          "ThrowSpeed",
+          "AimYaw",
+          "AimPitch",
+          "Speed"
+        ],
+        "Boolean": [
+          "AutoSwitchWeapon",
+          "AllowWallJump",
+          "AllowProgressiveJump",
+          "UseAlternateWeaponVisual",
+          "IsHighlighted",
+          "HasShield",
+          "IsInVehicle",
+          "IsUnderground",
+          "IsTouchingGround",
+          "IsInAir",
+          "IsOnTechGround",
+          "IsOnTechLaser",
+          "IsOnTechArrow",
+          "IsOnTechArmor",
+          "IsOnTechSafeZone",
+          "IsOnTech",
+          "IsOnTechNoWeapon",
+          "IsInWater",
+          "IsInOffZone",
+          "IsCapturing",
+          "IsFakePlayer",
+          "IsBot"
+        ],
+        "Vec3": [
+          "ForceColor",
+          "Position",
+          "AimDirection",
+          "Velocity"
+        ],
+        "Ident": [
+          "ForceModelId"
+        ],
+        "CSmMapLandmark": [
+          "CapturedLandmark"
+        ],
+        "CSmObject[]": [
+          "Objects"
+        ],
+        "CSmPlayerDriver": [
+          "Driver"
+        ]
+      }
+    },
+    "CSmPlayerDriver": {
+      "props": {
+        "ESmDriverBehaviour": [
+          "Behaviour"
+        ],
+        "Real": [
+          "AggroRadius",
+          "ShootRadius",
+          "TargetMinDistance",
+          "DisengageDistance",
+          "PathSpeedCoef",
+          "Accuracy",
+          "Fov",
+          "Agressivity",
+          "Escape_DistanceSafe",
+          "Escape_DistanceMinEscape",
+          "Escape_DistanceMaxEscape",
+          "Saunter_Radius"
+        ],
+        "Integer": [
+          "ReactionTime",
+          "ShootPeriodMin",
+          "ShootPeriodMax",
+          "PathOffset",
+          "Saunter_BaseChillingTime",
+          "Saunter_ChillingTimeDelta"
+        ],
+        "Boolean": [
+          "RocketAnticipation",
+          "IsStuck",
+          "IsFlying",
+          "UseOldShootingSystem",
+          "Scripted_ForceAimInMoveDir"
+        ],
+        "ESmAttackFilter": [
+          "AttackFilter"
+        ],
+        "CSmPlayer": [
+          "Target",
+          "Owner",
+          "ForcedTarget"
+        ],
+        "ESmDriverPatrolMode": [
+          "Patrol_Mode"
+        ],
+        "Vec3": [
+          "Escape_AnchorPoint",
+          "Saunter_AnchorPoint"
+        ],
+        "CSmPlayer[]": [
+          "TargetsToAvoid"
+        ]
+      }
+    },
+    "CSmScore": {
+      "props": {
+        "Integer": [
+          "TeamNum",
+          "Points",
+          "RoundPoints",
+          "NbEliminationsInflicted",
+          "NbEliminationsTaken",
+          "NbRespawnsRequested",
+          "DamageInflicted",
+          "DamageTaken"
+        ]
+      },
+      "methods": {
+        "Clear": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CSmSector": {
+      "props": {
+        "Ident[]": [
+          "PlayersIds"
+        ]
+      }
+    },
+    "CStation": {
+      "props": {
+        "CTitle": [
+          "Title"
+        ],
+        "Integer": [
+          "AudienceRegisteredUsers",
+          "CampaignMedalsMax",
+          "CampaignMedalsCurrent",
+          "CampaignMedalsRanking",
+          "LadderRank",
+          "NextEchelonPercent"
+        ],
+        "Real": [
+          "LadderPoints",
+          "GhostAlpha"
+        ],
+        "EEchelon": [
+          "Echelon"
+        ],
+        "Boolean": [
+          "DisableQuickEnter",
+          "IsLogoVisible",
+          "IsEditable"
+        ],
+        "Vec3": [
+          "FocusLightColor",
+          "NormalLightColor"
+        ]
+      }
+    },
+    "CTaskResult": {
+      "props": {
+        "Ident": [
+          "Id"
+        ],
+        "Boolean": [
+          "IsProcessing",
+          "HasSucceeded",
+          "HasFailed",
+          "IsCanceled"
+        ],
+        "ETaskErrorType": [
+          "ErrorType"
+        ],
+        "Integer": [
+          "ErrorCode"
+        ],
+        "Text": [
+          "ErrorDescription"
+        ]
+      },
+      "methods": {
+        "Cancel": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTaskResult_BuddiesChallengeRecord": {
+      "props": {
+        "Text": [
+          "Login"
+        ],
+        "CHighScoreComparison[]": [
+          "BuddiesChallengeRecord"
+        ]
+      },
+      "methods": {
+        "SortByOpponentCount": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentDisplayName": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentLogin": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentRecordDate": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentRecordTime": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTaskResult_BuddiesChallengeRecordsComparison": {
+      "props": {
+        "Text": [
+          "Login"
+        ],
+        "CHighScoreComparisonSummary[]": [
+          "BuddiesChallengeRecord"
+        ]
+      },
+      "methods": {
+        "SortByPlayerCount": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentLogin": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentCount": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentDate": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByOpponentDisplayName": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTaskResult_BuddyChallengeRecordsComparison": {
+      "props": {
+        "Text": [
+          "Login",
+          "BuddyLogin"
+        ],
+        "CHighScoreComparison[]": [
+          "PlayerBestRecordsComparison",
+          "BuddyBestRecordsComparison"
+        ]
+      },
+      "methods": {
+        "SortByMapName": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByReccordTime": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByReccordTimeDiff": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SortByReccordDate": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTaskResult_CheckTargetedPrivilege": {
+      "methods": {
+        "AddLogin": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Login"
+            }
+          ],
+          "returns": "Void"
+        },
+        "StartTask": {
+          "params": [],
+          "returns": "Void"
+        },
+        "HasPrivilege": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Login"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "GetDenyReason": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Login"
+            }
+          ],
+          "returns": "Text"
+        }
+      }
+    },
+    "CTaskResult_FileList": {
+      "props": {
+        "Text": [
+          "ParentPath",
+          "Path"
+        ],
+        "Text[]": [
+          "Files",
+          "SubFolders"
+        ]
+      }
+    },
+    "CTaskResult_GameModeList": {
+      "props": {
+        "CGameModeInfo[]": [
+          "GamesModes"
+        ]
+      }
+    },
+    "CTaskResult_GetOnlinePresence": {
+      "props": {
+        "COnlinePresence[]": [
+          "OnlinePresences"
+        ]
+      },
+      "methods": {
+        "AddLogin": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "Login"
+            }
+          ],
+          "returns": "Void"
+        },
+        "StartTask": {
+          "params": [],
+          "returns": "Void"
+        }
+      }
+    },
+    "CTaskResult_Ghost": {
+      "props": {
+        "CGhost": [
+          "Ghost"
+        ]
+      }
+    },
+    "CTaskResult_GhostList": {
+      "props": {
+        "CGhost[]": [
+          "Ghosts"
+        ]
+      }
+    },
+    "CTaskResult_MapList": {
+      "props": {
+        "Text": [
+          "ParentPath",
+          "Path"
+        ],
+        "CMapInfo[]": [
+          "MapInfos"
+        ],
+        "Text[]": [
+          "SubFolders"
+        ]
+      }
+    },
+    "CTaskResult_NaturalLeaderBoardInfoList": {
+      "props": {
+        "Integer": [
+          "FromIndex",
+          "Count"
+        ],
+        "CNaturalLeaderBoardInfo[]": [
+          "LeaderBoardInfo"
+        ]
+      }
+    },
+    "CTaskResult_RealLeaderBoardInfoList": {
+      "props": {
+        "Integer": [
+          "FromIndex",
+          "Count"
+        ],
+        "CRealLeaderBoardInfo[]": [
+          "LeaderBoardInfo"
+        ]
+      }
+    },
+    "CTaskResult_ReplayList": {
+      "props": {
+        "Text": [
+          "ParentPath",
+          "Path"
+        ],
+        "CReplayInfo[]": [
+          "ReplayInfos"
+        ],
+        "Text[]": [
+          "SubFolders"
+        ]
+      }
+    },
+    "CTaskResult_StringIntList": {
+      "props": {
+        "Text[]": [
+          "Values"
+        ]
+      }
+    },
+    "CTeam": {
+      "props": {
+        "Text": [
+          "Name",
+          "ZonePath",
+          "City",
+          "EmblemUrl",
+          "PresentationManialinkUrl",
+          "ClubLinkUrl",
+          "ColorText",
+          "ColorizedName"
+        ],
+        "Vec3": [
+          "ColorPrimary",
+          "ColorSecondary"
+        ]
+      }
+    },
+    "CTitle": {
+      "props": {
+        "Text": [
+          "TitleId",
+          "AuthorLogin",
+          "AuthorName",
+          "Name",
+          "Desc",
+          "InfoUrl",
+          "DownloadUrl",
+          "TitleVersion",
+          "MakerTitleId",
+          "BaseTitleId"
+        ]
+      }
+    },
+    "CTitleEdition": {
+      "props": {
+        "CTitle": [
+          "TitleMaker"
+        ],
+        "CPackCreator": [
+          "PackCreator"
+        ],
+        "Text": [
+          "EditedTitleId"
+        ],
+        "CPackCreatorTitleInfo": [
+          "EditedTitleInfo"
+        ],
+        "Boolean": [
+          "Dialog_IsFinished",
+          "Dialog_Success",
+          "Dialog_Aborted"
+        ]
+      },
+      "methods": {
+        "File_ImportFromUser": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "File_Move": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "OrigName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "DestNameOrFolder"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "KeepOriginalCopy"
+            }
+          ],
+          "returns": "Void"
+        },
+        "File_Exists": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            },
+            {
+              "identifier": "EDrive",
+              "argument": "InDrive"
+            }
+          ],
+          "returns": "Boolean"
+        },
+        "File_Delete": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            }
+          ],
+          "returns": "Void"
+        },
+        "File_WriteText": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            },
+            {
+              "identifier": "Text",
+              "argument": "Text"
+            }
+          ],
+          "returns": "Void"
+        },
+        "File_ReadText": {
+          "params": [
+            {
+              "identifier": "Text",
+              "argument": "FileName"
+            }
+          ],
+          "returns": "Text"
+        },
+        "Dialog_ImportFiles": {
+          "params": [],
+          "returns": "Void"
+        },
+        "OpenTitleFolderInExplorer": {
+          "params": [],
+          "returns": "Void"
+        },
+        "ReloadTitleDesc": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SaveTitleDesc": {
+          "params": [],
+          "returns": "Void"
+        },
+        "SetTitleCampaign": {
+          "params": [
+            {
+              "identifier": "Integer",
+              "argument": "CampaignNum"
+            },
+            {
+              "identifier": "Text",
+              "argument": "ScoreContext"
+            },
+            {
+              "identifier": "Text",
+              "argument": "MapsFolderNameOrPlayListName"
+            },
+            {
+              "identifier": "Boolean",
+              "argument": "OfficialRecordEnabled"
+            }
+          ],
+          "returns": "Void"
+        }
+      }
+    },
     "CTmMlScriptIngame": {
       "props": {
         "CTmMlPlayer": [
@@ -8813,19 +9580,6 @@
         ]
       }
     },
-    "CTitle": {
-      "props": {
-        "Text": [
-          "TitleId",
-          "BaseTitleId",
-          "Name",
-          "Desc",
-          "InfoUrl",
-          "DownloadUrl",
-          "TitleVersion"
-        ]
-      }
-    },
     "CXmlManager": {
       "props": {
         "CXmlDocument[]": [
@@ -8882,252 +9636,7 @@
         ]
       }
     },
-    "CSmPlayer": {
-      "props": {
-        "CSmScore": [
-          "Score"
-        ],
-        "ESpawnStatus": [
-          "SpawnStatus"
-        ],
-        "Integer": [
-          "StartTime",
-          "EndTime",
-          "CurWeapon",
-          "CurAmmo",
-          "CurAmmoMax",
-          "CurAmmoUnit",
-          "Armor",
-          "ArmorMax",
-          "ArmorGain",
-          "ArmorReplenishGain",
-          "Stamina",
-          "CurrentClan",
-          "IdleDuration"
-        ],
-        "Real": [
-          "AmmoGain",
-          "AmmoPower",
-          "ArmorPower",
-          "StaminaMax",
-          "StaminaGain",
-          "StaminaPower",
-          "SpeedPower",
-          "JumpPower",
-          "EnergyLevel",
-          "ThrowSpeed",
-          "AimYaw",
-          "AimPitch",
-          "Speed"
-        ],
-        "Boolean": [
-          "AutoSwitchWeapon",
-          "AllowWallJump",
-          "AllowProgressiveJump",
-          "UseAlternateWeaponVisual",
-          "IsHighlighted",
-          "HasShield",
-          "IsUnderground",
-          "IsTouchingGround",
-          "IsInAir",
-          "IsOnTechGround",
-          "IsOnTechLaser",
-          "IsOnTechArrow",
-          "IsOnTechArmor",
-          "IsOnTechSafeZone",
-          "IsOnTech",
-          "IsOnTechNoWeapon",
-          "IsInWater",
-          "IsInOffZone",
-          "IsCapturing",
-          "IsFakePlayer",
-          "IsBot"
-        ],
-        "Vec3": [
-          "ForceColor",
-          "Position",
-          "AimDirection",
-          "Velocity"
-        ],
-        "Ident": [
-          "ForceModelId"
-        ],
-        "CSmMapLandmark": [
-          "CapturedLandmark"
-        ],
-        "CSmObject[]": [
-          "Objects"
-        ],
-        "CSmPlayerDriver": [
-          "Driver"
-        ]
-      }
-    },
-    "CSmModeEvent": {
-      "props": {
-        "EType": [
-          "Type"
-        ],
-        "CSmPlayer": [
-          "Player",
-          "Shooter",
-          "Victim"
-        ],
-        "Integer": [
-          "Damage",
-          "ShooterPoints",
-          "WeaponNum",
-          "ShooterWeaponNum",
-          "VictimWeaponNum",
-          "CommandValueInteger",
-          "ActionChange"
-        ],
-        "CSmObject": [
-          "VictimObject",
-          "Object"
-        ],
-        "Real": [
-          "Height",
-          "MissDist",
-          "CommandValueReal"
-        ],
-        "Boolean": [
-          "ShooterUsedAction",
-          "VictimUsedAction",
-          "PlayerWasSpawned",
-          "PlayerWasInLadderMatch",
-          "GiveUp",
-          "CommandValueBoolean"
-        ],
-        "EActionSlot": [
-          "ShooterActionSlot",
-          "VictimActionSlot",
-          "Action_Slot"
-        ],
-        "Text": [
-          "ShooterActionId",
-          "VictimActionId",
-          "ActionId",
-          "Param1",
-          "CommandName",
-          "CommandValueText"
-        ],
-        "EActionInput": [
-          "ActionInput"
-        ],
-        "Text[]": [
-          "Param2"
-        ],
-        "CSmMapSector": [
-          "Sector"
-        ],
-        "CSmBlockPole": [
-          "BlockPole"
-        ],
-        "CSmMapLandmark": [
-          "Landmark"
-        ],
-        "Ident": [
-          "PlayerId"
-        ],
-        "CUser": [
-          "User"
-        ],
-        "Vec3": [
-          "PlayerLastPosition",
-          "PlayerLastAimDirection"
-        ]
-      }
-    },
-    "CSmScore": {
-      "props": {
-        "Integer": [
-          "TeamNum",
-          "Points",
-          "RoundPoints",
-          "NbEliminationsInflicted",
-          "NbEliminationsTaken",
-          "NbRespawnsRequested",
-          "DamageInflicted",
-          "DamageTaken"
-        ]
-      },
-      "methods": {
-        "Clear": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
-    "CSmObject": {
-      "props": {
-        "EStatus": [
-          "Status"
-        ],
-        "Ident": [
-          "ModelId"
-        ],
-        "CSmPlayer": [
-          "Player"
-        ],
-        "Vec3": [
-          "Position",
-          "Vel"
-        ],
-        "Integer": [
-          "MachineState"
-        ],
-        "Boolean": [
-          "Throwable"
-        ]
-      },
-      "methods": {
-        "SetAnchor": {
-          "params": [
-            {
-              "identifier": "CSmMapObjectAnchor",
-              "argument": "ObjectAnchor"
-            }
-          ],
-          "returns": "Void"
-        },
-        "SetPlayer": {
-          "params": [
-            {
-              "identifier": "CSmPlayer",
-              "argument": "Player"
-            }
-          ],
-          "returns": "Void"
-        },
-        "SetPosition": {
-          "params": [
-            {
-              "identifier": "Vec3",
-              "argument": "Position"
-            }
-          ],
-          "returns": "Void"
-        },
-        "SetPositionAndVel": {
-          "params": [
-            {
-              "identifier": "Vec3",
-              "argument": "Position"
-            },
-            {
-              "identifier": "Vec3",
-              "argument": "Vel"
-            }
-          ],
-          "returns": "Void"
-        },
-        "SetUnspawned": {
-          "params": [],
-          "returns": "Void"
-        }
-      }
-    },
+
     "CTmMlPlayer": {
       "props": {
         "Integer": [
@@ -9296,24 +9805,6 @@
         }
       }
     },
-    "CTeam": {
-      "props": {
-        "Text": [
-          "Name",
-          "ZonePath",
-          "City",
-          "EmblemUrl",
-          "PresentationManialinkUrl",
-          "ClubLinkUrl",
-          "ColorText",
-          "ColorizedName"
-        ],
-        "Vec3": [
-          "ColorPrimary",
-          "ColorSecondary"
-        ]
-      }
-    },
     "CUIConfigMgr": {
       "props": {
         "CUIConfig": [
@@ -9406,58 +9897,6 @@
         }
       }
     },
-    "CSmPlayerDriver": {
-      "props": {
-        "ESmDriverBehaviour": [
-          "Behaviour"
-        ],
-        "Real": [
-          "AggroRadius",
-          "DisengageDistance",
-          "PathSpeedCoef",
-          "Accuracy",
-          "Fov",
-          "Agressivity",
-          "Escape_DistanceSafe",
-          "Escape_DistanceMinEscape",
-          "Escape_DistanceMaxEscape",
-          "Saunter_Radius"
-        ],
-        "Integer": [
-          "ReactionTime",
-          "ShootPeriodMin",
-          "ShootPeriodMax",
-          "PathOffset",
-          "Saunter_BaseChillingTime",
-          "Saunter_ChillingTimeDelta"
-        ],
-        "Boolean": [
-          "RocketAnticipation",
-          "IsStuck",
-          "IsFlying",
-          "UseOldShootingSystem",
-          "Scripted_ForceAimInMoveDir"
-        ],
-        "ESmAttackFilter": [
-          "AttackFilter"
-        ],
-        "CSmPlayer": [
-          "Target",
-          "ForcedTarget"
-        ],
-        "ESmDriverPatrolMode": [
-          "Patrol_Mode"
-        ],
-        "Vec3": [
-          "Escape_AnchorPoint",
-          "Saunter_AnchorPoint"
-        ],
-        "CSmPlayer[]": [
-          "TargetsToAvoid"
-        ]
-      }
-    },
-
     "CUIConfig": {
       "props": {
         "EUISequence": [
@@ -9759,13 +10198,6 @@
         ],
         "Text[]": [
           "ParamArray2"
-        ]
-      }
-    },
-    "CSmSector": {
-      "props": {
-        "Ident[]": [
-          "PlayersIds"
         ]
       }
     },
