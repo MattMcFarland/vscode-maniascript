@@ -9,6 +9,7 @@ For more information about ManiaScript, see https://doc.maniaplanet.com/maniascr
 
 - Snippets have not been implemented yet.
 - Linting has not been implemented yet.
+- When starting by the character '#' the completion add an extra '#' when selecting a term.
 
 ## Changelog
 
