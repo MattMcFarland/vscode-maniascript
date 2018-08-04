@@ -1,6 +1,10 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.2.0
+Add types completion and function overloading
+Update the completion.json file to lastest version of maniascript (website used : https://www.uaseco.org/maniascript/2018-03-29/annotated.html)
+
 ## 1.1.3
 Add missing repository field to package.json
 
