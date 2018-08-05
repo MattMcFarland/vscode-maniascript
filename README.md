@@ -1,15 +1,14 @@
 # vscode-maniascript README
 
-VSCode Grammar / Autocompletion support for ManiaScript; `".Script.txt"` files.
-For more information about ManiaScript, see https://doc.maniaplanet.com/maniascript
+VSCode Grammar / Autocompletion support for ManiaScript; `".Script.txt"` files.  
+For more information about ManiaScript, see https://doc.maniaplanet.com/maniascript  
+A full documentation can be found here : https://www.uaseco.org/maniascript/2018-03-29/annotated.html
 
 ![Demo](https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/intellisense.gif)
 
 ## Known Issues
 
-- Snippets have not been implemented yet.
 - Linting has not been implemented yet.
-- When starting by the character '#' the completion add an extra '#' when selecting a term.
 
 ## Changelog
 
