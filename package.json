@@ -39,6 +39,12 @@
                 "configuration": "./language-configuration.json"
             }
         ],
+        "snippets": [
+            {
+                "language": "maniascript",
+                "path": "./snippets/maniascript.json"
+            }
+        ],
         "grammars": [
             {
                 "language": "maniascript",

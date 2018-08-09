@@ -1,0 +1,32 @@
+{
+  "Foreach Statement": {
+    "prefix": "foreach",
+    "body": [
+      "foreach (${1:var} in ${2:iterable}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "foreach statement"
+  },
+  "Switch Statement": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:var}) {",
+      "\tcase ${2:value} : $0;",
+      "\tdefault: {}",
+      "}"
+    ],
+    "description": "switch statement"
+  },
+  "ifelse": {
+    "prefix": "ifelse",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$0",
+      "} else {",
+      "\t",
+      "}"
+    ],
+    "description": "if else statement"
+  }
+}
