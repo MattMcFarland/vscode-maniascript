@@ -1,6 +1,11 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.2.2
+
+Add snippets when selecting a method  
+Now only the name of the attribute or of the method is research
+
 ## 1.2.1
 
 Add support for snippets  
