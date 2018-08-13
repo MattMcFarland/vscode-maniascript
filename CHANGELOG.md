@@ -1,6 +1,12 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.2.3
+
+Add inheritance support  
+Add enum types support  
+Update completions.json file  
+
 ## 1.2.2
 
 Add snippets when selecting a method  
