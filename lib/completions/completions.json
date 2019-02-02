@@ -38,7 +38,7 @@
 			"methods": []
 		},
 		"CAchievementsEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseConstEvent",
 			"enums": {
 				"EType": [
 					"NewAchievement"
@@ -122,6 +122,94 @@
 				]
 			},
 			"methods": []
+		},
+		"CAction": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {},
+			"methods": []
+		},
+		"CActionInterface": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Integer": [
+					"Cooldown",
+					"CooldownStartTime",
+					"Energy",
+					"EnergyCost",
+					"EnergyMax"
+				]
+			},
+			"methods": []
+		},
+		"CActionManager": {
+			"inherit": "CNod",
+			"enums": {
+				"EActionSlot": [
+					"Slot_A",
+					"Slot_B",
+					"Slot_C",
+					"Slot_D",
+					"Slot_E",
+					"Slot_F",
+					"Slot_G",
+					"Slot_H"
+				]
+			},
+			"props": {
+				"CActionInterface[]": [
+					"Actions"
+				]
+			},
+			"methods": [
+				{
+					"name": "Action_GetState",
+					"returns": "CActionInterface",
+					"params": [
+						{
+							"identifier": "CPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "EActionSlot",
+							"argument": "Slot"
+						}
+					]
+				},
+				{
+					"name": "Action_GetState",
+					"returns": "CActionInterface",
+					"params": [
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "VehicleSlotIndex"
+						},
+						{
+							"identifier": "EActionSlot",
+							"argument": "Slot"
+						}
+					]
+				},
+				{
+					"name": "Action_GetState",
+					"returns": "CActionInterface",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "EActionSlot",
+							"argument": "Slot"
+						}
+					]
+				}
+			]
 		},
 		"CAnchorData": {
 			"inherit": "CNod",
@@ -253,6 +341,16 @@
 						{
 							"identifier": "EAnimManagerEasing",
 							"argument": "EasingFunc"
+						}
+					]
+				},
+				{
+					"name": "Flush",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CMlControl",
+							"argument": "Control"
 						}
 					]
 				}
@@ -916,6 +1014,27 @@
 				}
 			]
 		},
+		"CBaseConstEvent": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Boolean": [
+					"HasBeenProcessed"
+				]
+			},
+			"methods": []
+		},
+		"CBaseEvent": {
+			"inherit": "CBaseConstEvent",
+			"enums": {},
+			"props": {
+				"Boolean": [
+					"HasBeenDiscarded",
+					"HasBeenPassed"
+				]
+			},
+			"methods": []
+		},
 		"CBlock": {
 			"inherit": "CNod",
 			"enums": {
@@ -962,12 +1081,6 @@
 		"CBlockModel": {
 			"inherit": "CCollector",
 			"enums": {
-				"EBaseType": [
-					"None",
-					"Conductor",
-					"Generator",
-					"Collector"
-				],
 				"EWayPointType": [
 					"Start",
 					"Finish",
@@ -975,15 +1088,6 @@
 					"None",
 					"StartFinish",
 					"Dispenser"
-				],
-				"MultiDirEnum": [
-					"SameDir",
-					"SymmetricalDirs",
-					"AllDir",
-					"OpposedDirOnly",
-					"PerpendicularDirsOnly",
-					"NextDirOnly",
-					"PreviousDirOnly"
 				]
 			},
 			"props": {
@@ -1010,51 +1114,13 @@
 		},
 		"CBlockModelClip": {
 			"inherit": "CBlockModel",
-			"enums": {
-				"EnumClipType": [
-					"ClassicClip",
-					"FreeClipSide",
-					"FreeClipTop",
-					"FreeClipBottom"
-				],
-				"MultiDirEnum": [
-					"SameDir",
-					"SymmetricalDirs",
-					"AllDir",
-					"OpposedDirOnly",
-					"PerpendicularDirsOnly",
-					"NextDirOnly",
-					"PreviousDirOnly"
-				]
-			},
+			"enums": {},
 			"props": {},
 			"methods": []
 		},
 		"CBlockModelVariant": {
 			"inherit": "CNod",
-			"enums": {
-				"CardinalDirEnum": [
-					"North",
-					"East",
-					"South",
-					"West"
-				],
-				"MultiDirEnum": [
-					"SameDir",
-					"SymmetricalDirs",
-					"AllDir",
-					"OpposedDirOnly",
-					"PerpendicularDirsOnly",
-					"NextDirOnly",
-					"PreviousDirOnly"
-				],
-				"VariantBaseTypeEnum": [
-					"Inherit",
-					"None",
-					"Conductor",
-					"Generator"
-				]
-			},
+			"enums": {},
 			"props": {
 				"Boolean": [
 					"IsAllUnderground",
@@ -1082,14 +1148,7 @@
 		},
 		"CBlockModelVariantGround": {
 			"inherit": "CBlockModelVariant",
-			"enums": {
-				"EnumAutoTerrainPlaceType": [
-					"Auto",
-					"Force",
-					"DoNotPlace",
-					"DoNotDestroy"
-				]
-			},
+			"enums": {},
 			"props": {},
 			"methods": []
 		},
@@ -1109,14 +1168,7 @@
 		},
 		"CBlockUnitModel": {
 			"inherit": "CNod",
-			"enums": {
-				"CardinalDirEnum": [
-					"North",
-					"East",
-					"South",
-					"West"
-				]
-			},
+			"enums": {},
 			"props": {
 				"CBlockModelClip[]": [
 					"Clips"
@@ -1129,38 +1181,7 @@
 		},
 		"CCampaign": {
 			"inherit": "CNod",
-			"enums": {
-				"EType": [
-					"None",
-					"Race",
-					"Puzzle",
-					"Survival",
-					"Platform",
-					"Stunts",
-					"Training"
-				],
-				"ERequiredPlayersCount": [
-					"Only",
-					"Only",
-					"Only",
-					"Only",
-					"Only",
-					"All"
-				],
-				"EUnlockType": [
-					"Row =(Nations)",
-					"Column =(United)",
-					"Custom"
-				],
-				"EMedal": [
-					"None",
-					"Finished",
-					"Bronze",
-					"Silver",
-					"Gold",
-					"Author"
-				]
-			},
+			"enums": {},
 			"props": {
 				"Boolean": [
 					"OfficialRecordEnabled"
@@ -1227,14 +1248,7 @@
 		},
 		"CCollector": {
 			"inherit": "CNod",
-			"enums": {
-				"EProdState": [
-					"Aborted",
-					"GameBox",
-					"DevBuild",
-					"Release"
-				]
-			},
+			"enums": {},
 			"props": {
 				"CImage": [
 					"Icon"
@@ -1323,6 +1337,28 @@
 					]
 				},
 				{
+					"name": "Map_GetGameList",
+					"returns": "CTaskResult_MapList",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Path"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "Flatten"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "SortByNameElseByDate"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "SortOrderAsc"
+						}
+					]
+				},
+				{
 					"name": "Map_GetFilteredGameList",
 					"returns": "CTaskResult_MapList",
 					"params": [
@@ -1380,6 +1416,28 @@
 						{
 							"identifier": "Boolean",
 							"argument": "Flatten"
+						}
+					]
+				},
+				{
+					"name": "Replay_GetGameList",
+					"returns": "CTaskResult_ReplayList",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Path"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "Flatten"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "SortByNameElseByDate"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "SortOrderAsc"
 						}
 					]
 				},
@@ -1448,6 +1506,32 @@
 					]
 				},
 				{
+					"name": "Media_GetGameList",
+					"returns": "CTaskResult_FileList",
+					"params": [
+						{
+							"identifier": "EMediaType",
+							"argument": "Type"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Path"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "Flatten"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "SortByNameElseByDate"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "SortOrderAsc"
+						}
+					]
+				},
+				{
 					"name": "Media_GetFilteredGameList",
 					"returns": "CTaskResult_FileList",
 					"params": [
@@ -1504,13 +1588,19 @@
 			]
 		},
 		"CEditorAsset": {
-			"inherit": "CGameEditorParent",
+			"inherit": "CEditorBase",
+			"enums": {},
+			"props": {},
+			"methods": []
+		},
+		"CEditorBase": {
+			"inherit": "CNod",
 			"enums": {},
 			"props": {},
 			"methods": []
 		},
 		"CEditorEditor": {
-			"inherit": "CGameEditorParent",
+			"inherit": "CEditorBase",
 			"enums": {},
 			"props": {
 				"Boolean": [
@@ -1569,6 +1659,10 @@
 					"params": [
 						{
 							"identifier": "Text",
+							"argument": "ContextName"
+						},
+						{
+							"identifier": "Text",
 							"argument": "BindingName"
 						}
 					]
@@ -1579,6 +1673,10 @@
 					"params": [
 						{
 							"identifier": "Text",
+							"argument": "ContextName"
+						},
+						{
+							"identifier": "Text",
 							"argument": "BindingName"
 						}
 					]
@@ -1587,6 +1685,10 @@
 					"name": "Bindings_SetBindingScriptId",
 					"returns": "Void",
 					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ContextName"
+						},
 						{
 							"identifier": "Text",
 							"argument": "BindingScriptId"
@@ -1601,6 +1703,10 @@
 					"name": "Bindings_SetBindingDisplayName",
 					"returns": "Void",
 					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ContextName"
+						},
 						{
 							"identifier": "Text",
 							"argument": "BindingScriptId"
@@ -1641,6 +1747,10 @@
 					"params": [
 						{
 							"identifier": "Text",
+							"argument": "ContextName"
+						},
+						{
+							"identifier": "Text",
 							"argument": "BindingName"
 						}
 					]
@@ -1649,6 +1759,10 @@
 					"name": "Bindings_GetBindingDisplayName",
 					"returns": "Text",
 					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ContextName"
+						},
 						{
 							"identifier": "Text",
 							"argument": "BindingName"
@@ -1665,9 +1779,20 @@
 					"KeyPress",
 					"MenuNavigation",
 					"FileChanged",
+					"Exit",
+					"FileSave",
 					"OnUndo",
 					"OnRedo",
-					"OnSwitchedBack"
+					"OnSwitchedBack",
+					"CameraButtonOn",
+					"CameraButtonOff",
+					"VoxelUpdateMaterial",
+					"OpenUVEditor",
+					"CloseUVEditor",
+					"EnableUndo",
+					"DisableUndo",
+					"EnableRedo",
+					"DisableRedo"
 				]
 			},
 			"props": {
@@ -1770,6 +1895,20 @@
 					]
 				},
 				{
+					"name": "Binding_IsActive",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ContextName"
+						},
+						{
+							"identifier": "Text",
+							"argument": "BindingName"
+						}
+					]
+				},
+				{
 					"name": "Plugin_SetClearance",
 					"returns": "Void",
 					"params": [
@@ -1812,6 +1951,14 @@
 					"Creation",
 					"Pick",
 					"PickJoint",
+					"VoxelPickDrag_Base",
+					"VoxelPickDrag_Creation",
+					"VoxelPickDrag_Delete",
+					"VoxelPickDrag_Select",
+					"VoxelPickDrag_Pick",
+					"VoxelPickDrag_SelectTranslation",
+					"VoxelPickDrag_SelectRotation",
+					"VoxelPickDrag_Paste",
 					"Selection",
 					"Translation",
 					"PickTranslation",
@@ -1853,10 +2000,38 @@
 					"Polyedric",
 					"Cylindrical",
 					"ApplyOnlyMaterial"
+				],
+				"ELayerType": [
+					"AddGeometry",
+					"SubdivideSmooth",
+					"Translation",
+					"Rotation",
+					"Scale",
+					"Mirror",
+					"MoveToGround",
+					"Extrude",
+					"Subdivide",
+					"Chaos",
+					"Smooth",
+					"BorderTransition",
+					"BlocTransfo",
+					"Voxels",
+					"TriggerShape",
+					"RespawnPos",
+					"Sector",
+					"None"
+				],
+				"ETitleCoreType": [
+					"TrackMania",
+					"ShootMania",
+					"Count"
 				]
 			},
 			"props": {
 				"Boolean": [
+					"ActivateVoxelMode",
+					"AddTransitionInProgress",
+					"CameraEatingInputsScript",
 					"DisplayFaces",
 					"DisplayJoints",
 					"DisplayVertices",
@@ -1865,8 +2040,17 @@
 					"GoToMaterialEditor",
 					"GridSnap_IsActive",
 					"IsCreateMaterial",
+					"IsEditingLayer",
 					"IsExperimental",
-					"Tmp_UseParts"
+					"LayerIndep",
+					"LayerIndexAxisX",
+					"LayerIndexAxisY",
+					"LayerIndexAxisZ",
+					"LayerVisible",
+					"Layer_IsCollidable",
+					"Layer_IsVisible",
+					"Tmp_UseParts",
+					"UseOptims"
 				],
 				"CEditorEvent[]": [
 					"PendingEvents"
@@ -1890,25 +2074,347 @@
 					"FaceCount",
 					"Material_Atlas_SelectedSubTexIndex",
 					"MaterialsUpdateId",
+					"NewTransitionPosition",
+					"PrefabListCurrentPage",
 					"PrefabNamesUpdateId",
+					"Prefab_TotalNb",
+					"RotateAxis",
 					"RotationStep",
+					"SubdivideSmooth_NbSteps",
 					"VertexCount"
 				],
 				"Real": [
 					"Display_HideElemsByDistance_Opacity",
+					"LayerValueAxisX",
+					"LayerValueAxisY",
+					"LayerValueAxisZ",
+					"LayerValueParam1",
+					"LayerValueParam2",
+					"NewTransitionSize",
 					"RotationValue",
 					"Scale",
 					"ScalingRatio",
 					"ScalingStep",
 					"Size",
-					"Step"
+					"Step",
+					"VoxelSpaceStep"
+				],
+				"Text": [
+					"LayerName",
+					"NewTransitionName"
 				],
 				"Text[]": [
 					"MaterialNames",
 					"PrefabNames"
+				],
+				"Vec3": [
+					"VoxelSpaceCenter"
 				]
 			},
 			"methods": [
+				{
+					"name": "Layers_GetCount",
+					"returns": "Integer",
+					"params": []
+				},
+				{
+					"name": "Layers_GetLayerIdFromIndex",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "LayerIndex"
+						}
+					]
+				},
+				{
+					"name": "Layers_GetLayerNameFromIndex",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "LayerIndex"
+						}
+					]
+				},
+				{
+					"name": "Layers_GetLayerTypeFromIndex",
+					"returns": "ELayerType",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "LayerIndex"
+						}
+					]
+				},
+				{
+					"name": "Layers_GetLayerVisibleFromIndex",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "LayerIndex"
+						}
+					]
+				},
+				{
+					"name": "Layers_SetLayerVisibleFromIndex",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "LayerIndex"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "LayerVisibility"
+						}
+					]
+				},
+				{
+					"name": "Layers_AddLayer",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "ELayerType",
+							"argument": "LayerType"
+						}
+					]
+				},
+				{
+					"name": "Layers_GetLayerIdSelected",
+					"returns": "Ident",
+					"params": []
+				},
+				{
+					"name": "Layers_SetLayerIdSelected",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "LayerId"
+						}
+					]
+				},
+				{
+					"name": "Layers_GetLayerSelectedType",
+					"returns": "ELayerType",
+					"params": []
+				},
+				{
+					"name": "Layers_GetLayerSelectedIndex",
+					"returns": "Integer",
+					"params": []
+				},
+				{
+					"name": "Layers_GetEditedLayerType",
+					"returns": "ELayerType",
+					"params": []
+				},
+				{
+					"name": "Layers_GetLayerSelectedName",
+					"returns": "Text",
+					"params": []
+				},
+				{
+					"name": "Layers_EditMask",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "LayerIndex"
+						}
+					]
+				},
+				{
+					"name": "Layers_EditMaskValidate",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "LayerIndex"
+						}
+					]
+				},
+				{
+					"name": "Layers_MoveSelectedLayerUp",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Layers_MoveSelectedLayerDown",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Layers_EditSelectedLayer",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Layers_CloseEditSelectedLayer",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Layers_DeleteSelectedLayer",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Transitions_GetCount",
+					"returns": "Integer",
+					"params": []
+				},
+				{
+					"name": "Transitions_AddTransition",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "TransitionName"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "TransitionPosition"
+						},
+						{
+							"identifier": "Real",
+							"argument": "TransitionSize"
+						}
+					]
+				},
+				{
+					"name": "Transitions_DeleteCurrentTransition",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Transitions_GetTransitionSelectedIndex",
+					"returns": "Integer",
+					"params": []
+				},
+				{
+					"name": "Transitions_SetTransitionSelectedIndex",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						}
+					]
+				},
+				{
+					"name": "Transitions_GetTransitionCurrentPage",
+					"returns": "Integer",
+					"params": []
+				},
+				{
+					"name": "Transitions_SetTransitionCurrentPage",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionCurrentPage"
+						}
+					]
+				},
+				{
+					"name": "Transitions_GetTransitionNameFromIndex",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						}
+					]
+				},
+				{
+					"name": "Transitions_SetTransitionNameFromIndex",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						},
+						{
+							"identifier": "Real",
+							"argument": "TransitionName"
+						}
+					]
+				},
+				{
+					"name": "Transitions_GetTransitionVisibilityFromIndex",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						}
+					]
+				},
+				{
+					"name": "Transitions_SetTransitionVisibilityFromIndex",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "TransitionVisibility"
+						}
+					]
+				},
+				{
+					"name": "Transitions_GetTransitionSizeFromIndex",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						}
+					]
+				},
+				{
+					"name": "Transitions_SetTransitionSizeFromIndex",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						},
+						{
+							"identifier": "Real",
+							"argument": "TransitionSize"
+						}
+					]
+				},
+				{
+					"name": "Transitions_GetTransitionPositionFromIndex",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						}
+					]
+				},
+				{
+					"name": "Transitions_SetTransitionPositionFromIndex",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "TransitionIndex"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "TransitionPosition"
+						}
+					]
+				},
 				{
 					"name": "EditionBox_SetScale",
 					"returns": "Void",
@@ -1916,16 +2422,6 @@
 						{
 							"identifier": "Real",
 							"argument": "Scale"
-						}
-					]
-				},
-				{
-					"name": "EditionBox_OrientPlane",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "SetHandle"
 						}
 					]
 				},
@@ -1999,6 +2495,11 @@
 					"params": []
 				},
 				{
+					"name": "PickInfo_GetAnchorId",
+					"returns": "Ident",
+					"params": []
+				},
+				{
 					"name": "PickInfo_GetEdgeLength",
 					"returns": "Real",
 					"params": []
@@ -2042,6 +2543,40 @@
 					"name": "Part_ClearAnchor",
 					"returns": "Void",
 					"params": []
+				},
+				{
+					"name": "Joint_Add",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "Position"
+						}
+					]
+				},
+				{
+					"name": "Joint_Link",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "IdChild"
+						},
+						{
+							"identifier": "Ident",
+							"argument": "IdParent"
+						}
+					]
+				},
+				{
+					"name": "Anchor_Remove",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "Id"
+						}
+					]
 				},
 				{
 					"name": "Material_GetMaterialIdSelected",
@@ -2196,6 +2731,11 @@
 					"params": []
 				},
 				{
+					"name": "Material_UVEditor_IsRunning",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
 					"name": "Material_UVEditor_SetMode",
 					"returns": "Void",
 					"params": [
@@ -2241,7 +2781,7 @@
 					]
 				},
 				{
-					"name": "Interaction_Abort",
+					"name": "Interaction_Close",
 					"returns": "Void",
 					"params": []
 				},
@@ -2257,7 +2797,7 @@
 				},
 				{
 					"name": "Interaction_StartCreation",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2282,11 +2822,6 @@
 							"argument": "ResultSetHandle"
 						}
 					]
-				},
-				{
-					"name": "Interaction_CloseCreation",
-					"returns": "Void",
-					"params": []
 				},
 				{
 					"name": "Interaction_Creation_ClearParams",
@@ -2315,12 +2850,12 @@
 				},
 				{
 					"name": "Interaction_StartPaste",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": []
 				},
 				{
 					"name": "Interaction_StartBlocTransformation",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2330,7 +2865,7 @@
 				},
 				{
 					"name": "Interaction_StartCurve2D",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2350,7 +2885,7 @@
 				},
 				{
 					"name": "Interaction_StartPick",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "EElemType",
@@ -2364,12 +2899,82 @@
 				},
 				{
 					"name": "Interaction_StartPickJoint",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_Base",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "EElemType",
+							"argument": "ElemType"
+						}
+					]
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_Creation",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_Delete",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_Select",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "SelectionSetHandle"
+						}
+					]
+				},
+				{
+					"name": "Interaction_CloseVoxelPickDrag_Select",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_Pick",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Interaction_CloseVoxelPickDrag_Pick",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_SelectTranslation",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_SelectRotation",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Interaction_StartVoxelPickDrag_Paste",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "CutVoxels",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "CopyVoxels",
 					"returns": "Void",
 					"params": []
 				},
 				{
 					"name": "Interaction_StartMerge",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2379,7 +2984,7 @@
 				},
 				{
 					"name": "Interaction_StartMirror",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2414,7 +3019,7 @@
 				},
 				{
 					"name": "Interaction_StartSelection",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2427,6 +3032,10 @@
 						{
 							"identifier": "Ident",
 							"argument": "SelectionSetToPickFrom"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "IsFromALayer"
 						}
 					]
 				},
@@ -2437,7 +3046,7 @@
 				},
 				{
 					"name": "Interaction_StartTranslation",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2447,7 +3056,7 @@
 				},
 				{
 					"name": "Interaction_StartPickTranslation",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2457,7 +3066,7 @@
 				},
 				{
 					"name": "Interaction_StartRotation",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2467,7 +3076,7 @@
 				},
 				{
 					"name": "Interaction_StartPickRotation",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2487,7 +3096,7 @@
 				},
 				{
 					"name": "Interaction_StartPickScale",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2507,7 +3116,7 @@
 				},
 				{
 					"name": "Interaction_StartSplit",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": []
 				},
 				{
@@ -2740,7 +3349,7 @@
 				},
 				{
 					"name": "GetBordersSet",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -2858,68 +3467,6 @@
 					"params": []
 				},
 				{
-					"name": "BlocTransformation_Start",
-					"returns": "Boolean",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "SetHandle"
-						}
-					]
-				},
-				{
-					"name": "BlocTransformation_Translate",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Vec3",
-							"argument": "Translation"
-						}
-					]
-				},
-				{
-					"name": "BlocTransformation_Twist",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Real",
-							"argument": "Angle"
-						}
-					]
-				},
-				{
-					"name": "BlocTransformation_Bend",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Integer",
-							"argument": "Axis"
-						},
-						{
-							"identifier": "Real",
-							"argument": "Radius"
-						},
-						{
-							"identifier": "Real",
-							"argument": "Angle"
-						},
-						{
-							"identifier": "Boolean",
-							"argument": "Direction"
-						}
-					]
-				},
-				{
-					"name": "BlocTransformation_Abort",
-					"returns": "Void",
-					"params": []
-				},
-				{
-					"name": "BlocTransformation_Close",
-					"returns": "Void",
-					"params": []
-				},
-				{
 					"name": "VoxelSpace_Init",
 					"returns": "Void",
 					"params": [
@@ -2928,8 +3475,8 @@
 							"argument": "Size"
 						},
 						{
-							"identifier": "Boolean",
-							"argument": "UseColors"
+							"identifier": "Real",
+							"argument": "Step"
 						}
 					]
 				},
@@ -2991,6 +3538,41 @@
 							"argument": "Pos"
 						}
 					]
+				},
+				{
+					"name": "VoxelSpace_GetFromFace",
+					"returns": "Int3",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "SelectionSet"
+						}
+					]
+				},
+				{
+					"name": "VoxelSpace_GetVoxelsCount",
+					"returns": "Integer",
+					"params": []
+				},
+				{
+					"name": "VoxelSpace_SelectAll",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "VoxelSpace_DeleteOneVoxel",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "VoxelSpace_DeleteSelection",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "VoxelSpace_ApplyMaterialToVoxel",
+					"returns": "Void",
+					"params": []
 				},
 				{
 					"name": "VoxelSpace_GenerateMesh",
@@ -3362,6 +3944,11 @@
 					]
 				},
 				{
+					"name": "Prefabs_Reload",
+					"returns": "Void",
+					"params": []
+				},
+				{
 					"name": "Prefab_Export",
 					"returns": "Void",
 					"params": []
@@ -3402,11 +3989,6 @@
 					"params": []
 				},
 				{
-					"name": "SetBaseUndoState",
-					"returns": "Void",
-					"params": []
-				},
-				{
 					"name": "AddUndoState",
 					"returns": "Void",
 					"params": []
@@ -3420,11 +4002,16 @@
 							"argument": "FileName"
 						}
 					]
+				},
+				{
+					"name": "GetTitleCoreType",
+					"returns": "ETitleCoreType",
+					"params": []
 				}
 			]
 		},
 		"CEditorModule": {
-			"inherit": "CGameEditorParent",
+			"inherit": "CEditorBase",
 			"enums": {
 				"EModuleType": [
 					"Undefined",
@@ -3434,10 +4021,18 @@
 					"ScoresTable",
 					"Equipment",
 					"MenuBase",
-					"MenuPage"
+					"MenuPage",
+					"Chrono",
+					"SpeedMeter",
+					"PlayerState",
+					"TeamState"
 				]
 			},
 			"props": {
+				"Boolean": [
+					"FileBrowser_IsRunning",
+					"IsPreviewMode"
+				],
 				"CEditorPluginModuleEvent[]": [
 					"PendingEvents"
 				],
@@ -3446,6 +4041,12 @@
 				],
 				"CModuleMenuPageModel": [
 					"EditedMenuPage"
+				],
+				"CModulePlaygroundHudModel": [
+					"EditedPlaygroundHud"
+				],
+				"Text": [
+					"FileBrowser_FilePath"
 				]
 			},
 			"methods": [
@@ -3498,6 +4099,21 @@
 					"name": "ForceExit",
 					"returns": "Void",
 					"params": []
+				},
+				{
+					"name": "EditedPlaygroundHud_SetPreviewContext",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ContextId"
+						}
+					]
+				},
+				{
+					"name": "FileBrowser_Open",
+					"returns": "Void",
+					"params": []
 				}
 			]
 		},
@@ -3534,61 +4150,10 @@
 				}
 			]
 		},
-		"CGameEditorParent": {
+		"CEntity": {
 			"inherit": "CNod",
 			"enums": {},
 			"props": {},
-			"methods": []
-		},
-		"CGameMatchSettingsPlaylistItemScript": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Boolean": [
-					"FileExists"
-				],
-				"Text": [
-					"Name"
-				]
-			},
-			"methods": []
-		},
-		"CGameModeInfo": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Text": [
-					"Description",
-					"Name",
-					"Path",
-					"Version"
-				],
-				"Text[]": [
-					"CompatibleMapTypes"
-				]
-			},
-			"methods": []
-		},
-		"CGamePlayerMapRecordScript": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Integer": [
-					"MultiAsyncLevel",
-					"RespawnCount",
-					"Score",
-					"SkillPoints",
-					"Time",
-					"Timestamp"
-				],
-				"Text": [
-					"Context",
-					"FileName",
-					"MapName",
-					"MapUid",
-					"ReplayUrl"
-				]
-			},
 			"methods": []
 		},
 		"CGhost": {
@@ -3661,12 +4226,32 @@
 			},
 			"methods": []
 		},
+		"CHttpEvent": {
+			"inherit": "CNod",
+			"enums": {
+				"EType": [
+					"RequestComplete"
+				]
+			},
+			"props": {
+				"CHttpRequest": [
+					"Request"
+				],
+				"EType": [
+					"Type"
+				]
+			},
+			"methods": []
+		},
 		"CHttpManager": {
 			"inherit": "CNod",
 			"enums": {},
 			"props": {
 				"Boolean": [
 					"AutomaticHeaders_Timezone"
+				],
+				"CHttpEvent[]": [
+					"PendingEvents"
 				],
 				"CHttpRequest[]": [
 					"Requests"
@@ -3791,160 +4376,7 @@
 		},
 		"CImage": {
 			"inherit": "CPlug",
-			"enums": {
-				"ERenderTech": [
-					"Unknown",
-					"Tech3"
-				],
-				"ETexFilter": [
-					"Point",
-					"Bilinear",
-					"Trilinear",
-					"Anisotropic",
-					"AnisoPoint"
-				],
-				"ETexAddress": [
-					"Wrap",
-					"Mirror",
-					"Clamp",
-					"Border"
-				],
-				"EColorSpace": [
-					"Linear",
-					"sRGB"
-				],
-				"EVideoTimer": [
-					"Game",
-					"Human",
-					"Scene",
-					"Default"
-				],
-				"EGenerateUV": [
-					"NoGenerate",
-					"CameraVertex",
-					"WorldVertex",
-					"WorldVertexXY",
-					"WorldVertexXZ",
-					"WorldVertexYZ",
-					"CameraNormal",
-					"WorldNormal",
-					"CameraReflectionVector",
-					"WorldReflectionVector",
-					"WorldNormalNeg",
-					"WaterReflectionVector",
-					"Hack1Vertex",
-					"DEPRECATED",
-					"FogPlane0",
-					"Vsk3SeaFoam",
-					"ImageSpace",
-					"LightDir0Reflect",
-					"EyeNormal",
-					"ShadowB1Pw01",
-					"Tex3AsPosPrCamera",
-					"FlatWaterReflect",
-					"FlatWaterRefract",
-					"FlatWaterFresnel",
-					"WorldPosXYblendZY",
-					"DisableVshOutput"
-				],
-				"EUsage": [
-					"Color",
-					"Light",
-					"DuDv",
-					"Render",
-					"DuDvLumi",
-					"NormXYZ",
-					"NormXY",
-					"DepthCmp",
-					"DispH01",
-					"NormPal8b",
-					"NormXYZ",
-					"NormXY",
-					"NormPal8b",
-					"NormPal16b",
-					"ColorFloat",
-					"RenderFloat",
-					"DuDv1",
-					"Alpha",
-					"LightAlpha",
-					"NormX0ZY",
-					"NormX0ZY",
-					"TexCoord",
-					"Render16b",
-					"Vertex",
-					"BumpTxTy",
-					"BumpTxTy",
-					"Norm0YZX",
-					"Norm0YZX",
-					"YZX",
-					"Depth",
-					"LinearL16",
-					"NormATI2N",
-					"ATI2N",
-					"Color16b",
-					"FI0E",
-					"SpecFI0E",
-					"MetalRough"
-				],
-				"EColorDepth": [
-					"DefaultColorDepth",
-					"Color16b",
-					"Color32b"
-				],
-				"ECubeMapFace": [
-					"None =(32b)",
-					"XPos",
-					"XNeg",
-					"YPos",
-					"YNeg",
-					"ZPos",
-					"ZNeg"
-				],
-				"EBumpCompressMode": [
-					"None =(32b)",
-					"Pal8b",
-					"DXT1 =(4b)",
-					"Pal16b"
-				],
-				"EPixelUpdate": [
-					"None =(32b)",
-					"Render",
-					"Shader",
-					"DynaSpecular",
-					"Clear",
-					"RenderVideo"
-				],
-				"EDynamic": [
-					"Off",
-					"On",
-					"Buffers"
-				],
-				"ENormalRotate": [
-					"None =(32b)",
-					"y"
-				],
-				"EEdCustomSaveOp": [
-					"None =(32b)",
-					"Diffuse",
-					"DXT5",
-					"ShootCubeHdr"
-				],
-				"ECompressor": [
-					"NVidia",
-					"DirectX"
-				],
-				"EForceBorderSize": [
-					"texel",
-					"texels",
-					"texels",
-					"texels"
-				],
-				"EMipMapAlpha01": [
-					"HalfBinary",
-					"ForceBinary",
-					"ShadeOfGray"
-				]
-			},
+			"enums": {},
 			"props": {},
 			"methods": []
 		},
@@ -4049,12 +4481,11 @@
 					"Pads"
 				],
 				"Integer": [
-					"Dbg_AutoRepeat_InitialDelay",
-					"Dbg_AutoRepeat_Period",
 					"Now",
 					"Period"
 				],
 				"Vec2": [
+					"MouseKineticScrollVel",
 					"MousePos"
 				]
 			},
@@ -4075,20 +4506,6 @@
 				},
 				{
 					"name": "GetPadButtonCurrentBinding",
-					"returns": "Text",
-					"params": [
-						{
-							"identifier": "CInputPad",
-							"argument": "Pad"
-						},
-						{
-							"identifier": "EButton",
-							"argument": "Button"
-						}
-					]
-				},
-				{
-					"name": "GetPadButtonBinding",
 					"returns": "Text",
 					"params": [
 						{
@@ -4145,6 +4562,7 @@
 				],
 				"EPadType": [
 					"Keyboard",
+					"Mouse",
 					"Generic",
 					"XBox",
 					"PlayStation",
@@ -4229,14 +4647,7 @@
 		},
 		"CItemAnchor": {
 			"inherit": "CNod",
-			"enums": {
-				"CardinalDirections": [
-					"North",
-					"East",
-					"South",
-					"West"
-				]
-			},
+			"enums": {},
 			"props": {
 				"Vec3": [
 					"Position"
@@ -4276,55 +4687,6 @@
 				"ELinkType": [
 					"ExternalBrowser",
 					"ManialinkBrowser"
-				],
-				"EAnimManagerEasing": [
-					"Linear",
-					"QuadIn",
-					"QuadOut",
-					"QuadInOut",
-					"CubicIn",
-					"CubicOut",
-					"CubicInOut",
-					"QuartIn",
-					"QuartOut",
-					"QuartInOut",
-					"QuintIn",
-					"QuintOut",
-					"QuintInOut",
-					"SineIn",
-					"SineOut",
-					"SineInOut",
-					"ExpIn",
-					"ExpOut",
-					"ExpInOut",
-					"CircIn",
-					"CircOut",
-					"CircInOut",
-					"BackIn",
-					"BackOut",
-					"BackInOut",
-					"ElasticIn",
-					"ElasticOut",
-					"ElasticInOut",
-					"ElasticIn2",
-					"ElasticOut2",
-					"ElasticInOut2",
-					"BounceIn",
-					"BounceOut",
-					"BounceInOut"
-				],
-				"ESystemPlatform": [
-					"None",
-					"Steam",
-					"UPlay",
-					"PS4",
-					"XBoxOne"
-				],
-				"ESystemSkuIdentifier": [
-					"Unknown",
-					"EU",
-					"US",
-					"JP"
 				]
 			},
 			"props": {
@@ -4344,14 +4706,14 @@
 				"CInputManager": [
 					"Input"
 				],
-				"CPresenceMgr": [
-					"PresenceMgr"
-				],
-				"CPrivilegeMgr": [
-					"PrivilegeMgr"
+				"CParsingManager": [
+					"Xml"
 				],
 				"CScoreMgr": [
 					"ScoreMgr"
+				],
+				"CSystemPlatform": [
+					"System"
 				],
 				"CTitle": [
 					"LoadedTitle"
@@ -4366,23 +4728,11 @@
 				"CVideoManager": [
 					"Video"
 				],
-				"CXmlManager": [
-					"Xml"
-				],
-				"ESystemPlatform": [
-					"SystemPlatform"
-				],
-				"ESystemSkuIdentifier": [
-					"SystemSkuIdentifier"
-				],
 				"Integer": [
-					"CurrentDate",
 					"LayersDefaultManialinkVersion",
 					"Now"
 				],
 				"Text": [
-					"CurrentLocalDateText",
-					"CurrentTimezone",
 					"ManiaAppBaseUrl",
 					"ManiaAppUrl"
 				]
@@ -4521,7 +4871,7 @@
 			]
 		},
 		"CManiaAppEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseConstEvent",
 			"enums": {
 				"EType": [
 					"LayerCustomEvent",
@@ -4540,7 +4890,9 @@
 					"PageDown",
 					"AppMenu",
 					"Action1",
-					"Action2"
+					"Action2",
+					"ScrollUp",
+					"ScrollDown"
 				]
 			},
 			"props": {
@@ -4608,20 +4960,31 @@
 				"CUIConfig": [
 					"ClientUI",
 					"UI"
+				],
+				"Integer": [
+					"SplitScreenCount"
 				]
 			},
-			"methods": []
+			"methods": [
+				{
+					"name": "SplitScreenAssignLayer",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CUILayer",
+							"argument": "UILayer"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ScreenNum"
+						}
+					]
+				}
+			]
 		},
 		"CManiaAppPlaygroundEvent": {
 			"inherit": "CManiaAppEvent",
-			"enums": {
-				"Type": [
-					"LayerCustomEvent",
-					"KeyPress",
-					"MenuNavigation",
-					"PlaygroundScriptEvent"
-				]
-			},
+			"enums": {},
 			"props": {
 				"Text": [
 					"PlaygroundScriptEventType"
@@ -4695,12 +5058,12 @@
 				"CNotificationsConsumer": [
 					"Notifications"
 				],
-				"CTitleEdition": [
-					"TitleEdition"
-				],
-				"CTitleFlow": [
+				"CTitleControl": [
 					"TitleControl",
 					"TitleFlow"
+				],
+				"CTitleEdition": [
+					"TitleEdition"
 				],
 				"Integer": [
 					"Authentication_ErrorCode"
@@ -4787,9 +5150,8 @@
 				"CManiaAppTitle": [
 					"ParentApp"
 				],
-				"CTitleFlow": [
-					"TitleControl",
-					"TitleFlow"
+				"CTitleControl": [
+					"TitleControl"
 				]
 			},
 			"methods": []
@@ -4832,6 +5194,35 @@
 					"ObjectiveTextBronze",
 					"ObjectiveTextGold",
 					"ObjectiveTextSilver"
+				]
+			},
+			"methods": []
+		},
+		"CMapBotPath": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Boolean": [
+					"IsFlying"
+				],
+				"Integer": [
+					"Clan"
+				],
+				"Vec3[]": [
+					"Path"
+				]
+			},
+			"methods": []
+		},
+		"CMapBotSpawn": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Boolean": [
+					"IsFlying"
+				],
+				"Ident": [
+					"BotModelId"
 				]
 			},
 			"methods": []
@@ -5130,6 +5521,48 @@
 						{
 							"identifier": "Text",
 							"argument": "RulesModeName"
+						}
+					]
+				},
+				{
+					"name": "TestMapWithMode_SplitScreen",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "RulesModeName"
+						}
+					]
+				},
+				{
+					"name": "TestMapWithMode_SplitScreen",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "RulesModeName"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ScreenCount"
+						}
+					]
+				},
+				{
+					"name": "TestMapWithMode_SplitScreen",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "RulesModeName"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ScreenCount"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "FakeCount"
 						}
 					]
 				},
@@ -5981,6 +6414,72 @@
 			},
 			"methods": []
 		},
+		"CMapLandmark": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"CMapBotPath": [
+					"BotPath"
+				],
+				"CMapBotSpawn": [
+					"BotSpawn"
+				],
+				"CMapObjectAnchor": [
+					"ObjectAnchor"
+				],
+				"CMapSector": [
+					"Sector"
+				],
+				"CMapSpawn": [
+					"PlayerSpawn"
+				],
+				"CMapWaypoint": [
+					"Waypoint"
+				],
+				"Integer": [
+					"Order"
+				],
+				"Text": [
+					"Tag"
+				],
+				"Vec3": [
+					"Position"
+				]
+			},
+			"methods": []
+		},
+		"CMapObjectAnchor": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Ident": [
+					"ItemModelId"
+				],
+				"Text": [
+					"ItemName"
+				]
+			},
+			"methods": []
+		},
+		"CMapSector": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Ident[]": [
+					"PlayersIds"
+				],
+				"Text": [
+					"Tag"
+				]
+			},
+			"methods": []
+		},
+		"CMapSpawn": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {},
+			"methods": []
+		},
 		"CMapType": {
 			"inherit": "CMapEditorPlugin",
 			"enums": {
@@ -6028,11 +6527,22 @@
 				}
 			]
 		},
+		"CMapWaypoint": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Boolean": [
+					"IsFinish",
+					"IsMultiLap"
+				]
+			},
+			"methods": []
+		},
 		"CMatchSettings": {
 			"inherit": "CNod",
 			"enums": {},
 			"props": {
-				"CGameMatchSettingsPlaylistItemScript[]": [
+				"CMatchSettingsPlaylistItem[]": [
 					"Playlist"
 				],
 				"Text": [
@@ -6187,14 +6697,22 @@
 				}
 			]
 		},
+		"CMatchSettingsPlaylistItem": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Boolean": [
+					"FileExists"
+				],
+				"Text": [
+					"Name"
+				]
+			},
+			"methods": []
+		},
 		"CMlBrowser": {
 			"inherit": "CMlScript",
 			"enums": {
-				"EBuddyAction": [
-					"Add",
-					"Invite",
-					"Remove"
-				],
 				"EBuddyResult": [
 					"Ok",
 					"Error",
@@ -6370,11 +6888,6 @@
 					"params": []
 				},
 				{
-					"name": "Unload",
-					"returns": "Void",
-					"params": []
-				},
-				{
 					"name": "Focus",
 					"returns": "Void",
 					"params": []
@@ -6444,28 +6957,25 @@
 		},
 		"CMlFrame": {
 			"inherit": "CMlControl",
-			"enums": {
-				"EControlType": [
-					"Audio",
-					"Entry",
-					"FileEntry",
-					"Frame",
-					"Label",
-					"Quad",
-					"Video"
-				]
-			},
+			"enums": {},
 			"props": {
 				"Boolean": [
 					"ClipWindowActive",
-					"DisablePreload"
+					"DisablePreload",
+					"ScrollActive",
+					"ScrollGridSnap"
 				],
 				"CMlControl[]": [
 					"Controls"
 				],
 				"Vec2": [
 					"ClipWindowRelativePosition",
-					"ClipWindowSize"
+					"ClipWindowSize",
+					"ScrollAnimOffset",
+					"ScrollGrid",
+					"ScrollMax",
+					"ScrollMin",
+					"ScrollOffset"
 				]
 			},
 			"methods": [
@@ -6478,6 +6988,36 @@
 							"argument": "ControlId"
 						}
 					]
+				},
+				{
+					"name": "Scroll",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Vec2",
+							"argument": "DeltaInGridUnits"
+						}
+					]
+				},
+				{
+					"name": "ScrollBumpTop",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "ScrollBumpBottom",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "ScrollBumpLeft",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "ScrollBumpRight",
+					"returns": "Void",
+					"params": []
 				}
 			]
 		},
@@ -6753,6 +7293,9 @@
 				"Boolean": [
 					"LinksInhibited"
 				],
+				"CMlControl": [
+					"FocusedControl"
+				],
 				"CMlControl[]": [
 					"GetClassChildren_Result"
 				],
@@ -6786,6 +7329,16 @@
 						{
 							"identifier": "Boolean",
 							"argument": "Recursive"
+						}
+					]
+				},
+				{
+					"name": "ScrollToControl",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CMlControl",
+							"argument": "Control"
 						}
 					]
 				}
@@ -6844,6 +7397,11 @@
 							"argument": "fieldName"
 						}
 					]
+				},
+				{
+					"name": "RefreshImages",
+					"returns": "Void",
+					"params": []
 				}
 			]
 		},
@@ -6857,19 +7415,6 @@
 					"ExternalFromId",
 					"ManialinkFromId",
 					"GotoFromId"
-				],
-				"ESystemPlatform": [
-					"None",
-					"Steam",
-					"UPlay",
-					"PS4",
-					"XBoxOne"
-				],
-				"ESystemSkuIdentifier": [
-					"Unknown",
-					"EU",
-					"US",
-					"JP"
 				]
 			},
 			"props": {
@@ -6887,6 +7432,7 @@
 					"MouseLeftButton",
 					"MouseMiddleButton",
 					"MouseRightButton",
+					"PageAlwaysUpdateScript",
 					"PageIsVisible"
 				],
 				"CAnimManager": [
@@ -6910,14 +7456,14 @@
 				"CMlScriptEvent[]": [
 					"PendingEvents"
 				],
-				"CPresenceMgr": [
-					"PresenceMgr"
-				],
-				"CPrivilegeMgr": [
-					"PrivilegeMgr"
+				"CParsingManager": [
+					"Xml"
 				],
 				"CScoreMgr": [
 					"ScoreMgr"
+				],
+				"CSystemPlatform": [
+					"System"
 				],
 				"CTitle": [
 					"LoadedTitle"
@@ -6928,15 +7474,6 @@
 				"CVideoManager": [
 					"Video"
 				],
-				"CXmlManager": [
-					"Xml"
-				],
-				"ESystemPlatform": [
-					"SystemPlatform"
-				],
-				"ESystemSkuIdentifier": [
-					"SystemSkuIdentifier"
-				],
 				"Integer": [
 					"CurrentTime",
 					"Now",
@@ -6945,11 +7482,6 @@
 				"Real": [
 					"MouseX",
 					"MouseY"
-				],
-				"Text": [
-					"CurrentLocalDateText",
-					"CurrentTimeText",
-					"CurrentTimezone"
 				]
 			},
 			"methods": [
@@ -6984,6 +7516,32 @@
 						{
 							"identifier": "Boolean",
 							"argument": "WithAutoFocus"
+						},
+						{
+							"identifier": "CMlControl",
+							"argument": "AutoBackControl"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "InputPriority"
+						}
+					]
+				},
+				{
+					"name": "EnableMenuNavigation",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "EnableInputs"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "WithAutoFocus"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "WithManualScroll"
 						},
 						{
 							"identifier": "CMlControl",
@@ -7065,7 +7623,7 @@
 			]
 		},
 		"CMlScriptEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseConstEvent",
 			"enums": {
 				"Type": [
 					"KeyPress",
@@ -7087,7 +7645,9 @@
 					"PageDown",
 					"AppMenu",
 					"Action1",
-					"Action2"
+					"Action2",
+					"ScrollUp",
+					"ScrollDown"
 				]
 			},
 			"props": {
@@ -7188,7 +7748,9 @@
 					"UI"
 				],
 				"Integer": [
-					"GameTime"
+					"GameTime",
+					"SplitScreenCount",
+					"SplitScreenNum"
 				],
 				"Text": [
 					"CurrentServerDesc",
@@ -7363,19 +7925,6 @@
 					"Silver",
 					"Gold",
 					"Author"
-				],
-				"ESystemPlatform": [
-					"None",
-					"Steam",
-					"UPlay",
-					"PS4",
-					"XBoxOne"
-				],
-				"ESystemSkuIdentifier": [
-					"Unknown",
-					"EU",
-					"US",
-					"JP"
 				]
 			},
 			"props": {
@@ -7390,6 +7939,9 @@
 				],
 				"CAchievementsManager": [
 					"AchievementsManager"
+				],
+				"CActionManager": [
+					"ActionsManager"
 				],
 				"CDataFileMgr": [
 					"DataFileMgr"
@@ -7409,14 +7961,23 @@
 				"CModeTurretManager": [
 					"TurretsManager"
 				],
+				"CModeVehicleManager": [
+					"VehiclesManager"
+				],
 				"CModulePlaygroundHud": [
 					"Hud"
+				],
+				"CParsingManager": [
+					"Xml"
 				],
 				"CScoreMgr": [
 					"ScoreMgr"
 				],
 				"CServerAdmin": [
 					"ServerAdmin"
+				],
+				"CSystemPlatform": [
+					"System"
 				],
 				"CTeam[]": [
 					"Teams"
@@ -7430,14 +7991,8 @@
 				"CUser[]": [
 					"Users"
 				],
-				"CXmlManager": [
-					"Xml"
-				],
 				"CXmlRpc": [
 					"XmlRpc"
-				],
-				"ESystemPlatform": [
-					"SystemPlatform"
 				],
 				"Integer": [
 					"NextMapIndex",
@@ -7790,7 +8345,7 @@
 			]
 		},
 		"CModeTurret": {
-			"inherit": "CNod",
+			"inherit": "CEntity",
 			"enums": {},
 			"props": {
 				"CPlayer": [
@@ -7839,7 +8394,85 @@
 						},
 						{
 							"identifier": "CPlayer",
-							"argument": "Owner"
+							"argument": "OwnerPlayer"
+						}
+					]
+				},
+				{
+					"name": "Turret_CreateWithOwner",
+					"returns": "CModeTurret",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModelId"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Position"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Direction"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Up"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Clan"
+						},
+						{
+							"identifier": "Ident",
+							"argument": "OwnerId"
+						}
+					]
+				},
+				{
+					"name": "Turret_CreateWithOwner",
+					"returns": "CModeTurret",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModelId"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Position"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Direction"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Up"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Clan"
+						},
+						{
+							"identifier": "Ident",
+							"argument": "OwnerId"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "AutoAimOn"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "AutoTriggerOn"
+						}
+					]
+				},
+				{
+					"name": "Turret_GetPosition",
+					"returns": "Vec3",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
 						}
 					]
 				},
@@ -7857,6 +8490,336 @@
 					"name": "Turret_DestroyAll",
 					"returns": "Void",
 					"params": []
+				},
+				{
+					"name": "Turret_Activate",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						}
+					]
+				},
+				{
+					"name": "Turret_Deactivate",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						}
+					]
+				},
+				{
+					"name": "Turret_SetIsAutomatic",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "IsAuto"
+						}
+					]
+				},
+				{
+					"name": "Turret_Auto_SetAimAnticipation",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "Real",
+							"argument": "AimAnticipationMs"
+						}
+					]
+				},
+				{
+					"name": "Turret_Auto_SetFirePeriod",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "FirePeriodMs"
+						}
+					]
+				},
+				{
+					"name": "Turret_Auto_SetTargetDetectionFov",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "Real",
+							"argument": "DectectionFOVDeg"
+						}
+					]
+				},
+				{
+					"name": "Turret_Auto_SetTargetDetectionRadius",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "Real",
+							"argument": "DetectionRadius"
+						}
+					]
+				},
+				{
+					"name": "Turret_Auto_GetTarget",
+					"returns": "CEntity",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						}
+					]
+				},
+				{
+					"name": "Turret_Manual_SetTargetPos",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "TargetPos"
+						}
+					]
+				},
+				{
+					"name": "Turret_Manual_Fire",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						}
+					]
+				}
+			]
+		},
+		"CModeVehicle": {
+			"inherit": "CEntity",
+			"enums": {},
+			"props": {
+				"Integer": [
+					"Armor",
+					"ArmorMax",
+					"Clan"
+				],
+				"Real": [
+					"AccelCoef",
+					"AccelInput",
+					"Altitude",
+					"Pitch",
+					"Roll"
+				],
+				"Vec3": [
+					"Dir",
+					"Left",
+					"Position",
+					"Up",
+					"Velocity"
+				]
+			},
+			"methods": [
+				{
+					"name": "SetEngineActivated",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "IsActivated"
+						}
+					]
+				}
+			]
+		},
+		"CModeVehicleManager": {
+			"inherit": "CNod",
+			"enums": {
+				"EArmorUse": [
+					"Self",
+					"Group",
+					"Owner",
+					"Children",
+					"Mine"
+				],
+				"ESlotType": [
+					"Driver",
+					"Passenger"
+				]
+			},
+			"props": {
+				"CModeVehicle[]": [
+					"Vehicles"
+				]
+			},
+			"methods": [
+				{
+					"name": "MapVehicles_Reset",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "DestroyAllVehicles",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Vehicle_Create",
+					"returns": "CModeVehicle",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModelId"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Clan"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Armor"
+						},
+						{
+							"identifier": "EArmorUse",
+							"argument": "ArmorUse"
+						},
+						{
+							"identifier": "CMapSpawn",
+							"argument": "Spawn"
+						}
+					]
+				},
+				{
+					"name": "Vehicle_Create",
+					"returns": "CModeVehicle",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModelId"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Offset"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Armor"
+						},
+						{
+							"identifier": "EArmorUse",
+							"argument": "ArmorUse"
+						},
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Owner"
+						}
+					]
+				},
+				{
+					"name": "Vehicle_Destroy",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						}
+					]
+				},
+				{
+					"name": "Vehicle_Assign_AutoPilot",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Text",
+							"argument": "ModelName"
+						}
+					]
+				},
+				{
+					"name": "Vehicle_Assign_AutoPilot",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Text",
+							"argument": "ModelName"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "LoopPath"
+						}
+					]
+				},
+				{
+					"name": "Vehicle_SetTrailVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "IsVisible"
+						}
+					]
+				},
+				{
+					"name": "Vehicle_SetShieldVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "IsVisible"
+						}
+					]
+				},
+				{
+					"name": "VehicleModel_GetSlotsCount",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModelId"
+						},
+						{
+							"identifier": "ESlotType",
+							"argument": "SlotType"
+						}
+					]
 				}
 			]
 		},
@@ -8083,21 +9046,235 @@
 				}
 			]
 		},
+		"CModulePlaygroundChrono": {
+			"inherit": "CModulePlayground",
+			"enums": {},
+			"props": {},
+			"methods": [
+				{
+					"name": "StopChrono",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "StartChrono",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Reset",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Reset",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CPlayer",
+							"argument": "Player"
+						}
+					]
+				}
+			]
+		},
 		"CModulePlaygroundHud": {
 			"inherit": "CNod",
 			"enums": {},
 			"props": {
+				"CModulePlayground[]": [
+					"Modules"
+				],
+				"CModulePlaygroundChrono": [
+					"Chrono"
+				],
 				"CModulePlaygroundInventory": [
 					"Inventory"
+				],
+				"CModulePlaygroundPlayerState": [
+					"PlayerState"
 				],
 				"CModulePlaygroundScoresTable": [
 					"ScoresTable"
 				],
+				"CModulePlaygroundSpeedMeter": [
+					"SpeedMeter"
+				],
 				"CModulePlaygroundStore": [
 					"Store"
+				],
+				"CModulePlaygroundTeamState": [
+					"TeamState"
 				]
 			},
-			"methods": []
+			"methods": [
+				{
+					"name": "SwitchContext",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "Text",
+							"argument": "ContextName"
+						}
+					]
+				},
+				{
+					"name": "SetDefaultContext",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CPlayer",
+							"argument": "Player"
+						}
+					]
+				},
+				{
+					"name": "RetrieveModuleId",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ModuleName"
+						}
+					]
+				}
+			]
+		},
+		"CModulePlaygroundHudModel": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Ident[]": [
+					"ContextsIds",
+					"SubModuleIds"
+				],
+				"Integer": [
+					"EditorContextIndex"
+				],
+				"SHudModule": [
+					"SubModule"
+				]
+			},
+			"methods": [
+				{
+					"name": "SubModuleAdd",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ModulePath"
+						},
+						{
+							"identifier": "Text",
+							"argument": "ModuleName"
+						}
+					]
+				},
+				{
+					"name": "SubModuleSetNameAndId",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModuleId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "NewModuleName"
+						}
+					]
+				},
+				{
+					"name": "SubModuleRemove",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModuleId"
+						}
+					]
+				},
+				{
+					"name": "SubModuleIsContextActive",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModuleId"
+						},
+						{
+							"identifier": "Ident",
+							"argument": "ContextId"
+						}
+					]
+				},
+				{
+					"name": "SubModuleSetContextIsActive",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModuleId"
+						},
+						{
+							"identifier": "Ident",
+							"argument": "ContextId"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "IsActive"
+						}
+					]
+				},
+				{
+					"name": "ContextAdd",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ContextName"
+						}
+					]
+				},
+				{
+					"name": "ContextSetId",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ContextId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "NewContextName"
+						}
+					]
+				},
+				{
+					"name": "ContextRemove",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ContextId"
+						}
+					]
+				},
+				{
+					"name": "SubModuleRetrieve",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ModuleId"
+						}
+					]
+				}
+			]
 		},
 		"CModulePlaygroundInventory": {
 			"inherit": "CModulePlayground",
@@ -8195,6 +9372,23 @@
 				{
 					"name": "[]",
 					"returns": "Text",
+					"params": [
+						{
+							"identifier": "CPlayer",
+							"argument": "Player"
+						}
+					]
+				}
+			]
+		},
+		"CModulePlaygroundPlayerState": {
+			"inherit": "CModulePlayground",
+			"enums": {},
+			"props": {},
+			"methods": [
+				{
+					"name": "Reset",
+					"returns": "Void",
 					"params": [
 						{
 							"identifier": "CPlayer",
@@ -8364,6 +9558,143 @@
 				}
 			]
 		},
+		"CModulePlaygroundSpeedMeter": {
+			"inherit": "CModulePlayground",
+			"enums": {},
+			"props": {},
+			"methods": [
+				{
+					"name": "Reset",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CPlayer",
+							"argument": "Player"
+						}
+					]
+				},
+				{
+					"name": "SetGlobalScale",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Scale"
+						}
+					]
+				},
+				{
+					"name": "SetGaugeNumber",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Number"
+						}
+					]
+				},
+				{
+					"name": "SetGaugeAngle",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Angle"
+						}
+					]
+				},
+				{
+					"name": "SetGaugeBGVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Visibility"
+						}
+					]
+				},
+				{
+					"name": "SetSpeedLineVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Visibility"
+						}
+					]
+				},
+				{
+					"name": "SetGaugeSpeedMax",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Maximum"
+						}
+					]
+				},
+				{
+					"name": "SetSpeedValueScale",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Scale"
+						}
+					]
+				},
+				{
+					"name": "SetSpeedUnitScale",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Scale"
+						}
+					]
+				},
+				{
+					"name": "SetFooterUnitVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Visibility"
+						}
+					]
+				},
+				{
+					"name": "SetFooterLineVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Visibility"
+						}
+					]
+				},
+				{
+					"name": "SetDistanceVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Visibility"
+						}
+					]
+				},
+				{
+					"name": "SetDistanceFooterLineVisible",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Visibility"
+						}
+					]
+				}
+			]
+		},
 		"CModulePlaygroundStore": {
 			"inherit": "CModulePlayground",
 			"enums": {},
@@ -8502,6 +9833,23 @@
 				}
 			]
 		},
+		"CModulePlaygroundTeamState": {
+			"inherit": "CModulePlayground",
+			"enums": {},
+			"props": {},
+			"methods": [
+				{
+					"name": "Reset",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CPlayer",
+							"argument": "Player"
+						}
+					]
+				}
+			]
+		},
 		"CNaturalLeaderBoardInfo": {
 			"inherit": "CNod",
 			"enums": {},
@@ -8608,21 +9956,6 @@
 					"params": []
 				}
 			]
-		},
-		"COnlinePresence": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Boolean": [
-					"IsOnline"
-				],
-				"Text": [
-					"DisplayName",
-					"Login",
-					"ServerLogin"
-				]
-			},
-			"methods": []
 		},
 		"CPackCreator": {
 			"inherit": "CNod",
@@ -8864,6 +10197,7 @@
 					"DownloadUrl",
 					"ForcedPlayerModel",
 					"Hud3dFontFileName",
+					"HudDefaultModuleScriptName",
 					"InfoUrl",
 					"Menus_BgReplayFileName",
 					"Menus_ManiaAppFileName",
@@ -8878,8 +10212,404 @@
 			},
 			"methods": []
 		},
-		"CPlayer": {
+		"CParsingDocument": {
 			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"CParsingNode": [
+					"Root"
+				],
+				"CParsingNode[]": [
+					"Nodes"
+				],
+				"Text": [
+					"TextContents"
+				]
+			},
+			"methods": [
+				{
+					"name": "GetFirstChild",
+					"returns": "CParsingNode",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						}
+					]
+				}
+			]
+		},
+		"CParsingManager": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"CParsingDocument[]": [
+					"DocumentsXml"
+				],
+				"Integer": [
+					"DocumentsSlotsLimit"
+				]
+			},
+			"methods": [
+				{
+					"name": "Create",
+					"returns": "CParsingDocument",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Contents"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"returns": "CParsingDocument",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Contents"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "GenerateText"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "GenerateTextRaw"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "GenerateTextResursive"
+						}
+					]
+				},
+				{
+					"name": "Destroy",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CParsingDocument",
+							"argument": "Document"
+						}
+					]
+				},
+				{
+					"name": "Parse_Xml",
+					"returns": "CParsingDocument",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Contents"
+						}
+					]
+				},
+				{
+					"name": "Parse_Xml",
+					"returns": "CParsingDocument",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Contents"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "GenerateText"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "GenerateTextRaw"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "GenerateTextResursive"
+						}
+					]
+				},
+				{
+					"name": "Parse_Destroy",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CParsingDocument",
+							"argument": "Document"
+						}
+					]
+				},
+				{
+					"name": "Compose_Start_Xml",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Compact"
+						}
+					]
+				},
+				{
+					"name": "Compose_Start_Json",
+					"returns": "Ident",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "Compact"
+						}
+					]
+				},
+				{
+					"name": "Compose_End",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						}
+					]
+				},
+				{
+					"name": "Compose_Destroy",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						}
+					]
+				},
+				{
+					"name": "Compose_Node_Open",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						}
+					]
+				},
+				{
+					"name": "Compose_Node_Close",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						}
+					]
+				},
+				{
+					"name": "Compose_Array_Open",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						}
+					]
+				},
+				{
+					"name": "Compose_Array_Close",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						}
+					]
+				},
+				{
+					"name": "Compose_Attribute",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Value"
+						}
+					]
+				},
+				{
+					"name": "Compose_Attribute",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Value"
+						}
+					]
+				},
+				{
+					"name": "Compose_Attribute",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Real",
+							"argument": "Value"
+						}
+					]
+				},
+				{
+					"name": "Compose_Attribute",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "Value"
+						}
+					]
+				},
+				{
+					"name": "Compose_Value",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Value"
+						}
+					]
+				},
+				{
+					"name": "Compose_GetResult",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "ComposerId"
+						}
+					]
+				}
+			]
+		},
+		"CParsingNode": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"CParsingNode[]": [
+					"Children"
+				],
+				"Text": [
+					"Name",
+					"TextContents",
+					"TextRawContents",
+					"TextRecursiveContents"
+				]
+			},
+			"methods": [
+				{
+					"name": "GetAttributeText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Text",
+							"argument": "DefaultValue"
+						}
+					]
+				},
+				{
+					"name": "GetAttributeInteger",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "DefaultValue"
+						}
+					]
+				},
+				{
+					"name": "GetAttributeReal",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Real",
+							"argument": "DefaultValue"
+						}
+					]
+				},
+				{
+					"name": "GetAttributeBoolean",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "DefaultValue"
+						}
+					]
+				},
+				{
+					"name": "GetFirstChild",
+					"returns": "CParsingNode",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						}
+					]
+				}
+			]
+		},
+		"CPlayer": {
+			"inherit": "CEntity",
 			"enums": {},
 			"props": {
 				"Boolean": [
@@ -8921,6 +10651,9 @@
 				],
 				"CUser": [
 					"LocalUser"
+				],
+				"Ident": [
+					"SettingsPlayerModelId"
 				],
 				"Integer": [
 					"GameTime"
@@ -9002,142 +10735,6 @@
 			"enums": {},
 			"props": {},
 			"methods": []
-		},
-		"CPresenceMgr": {
-			"inherit": "CNod",
-			"enums": {
-				"ERichPresence": [
-					"Undefined",
-					"MainMenu",
-					"Solo",
-					"Multi",
-					"Party",
-					"Create"
-				]
-			},
-			"props": {
-				"CTaskResult[]": [
-					"TaskResults"
-				]
-			},
-			"methods": [
-				{
-					"name": "ReleaseTaskResult",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "TaskId"
-						}
-					]
-				},
-				{
-					"name": "SetPresence",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "UserId"
-						},
-						{
-							"identifier": "ERichPresence",
-							"argument": "UplayFlow"
-						}
-					]
-				},
-				{
-					"name": "GetOnlinePresenceForPlayers",
-					"returns": "CTaskResult_GetOnlinePresence",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "UserId"
-						}
-					]
-				}
-			]
-		},
-		"CPrivilegeMgr": {
-			"inherit": "CNod",
-			"enums": {
-				"EPrivilege": [
-					"PlayMultiplayerMode",
-					"PlayMultiplayerSession",
-					"UploadUserCreatedContent",
-					"ViewOnlinePresence",
-					"ViewUserCreatedContent",
-					"ViewUserCreatedContentRequired",
-					"ViewUserGameHistory",
-					"VoiceChat",
-					"PlayMultiplayerAsync",
-					"DownloadUserCreatedContent"
-				]
-			},
-			"props": {
-				"CTaskResult[]": [
-					"TaskResults"
-				]
-			},
-			"methods": [
-				{
-					"name": "ReleaseTaskResult",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "TaskId"
-						}
-					]
-				},
-				{
-					"name": "CheckPrivilege",
-					"returns": "CTaskResult",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "UserId"
-						},
-						{
-							"identifier": "EPrivilege",
-							"argument": "Privilege"
-						}
-					]
-				},
-				{
-					"name": "CheckPrivilegeForAllUsers",
-					"returns": "CTaskResult",
-					"params": [
-						{
-							"identifier": "EPrivilege",
-							"argument": "Privilege"
-						}
-					]
-				},
-				{
-					"name": "CheckTargetedPrivilege",
-					"returns": "CTaskResult_CheckTargetedPrivilege",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "UserId"
-						},
-						{
-							"identifier": "EPrivilege",
-							"argument": "Privilege"
-						}
-					]
-				},
-				{
-					"name": "CheckTargetedPrivilegeForAllUsers",
-					"returns": "CTaskResult_CheckTargetedPrivilege",
-					"params": [
-						{
-							"identifier": "EPrivilege",
-							"argument": "Privilege"
-						}
-					]
-				}
-			]
 		},
 		"CRealLeaderBoardInfo": {
 			"inherit": "CNod",
@@ -9505,7 +11102,7 @@
 				},
 				{
 					"name": "Campaign_GetOpponentRecords",
-					"returns": "CWebServicesTaskResult_MapRecordListScript",
+					"returns": "CTaskResult_MapRecordList",
 					"params": [
 						{
 							"identifier": "Ident",
@@ -10010,7 +11607,10 @@
 			"enums": {},
 			"props": {
 				"Boolean": [
-					"MapLoaded"
+					"Client_ComputeMinimap",
+					"HoldMapUnloadRequest",
+					"MapLoaded",
+					"MapUnloadRequested"
 				],
 				"CClient[]": [
 					"Clients",
@@ -10026,6 +11626,9 @@
 				"CMapInfo[]": [
 					"MapList"
 				],
+				"CParsingManager": [
+					"Xml"
+				],
 				"CScore[]": [
 					"Scores"
 				],
@@ -10034,6 +11637,9 @@
 				],
 				"CServerPluginEvent[]": [
 					"PendingEvents"
+				],
+				"CSystemPlatform": [
+					"System"
 				],
 				"CTeam[]": [
 					"Teams"
@@ -10047,8 +11653,8 @@
 				"CUser[]": [
 					"Users"
 				],
-				"CXmlManager": [
-					"Xml"
+				"CXmlRpc": [
+					"XmlRpc"
 				],
 				"Integer": [
 					"CurMapIndex",
@@ -10069,6 +11675,16 @@
 						{
 							"identifier": "Text",
 							"argument": "Login"
+						}
+					]
+				},
+				{
+					"name": "GetClient",
+					"returns": "CClient",
+					"params": [
+						{
+							"identifier": "CUIConfig",
+							"argument": "UI"
 						}
 					]
 				},
@@ -10118,16 +11734,19 @@
 			]
 		},
 		"CServerPluginEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseConstEvent",
 			"enums": {
 				"EType": [
 					"Unknown",
 					"ClientConnected",
 					"ClientDisconnected",
 					"MapLoaded",
-					"MapUnloaded",
+					"BeginMatch",
 					"BeginRound",
 					"EndRound",
+					"EndMatch",
+					"MapUnloadRequested",
+					"MapUnloaded",
 					"ChatCommand",
 					"ChatMessage",
 					"ModeCallback"
@@ -10137,8 +11756,14 @@
 				"CClient": [
 					"Client"
 				],
+				"CScore[]": [
+					"EndMatchScores"
+				],
 				"EType": [
 					"Type"
+				],
+				"Integer[]": [
+					"EndMatchRanks"
 				],
 				"Text": [
 					"ChatCommandType",
@@ -10153,7 +11778,7 @@
 			"methods": []
 		},
 		"CSmAction": {
-			"inherit": "CNod",
+			"inherit": "CAction",
 			"enums": {},
 			"props": {
 				"Boolean": [
@@ -10171,6 +11796,9 @@
 					"IsSliding",
 					"IsSneaking",
 					"State_Boolean1"
+				],
+				"CModeVehicle": [
+					"OwnerVehicle"
 				],
 				"CSmActionEvent[]": [
 					"PendingEvents"
@@ -10191,6 +11819,7 @@
 					"EnergyMax",
 					"Now",
 					"State_Integer1",
+					"State_Integer2",
 					"Variant"
 				],
 				"Real": [
@@ -10211,68 +11840,12 @@
 							"argument": "Param2"
 						},
 						{
-							"identifier": "CSmPlayer",
+							"identifier": "CEntity",
 							"argument": "Shooter"
 						},
 						{
-							"identifier": "CSmPlayer",
+							"identifier": "CEntity",
 							"argument": "Victim"
-						}
-					]
-				},
-				{
-					"name": "SendRulesEvent",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Param1"
-						},
-						{
-							"identifier": "Text[]",
-							"argument": "Param2"
-						},
-						{
-							"identifier": "CSmPlayer",
-							"argument": "Shooter"
-						},
-						{
-							"identifier": "CSmPlayer",
-							"argument": "Victim"
-						},
-						{
-							"identifier": "CSmObject",
-							"argument": "Object"
-						}
-					]
-				},
-				{
-					"name": "SendRulesEvent",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Param1"
-						},
-						{
-							"identifier": "Text[]",
-							"argument": "Param2"
-						},
-						{
-							"identifier": "CSmPlayer",
-							"argument": "Shooter"
-						},
-						{
-							"identifier": "CSmPlayer",
-							"argument": "Victim"
-						},
-						{
-							"identifier": "CSmObject",
-							"argument": "Object"
-						},
-						{
-							"identifier": "CModeTurret",
-							"argument": "Turret"
 						}
 					]
 				},
@@ -10529,31 +12102,37 @@
 							"argument": "Player"
 						}
 					]
+				},
+				{
+					"name": "Vehicle_TriggerTurbo",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Vehicle_TriggerTurboBrake",
+					"returns": "Void",
+					"params": []
 				}
 			]
 		},
 		"CSmActionEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseConstEvent",
 			"enums": {
 				"EType": [
 					"OnHitPlayer",
 					"OnProjectileEnd",
+					"OnProjectileDestroyed",
 					"OnActiveChange",
 					"OnHitObject",
 					"OnHitShield",
+					"OnHitVehicle",
 					"OnShieldEnd",
 					"OnHitTurret"
 				]
 			},
 			"props": {
-				"CModeTurret": [
-					"Turret"
-				],
-				"CSmObject": [
-					"Object"
-				],
-				"CSmPlayer": [
-					"Player"
+				"CEntity": [
+					"Victim"
 				],
 				"EType": [
 					"Type"
@@ -10661,35 +12240,6 @@
 			},
 			"methods": []
 		},
-		"CSmMapBotPath": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Boolean": [
-					"IsFlying"
-				],
-				"Integer": [
-					"Clan"
-				],
-				"Vec3[]": [
-					"Path"
-				]
-			},
-			"methods": []
-		},
-		"CSmMapBotSpawn": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Boolean": [
-					"IsFlying"
-				],
-				"Ident": [
-					"BotModelId"
-				]
-			},
-			"methods": []
-		},
 		"CSmMapGate": {
 			"inherit": "CNod",
 			"enums": {},
@@ -10728,73 +12278,17 @@
 			"methods": []
 		},
 		"CSmMapLandmark": {
-			"inherit": "CNod",
+			"inherit": "CMapLandmark",
 			"enums": {},
 			"props": {
 				"CSmMapBase": [
 					"Base"
-				],
-				"CSmMapBotPath": [
-					"BotPath"
-				],
-				"CSmMapBotSpawn": [
-					"BotSpawn"
 				],
 				"CSmMapGate": [
 					"Gate"
 				],
 				"CSmMapGauge": [
 					"Gauge"
-				],
-				"CSmMapObjectAnchor": [
-					"ObjectAnchor"
-				],
-				"CSmMapPlayerSpawn": [
-					"PlayerSpawn"
-				],
-				"CSmMapSector": [
-					"Sector"
-				],
-				"Integer": [
-					"Order"
-				],
-				"Text": [
-					"Tag"
-				],
-				"Vec3": [
-					"Position"
-				]
-			},
-			"methods": []
-		},
-		"CSmMapObjectAnchor": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Ident": [
-					"ItemModelId"
-				],
-				"Text": [
-					"ItemName"
-				]
-			},
-			"methods": []
-		},
-		"CSmMapPlayerSpawn": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {},
-			"methods": []
-		},
-		"CSmMapSector": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Ident[]": [
-					"PlayersIds"
-				],
-				"Text": [
-					"Tag"
 				]
 			},
 			"methods": []
@@ -10819,6 +12313,9 @@
 			"props": {
 				"Boolean": [
 					"HideResumePlayingButton"
+				],
+				"CModeVehicle[]": [
+					"Vehicles"
 				],
 				"CSmMapBase[]": [
 					"MapBases"
@@ -10968,6 +12465,26 @@
 			},
 			"methods": [
 				{
+					"name": "GetPlayer",
+					"returns": "CSmPlayer",
+					"params": [
+						{
+							"identifier": "CUIConfig",
+							"argument": "UI"
+						}
+					]
+				},
+				{
+					"name": "GetPlayer",
+					"returns": "CSmPlayer",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Login"
+						}
+					]
+				},
+				{
 					"name": "PassOn",
 					"returns": "Void",
 					"params": [
@@ -11004,7 +12521,103 @@
 							"argument": "Armor"
 						},
 						{
-							"identifier": "CSmMapPlayerSpawn",
+							"identifier": "CMapSpawn",
+							"argument": "PlayerSpawn"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ActivationDate"
+						}
+					]
+				},
+				{
+					"name": "SpawnPlayer",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CSmPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ClanNum"
+						},
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ActivationDate"
+						}
+					]
+				},
+				{
+					"name": "SpawnPlayer",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CSmPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ClanNum"
+						},
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ActivationDate"
+						}
+					]
+				},
+				{
+					"name": "SpawnPlayer",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CSmPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ClanNum"
+						},
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "SlotIndex"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ActivationDate"
+						}
+					]
+				},
+				{
+					"name": "SpawnBotPlayer",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CSmPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ClanNum"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Armor"
+						},
+						{
+							"identifier": "CMapSpawn",
 							"argument": "PlayerSpawn"
 						},
 						{
@@ -11030,33 +12643,7 @@
 							"argument": "Armor"
 						},
 						{
-							"identifier": "CSmMapPlayerSpawn",
-							"argument": "PlayerSpawn"
-						},
-						{
-							"identifier": "Integer",
-							"argument": "ActivationDate"
-						}
-					]
-				},
-				{
-					"name": "SpawnBotPlayer",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "CSmPlayer",
-							"argument": "Player"
-						},
-						{
-							"identifier": "Integer",
-							"argument": "ClanNum"
-						},
-						{
-							"identifier": "Integer",
-							"argument": "Armor"
-						},
-						{
-							"identifier": "CSmMapBotPath",
+							"identifier": "CMapBotPath",
 							"argument": "BotPath"
 						},
 						{
@@ -11082,7 +12669,7 @@
 							"argument": "Armor"
 						},
 						{
-							"identifier": "CSmMapBotSpawn",
+							"identifier": "CMapBotSpawn",
 							"argument": "BotSpawn"
 						},
 						{
@@ -11261,11 +12848,11 @@
 					]
 				},
 				{
-					"name": "AddPlayerArmor",
+					"name": "AddArmor",
 					"returns": "Void",
 					"params": [
 						{
-							"identifier": "CSmPlayer",
+							"identifier": "CEntity",
 							"argument": "Victim"
 						},
 						{
@@ -11273,7 +12860,7 @@
 							"argument": "DeltaArmor"
 						},
 						{
-							"identifier": "CSmPlayer",
+							"identifier": "CEntity",
 							"argument": "Shooter"
 						},
 						{
@@ -11283,11 +12870,11 @@
 					]
 				},
 				{
-					"name": "RemovePlayerArmor",
+					"name": "RemoveArmor",
 					"returns": "Void",
 					"params": [
 						{
-							"identifier": "CSmPlayer",
+							"identifier": "CEntity",
 							"argument": "Victim"
 						},
 						{
@@ -11295,7 +12882,7 @@
 							"argument": "DeltaArmor"
 						},
 						{
-							"identifier": "CSmPlayer",
+							"identifier": "CEntity",
 							"argument": "Shooter"
 						},
 						{
@@ -11343,8 +12930,8 @@
 							"argument": "Player"
 						},
 						{
-							"identifier": "CSmMapLandmark",
-							"argument": "CheckpointLandmark"
+							"identifier": "CMapWaypoint",
+							"argument": "Waypoint"
 						}
 					]
 				},
@@ -11500,6 +13087,74 @@
 						{
 							"identifier": "Ident",
 							"argument": "ModelId"
+						}
+					]
+				},
+				{
+					"name": "ActionLoad",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeVehicle",
+							"argument": "Vehicle"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "VehicleSlotIndex"
+						},
+						{
+							"identifier": "EActionSlot",
+							"argument": "ActionSlot"
+						},
+						{
+							"identifier": "Ident",
+							"argument": "ModelId"
+						}
+					]
+				},
+				{
+					"name": "ActionLoad",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CModeTurret",
+							"argument": "Turret"
+						},
+						{
+							"identifier": "EActionSlot",
+							"argument": "ActionSlot"
+						},
+						{
+							"identifier": "Ident",
+							"argument": "ModelId"
+						}
+					]
+				},
+				{
+					"name": "Action_GetCooldown",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "CSmPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "EActionInput",
+							"argument": "ActionInput"
+						}
+					]
+				},
+				{
+					"name": "Action_GetRemainingCooldown",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "CSmPlayer",
+							"argument": "Player"
+						},
+						{
+							"identifier": "EActionInput",
+							"argument": "ActionInput"
 						}
 					]
 				},
@@ -11662,7 +13317,7 @@
 			]
 		},
 		"CSmModeEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseEvent",
 			"enums": {
 				"EType": [
 					"Unknown",
@@ -11680,9 +13335,14 @@
 					"OnActionCustomEvent",
 					"OnActionEvent",
 					"OnPlayerTouchesObject",
-					"OnPlayerTriggersSector",
 					"OnPlayerThrowsObject",
-					"OnPlayerRequestActionChange"
+					"OnPlayerTriggersSector",
+					"OnPlayerTriggersWaypoint",
+					"OnPlayerRequestActionChange",
+					"OnVehicleArmorEmpty",
+					"OnVehicleCollision",
+					"OnVehicleVsVehicleCollision",
+					"OnVehicleLanding"
 				],
 				"EActionSlot": [
 					"Slot_A",
@@ -11704,15 +13364,6 @@
 					"Consumable1",
 					"Consumable2",
 					"None"
-				],
-				"EActionSlots": [
-					"Weapon",
-					"Movement",
-					"Activable1",
-					"Activable2",
-					"Activable3",
-					"Activable4",
-					"None"
 				]
 			},
 			"props": {
@@ -11724,9 +13375,9 @@
 					"ShooterUsedAction",
 					"VictimUsedAction"
 				],
-				"CModeTurret": [
-					"ShooterTurret",
-					"VictimTurret"
+				"CEntity": [
+					"ShooterEntity",
+					"VictimEntity"
 				],
 				"CSmBlockPole": [
 					"BlockPole"
@@ -11734,17 +13385,11 @@
 				"CSmMapLandmark": [
 					"Landmark"
 				],
-				"CSmMapSector": [
-					"Sector"
-				],
 				"CSmObject": [
-					"Object",
-					"VictimObject"
+					"Object"
 				],
 				"CSmPlayer": [
-					"Player",
-					"Shooter",
-					"Victim"
+					"Player"
 				],
 				"CUser": [
 					"User"
@@ -11769,6 +13414,7 @@
 					"ShooterWeaponNum",
 					"VictimShield",
 					"VictimWeaponNum",
+					"WaypointTime",
 					"WeaponNum"
 				],
 				"Real": [
@@ -11795,7 +13441,7 @@
 			"methods": []
 		},
 		"CSmObject": {
-			"inherit": "CNod",
+			"inherit": "CEntity",
 			"enums": {
 				"EStatus": [
 					"OnPlayer",
@@ -11818,7 +13464,8 @@
 					"Status"
 				],
 				"Ident": [
-					"ModelId"
+					"ModelId",
+					"ThrowLatestPlayerId"
 				],
 				"Integer": [
 					"MachineState"
@@ -11834,7 +13481,7 @@
 					"returns": "Void",
 					"params": [
 						{
-							"identifier": "CSmMapObjectAnchor",
+							"identifier": "CMapObjectAnchor",
 							"argument": "ObjectAnchor"
 						}
 					]
@@ -11919,6 +13566,9 @@
 					"IsUnderground",
 					"UseAlternateWeaponVisual"
 				],
+				"CModeVehicle": [
+					"Vehicle"
+				],
 				"CSmMapLandmark": [
 					"CapturedLandmark"
 				],
@@ -11951,6 +13601,7 @@
 					"IdleDuration",
 					"NbActiveAttractors",
 					"Stamina",
+					"StaminaMaxValue",
 					"StartTime"
 				],
 				"Real": [
@@ -12140,24 +13791,46 @@
 			},
 			"methods": []
 		},
-		"CTaskResult": {
+		"CSystemPlatform": {
 			"inherit": "CNod",
 			"enums": {
-				"ETaskErrorType": [
-					"Success",
-					"Canceled",
-					"Unexpected",
-					"Internal",
-					"DataManager",
-					"PrivilegeManager",
-					"MasterServer",
-					"UbiServices",
-					"UplayPC",
+				"ESystemPlatform": [
+					"None",
+					"Steam",
+					"UPlay",
 					"PS4",
-					"XboxOne",
-					"ScoreManager"
+					"XBoxOne"
+				],
+				"ESystemSkuIdentifier": [
+					"Unknown",
+					"EU",
+					"US",
+					"JP"
 				]
 			},
+			"props": {
+				"ESystemPlatform": [
+					"Platform"
+				],
+				"ESystemSkuIdentifier": [
+					"SkuIdentifier"
+				],
+				"Integer": [
+					"CurrentLocalDate"
+				],
+				"Text": [
+					"CurrentLocalDateText",
+					"CurrentTimezone",
+					"ExeVersion",
+					"ExtraTool_Data",
+					"ExtraTool_Info"
+				]
+			},
+			"methods": []
+		},
+		"CTaskResult": {
+			"inherit": "CNod",
+			"enums": {},
 			"props": {
 				"Boolean": [
 					"HasFailed",
@@ -12165,17 +13838,13 @@
 					"IsCanceled",
 					"IsProcessing"
 				],
-				"ETaskErrorType": [
-					"ErrorType"
-				],
 				"Ident": [
 					"Id"
 				],
-				"Integer": [
-					"ErrorCode"
-				],
 				"Text": [
-					"ErrorDescription"
+					"ErrorCode",
+					"ErrorDescription",
+					"ErrorType"
 				]
 			},
 			"methods": [
@@ -12300,48 +13969,6 @@
 				}
 			]
 		},
-		"CTaskResult_CheckTargetedPrivilege": {
-			"inherit": "CTaskResult",
-			"enums": {},
-			"props": {},
-			"methods": [
-				{
-					"name": "AddLogin",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Login"
-						}
-					]
-				},
-				{
-					"name": "StartTask",
-					"returns": "Void",
-					"params": []
-				},
-				{
-					"name": "HasPrivilege",
-					"returns": "Boolean",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Login"
-						}
-					]
-				},
-				{
-					"name": "GetDenyReason",
-					"returns": "Text",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Login"
-						}
-					]
-				}
-			]
-		},
 		"CTaskResult_FileList": {
 			"inherit": "CTaskResult",
 			"enums": {},
@@ -12361,37 +13988,11 @@
 			"inherit": "CTaskResult",
 			"enums": {},
 			"props": {
-				"CGameModeInfo[]": [
+				"CTaskResult_ModeInfo[]": [
 					"GameModes"
 				]
 			},
 			"methods": []
-		},
-		"CTaskResult_GetOnlinePresence": {
-			"inherit": "CTaskResult",
-			"enums": {},
-			"props": {
-				"COnlinePresence[]": [
-					"OnlinePresences"
-				]
-			},
-			"methods": [
-				{
-					"name": "AddLogin",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Login"
-						}
-					]
-				},
-				{
-					"name": "StartTask",
-					"returns": "Void",
-					"params": []
-				}
-			]
 		},
 		"CTaskResult_Ghost": {
 			"inherit": "CTaskResult",
@@ -12430,8 +14031,56 @@
 			},
 			"methods": []
 		},
+		"CTaskResult_MapRecord": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Integer": [
+					"MultiAsyncLevel",
+					"RespawnCount",
+					"Score",
+					"SkillPoints",
+					"Time",
+					"Timestamp"
+				],
+				"Text": [
+					"Context",
+					"FileName",
+					"MapName",
+					"MapUid",
+					"ReplayUrl"
+				]
+			},
+			"methods": []
+		},
+		"CTaskResult_MapRecordList": {
+			"inherit": "CTaskResult_PlayerMapRecords",
+			"enums": {},
+			"props": {
+				"CTaskResult_MapRecord[]": [
+					"MapRecordList"
+				]
+			},
+			"methods": []
+		},
+		"CTaskResult_ModeInfo": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Text": [
+					"Description",
+					"Name",
+					"Path",
+					"Version"
+				],
+				"Text[]": [
+					"CompatibleMapTypes"
+				]
+			},
+			"methods": []
+		},
 		"CTaskResult_NaturalLeaderBoardInfoList": {
-			"inherit": "CWebServicesTaskResult_NaturalLeaderBoardInfoList",
+			"inherit": "CTaskResult",
 			"enums": {},
 			"props": {
 				"CNaturalLeaderBoardInfo[]": [
@@ -12444,8 +14093,14 @@
 			},
 			"methods": []
 		},
+		"CTaskResult_PlayerMapRecords": {
+			"inherit": "CTaskResult",
+			"enums": {},
+			"props": {},
+			"methods": []
+		},
 		"CTaskResult_RealLeaderBoardInfoList": {
-			"inherit": "CWebServicesTaskResult_RealLeaderBoardInfoList",
+			"inherit": "CTaskResult",
 			"enums": {},
 			"props": {
 				"CRealLeaderBoardInfo[]": [
@@ -12525,154 +14180,7 @@
 			},
 			"methods": []
 		},
-		"CTitleEdition": {
-			"inherit": "CNod",
-			"enums": {
-				"EDrive": [
-					"TitleReadable",
-					"Title",
-					"User"
-				]
-			},
-			"props": {
-				"Boolean": [
-					"Dialog_Aborted",
-					"Dialog_IsFinished",
-					"Dialog_Success"
-				],
-				"CPackCreator": [
-					"PackCreator",
-					"EditedTitleInfo"
-				],
-				"CTitle": [
-					"TitleMaker"
-				],
-				"Text": [
-					"EditedTitleId"
-				]
-			},
-			"methods": [
-				{
-					"name": "File_ImportFromUser",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "FileName"
-						}
-					]
-				},
-				{
-					"name": "File_Move",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "OrigName"
-						},
-						{
-							"identifier": "Text",
-							"argument": "DestNameOrFolder"
-						},
-						{
-							"identifier": "Boolean",
-							"argument": "KeepOriginalCopy"
-						}
-					]
-				},
-				{
-					"name": "File_Exists",
-					"returns": "Boolean",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "FileName"
-						},
-						{
-							"identifier": "EDrive",
-							"argument": "InDrive"
-						}
-					]
-				},
-				{
-					"name": "File_Delete",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Name"
-						}
-					]
-				},
-				{
-					"name": "File_WriteText",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "FileName"
-						},
-						{
-							"identifier": "Text",
-							"argument": "Text"
-						}
-					]
-				},
-				{
-					"name": "File_ReadText",
-					"returns": "Text",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "FileName"
-						}
-					]
-				},
-				{
-					"name": "Dialog_ImportFiles",
-					"returns": "Void",
-					"params": []
-				},
-				{
-					"name": "OpenTitleFolderInExplorer",
-					"returns": "Void",
-					"params": []
-				},
-				{
-					"name": "ReloadTitleDesc",
-					"returns": "Void",
-					"params": []
-				},
-				{
-					"name": "SaveTitleDesc",
-					"returns": "Void",
-					"params": []
-				},
-				{
-					"name": "SetTitleCampaign",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Integer",
-							"argument": "CampaignNum"
-						},
-						{
-							"identifier": "Text",
-							"argument": "ScoreContext"
-						},
-						{
-							"identifier": "Text",
-							"argument": "MapsFolderNameOrPlayListName"
-						},
-						{
-							"identifier": "Boolean",
-							"argument": "OfficialRecordEnabled"
-						}
-					]
-				}
-			]
-		},
-		"CTitleFlow": {
+		"CTitleControl": {
 			"inherit": "CNod",
 			"enums": {
 				"ESplitScreenLayout": [
@@ -13036,6 +14544,36 @@
 					]
 				},
 				{
+					"name": "EditNewMapFromBaseMap",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "BaseMapName"
+						},
+						{
+							"identifier": "Text",
+							"argument": "ModNameOrUrl"
+						},
+						{
+							"identifier": "Text",
+							"argument": "PlayerModel"
+						},
+						{
+							"identifier": "Text",
+							"argument": "MapType"
+						},
+						{
+							"identifier": "Text",
+							"argument": "EditorPluginScript"
+						},
+						{
+							"identifier": "Text",
+							"argument": "EditorPluginArgument"
+						}
+					]
+				},
+				{
 					"name": "EditBadges",
 					"returns": "Void",
 					"params": []
@@ -13180,6 +14718,153 @@
 					"name": "Quit",
 					"returns": "Void",
 					"params": []
+				}
+			]
+		},
+		"CTitleEdition": {
+			"inherit": "CNod",
+			"enums": {
+				"EDrive": [
+					"TitleReadable",
+					"Title",
+					"User"
+				]
+			},
+			"props": {
+				"Boolean": [
+					"Dialog_Aborted",
+					"Dialog_IsFinished",
+					"Dialog_Success"
+				],
+				"CPackCreator": [
+					"PackCreator",
+					"EditedTitleInfo"
+				],
+				"CTitle": [
+					"TitleMaker"
+				],
+				"Text": [
+					"EditedTitleId"
+				]
+			},
+			"methods": [
+				{
+					"name": "File_ImportFromUser",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "FileName"
+						}
+					]
+				},
+				{
+					"name": "File_Move",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "OrigName"
+						},
+						{
+							"identifier": "Text",
+							"argument": "DestNameOrFolder"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "KeepOriginalCopy"
+						}
+					]
+				},
+				{
+					"name": "File_Exists",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "FileName"
+						},
+						{
+							"identifier": "EDrive",
+							"argument": "InDrive"
+						}
+					]
+				},
+				{
+					"name": "File_Delete",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						}
+					]
+				},
+				{
+					"name": "File_WriteText",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "FileName"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Text"
+						}
+					]
+				},
+				{
+					"name": "File_ReadText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "FileName"
+						}
+					]
+				},
+				{
+					"name": "Dialog_ImportFiles",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "OpenTitleFolderInExplorer",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "ReloadTitleDesc",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "SaveTitleDesc",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "SetTitleCampaign",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "CampaignNum"
+						},
+						{
+							"identifier": "Text",
+							"argument": "ScoreContext"
+						},
+						{
+							"identifier": "Text",
+							"argument": "MapsFolderNameOrPlayListName"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "OfficialRecordEnabled"
+						}
+					]
 				}
 			]
 		},
@@ -13429,9 +15114,7 @@
 				"Integer": [
 					"CurPlayerCamera",
 					"MapNbLaps",
-					"NbLaps",
-					"SplitScreenCount",
-					"SplitScreenNum"
+					"NbLaps"
 				],
 				"Integer[]": [
 					"ClanScores"
@@ -13555,6 +15238,26 @@
 				]
 			},
 			"methods": [
+				{
+					"name": "GetPlayer",
+					"returns": "CTmPlayer",
+					"params": [
+						{
+							"identifier": "CUIConfig",
+							"argument": "UI"
+						}
+					]
+				},
+				{
+					"name": "GetPlayer",
+					"returns": "CTmPlayer",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Login"
+						}
+					]
+				},
 				{
 					"name": "PassOn",
 					"returns": "Boolean",
@@ -13866,19 +15569,7 @@
 		},
 		"CTmPlayer": {
 			"inherit": "CPlayer",
-			"enums": {
-				"ETmRacePlayerCoopMode": [
-					"None",
-					"Symbiosys",
-					"Checkpoint"
-				],
-				"ETmJumpMode": [
-					"Disabled",
-					"Simple",
-					"Double",
-					"Infinite"
-				]
-			},
+			"enums": {},
 			"props": {
 				"Boolean": [
 					"IsSpawned"
@@ -14107,6 +15798,12 @@
 					"MatchInfo",
 					"MatchWarning"
 				],
+				"EMessageDisplay": [
+					"Chat",
+					"Small",
+					"Status",
+					"Big"
+				],
 				"EObserverMode": [
 					"Default",
 					"Forced",
@@ -14309,11 +16006,106 @@
 							"argument": "Layer"
 						}
 					]
+				},
+				{
+					"name": "QueueMessage",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Duration"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Priority"
+						},
+						{
+							"identifier": "EMessageDisplay",
+							"argument": "Level"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Message"
+						},
+						{
+							"identifier": "CUser",
+							"argument": "Avatar"
+						},
+						{
+							"identifier": "EAvatarVariant",
+							"argument": "AvatarVariant"
+						},
+						{
+							"identifier": "EUISound",
+							"argument": "Sound"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "SoundVariant"
+						}
+					]
+				},
+				{
+					"name": "QueueMessage",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Duration"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Priority"
+						},
+						{
+							"identifier": "EMessageDisplay",
+							"argument": "Level"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Message"
+						},
+						{
+							"identifier": "EUISound",
+							"argument": "Sound"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "SoundVariant"
+						}
+					]
+				},
+				{
+					"name": "QueueMessage",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Duration"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Priority"
+						},
+						{
+							"identifier": "EMessageDisplay",
+							"argument": "Level"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Message"
+						}
+					]
+				},
+				{
+					"name": "ClearMessages",
+					"returns": "Void",
+					"params": []
 				}
 			]
 		},
 		"CUIConfigEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseEvent",
 			"enums": {
 				"EType": [
 					"Unknown",
@@ -14333,7 +16125,11 @@
 					"ScoresTable",
 					"Equipment",
 					"MenuBase",
-					"MenuPage"
+					"MenuPage",
+					"Chrono",
+					"SpeedMeter",
+					"PlayerState",
+					"TeamState"
 				]
 			},
 			"props": {
@@ -14530,18 +16326,6 @@
 					"Auto",
 					"Muted",
 					"NotMuted"
-				],
-				"PlayerType": [
-					"Human",
-					"Fake =(not net)",
-					"Net",
-					"Replay"
-				],
-				"SpectatorMode": [
-					"Void",
-					"Watcher",
-					"LocalWatcher",
-					"Target"
 				]
 			},
 			"props": {
@@ -14580,11 +16364,13 @@
 					"ReferenceScore"
 				],
 				"Text": [
+					"AvatarDisplayName",
 					"AvatarUrl",
 					"BroadcastTVLogin",
 					"ClubLink",
 					"CountryFlagUrl",
 					"Description",
+					"HornDisplayName",
 					"LadderZoneFlagUrl",
 					"LadderZoneName",
 					"Language",
@@ -14606,50 +16392,15 @@
 			},
 			"methods": []
 		},
-		"CUserV2": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"Boolean": [
-					"PersistentIsReady"
-				],
-				"CUserV2Profile": [
-					"Config"
-				],
-				"Text": [
-					"DisplayName",
-					"SystemName"
-				],
-				"Vec3": [
-					"Color"
-				]
-			},
-			"methods": [
-				{
-					"name": "PersistentSave",
-					"returns": "Void",
-					"params": []
-				}
-			]
-		},
 		"CUserV2Manager": {
 			"inherit": "CNod",
 			"enums": {},
 			"props": {
-				"Boolean": [
-					"MainUserLogged"
-				],
-				"CInputPad": [
-					"MainUserPad"
-				],
 				"CTaskResult[]": [
 					"TaskResults"
 				],
-				"CUserV2": [
-					"MainUser"
-				],
-				"CUserV2[]": [
-					"Users"
+				"CUserV2Profile": [
+					"MainUserProfile"
 				]
 			},
 			"methods": [
@@ -14662,11 +16413,6 @@
 							"argument": "TaskId"
 						}
 					]
-				},
-				{
-					"name": "RequestMainUserChange",
-					"returns": "Void",
-					"params": []
 				},
 				{
 					"name": "GetGroups",
@@ -14686,11 +16432,112 @@
 				"EMapEditorMode": [
 					"Ask",
 					"Advanced"
+				],
+				"ECustomPlayerModels": [
+					"All",
+					"OnlyTextures",
+					"None"
+				],
+				"EInputMouseReleaseKey": [
+					"LeftAlt",
+					"RightAlt",
+					"LeftCtrl",
+					"RightCtrl"
 				]
 			},
 			"props": {
+				"Boolean": [
+					"Account_AcceptNews",
+					"Account_EnableAutoConnect",
+					"Audio_DontMuteWhenAppUnfocused",
+					"CanChangeAvatar",
+					"CanChangeGroups",
+					"CanChangeNickName",
+					"CanChangePassword",
+					"CanChangeSkin",
+					"CanChangeZone",
+					"Custom_EnableAvatars",
+					"Custom_EnableChat",
+					"Custom_EnableUnlimitedHorns",
+					"Inputs_MouseLookInvertY",
+					"Interface_AllyEnableCustomColor",
+					"Interface_BeaconEnableCustom",
+					"Interface_CrosshairEnableCustomColor",
+					"Interface_OppoEnableCustomColor",
+					"Online_AutoSaveReplay",
+					"Online_SaveRoundReplaysSeparately",
+					"Steam_OpenLinksInSteam",
+					"Steam_SynchonizeWorkshopFiles",
+					"Title_IsForbiddenWithParentalLock"
+				],
+				"CVehicleSettings[]": [
+					"Inputs_Vehicles"
+				],
+				"ECustomPlayerModels": [
+					"Custom_PlayerModels"
+				],
+				"EInputMouseReleaseKey": [
+					"Inputs_MouseReleaseKey"
+				],
 				"EMapEditorMode": [
-					"MapEditorMode"
+					"Editors_MapEditorMode"
+				],
+				"Real": [
+					"Audio_MasterMusicVolume",
+					"Audio_MasterSoundVolume",
+					"Inputs_MouseAccel",
+					"Inputs_MouseScaleFreeLook",
+					"Inputs_MouseScaleY",
+					"Inputs_MouseSensitivityDefault",
+					"Inputs_MouseSensitivityDefault_Raw",
+					"Inputs_MouseSensitivityLaser",
+					"Inputs_MouseSensitivityLaser_Raw",
+					"Interface_AllyLinearHue",
+					"Interface_BeaconDuration",
+					"Interface_BeaconOpacity",
+					"Interface_BeaconSize",
+					"Interface_CrosshairLinearHue",
+					"Interface_CrosshairOpacity",
+					"Interface_CrosshairSaturation",
+					"Interface_CrosshairSize",
+					"Interface_OppoLinearHue",
+					"Interface_PlayerShieldScale",
+					"User_HornPitch",
+					"User_LightTrailHue"
+				],
+				"Text": [
+					"Account_EMail",
+					"Account_Name",
+					"Interface_CrosshairName",
+					"User_ClubLinkUrl",
+					"User_Description"
+				]
+			},
+			"methods": [
+				{
+					"name": "Account_ResetChanges",
+					"returns": "Void",
+					"params": []
+				}
+			]
+		},
+		"CVehicleSettings": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"Boolean": [
+					"AnalogSteerV2"
+				],
+				"Real": [
+					"AnalogDeadZone",
+					"AnalogSensitivity",
+					"CenterSpringIntensity",
+					"RumbleIntensity"
+				],
+				"Text": [
+					"ModelDisplayName",
+					"ModelName",
+					"SkinName"
 				]
 			},
 			"methods": []
@@ -14789,200 +16636,6 @@
 				}
 			]
 		},
-		"CWebServicesTaskResult_MapRecordListScript": {
-			"inherit": "CWebServicesTaskResult_PlayerMapRecords",
-			"enums": {},
-			"props": {
-				"CGamePlayerMapRecordScript[]": [
-					"MapRecordList"
-				]
-			},
-			"methods": []
-		},
-		"CWebServicesTaskResult_NaturalLeaderBoardInfoList": {
-			"inherit": "CTaskResult",
-			"enums": {},
-			"props": {},
-			"methods": []
-		},
-		"CWebServicesTaskResult_PlayerMapRecords": {
-			"inherit": "CTaskResult",
-			"enums": {},
-			"props": {},
-			"methods": []
-		},
-		"CWebServicesTaskResult_RealLeaderBoardInfoList": {
-			"inherit": "CTaskResult",
-			"enums": {},
-			"props": {},
-			"methods": []
-		},
-		"CXmlDocument": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"CXmlNode": [
-					"Root"
-				],
-				"CXmlNode[]": [
-					"Nodes"
-				],
-				"Text": [
-					"TextContents"
-				]
-			},
-			"methods": [
-				{
-					"name": "GetFirstChild",
-					"returns": "CXmlNode",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Name"
-						}
-					]
-				}
-			]
-		},
-		"CXmlManager": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"CXmlDocument[]": [
-					"Documents"
-				],
-				"Integer": [
-					"DocumentsSlotsLimit"
-				]
-			},
-			"methods": [
-				{
-					"name": "Create",
-					"returns": "CXmlDocument",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Contents"
-						}
-					]
-				},
-				{
-					"name": "Create",
-					"returns": "CXmlDocument",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Contents"
-						},
-						{
-							"identifier": "Boolean",
-							"argument": "GenerateText"
-						},
-						{
-							"identifier": "Boolean",
-							"argument": "GenerateTextRaw"
-						},
-						{
-							"identifier": "Boolean",
-							"argument": "GenerateTextResursive"
-						}
-					]
-				},
-				{
-					"name": "Destroy",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "CXmlDocument",
-							"argument": "Document"
-						}
-					]
-				}
-			]
-		},
-		"CXmlNode": {
-			"inherit": "CNod",
-			"enums": {},
-			"props": {
-				"CXmlNode[]": [
-					"Children"
-				],
-				"Text": [
-					"Name",
-					"TextContents",
-					"TextRawContents",
-					"TextRecursiveContents"
-				]
-			},
-			"methods": [
-				{
-					"name": "GetAttributeText",
-					"returns": "Text",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Name"
-						},
-						{
-							"identifier": "Text",
-							"argument": "DefaultValue"
-						}
-					]
-				},
-				{
-					"name": "GetAttributeInteger",
-					"returns": "Integer",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Name"
-						},
-						{
-							"identifier": "Integer",
-							"argument": "DefaultValue"
-						}
-					]
-				},
-				{
-					"name": "GetAttributeReal",
-					"returns": "Real",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Name"
-						},
-						{
-							"identifier": "Real",
-							"argument": "DefaultValue"
-						}
-					]
-				},
-				{
-					"name": "GetAttributeBoolean",
-					"returns": "Boolean",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Name"
-						},
-						{
-							"identifier": "Boolean",
-							"argument": "DefaultValue"
-						}
-					]
-				},
-				{
-					"name": "GetFirstChild",
-					"returns": "CXmlNode",
-					"params": [
-						{
-							"identifier": "Text",
-							"argument": "Name"
-						}
-					]
-				}
-			]
-		},
 		"CXmlRpc": {
 			"inherit": "CNod",
 			"enums": {},
@@ -15033,7 +16686,7 @@
 			]
 		},
 		"CXmlRpcEvent": {
-			"inherit": "CNod",
+			"inherit": "CBaseConstEvent",
 			"enums": {
 				"EType": [
 					"Unknown",
@@ -15052,6 +16705,22 @@
 				],
 				"Text[]": [
 					"ParamArray2"
+				]
+			},
+			"methods": []
+		},
+		"SHudModule": {
+			"inherit": "",
+			"enums": {},
+			"props": {
+				"Real": [
+					"PosX",
+					"PosY",
+					"Scale",
+					"ZIndex"
+				],
+				"Text": [
+					"ModuleName"
 				]
 			},
 			"methods": []
