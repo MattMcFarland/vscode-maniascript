@@ -2,13 +2,15 @@
 
 VSCode Grammar / Autocompletion support for ManiaScript; `".Script.txt"` files.  
 For more information about ManiaScript, see https://doc.maniaplanet.com/maniascript  
-A full documentation can be found here : https://www.uaseco.org/maniascript/2018-03-29/annotated.html
+A full documentation can be found here : https://maniaplanet.github.io/maniascript-reference/index.html
 
 ![Demo](https://github.com/MattMcFarland/vscode-maniascript/raw/master/images/intellisense.gif)
 
 ## Known Issues
 
 - Linting has not been implemented yet.
+- Enum completion is partially working
+- Namespaces (MathLib, TextLib, ...) are not implemented yet.
 
 ## Changelog
 
