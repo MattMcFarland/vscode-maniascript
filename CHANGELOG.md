@@ -1,6 +1,13 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.2.4
+
+Add variable autocompletion  
+Add RequiredContext autocompletion  
+Update of json completion file  
+Enum completion partially working  
+
 ## 1.2.3
 
 Add inheritance support  
