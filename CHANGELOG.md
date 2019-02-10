@@ -1,6 +1,11 @@
 # Change Log
 Latest information regarding vscode-maniascript
 
+## 1.2.5
+
+Complete variable autocompletion, now if you declare a variable with its type, completion for this type will be used  
+Add full autocompletion for Struct variables  
+
 ## 1.2.4
 
 Add variable autocompletion  
