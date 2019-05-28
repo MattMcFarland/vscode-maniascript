@@ -1078,6 +1078,166 @@
 				}
 			]
 		},
+		"CBlockClip": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"CardinalDirections": [
+					"Dir"
+				],
+				"Int3": [
+					"Coord",
+					"Offset"
+				],
+				"Integer": [
+					"ClipId"
+				],
+				"Text": [
+					"Name"
+				]
+			},
+			"methods": [
+				{
+					"name": "GetConnectableCoord",
+					"returns": "Int3",
+					"params": []
+				}
+			]
+		},
+		"CBlockClipList": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"CBlockClip[]": [
+					"Clips"
+				],
+				"Int3": [
+					"Size"
+				]
+			},
+			"methods": [
+				{
+					"name": "SetClipListFromMacroblock",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						}
+					]
+				},
+				{
+					"name": "SetClipListFromMacroblock",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						}
+					]
+				},
+				{
+					"name": "SetClipListFromBlock",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CBlockModel",
+							"argument": "BlockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						}
+					]
+				},
+				{
+					"name": "SetClipListFromBlock",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CBlockModel",
+							"argument": "BlockModel"
+						}
+					]
+				},
+				{
+					"name": "CreateAndAddClip",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Name"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Offset"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "ClipId"
+						}
+					]
+				},
+				{
+					"name": "SetFromClipList",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CBlockClipList",
+							"argument": "ClipList"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						}
+					]
+				},
+				{
+					"name": "RemoveClip",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CBlockClip",
+							"argument": "Clip"
+						}
+					]
+				},
+				{
+					"name": "ClearClips",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Destroy",
+					"returns": "Void",
+					"params": []
+				}
+			]
+		},
 		"CBlockModel": {
 			"inherit": "CCollector",
 			"enums": {
@@ -1962,6 +2122,7 @@
 					"Selection",
 					"Translation",
 					"PickTranslation",
+					"ExtrudeTranslation",
 					"Rotation",
 					"PickRotation",
 					"Scale",
@@ -2023,13 +2184,11 @@
 				],
 				"ETitleCoreType": [
 					"TrackMania",
-					"ShootMania",
-					"Count"
+					"ShootMania"
 				]
 			},
 			"props": {
 				"Boolean": [
-					"ActivateVoxelMode",
 					"AddTransitionInProgress",
 					"CameraEatingInputsScript",
 					"DisplayFaces",
@@ -2040,6 +2199,7 @@
 					"GoToMaterialEditor",
 					"GridSnap_IsActive",
 					"IsCreateMaterial",
+					"IsDebug",
 					"IsEditingLayer",
 					"IsExperimental",
 					"LayerIndep",
@@ -2049,8 +2209,9 @@
 					"LayerVisible",
 					"Layer_IsCollidable",
 					"Layer_IsVisible",
+					"MustClearLastSaveBuffer",
 					"Tmp_UseParts",
-					"UseOptims"
+					"VoxelSpaceIsInteractive"
 				],
 				"CEditorEvent[]": [
 					"PendingEvents"
@@ -2249,7 +2410,12 @@
 				{
 					"name": "Layers_EditSelectedLayer",
 					"returns": "Void",
-					"params": []
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "RegenerateSolid"
+						}
+					]
 				},
 				{
 					"name": "Layers_CloseEditSelectedLayer",
@@ -2416,12 +2582,12 @@
 					]
 				},
 				{
-					"name": "EditionBox_SetScale",
+					"name": "EditionBox_SetStep",
 					"returns": "Void",
 					"params": [
 						{
 							"identifier": "Real",
-							"argument": "Scale"
+							"argument": "Step"
 						}
 					]
 				},
@@ -2766,9 +2932,29 @@
 					"params": []
 				},
 				{
+					"name": "Material_IsCustomLinkFull",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "MaterialId"
+						}
+					]
+				},
+				{
 					"name": "Material_UVEditor_Apply",
 					"returns": "Void",
 					"params": []
+				},
+				{
+					"name": "Material_CopyMaterial",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "SetHandle"
+						}
+					]
 				},
 				{
 					"name": "Material_PasteMaterial",
@@ -3036,6 +3222,10 @@
 						{
 							"identifier": "Boolean",
 							"argument": "IsFromALayer"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "AllowDoubleClick"
 						}
 					]
 				},
@@ -3089,7 +3279,7 @@
 					"returns": "Void",
 					"params": [
 						{
-							"identifier": "Integer",
+							"identifier": "Real",
 							"argument": "RotationStep"
 						}
 					]
@@ -3135,21 +3325,6 @@
 					"params": []
 				},
 				{
-					"name": "Display_AtlasSelectionsSet",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Boolean",
-							"argument": "DisplayAtlasSelection"
-						}
-					]
-				},
-				{
-					"name": "Display_AtlasSelectionsGet",
-					"returns": "Boolean",
-					"params": []
-				},
-				{
 					"name": "Display_HideElemsByDistance_Start",
 					"returns": "Void",
 					"params": [
@@ -3191,6 +3366,11 @@
 				},
 				{
 					"name": "Selection_Redo",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "Selection_Invert",
 					"returns": "Void",
 					"params": []
 				},
@@ -3274,6 +3454,20 @@
 						{
 							"identifier": "Ident",
 							"argument": "SetHandle"
+						}
+					]
+				},
+				{
+					"name": "SetOfElements_DeleteElements",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Ident",
+							"argument": "SetHandle"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "Spread"
 						}
 					]
 				},
@@ -3399,111 +3593,9 @@
 					]
 				},
 				{
-					"name": "AtlasSelection_Create",
-					"returns": "Ident",
-					"params": []
-				},
-				{
-					"name": "AtlasSelection_GetAtlasSelectionHandleFromSet",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "SetHandle"
-						}
-					]
-				},
-				{
-					"name": "AtlasSelections_AddAtlasSelectionFromSet",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "SetHandle"
-						},
-						{
-							"identifier": "Ident",
-							"argument": "FourPointsHandle"
-						}
-					]
-				},
-				{
-					"name": "AtlasSelections_SubAtlasSelection",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "SetHandle"
-						}
-					]
-				},
-				{
-					"name": "AtlasSelections_TextureAtlasSelection",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "SetHandle"
-						},
-						{
-							"identifier": "Integer",
-							"argument": "SubTexIndex"
-						}
-					]
-				},
-				{
-					"name": "AtlasSelections_GetAtlasSelectionAfterSelection",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "Sethandle"
-						}
-					]
-				},
-				{
 					"name": "Preview_Clear",
 					"returns": "Void",
 					"params": []
-				},
-				{
-					"name": "VoxelSpace_Init",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Integer",
-							"argument": "Size"
-						},
-						{
-							"identifier": "Real",
-							"argument": "Step"
-						}
-					]
-				},
-				{
-					"name": "VoxelSpace_Destroy",
-					"returns": "Void",
-					"params": []
-				},
-				{
-					"name": "VoxelSpace_Get",
-					"returns": "Boolean",
-					"params": [
-						{
-							"identifier": "Int3",
-							"argument": "Pos"
-						}
-					]
-				},
-				{
-					"name": "VoxelSpace_Set",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Int3",
-							"argument": "Pos"
-						}
-					]
 				},
 				{
 					"name": "VoxelSpace_SetVec3",
@@ -3512,40 +3604,6 @@
 						{
 							"identifier": "Vec3",
 							"argument": "Pos"
-						}
-					]
-				},
-				{
-					"name": "VoxelSpace_Set",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Int3",
-							"argument": "Pos"
-						},
-						{
-							"identifier": "Vec3",
-							"argument": "Color"
-						}
-					]
-				},
-				{
-					"name": "VoxelSpace_Unset",
-					"returns": "Void",
-					"params": [
-						{
-							"identifier": "Int3",
-							"argument": "Pos"
-						}
-					]
-				},
-				{
-					"name": "VoxelSpace_GetFromFace",
-					"returns": "Int3",
-					"params": [
-						{
-							"identifier": "Ident",
-							"argument": "SelectionSet"
 						}
 					]
 				},
@@ -3964,6 +4022,26 @@
 					]
 				},
 				{
+					"name": "Parts_CanMergeParts",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Parts_CanGroupParts",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Parts_CanUngroupParts",
+					"returns": "Boolean",
+					"params": []
+				},
+				{
+					"name": "Parts_GetOpsState",
+					"returns": "Int3",
+					"params": []
+				},
+				{
 					"name": "Parts_MergeSelectedParts",
 					"returns": "Void",
 					"params": []
@@ -3995,7 +4073,7 @@
 				},
 				{
 					"name": "AutoSave",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": [
 						{
 							"identifier": "Text",
@@ -4066,7 +4144,7 @@
 					"params": [
 						{
 							"identifier": "Text",
-							"argument": "Url"
+							"argument": "Path"
 						}
 					]
 				},
@@ -4081,7 +4159,7 @@
 					"params": [
 						{
 							"identifier": "Text",
-							"argument": "Url"
+							"argument": "Path"
 						}
 					]
 				},
@@ -4091,7 +4169,7 @@
 					"params": [
 						{
 							"identifier": "Text",
-							"argument": "Url"
+							"argument": "Path"
 						}
 					]
 				},
@@ -4328,6 +4406,24 @@
 						{
 							"identifier": "Text",
 							"argument": "Resource"
+						},
+						{
+							"identifier": "Text",
+							"argument": "AdditionalHeaders"
+						}
+					]
+				},
+				{
+					"name": "CreatePostFile",
+					"returns": "CHttpRequest",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Url"
+						},
+						{
+							"identifier": "Text",
+							"argument": "FileName"
 						},
 						{
 							"identifier": "Text",
@@ -4654,6 +4750,38 @@
 				]
 			},
 			"methods": []
+		},
+		"CMacroblockInstance": {
+			"inherit": "CNod",
+			"enums": {},
+			"props": {
+				"CBlockClipList": [
+					"ClipList"
+				],
+				"CMacroblockModel": [
+					"MacroblockModel"
+				],
+				"CardinalDirections": [
+					"Dir"
+				],
+				"Int3": [
+					"Coord"
+				],
+				"Int3[]": [
+					"UnitCoords"
+				],
+				"Integer": [
+					"Order",
+					"UserData"
+				]
+			},
+			"methods": [
+				{
+					"name": "GetSize",
+					"returns": "Int3",
+					"params": []
+				}
+			]
 		},
 		"CMacroblockModel": {
 			"inherit": "CCollector",
@@ -5319,11 +5447,14 @@
 					"EnableCursorShowingWhenInterfaceIsFocused",
 					"EnableEditorInputsCustomProcessing",
 					"EnableMixMapping",
+					"HideAlwaysCursorDirectionalArrow",
 					"HideBlockHelpers",
 					"HideEditorInterface",
 					"HoldLoadingScreen",
 					"IsEditorReadyForRequest",
+					"IsTesting",
 					"IsUltraShadowsQualityAvailable",
+					"IsValidating",
 					"ShowPlacementGrid",
 					"UndergroundMode"
 				],
@@ -5332,6 +5463,11 @@
 				],
 				"CBlock[]": [
 					"Blocks"
+				],
+				"CBlockClipList[]": [
+					"FixedClipLists",
+					"FrameClipLists",
+					"MacroblockInstanceClipLists"
 				],
 				"CBlockModel": [
 					"CursorBlockModel",
@@ -5343,6 +5479,9 @@
 				],
 				"CItemAnchor[]": [
 					"Items"
+				],
+				"CMacroblockInstance[]": [
+					"MacroblockInstances"
 				],
 				"CMacroblockModel": [
 					"CursorMacroblockModel"
@@ -5395,11 +5534,11 @@
 				],
 				"Text": [
 					"ManialinkText",
+					"MapFileName",
 					"MapName"
 				],
 				"Text[]": [
-					"MediatrackIngameClips",
-					"MediatrackIngameIsScriptClips"
+					"MediatrackIngameClips"
 				],
 				"ValidationStatus": [
 					"ValidationStatus"
@@ -5434,12 +5573,12 @@
 				},
 				{
 					"name": "Undo",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": []
 				},
 				{
 					"name": "Redo",
-					"returns": "Void",
+					"returns": "Boolean",
 					"params": []
 				},
 				{
@@ -6261,9 +6400,258 @@
 					]
 				},
 				{
-					"name": "GetMapStyle",
-					"returns": "Text",
+					"name": "CreateFrameClipList",
+					"returns": "CBlockClipList",
 					"params": []
+				},
+				{
+					"name": "CreateFixedClipList",
+					"returns": "CBlockClipList",
+					"params": []
+				},
+				{
+					"name": "UnvalidateMetadata",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "UnvalidateGameplayInfo",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "UnvalidatePlayfield",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "RemoveMacroblock_NoTerrain_NoUnvalidate",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						}
+					]
+				},
+				{
+					"name": "PlaceMacroblock_NoTerrain_NoUnvalidate",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						}
+					]
+				},
+				{
+					"name": "CreateMacroblockInstance",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						}
+					]
+				},
+				{
+					"name": "CreateMacroblockInstance",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "UserData"
+						}
+					]
+				},
+				{
+					"name": "CreateMacroblockInstance",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						},
+						{
+							"identifier": "CBlockClipList",
+							"argument": "DefaultClipList"
+						}
+					]
+				},
+				{
+					"name": "CreateMacroblockInstance",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "CMacroblockModel",
+							"argument": "MacroblockModel"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Dir"
+						},
+						{
+							"identifier": "CBlockClipList",
+							"argument": "DefaultClipList"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "UserData"
+						}
+					]
+				},
+				{
+					"name": "GetMacroblockInstanceFromOrder",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Order"
+						}
+					]
+				},
+				{
+					"name": "GetMacroblockInstanceFromUnitCoord",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "Int3",
+							"argument": "Coord"
+						}
+					]
+				},
+				{
+					"name": "GetLatestMacroblockInstance",
+					"returns": "CMacroblockInstance",
+					"params": []
+				},
+				{
+					"name": "GetLatestMacroblockInstance",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Offset"
+						}
+					]
+				},
+				{
+					"name": "GetMacroblockInstanceConnectedToClip",
+					"returns": "CMacroblockInstance",
+					"params": [
+						{
+							"identifier": "CBlockClip",
+							"argument": "Clip"
+						}
+					]
+				},
+				{
+					"name": "RemoveMacroblockInstance",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "CMacroblockInstance",
+							"argument": "MacroblockInstance"
+						}
+					]
+				},
+				{
+					"name": "RemoveMacroblockInstanceFromOrder",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Order"
+						}
+					]
+				},
+				{
+					"name": "RemoveMacroblockInstanceFromUnitCoord",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Order"
+						}
+					]
+				},
+				{
+					"name": "RemoveMacroblockInstancesByUserData",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "UserData"
+						}
+					]
+				},
+				{
+					"name": "ResetAllMacroblockInstances",
+					"returns": "Void",
+					"params": []
+				},
+				{
+					"name": "GetMaxOrder",
+					"returns": "Integer",
+					"params": []
+				},
+				{
+					"name": "SetMapType",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "MapType"
+						}
+					]
 				},
 				{
 					"name": "SetMapStyle",
@@ -6274,6 +6662,26 @@
 							"argument": "MapStyle"
 						}
 					]
+				},
+				{
+					"name": "GetMapStyle",
+					"returns": "Text",
+					"params": []
+				},
+				{
+					"name": "SetMapIsCreatedWithPartyEditor",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "IsCreatedWithPartyEditor"
+						}
+					]
+				},
+				{
+					"name": "GetAvailableMapName",
+					"returns": "Text",
+					"params": []
 				}
 			]
 		},
@@ -6289,6 +6697,7 @@
 					"CursorChange",
 					"MapModified",
 					"EditorInput",
+					"MapSavedOrSaveCancelled",
 					"EditAnchor",
 					"EditObjectives",
 					"StartValidation",
@@ -6339,6 +6748,7 @@
 					"IsFromKeyboard",
 					"IsFromMouse",
 					"IsFromPad",
+					"MapSavedOrSaveCancelled",
 					"OnlyScriptMetadataModified"
 				],
 				"EInput": [
@@ -6384,6 +6794,7 @@
 			"enums": {},
 			"props": {
 				"Boolean": [
+					"CreatedWithPartyEditor",
 					"CreatedWithSimpleEditor",
 					"IsPlayable",
 					"TMObjective_IsLapRace",
@@ -6394,6 +6805,7 @@
 					"TMObjective_AuthorTime",
 					"TMObjective_BronzeTime",
 					"TMObjective_GoldTime",
+					"TMObjective_NbLaps",
 					"TMObjective_SilverTime"
 				],
 				"Text": [
@@ -9555,6 +9967,30 @@
 							"argument": "Visibility"
 						}
 					]
+				},
+				{
+					"name": "SetColor",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CScore",
+							"argument": "Score"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Color"
+						}
+					]
+				},
+				{
+					"name": "ResetColor",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "CScore",
+							"argument": "Score"
+						}
+					]
 				}
 			]
 		},
@@ -11359,7 +11795,8 @@
 			},
 			"props": {
 				"Boolean": [
-					"Authentication_GetTokenResponseReceived"
+					"Authentication_GetTokenResponseReceived",
+					"IsDisableChangeTeams"
 				],
 				"CServerInfo": [
 					"ServerInfo"
@@ -11704,6 +12141,62 @@
 						{
 							"identifier": "Text[]",
 							"argument": "Data"
+						}
+					]
+				},
+				{
+					"name": "SendModeScriptCommand",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "CommandName"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "BoolVal"
+						}
+					]
+				},
+				{
+					"name": "SendModeScriptCommand",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "CommandName"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "IntVal"
+						}
+					]
+				},
+				{
+					"name": "SendModeScriptCommand",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "CommandName"
+						},
+						{
+							"identifier": "Real",
+							"argument": "RealVal"
+						}
+					]
+				},
+				{
+					"name": "SendModeScriptCommand",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "CommandName"
+						},
+						{
+							"identifier": "Text",
+							"argument": "TextVal"
 						}
 					]
 				},
@@ -12400,6 +12893,7 @@
 					"UseInterractiveScreensIn3d",
 					"UseLaserSkewering",
 					"UseLaserVsBullets",
+					"UseMultiClans",
 					"UsePlayerTagging",
 					"UseProtectClanmates",
 					"UsePvPCollisions",
@@ -12945,7 +13439,7 @@
 						},
 						{
 							"identifier": "Integer",
-							"argument": "TeamNum"
+							"argument": "ClanNum"
 						}
 					]
 				},
@@ -13826,7 +14320,18 @@
 					"ExtraTool_Info"
 				]
 			},
-			"methods": []
+			"methods": [
+				{
+					"name": "ClipboardSet",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ClipboardText"
+						}
+					]
+				}
+			]
 		},
 		"CTaskResult": {
 			"inherit": "CNod",
@@ -14589,6 +15094,16 @@
 					]
 				},
 				{
+					"name": "ProcessManiaCodeXml",
+					"returns": "Void",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "ManiaCodeXml"
+						}
+					]
+				},
+				{
 					"name": "DiscoverLocalServers",
 					"returns": "Void",
 					"params": []
@@ -14902,17 +15417,6 @@
 					"Finished",
 					"Eliminated"
 				],
-				"ETmRacePlayerCoopMode": [
-					"None",
-					"Symbiosys",
-					"Checkpoint"
-				],
-				"ETmJumpMode": [
-					"Disabled",
-					"Simple",
-					"Double",
-					"Infinite"
-				],
 				"ETmBonusModeEventType": [
 					"None",
 					"Bumps",
@@ -14972,17 +15476,9 @@
 					"BonusModeIsMiniCar",
 					"BonusModeIsSpeedyCars",
 					"BonusModeIsTurbo",
-					"ButtonSmashFrenzy",
-					"EnableCatchUpSpeed",
-					"EnableEmptyCars",
-					"EnableOnlineMode",
-					"EnableStuntMode",
-					"EnableTurboButton",
-					"ForcedAerialCamera",
 					"InputIsBraking",
 					"IsDeadlyZoneActive",
 					"IsSpawned",
-					"MaxiAirControl",
 					"SmashNeedHelp",
 					"StuntCurComboChainCounter",
 					"StuntCurFigureMasterJump",
@@ -14992,8 +15488,7 @@
 					"StuntMasterLanding",
 					"StuntPerfectLanding",
 					"StuntReverseLanding",
-					"StuntStraightLanding",
-					"TinyCar"
+					"StuntStraightLanding"
 				],
 				"CTmResult": [
 					"CurLap",
@@ -15011,12 +15506,6 @@
 				"ETmBonusModeEventType": [
 					"BonusModeEventType"
 				],
-				"ETmJumpMode": [
-					"JumpMode"
-				],
-				"ETmRacePlayerCoopMode": [
-					"CoopMode"
-				],
 				"Integer": [
 					"BonusBumpCooldown",
 					"BonusModeEmptyCarsStock",
@@ -15025,11 +15514,6 @@
 					"BonusModeTimeTillEvent",
 					"BonusModeTimeTillEventWarning",
 					"BonusModeTurboStock",
-					"ControllerCount",
-					"ControllerId0",
-					"ControllerId1",
-					"ControllerId2",
-					"ControllerId3",
 					"CoopCheckpointCurController",
 					"CoopSymbiosysPercentTotal",
 					"CurCheckpointLapTime",
@@ -15042,6 +15526,11 @@
 					"EngineCurGear",
 					"FlyingDuration",
 					"FreeWheelingDuration",
+					"HandicapFullGasDuration",
+					"HandicapNoBrakesDuration",
+					"HandicapNoGasDuration",
+					"HandicapNoGripDuration",
+					"HandicapNoSteeringDuration",
 					"InWaterDuration",
 					"LapStartTime",
 					"LightTrailsDuration",
@@ -15114,7 +15603,8 @@
 				"Integer": [
 					"CurPlayerCamera",
 					"MapNbLaps",
-					"NbLaps"
+					"NbLaps",
+					"SpectatorTimeshift"
 				],
 				"Integer[]": [
 					"ClanScores"
@@ -16461,7 +16951,7 @@
 					"Custom_EnableUnlimitedHorns",
 					"Inputs_MouseLookInvertY",
 					"Interface_AllyEnableCustomColor",
-					"Interface_BeaconEnableCustom",
+					"Interface_BeaconUseProfileColor",
 					"Interface_CrosshairEnableCustomColor",
 					"Interface_OppoEnableCustomColor",
 					"Online_AutoSaveReplay",
