@@ -12,14 +12,14 @@
     "prefix": "switch",
     "body": [
       "switch (${1:var}) {",
-      "\tcase ${2:value} : $0;",
+      "\tcase ${2:value} : $0",
       "\tdefault: {}",
       "}"
     ],
     "description": "switch statement"
   },
-  "ifelse": {
-    "prefix": "ifelse",
+  "if-else": {
+    "prefix": "if-else",
     "body": [
       "if (${1:condition}) {",
       "\t$0",
@@ -28,5 +28,50 @@
       "}"
     ],
     "description": "if else statement"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "if statement"
+  },
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "while statement"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (${1:var}, ${2:init}, ${3:end_value}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "while statement"
+  },
+  "Struct": {
+    "prefix": "#Struct",
+    "body": [
+      "#Struct ${1:name} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Struct format"
+  },
+  "Main": {
+    "prefix": "main",
+    "body": [
+      "main {",
+      "\t$0",
+      "}"
+    ],
+    "description": "main function"
   }
 }
