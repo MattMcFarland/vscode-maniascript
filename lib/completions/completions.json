@@ -1,4 +1,2199 @@
 {
+	"namespaces": {
+		"AnimLib": {
+			"enums": {},
+			"methods": [
+				{
+					"name": "SmoothStep",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "_X"
+						}
+					]
+				},
+				{
+					"name": "Ease",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Function"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseLinear",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInQuad",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutQuad",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutQuad",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInCubic",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutCubic",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutCubic",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInQuart",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutQuart",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutQuart",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInQuint",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutQuint",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutQuint",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInSine",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutSine",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutSine",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInExp",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutExp",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutExp",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInCirc",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutCirc",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutCirc",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInBack",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutBack",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutBack",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInElastic",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutElastic",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutElastic",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInElastic2",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutElastic2",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutElastic2",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInBounce",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseOutBounce",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				},
+				{
+					"name": "EaseInOutBounce",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_T"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Base"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Change"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Duration"
+						}
+					]
+				}
+			]
+		},
+		"ColorLib": {
+			"enums": {},
+			"methods": [
+				{
+					"name": "HsvToRgb",
+					"returns": "Vec3",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "__Hsv"
+						}
+					]
+				},
+				{
+					"name": "RgbToHsv",
+					"returns": "Vec3",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "__Rgb"
+						}
+					]
+				},
+				{
+					"name": "RgbToHex",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "__Rgb"
+						}
+					]
+				},
+				{
+					"name": "HexToRgb",
+					"returns": "Vec3",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						}
+					]
+				}
+			]
+		},
+		"MapUnits": {
+			"enums": {},
+			"methods": [
+				{
+					"name": "GetNextDir",
+					"returns": "CardinalDirections",
+					"params": [
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "GetPreviousDir",
+					"returns": "CardinalDirections",
+					"params": [
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "GetOpposedDir",
+					"returns": "CardinalDirections",
+					"params": [
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "AddDirs",
+					"returns": "CardinalDirections",
+					"params": [
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "SubDirs",
+					"returns": "CardinalDirections",
+					"params": [
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "GetNeighbourCoord",
+					"returns": "Int3",
+					"params": [
+						{
+							"identifier": "Int3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "GetRotatedOffset",
+					"returns": "Int3",
+					"params": [
+						{
+							"identifier": "Int3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "GetRotatedOffsetPositive",
+					"returns": "Int3",
+					"params": [
+						{
+							"identifier": "Int3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "CardinalDirections",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Int3",
+							"argument": "Argument3"
+						}
+					]
+				}
+			]
+		},
+		"MathLib": {
+			"enums": {},
+			"methods": [
+				{
+					"name": "Abs",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Abs",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "ToReal",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Sin",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Cos",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Tan",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Atan2",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Real",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Exp",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Rand",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Real",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Rand",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Real",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Argument3"
+						}
+					]
+				},
+				{
+					"name": "Rand",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Rand",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Argument3"
+						}
+					]
+				},
+				{
+					"name": "NearestReal",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "NearestInteger",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "FloorInteger",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "TruncInteger",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "CeilingInteger",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Distance",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Real",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Distance",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Vec2",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec2",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Distance",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "DotProduct",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "CrossProduct",
+					"returns": "Vec3",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Angle",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "OrientedAngle",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec3",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Angle",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Vec2",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec2",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "OrientedAngle",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Vec2",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Vec2",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "PI",
+					"returns": "Real",
+					"params": []
+				},
+				{
+					"name": "Asin",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Acos",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Pow",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Real",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Ln",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Sqrt",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Max",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_A"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_B"
+						}
+					]
+				},
+				{
+					"name": "Min",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_A"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_B"
+						}
+					]
+				},
+				{
+					"name": "Clamp",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_X"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Min"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Max"
+						}
+					]
+				},
+				{
+					"name": "Max",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "_A"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_B"
+						}
+					]
+				},
+				{
+					"name": "Min",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "_A"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_B"
+						}
+					]
+				},
+				{
+					"name": "Clamp",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "_X"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Min"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Max"
+						}
+					]
+				},
+				{
+					"name": "Mod",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "_X"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Min"
+						},
+						{
+							"identifier": "Real",
+							"argument": "_Max"
+						}
+					]
+				}
+			]
+		},
+		"TextLib": {
+			"enums": {},
+			"methods": [
+				{
+					"name": "ToReal",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						}
+					]
+				},
+				{
+					"name": "ToInteger",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						}
+					]
+				},
+				{
+					"name": "ToColor",
+					"returns": "Vec3",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						}
+					]
+				},
+				{
+					"name": "SubString",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Start"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Length"
+						}
+					]
+				},
+				{
+					"name": "SubText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Start"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_Length"
+						}
+					]
+				},
+				{
+					"name": "Length",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						}
+					]
+				},
+				{
+					"name": "ToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_Integer"
+						}
+					]
+				},
+				{
+					"name": "ToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "_Real"
+						}
+					]
+				},
+				{
+					"name": "ToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Boolean",
+							"argument": "_Boolean"
+						}
+					]
+				},
+				{
+					"name": "ToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Int3",
+							"argument": "_Int3"
+						}
+					]
+				},
+				{
+					"name": "ToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "_Vec3"
+						}
+					]
+				},
+				{
+					"name": "TimeToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_Time"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IncludeCentiSeconds"
+						}
+					]
+				},
+				{
+					"name": "TimeToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "_Time"
+						}
+					]
+				},
+				{
+					"name": "ColorToText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Vec3",
+							"argument": "_Color"
+						}
+					]
+				},
+				{
+					"name": "FormatInteger",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Integer",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "FormatReal",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Real",
+							"argument": "_Value"
+						},
+						{
+							"identifier": "Integer",
+							"argument": "_FPartLength"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_HideZeroes"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_HideDot"
+						}
+					]
+				},
+				{
+					"name": "ToUpperCase",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_TextToChange"
+						}
+					]
+				},
+				{
+					"name": "ToLowerCase",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_TextToChange"
+						}
+					]
+				},
+				{
+					"name": "CloseStyleTags",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_String"
+						}
+					]
+				},
+				{
+					"name": "CompareWithoutFormat",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Text2"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IsCaseSensitive"
+						}
+					]
+				},
+				{
+					"name": "Find",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_TextToFind"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_TextToSearchIn"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IsFormatSensitive"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IsCaseSensitive"
+						}
+					]
+				},
+				{
+					"name": "EndsWith",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_TextToFind"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_TextToSearchIn"
+						}
+					]
+				},
+				{
+					"name": "EndsWith",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_TextToFind"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_TextToSearchIn"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IsFormatSensitive"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IsCaseSensitive"
+						}
+					]
+				},
+				{
+					"name": "StartsWith",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_TextToFind"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_TextToSearchIn"
+						}
+					]
+				},
+				{
+					"name": "StartsWith",
+					"returns": "Boolean",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_TextToFind"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_TextToSearchIn"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IsFormatSensitive"
+						},
+						{
+							"identifier": "Boolean",
+							"argument": "_IsCaseSensitive"
+						}
+					]
+				},
+				{
+					"name": "Compose",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Compose",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument2"
+						}
+					]
+				},
+				{
+					"name": "Compose",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument3"
+						}
+					]
+				},
+				{
+					"name": "Compose",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument3"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument4"
+						}
+					]
+				},
+				{
+					"name": "Compose",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument3"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument4"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument5"
+						}
+					]
+				},
+				{
+					"name": "Compose",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument3"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument4"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument5"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument6"
+						}
+					]
+				},
+				{
+					"name": "MLEncode",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "URLEncode",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "StripFormatting",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "Split",
+					"returns": "Text[Void]",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Separators"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						}
+					]
+				},
+				{
+					"name": "Join",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Separator"
+						},
+						{
+							"identifier": "Text[Void]",
+							"argument": "_Texts"
+						}
+					]
+				},
+				{
+					"name": "Trim",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						}
+					]
+				},
+				{
+					"name": "ReplaceChars",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "Argument1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument2"
+						},
+						{
+							"identifier": "Text",
+							"argument": "Argument3"
+						}
+					]
+				},
+				{
+					"name": "Replace",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_ToReplace"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Replacement"
+						}
+					]
+				},
+				{
+					"name": "RegexFind",
+					"returns": "Text[Void]",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Pattern"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Flags"
+						}
+					]
+				},
+				{
+					"name": "RegexMatch",
+					"returns": "Text[Void]",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Pattern"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Flags"
+						}
+					]
+				},
+				{
+					"name": "RegexReplace",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Pattern"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Flags"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Replacement"
+						}
+					]
+				},
+				{
+					"name": "GetTranslatedText",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Text"
+						}
+					]
+				}
+			]
+		},
+		"TimeLib": {
+			"enums": {
+				"EDateFormats": [
+					"Full",
+					"Date",
+					"DateShort",
+					"Time",
+					"TimeShort",
+					"Relative",
+					"RelativeShort"
+				],
+				"EDurationFormats": [
+					"Full",
+					"Abbreviated",
+					"Chrono"
+				]
+			},
+			"methods": [
+				{
+					"name": "FormatDate",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp"
+						},
+						{
+							"identifier": "EDateFormats",
+							"argument": "_Format"
+						}
+					]
+				},
+				{
+					"name": "FormatDelta",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp2"
+						},
+						{
+							"identifier": "EDurationFormats",
+							"argument": "_Format"
+						}
+					]
+				},
+				{
+					"name": "FormatDelta",
+					"returns": "Text",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Delta"
+						},
+						{
+							"identifier": "EDurationFormats",
+							"argument": "_Format"
+						}
+					]
+				},
+				{
+					"name": "Compare",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp2"
+						}
+					]
+				},
+				{
+					"name": "Clamp01",
+					"returns": "Real",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Boundary1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Boundary2"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp"
+						}
+					]
+				},
+				{
+					"name": "GetCurrent",
+					"returns": "Text",
+					"params": []
+				},
+				{
+					"name": "GetDelta",
+					"returns": "Integer",
+					"params": [
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp1"
+						},
+						{
+							"identifier": "Text",
+							"argument": "_Timestamp2"
+						}
+					]
+				}
+			]
+		}
+	},
 	"primitives": [
 		"Boolean",
 		"Ident",
