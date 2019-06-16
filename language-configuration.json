@@ -28,7 +28,11 @@
         ]
     ],
     // symbols that are auto closed when typing
-    "autoClosingPairs": [
+    "autoClosingPairs": [        
+        {
+            "open": "{{{",
+            "close": "}}}"
+        },
         {
             "open": "{",
             "close": "}"
@@ -40,7 +44,7 @@
         {
             "open": "(",
             "close": ")"
-        },
+        },       
         {
             "open": "'",
             "close": "'",
@@ -95,8 +99,8 @@
             "\""
         ],
         [
-            "`",
-            "`"
+            "<",
+            ">"
         ]
     ],
     "folding": {
@@ -105,9 +109,9 @@
             "end": "^\\s*//\\s*#?endregion\\b"
         }
     },
-    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
-    "indentationRules": {
-        "increaseIndentPattern": "^((?!.*?\\/\\*).*\\*\/)?\\s*[\\}\\]].*$",
-        "decreaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$"
-    }
+    // disabling identation rules for now... here's partly working version
+    // "indentationRules": {
+	//	"increaseIndentPattern": "^\\s*((#Struct|while|foreach|for|if|while)|(.*\\sdo\\b))\\b[^\\{;]*|main\\(\\)",
+	//	"decreaseIndentPattern": "^\\s*([}\\]]([,)]?\\s*(#|$)|\\.[a-zA-Z_]\\w*\\b)|(else)\\b)"
+	// }
 }
