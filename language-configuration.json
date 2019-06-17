@@ -108,10 +108,5 @@
             "start": "^\\s*//\\s*#?region\\b",
             "end": "^\\s*//\\s*#?endregion\\b"
         }
-    },
-    // disabling identation rules for now... here's partly working version
-    // "indentationRules": {
-	//	"increaseIndentPattern": "^\\s*((#Struct|while|foreach|for|if|while)|(.*\\sdo\\b))\\b[^\\{;]*|main\\(\\)",
-	//	"decreaseIndentPattern": "^\\s*([}\\]]([,)]?\\s*(#|$)|\\.[a-zA-Z_]\\w*\\b)|(else)\\b)"
-	// }
+    }  
 }

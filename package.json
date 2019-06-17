@@ -21,10 +21,10 @@
         "Programming Languages"
     ],
     "activationEvents": [
-        "*"
+        "onLanguage:maniascript"
     ],
     "main": "./lib/extension.js",
-    "contributes": {
+    "contributes": {       
         "languages": [
             {
                 "id": "maniascript",
@@ -38,7 +38,7 @@
                 ],
                 "configuration": "./language-configuration.json"
             }
-        ],
+        ],    
         "snippets": [
             {
                 "language": "maniascript",
@@ -49,7 +49,11 @@
             {
                 "language": "maniascript",
                 "scopeName": "source.ms",
-                "path": "./syntaxes/ManiaScript.tmLanguage"
+                "path": "./syntaxes/ManiaScript.json",
+                "embeddedLanguages": {                                    
+                    "string.template-string.ms": "xml",
+                    "meta.embedded.script.block.ms": "maniascript"
+                }
             }
         ]
     },
