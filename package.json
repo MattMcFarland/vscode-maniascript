@@ -3,29 +3,28 @@
     "displayName": "ManiaScript",
     "icon": "images/ms.png",
     "description": "ManiaScript Language Support for vs code",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "publisher": "mmcfarland",
-    "repository" : {
-      "type": "git",
-      "url": "https://github.com/MattMcFarland/vscode-maniascript"
-      },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MattMcFarland/vscode-maniascript"
+    },
     "engines": {
-        "vscode": "^1.10.0"
+        "vscode": "^1.35.0"
     },
     "scripts": {
         "vscode:prepublish": "npm run build",
-        "build": "scripts/build.js",
-        "prebuild": "npm install ; rimraf syntaxes ; mkdirp syntaxes"
+        "build": "scripts/build.js"
     },
     "license": "MIT",
     "categories": [
-        "Languages"
+        "Programming Languages"
     ],
     "activationEvents": [
         "onLanguage:maniascript"
     ],
-    "main": "./lib/extension",
-    "contributes": {
+    "main": "./lib/extension.js",
+    "contributes": {       
         "languages": [
             {
                 "id": "maniascript",
@@ -34,11 +33,12 @@
                     "maniascript"
                 ],
                 "extensions": [
-                    ".Script.txt"
+                    ".Script.txt",
+                    ".script.txt"
                 ],
                 "configuration": "./language-configuration.json"
             }
-        ],
+        ],    
         "snippets": [
             {
                 "language": "maniascript",
@@ -49,15 +49,22 @@
             {
                 "language": "maniascript",
                 "scopeName": "source.ms",
-                "path": "./syntaxes/ManiaScript.tmLanguage"
+                "path": "./syntaxes/ManiaScript.json",
+                "embeddedLanguages": {                                    
+                    "string.template-string.ms": "xml",
+                    "meta.embedded.script.block.ms": "maniascript"
+                }
             }
         ]
     },
     "devDependencies": {
-        "@types/node": "^7.0.10",
+        "@types/node": "^7.10.6",
         "maniascript-tmlanguage": "^2.0.1",
         "mkdirp": "^0.5.1",
-        "rimraf": "^2.6.1",
-        "vscode": "^1.1.0"
+        "rimraf": "^2.6.3",
+        "vscode": "^1.1.34"
+    },
+    "dependencies": {
+        "fuzzaldrin": "^2.1.0"
     }
 }
