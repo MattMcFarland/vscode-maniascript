@@ -51,8 +51,9 @@
                 "scopeName": "source.ms",
                 "path": "./syntaxes/ManiaScript.json",
                 "embeddedLanguages": {                                    
-                    "string.template-string.ms": "xml",
-                    "meta.embedded.script.block.ms": "maniascript"
+                    "meta.embedded.script.block.ms": "maniascript",
+                    "entity.template-string.element.ms": "maniascript",
+                    "string.template-string.ms": "xml"                    
                 }
             }
         ]
