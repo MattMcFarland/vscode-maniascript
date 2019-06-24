@@ -1,5 +1,5 @@
 {
-  "Foreach Statement": {
+  "foreach": {
     "prefix": "foreach",
     "body": [
       "foreach (${1:var} in ${2:iterable}) {",
@@ -8,7 +8,7 @@
     ],
     "description": "foreach statement"
   },
-  "Switch Statement": {
+  "switch": {
     "prefix": "switch",
     "body": [
       "switch (${1:var}) {",
@@ -56,7 +56,7 @@
     ],
     "description": "while statement"
   },
-  "Struct": {
+  "struct": {
     "prefix": "#Struct",
     "body": [
       "#Struct ${1:name} {",
@@ -65,10 +65,10 @@
     ],
     "description": "Struct format"
   },
-  "Main": {
+  "main": {
     "prefix": "main",
     "body": [
-      "main {",
+      "main() {",
       "\t$0",
       "}"
     ],
