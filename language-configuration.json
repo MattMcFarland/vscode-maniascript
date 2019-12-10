@@ -28,7 +28,7 @@
         ]
     ],
     // symbols that are auto closed when typing
-    "autoClosingPairs": [        
+    "autoClosingPairs": [
         {
             "open": "{{{",
             "close": "}}}"
@@ -44,7 +44,7 @@
         {
             "open": "(",
             "close": ")"
-        },       
+        },
         {
             "open": "'",
             "close": "'",
@@ -108,5 +108,10 @@
             "start": "^\\s*//\\s*#?region\\b",
             "end": "^\\s*//\\s*#?endregion\\b"
         }
-    }  
+    },
+    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
+    "indentationRules": {
+        "increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$",
+        "decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*/)?\\s*[\\)\\}\\]].*$"
+    }
 }

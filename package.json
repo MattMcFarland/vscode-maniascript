@@ -3,7 +3,7 @@
     "displayName": "ManiaScript",
     "icon": "images/ms.png",
     "description": "ManiaScript Language Support for vs code",
-    "version": "1.2.8",
+    "version": "1.2.12",
     "publisher": "mmcfarland",
     "repository": {
         "type": "git",
@@ -24,7 +24,7 @@
         "onLanguage:maniascript"
     ],
     "main": "./lib/extension.js",
-    "contributes": {       
+    "contributes": {
         "languages": [
             {
                 "id": "maniascript",
@@ -38,11 +38,22 @@
                 ],
                 "configuration": "./language-configuration.json"
             }
-        ],    
+        ],
         "snippets": [
             {
                 "language": "maniascript",
                 "path": "./snippets/maniascript.json"
+            }
+        ],
+        "colors": [
+            {
+                "id": "maniascript.templatestring",
+                "description": "Template string color",
+                "defaults": {
+                    "dark": "#020",
+                    "light": "#ada",
+                    "highContrast": "#000"
+                }
             }
         ],
         "grammars": [
@@ -50,10 +61,8 @@
                 "language": "maniascript",
                 "scopeName": "source.ms",
                 "path": "./syntaxes/ManiaScript.json",
-                "embeddedLanguages": {                                    
-                    "meta.embedded.script.block.ms": "maniascript",
-                    "entity.template-string.element.ms": "maniascript",
-                    "string.template-string.ms": "xml"                    
+                "embeddedLanguages": {
+                    "comment.block.documentation.ms": "javascript"
                 }
             }
         ]
