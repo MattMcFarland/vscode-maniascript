@@ -3,7 +3,7 @@
     "displayName": "ManiaScript",
     "icon": "images/ms.png",
     "description": "ManiaScript Language Support for vs code",
-    "version": "1.2.12",
+    "version": "1.2.13",
     "publisher": "mmcfarland",
     "repository": {
         "type": "git",
@@ -60,10 +60,7 @@
             {
                 "language": "maniascript",
                 "scopeName": "source.ms",
-                "path": "./syntaxes/ManiaScript.json",
-                "embeddedLanguages": {
-                    "comment.block.documentation.ms": "javascript"
-                }
+                "path": "./syntaxes/ManiaScript.json"                
             }
         ]
     },

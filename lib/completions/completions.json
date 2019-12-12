@@ -2220,41 +2220,41 @@
 		"Void"
 	],
 	"classes": {
-	    "Vec2": {
-      "inherit": "",
-      "enums": {},
-      "methods": [],
-      "props": {
-        "Real": [
-          "X",
-          "Y"
-        ]
-      }
-    },
+		"Vec2": {
+			"inherit": "",
+			"enums": {},
+			"methods": [],
+			"props": {
+				"Real": [
+					"X",
+					"Y"
+				]
+			}
+		},
 		"Vec3": {
-      "inherit": "",
-      "enums": {},
-      "methods": [],
-      "props": {
-        "Real": [
-          "X",
-          "Y",
-          "Z"
-        ]
-      }
-    },
+			"inherit": "",
+			"enums": {},
+			"methods": [],
+			"props": {
+				"Real": [
+					"X",
+					"Y",
+					"Z"
+				]
+			}
+		},
 		"Int3": {
-      "inherit": "",
-      "enums": {},
-      "methods": [],
-      "props": {
-        "Integer": [
-          "X",
-          "Y",
-          "Z"
-        ]
-      }
-    },
+			"inherit": "",
+			"enums": {},
+			"methods": [],
+			"props": {
+				"Integer": [
+					"X",
+					"Y",
+					"Z"
+				]
+			}
+		},
 		"CAchievementsAchievement": {
 			"inherit": "CNod",
 			"enums": {},

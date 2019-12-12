@@ -4,3 +4,7 @@ node_modules
 dist
 .npmrc
 syntaxes
+.editorconfig
+.vscode
+.idea
+*.vsix
