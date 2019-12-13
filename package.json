@@ -3,7 +3,7 @@
     "displayName": "ManiaScript",
     "icon": "images/ms.png",
     "description": "ManiaScript Language Support for vs code",
-    "version": "1.2.14",
+    "version": "1.2.15",
     "publisher": "mmcfarland",
     "repository": {
         "type": "git",

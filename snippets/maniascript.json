@@ -12,27 +12,41 @@
     "prefix": "switch",
     "body": [
       "switch (${1:var}) {",
-      "\tcase ${2:value} : $0",
+      "\tcase ${2:value}: {",
+      "\t\t$0",
+      "\t}",
       "\tdefault: {}",
       "}"
     ],
     "description": "switch statement"
   },
-  "if-else": {
-    "prefix": "if-else",
+  "switchtype": {
+    "prefix": "switchtype",
     "body": [
-      "if (${1:condition}) {",
+      "switchtype (${1:var}) {",
+      "\tcase ${2:class}: {",
+      "\t\t$0",
+      "\t}",
+      "\tdefault: {}",
+      "}"
+    ],
+    "description": "switchtype statement"
+  },
+  "if-else": {
+    "prefix": "elif",
+    "body": [
+      "if (${1:boolean}) {",
       "\t$0",
       "} else {",
       "\t",
       "}"
     ],
-    "description": "if else statement"
+    "description": "if/else statement"
   },
   "if": {
     "prefix": "if",
     "body": [
-      "if (${1:condition}) {",
+      "if (${1:boolean}) {",
       "\t$0",
       "}"
     ],
@@ -41,7 +55,7 @@
   "while": {
     "prefix": "while",
     "body": [
-      "while (${1:condition}) {",
+      "while (${1:boolean}) {",
       "\t$0",
       "}"
     ],
@@ -50,28 +64,132 @@
   "for": {
     "prefix": "for",
     "body": [
-      "for (${1:var}, ${2:init}, ${3:end_value}) {",
+      "for (${1:var}, ${2:int_start}, ${3:int_end}) {",
       "\t$0",
       "}"
     ],
-    "description": "while statement"
+    "description": "for statement"
+  },
+  "declare": {
+    "prefix": "declare",
+    "body": [
+      "declare ${1:type} ${2:name} = $0;"
+    ],
+    "description": "declare variable"
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "/** main function ",
+      " * used as entrypoint to script",
+      " */",
+      "main() {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Main function"
+  },
+  "function": {
+    "prefix": [
+      "function",
+      "fnc"
+    ],
+    "body": [
+      "/** function ${2:fncname}",
+      " * @param ${3:paramtype} _${4:param}",
+      " * @return ${1:returntype}",
+      " */",
+      "${1:returntype} ${2:fncname}(${3:paramtype} _${4:param}) {",
+      "\t$0",
+      "}",
+      "\n"
+    ],
+    "description": "Function declaration"
+  },
+  "include": {
+    "prefix": "#Include",
+    "body": [
+      "#Include \"${1:library}\" as ${2:name}",
+      "$0"
+    ],
+    "description": "Include"
+  },
+  "setting": {
+    "prefix": "#Setting",
+    "body": [
+      "#Setting S_${1:name} as \"${2:display}\"",
+      "$0"
+    ],
+    "description": "Setting"
+  },
+  "const": {
+    "prefix": "#Const",
+    "body": [
+      "#Const C_${1:name} ${2:value}",
+      "$0"
+    ],
+    "description": "Const"
+  },
+  "command": {
+    "prefix": "#Command",
+    "body": [
+      "#Command Command_${1:name} (${2:type}) as \"${3:display}\" ",
+      "$0"
+    ],
+    "description": "Command"
   },
   "struct": {
     "prefix": "#Struct",
     "body": [
       "#Struct ${1:name} {",
+      "\t${2:type} ${3:varname};",
       "\t$0",
-      "}"
+      "}",
+      "\n"
     ],
-    "description": "Struct format"
+    "description": "Struct"
   },
-  "main": {
-    "prefix": "main",
+  "new_struct": {
+    "prefix": "new",
     "body": [
-      "main() {",
-      "\t$0",
-      "}"
+      "${1:structType}{${2:property}=${3:value}$0}"
     ],
-    "description": "main function"
+    "description": "New instance of Struct"
+  },
+  "page_get": {
+    "prefix": "PageGet",
+    "body": [
+      "(Page.GetFirstChild(\"${1:controlId}\") as CMl$0)"
+    ],
+    "description": "Page.GetFirstChild template"
+  },
+  "vec3": {
+    "prefix": "ve3",
+    "body": [
+      "<${1:float}, ${2:float}, ${3:float}>$0"
+    ],
+    "description": "vec3"
+  },
+  "int3": {
+    "prefix": "in3",
+    "body": [
+      "<${1:int}, ${2:int}, ${3:int}>$0"
+    ],
+    "description": "int3"
+  },
+  "vec2": {
+    "prefix": "ve2",
+    "body": [
+      "<${1:float}, ${2:float}>$0"
+    ],
+    "description": "vec2"
+  },
+  "decontrol": {
+    "prefix": "decontrol",
+    "body": [
+      "declare CMl${1:control} ${2:variable} <=> (Page.GetFirstChild(\"${3:controlId}\") as CMl${1:control});",
+      "$0"
+    ],
+    "description": "declare CMlControl from page"
   }
 }
