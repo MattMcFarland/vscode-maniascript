@@ -163,6 +163,13 @@
     ],
     "description": "Page.GetFirstChild template"
   },
+  "getfirstchild": {
+    "prefix": "GetFirstChild",
+    "body": [
+      "(GetFirstChild(\"${1:controlId}\") as CMl$0)"
+    ],
+    "description": "GetFirstChild template"
+  },
   "vec3": {
     "prefix": "ve3",
     "body": [
