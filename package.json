@@ -3,14 +3,14 @@
     "displayName": "ManiaScript",
     "icon": "images/ms.png",
     "description": "ManiaScript Language Support for vs code",
-    "version": "1.2.18",
+    "version": "1.2.19",
     "publisher": "mmcfarland",
     "repository": {
         "type": "git",
         "url": "https://github.com/MattMcFarland/vscode-maniascript"
     },
     "engines": {
-        "vscode": "^1.35.0"
+        "vscode": "^1.41.0"
     },
     "scripts": {
         "vscode:prepublish": "npm run build",
@@ -21,7 +21,7 @@
         "Programming Languages"
     ],
     "activationEvents": [
-        "onLanguage:maniascript"
+        "*"
     ],
     "main": "./lib/extension.js",
     "contributes": {
@@ -60,7 +60,17 @@
             {
                 "language": "maniascript",
                 "scopeName": "source.ms",
-                "path": "./syntaxes/ManiaScript.json"                
+                "path": "./syntaxes/ManiaScript.json"
+            },
+            {
+                "scopeName": "xml.maniascript",
+                "path": "./syntaxes/xml-ManiaScript.json",
+                "injectTo": [
+                    "text.xml"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.script.block.ms": "maniascript"
+                }
             }
         ]
     },
